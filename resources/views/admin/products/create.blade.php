@@ -9,7 +9,6 @@
 @section('content')
     <div class="card">
         <div class="car-body p-3">
-            {{-- @livewire('admin.form-new-product') --}}
             {!! Form::open(['route' => 'admin.products.store', 'files' => true]) !!}
             @include('admin.products.partials.form')
             {!! Form::submit('Crear producto', ['class' => 'btn btn-success btn-block mt-4']) !!}
