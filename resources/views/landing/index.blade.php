@@ -43,14 +43,15 @@
             </header>
 
             <div class="row">
-                @foreach ($products as $product)
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-6">
-                        <div class="card card-product-grid">
-                            <a href="{{ route('landing.show.product', $product) }}" class="img-wrap">
-                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
-                            </a>
-                            <figcaption class="info-wrap">
-                                {{-- <ul class="rating-stars mb-1">
+                @if ($products->count())
+                    @foreach ($products as $product)
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-6">
+                            <div class="card card-product-grid">
+                                <a href="{{ route('landing.show.product', $product) }}" class="img-wrap">
+                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
+                                </a>
+                                <figcaption class="info-wrap">
+                                    {{-- <ul class="rating-stars mb-1">
                                     <li style="width:80%" class="stars-active">
                                         <img src="images/icons/stars-active.svg" alt="">
                                     </li>
@@ -58,19 +59,26 @@
                                         <img src="images/icons/starts-disable.svg" alt="">
                                     </li>
                                 </ul> --}}
-                                <div>
-                                    <a href="#" class="text-muted">
-                                        @foreach ($product->categories as $category)
-                                            {{ $category->name }},
-                                        @endforeach
-                                    </a>
-                                    <a href="#" class="title">{{ $product->name }}</a>
-                                </div>
-                                <div class="price h5 mt-2">{{ $product->presentPrice() }}</div> <!-- price.// -->
-                            </figcaption>
-                        </div>
-                    </div> <!-- col.// -->
-                @endforeach
+                                    <div>
+                                        <a href="#" class="text-muted">
+                                            @foreach ($product->categories as $category)
+                                                {{ $category->name }},
+                                            @endforeach
+                                        </a>
+                                        <a href="#" class="title">{{ $product->name }}</a>
+                                    </div>
+                                    <div class="price h5 mt-2">{{ $product->presentPrice() }}</div> <!-- price.// -->
+                                </figcaption>
+                            </div>
+                        </div> <!-- col.// -->
+                    @endforeach
+                @else
+                    <div class="mx-auto text-center mt-5">
+                        <h4>No hay articulos en tu tienda aun</h4>
+                        <p>Esperando que el adminstrador del sitio agregue un nuevo producto</p>
+                    </div>
+                @endif
+
             </div> <!-- row.// -->
         </section>
         <!-- =============== SECTION 1 END =============== -->

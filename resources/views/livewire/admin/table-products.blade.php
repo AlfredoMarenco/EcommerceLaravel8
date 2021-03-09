@@ -5,8 +5,20 @@
             Agregar Producto</a>
     </div>
     @if ($products->count())
-        <div class="d-flex flex-row-reverse my-3">
-            {{ $products->links() }}
+
+        <div class="d-flex flex-row-reverse justify-content-between my-3">
+            <div>
+                {{ $products->links() }}
+            </div>
+            <div>
+                <label for="paginate">Articulos a mostrar</label>
+                    <select wire:model="paginate" name="paginate" class="border">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-sm table-striped text-center">
@@ -29,8 +41,16 @@
                             <td>{{ $product->name }}</td>
                             <td>${{ number_format($product->price, 2) }} </td>
                             <td>{{ number_format($product->stock) }}</td>
-                            <td><a href="{{ route('admin.products.edit', $product) }}"
-                                    class="btn btn-success btn-md">Editar</a></td>
+                            <td class="d-flex justify-content-center">
+                                <a href="{{ route('admin.products.edit', $product) }}"
+                                    class="btn btn-success btn-md mx-1">Editar</a>
+
+                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
+                                    @csrf
+                                    @method('Delete')
+                                    <button class="btn btn-danger mx-1" type="submit">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

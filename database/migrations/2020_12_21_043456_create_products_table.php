@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('SKU')->nullable();
             $table->float('price');
             $table->double('stock');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

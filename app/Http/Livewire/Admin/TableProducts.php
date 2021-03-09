@@ -10,15 +10,18 @@ class TableProducts extends Component
 {
     use WithPagination;
     public $search;
+    public $paginate = '10';
+
     protected $paginationTheme = 'bootstrap';
 
     public function updatingSearch(){
         $this->resetPage();
     }
+
     public function render()
     {
         return view('livewire.admin.table-products', [
-            'products' => Product::where('name','like','%'.$this->search.'%')->latest('id')->paginate(10),
+            'products' => Product::where('name','like','%'.$this->search.'%')->latest('id')->paginate($this->paginate),
         ]);
     }
 }

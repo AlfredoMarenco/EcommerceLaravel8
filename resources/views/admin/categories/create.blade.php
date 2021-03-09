@@ -3,18 +3,16 @@
 @section('title', 'Products')
 
 @section('content_header')
-    <h1>Lista de Productos</h1>
+    <h1>Crear nueva categoria</h1>
 @stop
 
 @section('content')
-    @if (session('Success'))
-        <div class="alert alert-success">
-            <strong>{{ session('Success') }}</strong>
-        </div>
-    @endif
     <div class="card">
         <div class="card-body">
-            @livewire('admin.table-products')
+            {!! Form::open(['route' => 'admin.categories.store']) !!}
+            @include('admin.categories.partials.form')
+            {!! Form::submit('Crear nueva categoria', ['class' => 'btn btn-success btn-block']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @stop

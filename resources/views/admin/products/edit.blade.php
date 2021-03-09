@@ -20,7 +20,6 @@
             @include('admin.products.partials.form')
 
             {!! Form::submit('Actualizar producto', ['class' => 'btn btn-success btn-block mt-4']) !!}
-
             {!! Form::close() !!}
         </div>
     </div>

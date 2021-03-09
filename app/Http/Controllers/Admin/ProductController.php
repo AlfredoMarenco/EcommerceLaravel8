@@ -120,6 +120,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
     }
 }
