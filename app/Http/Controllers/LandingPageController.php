@@ -9,7 +9,7 @@ class LandingPageController extends Controller
 {
     public function index()
     {
-        $products = Product::where('stock','>',0)->get();
+        $products = Product::where('stock','>',0)->latest('id')->get();
         return view('landing.index',compact('products'));
     }
 

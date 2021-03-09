@@ -9,9 +9,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    const BORRADOR = 0;
-    const REVISION = 0;
-    const PUBLICADO = 0;
+    const BORRADOR = 1;
+    const REVISION = 2;
+    const PUBLICADO = 3;
 
 
     //Relacion uno a muchos inversa

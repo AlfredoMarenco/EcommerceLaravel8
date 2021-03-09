@@ -47,17 +47,17 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-6">
                         <div class="card card-product-grid">
                             <a href="{{ route('landing.show.product', $product) }}" class="img-wrap">
-                                <img src="{{ Storage::url($product->image->url) }}">
+                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
                             </a>
                             <figcaption class="info-wrap">
-                                <ul class="rating-stars mb-1">
+                                {{-- <ul class="rating-stars mb-1">
                                     <li style="width:80%" class="stars-active">
                                         <img src="images/icons/stars-active.svg" alt="">
                                     </li>
                                     <li>
                                         <img src="images/icons/starts-disable.svg" alt="">
                                     </li>
-                                </ul>
+                                </ul> --}}
                                 <div>
                                     <a href="#" class="text-muted">
                                         @foreach ($product->categories as $category)

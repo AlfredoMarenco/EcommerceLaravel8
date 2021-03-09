@@ -78,7 +78,7 @@
                         </div> <!-- form-group.// -->
 
                         <div class="row">
-                            <div class="col-md-5 flex-grow-0">
+                            <div class="col-md-6 flex-grow-0">
                                 <div class="form-group">
                                     <label><span class="hidden-xs">Expiration</span> </label>
                                     <div class="form-inline" style="min-width: 220px">

@@ -4,34 +4,44 @@
         <a class="btn btn-info" href="{{ route('admin.products.create') }}"><i class="fas fa-fw fa-boxes"> </i>
             Agregar Producto</a>
     </div>
-    <div class="d-flex flex-row-reverse my-3">
-        {{ $products->links() }}
-    </div>
-    <div class="table-responsive">
-        <table class="table table-sm table-striped text-center">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Existencia</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($products as $product)
+    @if ($products->count())
+        <div class="d-flex flex-row-reverse my-3">
+            {{ $products->links() }}
+        </div>
+        <div class="table-responsive">
+            <table class="table table-sm table-striped text-center">
+                <thead class="thead-dark">
                     <tr>
-                        <th scope="row">{{ $product->id }}</th>
-                        <td>{{ $product->name }}</td>
-                        <td>${{ number_format($product->price, 2) }} </td>
-                        <td>{{ number_format($product->stock) }}</td>
-                        <td><a href="#" class="btn btn-success btn-md">Editar</a></td>
+                        <th scope="col">#</th>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Existencia</th>
+                        <th scope="col">Acciones</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    <div class="d-flex flex-row-reverse">
-        {{ $products->links() }}
-    </div>
+                </thead>
+                <tbody>
+                    @foreach ($products as $product)
+                        <tr>
+                            <th scope="row">{{ $product->id }}</th>
+                            <td><img width="80px" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
+                            </td>
+                            <td>{{ $product->name }}</td>
+                            <td>${{ number_format($product->price, 2) }} </td>
+                            <td>{{ number_format($product->stock) }}</td>
+                            <td><a href="{{ route('admin.products.edit', $product) }}"
+                                    class="btn btn-success btn-md">Editar</a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            {{ $products->links() }}
+        </div>
+    @else
+        <div class="mt-5">
+            <strong>No hay ningun registro con ese valor de busqueda</strong>
+        </div>
+    @endif
 </div>

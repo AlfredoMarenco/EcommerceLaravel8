@@ -12,10 +12,13 @@ class TableProducts extends Component
     public $search;
     protected $paginationTheme = 'bootstrap';
 
+    public function updatingSearch(){
+        $this->resetPage();
+    }
     public function render()
     {
         return view('livewire.admin.table-products', [
-            'products' => Product::where('name','like','%'.$this->search.'%')->paginate(10),
+            'products' => Product::where('name','like','%'.$this->search.'%')->latest('id')->paginate(10),
         ]);
     }
 }

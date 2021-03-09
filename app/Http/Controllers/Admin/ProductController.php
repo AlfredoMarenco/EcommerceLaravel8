@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -16,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(15);
-        return view('admin.products.index',compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -26,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::pluck('name', 'id');
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -35,9 +39,22 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+
+        $product = Product::create($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('productos', $request->file('file'));
+            $product->image()->create([
+                'url' => $url,
+            ]);
+        }
+
+        if ($request->category_id) {
+            $product->categories()->attach($request->category_id);
+        }
+        return redirect()->route('admin.products.edit', $product);
     }
 
     /**
@@ -46,9 +63,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -57,9 +74,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $categories = Category::pluck('name', 'id');
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -69,9 +87,29 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('productos', $request->file('file'));
+
+            if ($product->image) {
+                Storage::delete($product->image->url);
+
+                $product->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $product->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+        if ($request->category_id) {
+            $product->categories()->sync($request->category_id);
+        }
+        return redirect()->route('admin.products.edit', $product)->with('Success', 'Producto actualizado con éxito');
     }
 
     /**
@@ -80,7 +118,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
         //
     }

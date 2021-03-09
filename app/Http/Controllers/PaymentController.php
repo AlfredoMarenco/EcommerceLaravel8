@@ -65,7 +65,6 @@ class PaymentController extends Controller
                     'order_id'=> $order->id,
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
-                    'price' => $product->price,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                     ]
@@ -73,8 +72,8 @@ class PaymentController extends Controller
             }
             //Obtenemos los datos del cliente que esta autenticado y la pasamos a una variable $customer
             $customer = [
-                'name' => $user->name,
-                'last_name' => 'Marenco',
+                'name' => $request->username,
+                //'last_name' => $user->last_name,
                 'phone_number' => '9993524136',
                 'email' => $user->email,
             ];

@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = ['id','created_at','updated_at'];
 
     //Relacion muchos a muchos
     public function orders()

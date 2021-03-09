@@ -22,14 +22,14 @@
                                         <tr>
                                             <td>
                                                 <figure class="itemside">
-                                                   
+
                                                     <div class="aside"><img
                                                             src="{{ Storage::url($item->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
-                                                        <a href="#" class="title text-dark">{{ $item->name }}</a>
-                                                        <p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci
-                                                        </p>
+                                                        <a href="{{ route('landing.show.product', $item->id) }}" class="title text-dark">{{ $item->name }}</a>
+                                                        {{-- <p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci
+                                                        </p> --}}
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -46,9 +46,9 @@
                                                 </div> <!-- price-wrap .// -->
                                             </td>
                                             <td class="text-right">
-                                                <a data-original-title="Save to Wishlist" title="" href=""
+                                                {{-- <a data-original-title="Save to Wishlist" title="" href=""
                                                     class="btn btn-light" data-toggle="tooltip"> <i
-                                                        class="fa fa-heart"></i></a>
+                                                        class="fa fa-heart"></i></a> --}}
                                                 <a href="{{ route('cart.remove', $item->rowId) }}" class="btn btn-light">
                                                     Remove</a>
                                             </td>

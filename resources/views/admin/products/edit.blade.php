@@ -1,18 +1,25 @@
 @extends('adminlte::page')
 
-@section('title', 'Create Product')
+@section('title', 'Products')
 
 @section('content_header')
-    <h1>Crear nuevo producto</h1>
+    <h1>Editar producto</h1>
 @stop
 
 @section('content')
+@if (session('Success'))
+    <div class="alert alert-success">
+        <strong>{{ session('Success') }}</strong>
+    </div>
+@endif
     <div class="card">
         <div class="car-body p-3">
             {{-- @livewire('admin.form-new-product') --}}
-            {!! Form::open(['route' => 'admin.products.store', 'files' => true]) !!}
+            {!! Form::model($product, ['route' => ['admin.products.update', $product], 'files' => true ,'method' => 'PUT']) !!}
+
             @include('admin.products.partials.form')
-            {!! Form::submit('Crear producto', ['class' => 'btn btn-success btn-block mt-4']) !!}
+
+            {!! Form::submit('Actualizar producto', ['class' => 'btn btn-success btn-block mt-4']) !!}
 
             {!! Form::close() !!}
         </div>
@@ -36,7 +43,6 @@
 
     </style>
 @stop
-
 
 @section('js')
     @livewireScripts

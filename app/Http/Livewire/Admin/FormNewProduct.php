@@ -47,13 +47,19 @@ class FormNewProduct extends Component
             'description' => $this->description
         ]);
 
-        $url = $this->photo->store('productos');
+        DB::table('category_product')->insert([
+            'category_id' => ''.$this->category,
+            'product_id' => ''.$product->id,
+        ]);
 
+        $url = $this->photo->store('productos');
         $image = Image::create([
             'url' => $url,
             'imageable_id' => $product->id,
             'imageable_type' => 'App\Models\Product'
         ]);
         session()->flash('message', 'Producto agregado con exito');
+
+        $this->reset(['name','SKU','price','stock','photo','description']);
     }
 }

@@ -12,12 +12,12 @@
                     <div class="card">
                         <article class="gallery-wrap">
                             <div class="img-big-wrap">
-                                <div> <a href="#"><img src="{{ Storage::url($product->image->url) }}"></a>
+                                <div> <a href="#"><img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif></a>
                                 </div>
                             </div> <!-- slider-product.// -->
                             <div class="thumbs-wrap">
                                 @foreach ($product->images as $image)
-                                <a href="#" class="item-thumb"> <img src="{{ Storage::url($image->url) }}"></a>
+                                <a href="#" class="item-thumb"> <img @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif></a>
                                 @endforeach
                             </div> <!-- slider-nav.// -->
                         </article> <!-- gallery-wrap .end// -->
@@ -25,9 +25,8 @@
                 </aside>
                 <main class="col-md-6">
                     <article class="product-info-aside">
-
-                        <h2 class="title mt-3">Hot sale unisex New Design Shoe </h2>
-
+                        <h2 class="title mt-5">{{ $product->name }}</h2>
+{{--
                         <div class="rating-wrap my-3">
                             <ul class="rating-stars">
                                 <li style="width:80%" class="stars-active">
@@ -44,22 +43,15 @@
                             <small class="label-rating text-muted">132 reviews</small>
                             <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders
                             </small>
-                        </div> <!-- rating-wrap.// -->
+                        </div> <!-- rating-wrap.// --> --}}
 
                         <div class="mb-3">
-                            <var class="price h4">{{ $product->presentPrice() }}</var>
-                            <span class="text-muted">USD 562.65 incl. VAT</span>
+                            <var class="price h4 mb-5">{{ $product->presentPrice() }}</var>
+                            <span class="text-muted">MXN</span>
                         </div> <!-- price-detail-wrap .// -->
+                        <p class="mt-5">{!! $product->description !!} </p>
 
-                        <p>Compact sport shoe for running, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat </p>
-
-
-                        <dl class="row">
+                        {{-- <dl class="row">
                             <dt class="col-sm-3">Manufacturer</dt>
                             <dd class="col-sm-9"><a href="#">Great textile Ltd.</a></dd>
 
@@ -74,7 +66,7 @@
 
                             <dt class="col-sm-3">Availabilty</dt>
                             <dd class="col-sm-9">in Stock</dd>
-                        </dl>
+                        </dl> --}}
                         <form action="{{ route('cart.addItem', $product) }}" method="POST">
                             @csrf
                             <div class="row mt-4">
@@ -85,9 +77,9 @@
                                     <button class="btn text-white btn-primary mr-2">
                                         <i class="fas fa-shopping-cart"></i> <span class="text">Add to Cart</span>
                                     </button>
-                                    <a href="#" class="btn btn-light">
+                                    {{-- <a href="#" class="btn btn-light">
                                         <i class="fas fa-envelope"></i> <span class="text">Contact supplier</span>
-                                    </a>
+                                    </a> --}}
                                 </div> <!-- col.// -->
                             </div> <!-- row.// -->
                         </form>
@@ -110,26 +102,17 @@
                 <div class="col-md-8">
                     <h5 class="title-description">Description</h5>
                     <p>
-                        Lava stone grill, suitable for natural gas, with cast-iron cooking grid, piezo ignition,
-                        stainless
-                        steel
-                        burners, water tank, and thermocouple. Thermostatic adjustable per zone. Comes complete with
-                        lava
-                        rocks.
-                        Adjustable legs. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                       {!! $product->description !!}
                     </p>
-                    <ul class="list-check">
+                    {{-- <ul class="list-check">
                         <li>Material: Stainless steel</li>
                         <li>Weight: 82kg</li>
                         <li>built-in drip tray</li>
                         <li>Open base for pots and pans</li>
                         <li>On request available in propane execution</li>
-                    </ul>
+                    </ul> --}}
 
-                    <h5 class="title-description">Specifications</h5>
+                    {{-- <h5 class="title-description">Specifications</h5>
                     <table class="table table-bordered">
                         <tr>
                             <th colspan="2">Basic specs</th>
@@ -187,9 +170,9 @@
                             <td>15 Kw</td>
                         </tr>
 
-                    </table>
+                    </table> --}}
                 </div> <!-- col.// -->
-
+{{--
                 <aside class="col-md-4">
 
                     <div class="box">
@@ -243,7 +226,7 @@
 
 
                     </div> <!-- box.// -->
-                </aside> <!-- col.// -->
+                </aside> <!-- col.// --> --}}
             </div> <!-- row.// -->
 
         </div> <!-- container .//  -->
