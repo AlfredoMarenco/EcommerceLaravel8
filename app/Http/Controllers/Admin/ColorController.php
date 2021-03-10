@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\ColorRequest;
+use App\Models\Color;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $colors = Color::all();
+        return view('admin.colors.index',compact('colors'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.colors.create');
     }
 
     /**
@@ -35,58 +36,59 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(ColorRequest $request)
     {
-        $category = Category::create($request->all());
+        $color = Color::create($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('success','Categoria agregada de forma exitosa');
+        return redirect()->route('admin.colors.edit',$color)->with('colorSuccess', 'Color agregado con exito');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $category
+     * @param  int  $color
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Color $color)
     {
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $category
+     * @param  int  $color
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Color $color)
     {
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.colors.edit',compact('color'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $category
+     * @param  int  $color
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(ColorRequest $request, Color $color)
     {
-        $category->update($request->all());
+        $color->update($request->all());
 
-        return redirect()->route('admin.categories.edit',$category)->with('updateSuccess' , 'Categoria actualizada con exito!!');
+        return redirect()->route('admin.colors.edit',$color)->with('colorUpdate', 'Color actualizado con exito');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $category
+     * @param  int  $color
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Color $color)
     {
-        $category->delete();
-        return redirect()->route('admin.categories.index');
+        $color->delete();
+
+        return redirect()->route('admin.colors.index');
     }
 }

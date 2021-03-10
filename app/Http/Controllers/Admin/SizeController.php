@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\SizeRequest;
 use Illuminate\Http\Request;
+use App\Models\Size;
 
-class CategoryController extends Controller
+class SizeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $sizes = Size::all();
+        return view('admin.sizes.index', compact('sizes'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.sizes.create');
     }
 
     /**
@@ -35,58 +36,58 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(SizeRequest $request)
     {
-        $category = Category::create($request->all());
+        $size = Size::create($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('success','Categoria agregada de forma exitosa');
+        return redirect()->route('admin.sizes.edit', $size)->with('sizeSuccess', 'Talla creada con éxito!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Size $size)
     {
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Size $size)
     {
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.sizes.edit', compact('size'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(Request $request, Size $size)
     {
-        $category->update($request->all());
+        $size->update($request->all());
 
-        return redirect()->route('admin.categories.edit',$category)->with('updateSuccess' , 'Categoria actualizada con exito!!');
+        return redirect()->route('admin.sizes.edit', $size)->with('sizeUpdate', 'Talla actualizada con éxito!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Size $size)
     {
-        $category->delete();
-        return redirect()->route('admin.categories.index');
+        $size->delete();
+        return redirect()->route('admin.sizes.index');
     }
 }
