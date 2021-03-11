@@ -248,7 +248,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Tipos de variantes',
-                    'icon'    => 'fas fa-fw fa-plus',
+                    'icon'    => 'fas fa-fw fa-grip-lines',
                     'url'  => '#',
                     'submenu' => [
                         [
@@ -263,6 +263,12 @@ return [
                         ],
                     ],
                 ],
+                [
+                    'text' => 'Asignar variantes a producto',
+                    'icon'    => 'fas fa-fw fa-arrows-alt-h',
+                    'route'  => 'admin.variants.index',
+                ],
+
             ],
         ],
 

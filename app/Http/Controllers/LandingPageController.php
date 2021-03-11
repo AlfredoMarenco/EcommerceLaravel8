@@ -10,12 +10,12 @@ class LandingPageController extends Controller
     public function index()
     {
         $products = Product::where('stock','>',0)->latest('id')->get();
-        return view('landing.index',compact('products'));
+        return view('shop.index',compact('products'));
     }
 
-    public function showProduct($id)
+    public function showProduct($id = null)
     {
         $product = Product::find($id);
-        return view('landing.products', compact('product'));
+        return view('shop.products', compact('product'));
     }
 }

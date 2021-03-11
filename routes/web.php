@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LandingPageController::class, 'index'])->name('landing.home');
-Route::get('/product/{id}', [LandingPageController::class, 'showProduct'])->name('landing.show.product');
+Route::get('/', [ShopController::class, 'index'])->name('shop.home');
+Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+Route::get('/products/{category_id?}', [ShopController::class, 'showProducts'])->name('shop.products');
 
 Route::prefix('/user')->group(function () {
     Route::get('/profile',[UserController::class,'index'])->name('user.profile');

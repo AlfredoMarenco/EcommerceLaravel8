@@ -1,0 +1,270 @@
+h1, h2, h3, h4, h5 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+p, .nav-link {
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.bg-light {
+    background-color: transparent !important;
+} @media (max-width: 500px) {
+    .bg-light {
+        background-color:#fff !important;
+        
+    }
+}
+.bg-light.scrolled {
+    background: #fff !important;
+} 
+
+.nav-link {
+    font-weight: 500;
+    color: #000 !important;
+}
+
+#vidio_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    
+    }
+    #video_pattern {
+    background:#fff;
+    position: absolute;
+    opacity: 0.8;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    }
+
+
+    #sec {
+        padding-top: 750px;
+        padding-bottom: 100px;
+    }
+
+    .izq {
+       
+        padding-top: 200px;
+        background-image: url(/images/rene/02-imagencuadrada03-1-1.jpg);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+
+    }  @media (max-width: 500px) {
+        .izq {
+            background-position: center;
+            background-size: contain;
+           
+            background-repeat: no-repeat;
+           
+        }
+    }
+    .der { 
+        background-image: url(/images/rene/02-imagencuadrada06.jpg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+    } @media (max-width: 500px) {
+        .der {
+            background-position: center;
+            
+            background-size: contain;
+            width: 450px;
+            background-repeat: no-repeat;
+            
+        }
+    }
+    .medio{
+        padding-top: 350px;
+        padding-left: 180px;
+
+    } @media (max-width: 500px) {
+        .medio {
+            padding-top: 250px;
+            padding-left: 155px;
+        }
+    }
+
+    
+    .medio h1 {
+        color: #fff;
+        font-size: 75px;
+    } 
+    .medio a {
+        color: #fff;
+        margin-left: 40px;
+        margin-bottom: 50px;
+    } @media (max-width: 500px) {
+        .medio a {
+            color: #fff;
+            margin-left: 35px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .btn-primary {
+        background-color: transparent !important;
+        border-color: #fff;
+        border-radius: 8px;
+        border-width: 3px;
+    } @media (max-width: 500px) {
+
+    }
+
+    .interior {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        text-align: center;
+    }
+    
+    .interior h2 {
+        padding-top: 150px;
+        color: #fff;
+        font-size: 4em;
+        letter-spacing: 4px
+    } @media (max-width: 500px) {
+        .interior h2 {
+            font-size: 2em;
+        }
+    }
+ 
+
+    .carousel-item {
+        height: 100vh;
+        min-height: 350px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+    .interior .btn-primary {
+        background-color: transparent !important;
+        border-color: #fff;
+        border-radius: 8px;
+        border-width: 3px;
+
+    }
+
+    .bg-overlay {
+        background-image: url(/images/rene/04-NuevaColeccion03-1024x517.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        min-height: 100vh;
+
+    }
+
+    .ther {
+        padding-bottom: 100px;
+    }
+
+    #for {
+        padding-top: 100px;
+    }
+
+    
+    footer h2 {
+        text-align: center;
+    } 
+
+    .suscribete {
+        padding-bottom: 30px;
+    }
+
+    .form-group {
+        margin-left: 320px;
+    } @media (max-width: 500px) {
+        .form-group {
+            margin-left: 0px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .suscr {
+            text-align: center;
+        }
+    }
+   
+
+    /* BLOG STYLES */
+
+@media (max-width: 762px){
+    #catego {
+        display: none;
+    }
+}
+.breadcrumb {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+  
+.c-entrada {
+    padding-top: 20px;
+    border: 2px !important;
+    border-color: gray !important;
+}
+
+.c-entrada h2 {
+    color: #000;
+    text-align: center;
+}
+.c-entrada p {
+    color: #fff;
+    text-align: center;
+} @media (max-width: 500px) {
+    .c-entrada p {
+        font-size: 10px;
+    }
+}
+
+.t-entrada {
+    padding-top: 20px;
+}
+
+.t-entrada p {
+    color: #ebebeb;
+    text-align: justify;
+}
+
+.t-entrada a {
+    text-decoration: none;
+}
+
+.recientes {
+    padding-top: 155px;
+    border: 5px !important;
+   align-content: right;
+}
+
+.recientes-1 {
+    padding-top: 20px;
+}
+
+.recientes-1 h5 {
+    padding-top: 10px;
+}
+
+.recientes li {
+    list-style: none;
+}
+
+.paginacion-blog {
+    margin-top: 20px;
+}
+.paginacion-blog a{
+    color: #000;
+}
+
+.share-links {
+    font-size: 35px;
+}

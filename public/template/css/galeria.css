@@ -1,0 +1,21 @@
+#cabecera {
+    text-align: center;
+    margin-top: 100px;
+}
+
+#imagenes {
+    padding-top: 50px;
+    text-align: center;
+} 
+
+.imagenes-pequenas {
+    padding-right: 60px;
+    
+} @media (max-width: 500px) {
+    .imagenes-pequenas {
+        padding-top: 20px;
+        padding-right: 0;
+        
+    }
+}
+
