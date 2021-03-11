@@ -59,7 +59,7 @@
                             <var class="price h4">{{ $product->presentPrice() }}</var>
                         </div> <!-- price-detail-wrap .// -->
 
-                        <p>{{ $product->description }}</p>
+                        <p>{!! $product->description !!}</p>
                         <form action="{{ route('cart.addItem', $product) }}" method="POST">
                             @csrf
                             <div class="row mt-4">
@@ -90,7 +90,7 @@
                 <div class="col-md-12">
                     <h5 class="title-description">Description</h5>
                     <p>
-                        {{ $product->description }}
+                        {!! $product->description !!}
                     </p>
                     <!-- <ul class="list-check">
                                                                         <li>Material: Stainless steel</li>
