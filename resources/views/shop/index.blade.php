@@ -76,7 +76,7 @@
     </div>
 
     <section id="ther">
-        <div class="container">
+        <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 izq"
                     style="background-image: url({{ asset('template/images/rene/02-imagencuadrada03-1-1.jpg') }});">
