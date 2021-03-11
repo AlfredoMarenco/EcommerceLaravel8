@@ -10,7 +10,7 @@
     <title>Rene Alonso | Shop</title>
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- jQuery -->
-    <script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="{{ asset('template/js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
     <!-- Styles-->
     <link rel="stylesheet" href="{{ asset('template/css/bootstrap.css') }}" />
@@ -19,15 +19,15 @@
     <link rel="stylesheet" href="{{ asset('template/css/responsive.css') }}" />
 
     <!-- Font awesome 5 -->
-    <link href="fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('template/fonts/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet" />
 
     <!-- custom style -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 
     <!-- custom javascript -->
-    <script src="js/script.js" type="text/javascript"></script>
-    @livewireStyles
+    <script src="{{ asset('template/js/script.js') }}" type="text/javascript"></script>
+
     @yield('css')
 </head>
 

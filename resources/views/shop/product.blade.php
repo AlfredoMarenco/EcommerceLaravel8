@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="py-4 bg-light">
+    <section class="py-4">
         <div class="container">
             <!-- <ol class="breadcrumb">
                                                             <li class="breadcrumb-item"><a href="#">Home</a></li>
