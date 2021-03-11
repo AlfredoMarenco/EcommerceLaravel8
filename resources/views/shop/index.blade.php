@@ -105,8 +105,11 @@
     <section id="ther">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 izq"></div>
-                <div class="col-lg-6 col-md-6 col-sm-12 der">
+                <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada03-1-1.jpg') }});">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 der"
+                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
                     <div class="medio sol"></div>
                 </div>
             </div>
@@ -152,7 +155,7 @@
     <!-- ========================= SECTION SUBSCRIBE END// ========================= -->
     <div class="container">
         <div style="text-align: center;">
-            <img src="/images/rene/logo-nav.png" class="img-fluid" alt="" />
+            <img src="{{ asset('template/images/rene/logo-nav.png') }}" class="img-fluid" alt="" />
         </div>
     </div>
 @endsection
