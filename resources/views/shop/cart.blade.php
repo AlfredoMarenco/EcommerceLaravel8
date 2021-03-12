@@ -1,5 +1,16 @@
 @extends('layouts.template')
 
+@section('css')
+<style>
+   button.mercadopago-button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #111;
+    border-radius: 10;
+    width:100%;
+  }
+</style>
+@endsection
 
 @section('content')
     <!-- ========================= SECTION CONTENT ========================= -->
@@ -24,7 +35,9 @@
                                     <tr>
                                         <td>
                                             <figure class="itemside">
-                                                <div class="aside"><img src="{{ Storage::url($product->model->image->url) }}" class="img-sm"></div>
+                                                <div class="aside"><img
+                                                        src="{{ Storage::url($product->model->image->url) }}"
+                                                        class="img-sm"></div>
                                                 <figcaption class="info">
                                                     <a href="#" class="title text-dark">{{ $product->name }}</a>
                                                     <p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci</p>
@@ -35,12 +48,13 @@
                                             <form action="{{ route('cart.update', $product->rowId) }}">
                                                 @csrf
                                                 @method('PUT')
-                                                <input type="number" min="1" value="{{ $product->qty }}" name="qty" class="form-control" onchange="this.form.submit()">
+                                                <input type="number" min="1" value="{{ $product->qty }}" name="qty"
+                                                    class="form-control" onchange="this.form.submit()">
                                             </form>
                                         </td>
                                         <td>
                                             <div class="price-wrap">
-                                                <var class="price">${{ number_format($product->price,2) }}</var>
+                                                <var class="price">${{ number_format($product->price, 2) }}</var>
                                             </div> <!-- price-wrap .// -->
                                         </td>
                                         <td class="text-right">
@@ -53,8 +67,8 @@
                         </table>
 
                         <div class="card-body border-top">
-                            <a href="#" class="btn btn-primary float-md-right"> Make Purchase <i
-                                    class="fa fa-chevron-right"></i> </a>
+                            {{-- <a href="#" class="btn btn-dark float-md-right"> Make Purchase <i
+                                    class="fa fa-chevron-right"></i> </a> --}}
                             <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
                         </div>
                     </div> <!-- card.// -->
@@ -104,7 +118,16 @@
                     </div> <!-- card .// -->
                     <div class="card">
                         <div class="card-body">
-                            <a href="#" class="btn btn-dark btn-block">Realizar Pago</a>
+                            <form action="{{ route('checkout.chargeMercadoPago') }}" method="POST">
+                                @csrf
+                                <script src="https://www.mercadopago.com.mx/integrations/v1/web-tokenize-checkout.js"
+                                    data-public-key="TEST-00d1db82-ccd9-4cbc-b92e-66ad0079742b"
+                                    data-button-label="Realizar Pago"
+                                    data-elements-color="#212529"
+                                    data-summary-discount-label="Descuento 10%"
+                                    data-transaction-amount="{{ (int) str_replace(',', '', Cart::total()) }}">
+                                </script>
+                            </form>
                         </div>
                     </div>
                 </aside> <!-- col.// -->
@@ -124,13 +147,6 @@
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
         </div><!-- container // -->
     </section>
     <!-- ========================= SECTION  END// ========================= -->

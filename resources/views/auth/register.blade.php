@@ -45,10 +45,10 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout> --}}
-@extends('layouts.template-landing')
+@extends('layouts.template')
 @section('content')
     <!-- ============================ COMPONENT REGISTER   ================================= -->
-    <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+    <div class="card mx-auto" style="max-width:520px; margin-top:80px;">
         <article class="card-body">
             <header class="mb-4">
                 <h4 class="card-title">Sign up</h4>
@@ -91,14 +91,14 @@
                     <!-- form-group end.// -->
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Register </button>
+                    <button type="submit" class="btn btn-dark btn-block"> Register </button>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input"
                             checked="">
-                        <div class="custom-control-label"> I am agree with <a href="{{ route('login') }}">terms and
+                        <div class="custom-control-label text-dark"> I am agree with <a href="{{ route('login') }}">terms and
                                 contitions</a> </div>
                     </label>
                 </div>

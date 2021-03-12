@@ -17,7 +17,7 @@ class ShopController extends Controller
     public function showProducts($category_id = null)
     {
         if ($category_id == null) {
-            $products = Product::paginate(10);
+            $products = Product::where('stock','>',0)->latest('id')->paginate(15);
             return view('shop.products', compact('products'));
         } else {
             $products = Category::where('name',$category_id);

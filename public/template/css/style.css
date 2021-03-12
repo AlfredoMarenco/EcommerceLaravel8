@@ -11,12 +11,12 @@ p, .nav-link {
 } @media (max-width: 500px) {
     .bg-light {
         background-color:#fff !important;
-        
+
     }
 }
 .bg-light.scrolled {
     background: #fff !important;
-} 
+}
 
 .nav-link {
     font-weight: 500;
@@ -30,7 +30,7 @@ p, .nav-link {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    
+
     }
     #video_pattern {
     background:#fff;
@@ -50,7 +50,7 @@ p, .nav-link {
     }
 
     .izq {
-       
+
         padding-top: 200px;
         background-image: url(/images/rene/02-imagencuadrada03-1-1.jpg);
         background-repeat: no-repeat;
@@ -61,12 +61,12 @@ p, .nav-link {
         .izq {
             background-position: center;
             background-size: contain;
-           
+
             background-repeat: no-repeat;
-           
+
         }
     }
-    .der { 
+    .der {
         background-image: url(/images/rene/02-imagencuadrada06.jpg);
         background-repeat: no-repeat;
         background-position: left;
@@ -74,11 +74,11 @@ p, .nav-link {
     } @media (max-width: 500px) {
         .der {
             background-position: center;
-            
+
             background-size: contain;
             width: 450px;
             background-repeat: no-repeat;
-            
+
         }
     }
     .medio{
@@ -92,11 +92,11 @@ p, .nav-link {
         }
     }
 
-    
+
     .medio h1 {
         color: #fff;
         font-size: 75px;
-    } 
+    }
     .medio a {
         color: #fff;
         margin-left: 40px;
@@ -123,7 +123,7 @@ p, .nav-link {
         padding-bottom: 100px;
         text-align: center;
     }
-    
+
     .interior h2 {
         padding-top: 150px;
         color: #fff;
@@ -134,7 +134,7 @@ p, .nav-link {
             font-size: 2em;
         }
     }
- 
+
 
     .carousel-item {
         height: 100vh;
@@ -172,16 +172,16 @@ p, .nav-link {
         padding-top: 100px;
     }
 
-    
+
     footer h2 {
         text-align: center;
-    } 
+    }
 
     .suscribete {
         padding-bottom: 30px;
     }
 
-    
+
 
     @media (max-width: 500px) {
         .suscr {
@@ -190,7 +190,7 @@ p, .nav-link {
     }
 
     */
-   
+
 
     /* BLOG STYLES */
 /*
@@ -204,7 +204,7 @@ p, .nav-link {
     margin-top: 100px;
     margin-bottom: 20px;
 }
-  
+
 .c-entrada {
     padding-top: 20px;
     border: 2px !important;
@@ -578,3 +578,6 @@ footer h2 {
     overflow-y: auto;
   }
 }
+
+
+

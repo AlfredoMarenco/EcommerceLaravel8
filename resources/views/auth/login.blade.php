@@ -50,7 +50,7 @@
     </x-jet-authentication-card>
 </x-guest-layout> --}}
 
-@extends('layouts.template-landing')
+@extends('layouts.template')
 @section('content')
 
     <!-- ============================ COMPONENT LOGIN   ================================= -->

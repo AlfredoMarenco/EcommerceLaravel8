@@ -63,54 +63,110 @@
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ofertas</a>
                     </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Login</a>
-                    </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-shopping-bag"> <small>{{ Cart::count() }}</small></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                                style="min-width: 20rem;">
+                                @foreach (Cart::content() as $product)
+                                    <div class="d-flex justify-content-around align-items-center text-truncate">
+                                        <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
+                                            width="20%" alt="">
+                                        <p class="row">
+                                            <b class="col-12">{{ $product->name }}</b>
+                                            <small class="col-12">
+                                                <span>{{ $product->qty }}x</span>
+                                                ${{ number_format($product->price, 2) }}
+                                            </small>
+                                        </p>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                @endforeach
+                                @if (Cart::count())
+                                    <div class="dropdown-divider"></div>
+                                    <div class="d-flex justify-content-around align-items-center">
+                                        <div class="font-weight-bold">Subtotal:</div>
+                                        <div class="font-weight-bold">${{ Cart::total() }}</div>
+                                    </div>
+                                    <div class="px-3 py-2">
+                                        <a class="btn btn-dark btn-block" href="{{ route('cart') }}">Ir al carrito</a>
+                                    </div>
+                                @else
+                                    <div class="px-3 py-2 font-weigth-bold text-cener">
+                                        El carrito esta vacio
+                                    </div>
+                                @endif
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-shopping-bag"> <small>{{ Cart::count() }}</small></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
-                            style="min-width: 20rem;">
-                            @foreach (Cart::content() as $product)
-                                <div class="d-flex justify-content-around align-items-center text-truncate">
-                                    <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
-                                        width="20%" alt="">
-                                    <p class="row">
-                                        <b class="col-12">{{ $product->name }}</b>
-                                        <small class="col-12">
-                                            <span>{{ $product->qty }}x</span>
-                                            ${{ number_format($product->price, 2) }}
-                                        </small>
-                                    </p>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                            @endforeach
-                            @if (Cart::count())
-                                <div class="dropdown-divider"></div>
-                                <div class="d-flex justify-content-around align-items-center">
-                                    <div class="font-weight-bold">Subtotal:</div>
-                                    <div class="font-weight-bold">${{ Cart::total() }}</div>
-                                </div>
+                            </div>
+
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-alt"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mr-3" aria-labelledby="navbarDropdown"
+                                style="min-width: 15rem;">
                                 <div class="px-3 py-2">
-                                    <a class="btn btn-dark btn-block" href="{{ route('cart') }}">Ir al carrito</a>
-                                </div>
-                            @else
-                                <div class="px-3 py-2 font-weigth-bold text-cener">
-                                    El carrito esta vacio
-                                </div>
-                            @endif
+                                    <a class="btn btn-link btn-block" href="/cart.html">Perfil</a>
 
-                        </div>
+                                    <form class="text-center" method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                    this.closest('form').submit();">
+                                            Log out
+                                        </a>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="{{ route('login') }}" tabindex="-1" aria-disabled="true">Login</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-shopping-bag"> <small>{{ Cart::count() }}</small></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                                style="min-width: 20rem;">
+                                @foreach (Cart::content() as $product)
+                                    <div class="d-flex justify-content-around align-items-center text-truncate">
+                                        <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
+                                            width="20%" alt="">
+                                        <p class="row">
+                                            <b class="col-12">{{ $product->name }}</b>
+                                            <small class="col-12">
+                                                <span>{{ $product->qty }}x</span>
+                                                ${{ number_format($product->price, 2) }}
+                                            </small>
+                                        </p>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                @endforeach
+                                @if (Cart::count())
+                                    <div class="dropdown-divider"></div>
+                                    <div class="d-flex justify-content-around align-items-center">
+                                        <div class="font-weight-bold">Subtotal:</div>
+                                        <div class="font-weight-bold">${{ Cart::total() }}</div>
+                                    </div>
+                                    <div class="px-3 py-2">
+                                        <a class="btn btn-dark btn-block" href="{{ route('cart') }}">Ir al carrito</a>
+                                    </div>
+                                @else
+                                    <div class="px-3 py-2 font-weigth-bold text-cener">
+                                        El carrito esta vacio
+                                    </div>
+                                @endif
 
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
-                            <i class="fas fa-user-alt"></i>
-                        </a>
-                    </li>
+                            </div>
+
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
