@@ -6,14 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VariantController;
+use App\Http\Controllers\Admin\RolController;
 
-//Rutas aisladas
-Route::get('',[HomeController::class,'index'])->name('admin.home');
-//Rutas con recursos
-Route::resource('products', ProductController::class)->names('admin.products');
-Route::resource('categories', CategoryController::class)->names('admin.categories');
-Route::resource('colors', ColorController::class)->names('admin.colors');
-Route::resource('sizes', SizeController::class)->names('admin.sizes');
-Route::resource('variants', VariantController::class)->names('admin.variants');
-
+Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
+Route::resource('user', UserController::class)->only('index', 'edit', 'update')->names('admin.users');
+Route::resource('roles', RolController::class)->names('admin.roles');
+Route::resource('products', ProductController::class)->except('show')->names('admin.products');
+Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
+Route::resource('colors', ColorController::class)->except('show')->names('admin.colors');
+Route::resource('sizes', SizeController::class)->except('show')->names('admin.sizes');
+Route::resource('variants', VariantController::class)->except('show')->names('admin.variants');

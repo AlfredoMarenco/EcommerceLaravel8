@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use MercadoPago\Item;
+use MercadoPago\Payer;
+use MercadoPago\Preference;
+use MercadoPago\SDK;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -15,7 +20,51 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('shop.cart');
+        SDK::setAccessToken(config('mercadopago.access_token'));
+        $preference = new Preference();
+
+        /* # Create an item object
+        $item = new Item();
+        $item->id = '20';
+        $item->title = 'hola';
+        $item->quantity = 1;
+        $item->currency_id = 'MXN';
+        $item->unit_price = 20;
+        # Create a payer object
+        $payer = new Payer();
+        $payer->email = 'email@email.com';
+        # Setting preference properties
+        $preference->items = array($item);
+        $preference->payer = $payer;
+        # Save External Reference
+        $preference->external_reference = '20';
+        $preference->back_urls = [
+            "success" => route('shop.home'),
+            "pending" => route('shop.home'),
+            "failure" => route('shop.home'),
+        ];
+
+        $preference->auto_return = "all";
+        $preference->notification_url = route('shop.home');
+        # Save and POST preference
+        //dd($preference);
+        $preference->save(); */
+
+        // Crea un objeto de preferencia
+        $preference = new Preference();
+
+        // Crea un ítem en la preferencia
+        $item = new Item();
+        $item->title = 'Mi producto';
+        $item->quantity = 1;
+        $item->unit_price = 75.56;
+        # Create a payer object
+        $payer = new Payer();
+        $payer->email = 'email@email.com';
+        $preference->items = array($item);
+        $preference->payer = $payer;
+        $preference->save();
+        return view('shop.cart', compact('preference'));
     }
 
     /**
@@ -100,6 +149,8 @@ class CartController extends Controller
             'price' => $product->price,
             'weight' =>  0
         ])->associate('App\Models\Product');
+        toast('Agregado al carrito','success');
+        //Alert::success('Success Title', 'Articulo agregado al carrito');
         return back();
     }
 

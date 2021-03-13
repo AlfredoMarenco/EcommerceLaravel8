@@ -15,9 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Storage::makeDirectory('productos');
-
+        
+        $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(ProductSeeder::class);
+
     }
 }

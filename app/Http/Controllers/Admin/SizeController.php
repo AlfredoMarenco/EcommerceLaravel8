@@ -9,6 +9,13 @@ use App\Models\Size;
 
 class SizeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.sizes.index')->only('index');
+        $this->middleware('can:admin.sizes.create')->only('create', 'store');
+        $this->middleware('can:admin.sizes.edit')->only('edit', 'update');
+        $this->middleware('can:admin.sizes.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *

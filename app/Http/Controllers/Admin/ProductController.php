@@ -8,9 +8,17 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.products.index')->only('index');
+        $this->middleware('can:admin.products.create')->only('create', 'store');
+        $this->middleware('can:admin.products.edit')->only('edit', 'update');
+        $this->middleware('can:admin.products.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -54,19 +62,9 @@ class ProductController extends Controller
         if ($request->category_id) {
             $product->categories()->attach($request->category_id);
         }
-        return redirect()->route('admin.products.edit', $product);
+        return redirect()->route('admin.products.edit', $product)->withSuccess('Task Created Successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        return view('admin.products.show', compact('product'));
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -109,7 +107,7 @@ class ProductController extends Controller
         if ($request->category_id) {
             $product->categories()->sync($request->category_id);
         }
-        return redirect()->route('admin.products.edit', $product)->with('Success', 'Producto actualizado con éxito');
+        return redirect()->route('admin.products.edit', $product)->withToastSuccess('Producto actualizado con éxito');
     }
 
     /**
@@ -120,8 +118,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete();
+        $response = Alert::question('Eliminar producto', 'Estas seguro que deseas eliminar este producto?');
 
+        $product->delete();
+        dd($response);
         return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
     }
 }

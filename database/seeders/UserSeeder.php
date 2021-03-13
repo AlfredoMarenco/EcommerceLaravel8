@@ -21,8 +21,10 @@ class UserSeeder extends Seeder
             'email' => 'alfredomarenco@boletea.com',
             'password' => bcrypt('marencos6359:D'),
 
-        ]);
+        ])->assignRole('admin');
 
+
+        User::factory(30)->create();
 
     }
 }

@@ -47,6 +47,7 @@ return array(
     'Srmklive\\PayPal\\' => array($vendorDir . '/srmklive/paypal/src'),
     'Spatie\\Permission\\' => array($vendorDir . '/spatie/laravel-permission/src'),
     'Sample\\' => array($vendorDir . '/paypal/paypal-checkout-sdk/samples'),
+    'RealRashid\\SweetAlert\\' => array($vendorDir . '/realrashid/sweet-alert/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),

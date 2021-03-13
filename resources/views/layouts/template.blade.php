@@ -202,7 +202,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     @livewireScripts
+
     @yield('js')
+    @include('sweetalert::alert')
 </body>
 
 </html>

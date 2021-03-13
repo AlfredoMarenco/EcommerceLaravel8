@@ -7,11 +7,6 @@
 @stop
 
 @section('content')
-@if (session('Success'))
-    <div class="alert alert-success">
-        <strong>{{ session('Success') }}</strong>
-    </div>
-@endif
     <div class="card">
         <div class="car-body p-3">
             {{-- @livewire('admin.form-new-product') --}}
@@ -67,5 +62,5 @@
         }
 
     </script>
-
+@include('sweetalert::alert')
 @stop

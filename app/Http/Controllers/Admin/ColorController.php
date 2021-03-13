@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.colors.index')->only('index');
+        $this->middleware('can:admin.colors.create')->only('create', 'store');
+        $this->middleware('can:admin.colors.edit')->only('edit', 'update');
+        $this->middleware('can:admin.colors.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *

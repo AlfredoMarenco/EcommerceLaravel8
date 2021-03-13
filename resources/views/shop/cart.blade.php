@@ -1,15 +1,16 @@
 @extends('layouts.template')
 
 @section('css')
-<style>
-   button.mercadopago-button {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #111;
-    border-radius: 10;
-    width:100%;
-  }
-</style>
+    <style>
+        button.mercadopago-button {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #111;
+            border-radius: 10;
+            width: 100%;
+        }
+
+    </style>
 @endsection
 
 @section('content')
@@ -120,12 +121,16 @@
                         <div class="card-body">
                             <form action="{{ route('checkout.chargeMercadoPago') }}" method="POST">
                                 @csrf
-                                <script src="https://www.mercadopago.com.mx/integrations/v1/web-tokenize-checkout.js"
+                                {{-- <script src="https://www.mercadopago.com.mx/integrations/v1/web-tokenize-checkout.js"
                                     data-public-key="TEST-00d1db82-ccd9-4cbc-b92e-66ad0079742b"
+                                    data-preference-id={!! $preference->id !!}
                                     data-button-label="Realizar Pago"
                                     data-elements-color="#212529"
-                                    data-summary-discount-label="Descuento 10%"
+                                    data-input-label="Direccion"
                                     data-transaction-amount="{{ (int) str_replace(',', '', Cart::total()) }}">
+                                </script> --}}
+                                <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+                                    data-preference-id="{!! $preference->id !!}">
                                 </script>
                             </form>
                         </div>

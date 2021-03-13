@@ -229,6 +229,17 @@ return [
             'route'  => 'admin.home',
             'icon'        => 'fas fa-fw fa-home',
         ],
+        ['header' => 'ADMINISTRACION DE USUARIOS'],
+        [
+            'text' => 'Usuarios',
+            'route'  => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Roles',
+            'route'  => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+        ],
         ['header' => 'PRODUCTOS'],
 
         [

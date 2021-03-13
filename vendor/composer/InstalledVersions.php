@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'bb62550936b6f82e778d0692628f1aa549420d7c',
+    'reference' => '5882b25723d61d874260e1d263a220402babeb56',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -648,7 +648,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'bb62550936b6f82e778d0692628f1aa549420d7c',
+      'reference' => '5882b25723d61d874260e1d263a220402babeb56',
     ),
     'laravel/sail' => 
     array (
@@ -1137,6 +1137,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'cd4032040a750077205918c86049aa0f43d22947',
+    ),
+    'realrashid/sweet-alert' => 
+    array (
+      'pretty_version' => 'v3.2.2',
+      'version' => '3.2.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2441267a295833480b2c8e55532f4190d1004d47',
     ),
     'rhumsaa/uuid' => 
     array (
