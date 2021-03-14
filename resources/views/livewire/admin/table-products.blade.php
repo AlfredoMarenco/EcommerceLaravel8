@@ -12,12 +12,12 @@
             </div>
             <div>
                 <label for="paginate">Articulos a mostrar</label>
-                    <select wire:model="paginate" name="paginate" class="border">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                    </select>
+                <select wire:model="paginate" name="paginate" class="border">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
             </div>
         </div>
         <div class="table-responsive">
@@ -43,13 +43,15 @@
                             <td>{{ number_format($product->stock) }}</td>
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('admin.products.edit', $product) }}"
-                                    class="btn btn-success btn-md mx-1">Editar</a>
-
-                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
-                                    @csrf
-                                    @method('Delete')
-                                    <button class="btn btn-danger mx-1" type="submit">Eliminar</button>
-                                </form>
+                                    class="btn btn-success btn-md mx-1">Editar
+                                </a>
+                                @can('admin.products.destroy', Model::class)
+                                    <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
+                                        @csrf
+                                        @method('Delete')
+                                        <button class="btn btn-danger mx-1" type="submit">Eliminar</button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

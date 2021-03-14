@@ -227,30 +227,23 @@ return [
         [
             'text' => 'Dashboard',
             'route'  => 'admin.home',
-            'icon'        => 'fas fa-fw fa-home',
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.home'
         ],
-        ['header' => 'ADMINISTRACION DE USUARIOS'],
-        [
-            'text' => 'Usuarios',
-            'route'  => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-        ],
-        [
-            'text' => 'Roles',
-            'route'  => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-        ],
+
         ['header' => 'PRODUCTOS'],
 
         [
             'text' => 'Productos',
             'route'  => 'admin.products.index',
             'icon'        => 'fas fa-fw fa-tshirt',
+            'can' => 'admin.products.index'
         ],
         [
             'text' => 'Categorias',
-            'route'  => 'admin.categories.index',
-            'icon'        => 'fab fa-fw fa-buffer',
+            'route' => 'admin.categories.index',
+            'icon'  => 'fab fa-fw fa-buffer',
+            'can' => 'admin.categories.index'
         ],
 
         [
@@ -266,11 +259,13 @@ return [
                             'text'    => 'Color',
                             'icon'    => 'fas fa-fw fa-swatchbook',
                             'route'     => 'admin.colors.index',
+                            'can' => 'admin.colors.index'
                         ],
                         [
                             'text'    => 'Talla',
                             'icon'    => 'fas fa-fw fa-ruler-vertical',
                             'route'     => 'admin.sizes.index',
+                            'can' => 'admin.sizes.index'
                         ],
                     ],
                 ],
@@ -278,12 +273,26 @@ return [
                     'text' => 'Asignar variantes a producto',
                     'icon'    => 'fas fa-fw fa-arrows-alt-h',
                     'route'  => 'admin.variants.index',
+                    'can' => 'admin.variants.index'
                 ],
 
             ],
         ],
 
-
+        ['header' => 'ADMINISTRACION DE USUARIOS',
+        'can' => 'admin.users.index'],
+        [
+            'text' => 'Usuarios',
+            'route'  => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'can' => 'admin.users.index'
+        ],
+        [
+            'text' => 'Roles',
+            'route'  => 'admin.roles.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            'can' => 'admin.roles.index'
+        ],
 
         ['header' => 'account_settings'],
         [

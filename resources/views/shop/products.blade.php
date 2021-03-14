@@ -55,7 +55,7 @@
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
                                 {{-- <span class="badge badge-danger"> DESCUENTO </span> --}}
-                                <img src="{{ Storage::url($product->image->url) }}" />
+                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
                             </div>
                             <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
