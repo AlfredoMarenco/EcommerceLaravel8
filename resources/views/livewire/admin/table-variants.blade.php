@@ -1,6 +1,8 @@
 <div>
+    <div class="d-flex flex-row justify-content-between">
+        <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de productos">
+    </div>
     @if ($products->count())
-
         <div class="d-flex flex-row-reverse justify-content-between my-3">
             <div>
                 {{ $products->links() }}
@@ -33,8 +35,8 @@
                             </td>
                             <td>{{ $product->name }}</td>
                             <td class="d-flex justify-content-center">
-                                <a href="{{ route('admin.variants.edit', $product) }}"
-                                    class="btn btn-secondary btn-md mx-1">Crear variacione</a>
+                                <a href="{{ route('admin.variants.create', $product) }}"
+                                    class="btn btn-secondary btn-md mx-1">Crear variacion</a>
                             </td>
                         </tr>
                     @endforeach

@@ -226,7 +226,7 @@ return [
     'menu' => [
         [
             'text' => 'Dashboard',
-            'route'  => 'admin.home',
+            'route' => 'admin.home',
             'icon' => 'fas fa-fw fa-home',
             'can' => 'admin.home'
         ],
@@ -236,7 +236,7 @@ return [
         [
             'text' => 'Productos',
             'route'  => 'admin.products.index',
-            'icon'        => 'fas fa-fw fa-tshirt',
+            'icon' => 'fas fa-fw fa-tshirt',
             'can' => 'admin.products.index'
         ],
         [
@@ -247,50 +247,58 @@ return [
         ],
 
         [
-            'text'    => 'Variantes de producto',
-            'icon'    => 'fas fa-fw fa-sitemap',
+            'text' => 'Variantes de producto',
+            'icon' => 'fas fa-fw fa-sitemap',
             'submenu' => [
                 [
                     'text' => 'Tipos de variantes',
-                    'icon'    => 'fas fa-fw fa-grip-lines',
+                    'icon' => 'fas fa-fw fa-grip-lines',
                     'url'  => '#',
                     'submenu' => [
                         [
-                            'text'    => 'Color',
-                            'icon'    => 'fas fa-fw fa-swatchbook',
-                            'route'     => 'admin.colors.index',
+                            'text' => 'Color',
+                            'icon' => 'fas fa-fw fa-swatchbook',
+                            'route' => 'admin.colors.index',
                             'can' => 'admin.colors.index'
                         ],
                         [
                             'text'    => 'Talla',
                             'icon'    => 'fas fa-fw fa-ruler-vertical',
-                            'route'     => 'admin.sizes.index',
+                            'route'   => 'admin.sizes.index',
+                            'can' => 'admin.sizes.index'
+                        ],
+                        [
+                            'text'    => 'Asignacion de variantes',
+                            'icon'    => 'fas fa-fw fa-code-branch',
+                            'route'   => 'admin.variants.index',
                             'can' => 'admin.sizes.index'
                         ],
                     ],
                 ],
                 [
                     'text' => 'Asignar variantes a producto',
-                    'icon'    => 'fas fa-fw fa-arrows-alt-h',
-                    'route'  => 'admin.variants.index',
+                    'icon' => 'fas fa-fw fa-arrows-alt-h',
+                    'route' => 'admin.variants.index',
                     'can' => 'admin.variants.index'
                 ],
 
             ],
         ],
 
-        ['header' => 'ADMINISTRACION DE USUARIOS',
-        'can' => 'admin.users.index'],
+        [
+            'header' => 'ADMINISTRACION DE USUARIOS',
+            'can' => 'admin.users.index'
+        ],
         [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
+            'icon'  => 'fas fa-fw fa-users',
             'can' => 'admin.users.index'
         ],
         [
             'text' => 'Roles',
             'route'  => 'admin.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
+            'icon'  => 'fas fa-fw fa-users-cog',
             'can' => 'admin.roles.index'
         ],
 

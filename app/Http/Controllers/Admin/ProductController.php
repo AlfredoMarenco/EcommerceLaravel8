@@ -68,7 +68,7 @@ class ProductController extends Controller
         if ($request->category_id) {
             $product->categories()->attach($request->category_id);
         }
-        return redirect()->route('admin.products.edit', $product)->withSuccess('Task Created Successfully!');
+        return redirect()->route('admin.products.edit', $product)->withSuccess('Producto creado con éxito!');
     }
 
 
@@ -124,10 +124,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $response = Alert::question('Eliminar producto', 'Estas seguro que deseas eliminar este producto?');
-
         $product->delete();
-        dd($response);
+        /* dd($response); */
         return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
     }
 }

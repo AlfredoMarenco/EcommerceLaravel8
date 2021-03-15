@@ -85,10 +85,12 @@
                                 </div>
                                 <!-- rating-wrap.// -->
                                 <hr />
-                                {!! Form::open(['route' => ['cart.addItem',$product]]) !!}
+                                {{-- {!! Form::open(['route' => ['cart.addItem',$product]]) !!}
                                 {!! Form::hidden('qty', 1) !!}
                                 {!! Form::submit('Agregar al Carrito', ['class' => 'btn btn-dark']) !!}
-                                {!! Form::close() !!}
+                                {!! Form::close() !!} --}}
+                                <a href="{{ route('shop.product', $product) }}"
+                                    class="btn btn-block btn-dark">Ver detalles del producto</a>
                             </figcaption>
                         </figure>
                     </div>

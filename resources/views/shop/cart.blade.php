@@ -33,6 +33,7 @@
                             </thead>
                             <tbody>
                                 @foreach (Cart::content() as $product)
+                                    {{-- {{ dd($product) }} --}}
                                     <tr>
                                         <td>
                                             <figure class="itemside">
@@ -41,7 +42,7 @@
                                                         class="img-sm"></div>
                                                 <figcaption class="info">
                                                     <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                    <p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci</p>
+                                                    <p class="text-muted small">Size: {{ $product->options->size }}, Color: {{ $product->options->color }}</p>
                                                 </figcaption>
                                             </figure>
                                         </td>

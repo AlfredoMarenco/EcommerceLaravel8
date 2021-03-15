@@ -40,8 +40,8 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
-        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
+        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -743,7 +743,9 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Controllers\\Admin\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HomeController.php',
         'App\\Http\\Controllers\\Admin\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrderController.php',
         'App\\Http\\Controllers\\Admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductController.php',
+        'App\\Http\\Controllers\\Admin\\RolController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RolController.php',
         'App\\Http\\Controllers\\Admin\\SizeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SizeController.php',
+        'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Admin\\VariantController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/VariantController.php',
         'App\\Http\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/CartController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -760,6 +762,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Livewire\\Admin\\TableColors' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableColors.php',
         'App\\Http\\Livewire\\Admin\\TableProducts' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableProducts.php',
         'App\\Http\\Livewire\\Admin\\TableSizes' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableSizes.php',
+        'App\\Http\\Livewire\\Admin\\TableUsers' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableUsers.php',
         'App\\Http\\Livewire\\Admin\\TableVariants' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableVariants.php',
         'App\\Http\\Livewire\\CountItemsToCart' => __DIR__ . '/../..' . '/app/Http/Livewire/CountItemsToCart.php',
         'App\\Http\\Livewire\\PaymentsForms' => __DIR__ . '/../..' . '/app/Http/Livewire/PaymentsForms.php',
@@ -778,6 +781,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Color' => __DIR__ . '/../..' . '/app/Models/Color.php',
         'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
+        'App\\Models\\Coupon' => __DIR__ . '/../..' . '/app/Models/Coupon.php',
         'App\\Models\\Image' => __DIR__ . '/../..' . '/app/Models/Image.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',

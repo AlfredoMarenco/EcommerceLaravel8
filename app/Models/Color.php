@@ -11,6 +11,6 @@ class Color extends Model
     protected $guarded = ['id'];
     //Relacion muchos a muchos
     public function products(){
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withTimestamps();
     }
 }

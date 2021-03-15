@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Color;
+use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Http\Request;
 
 class VariantController extends Controller
@@ -22,9 +25,11 @@ class VariantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
-        //
+        $colors = Color::all();
+        $sizes = Size::all();
+        return view('admin.variants.create',compact('colors','sizes','product'));
     }
 
     /**
@@ -33,9 +38,12 @@ class VariantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
-        //
+        $product->colors()->sync($request->colors);
+        $product->sizes()->sync($request->sizes);
+        
+        return redirect()->route('admin.variants.create',$product);
     }
 
     /**

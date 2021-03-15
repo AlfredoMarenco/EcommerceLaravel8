@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex flex-row justify-content-between">
-        <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de categorias">
+        <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de talla">
         <a class="btn btn-info" href="{{ route('admin.sizes.create') }}"><i class="fas fa-fw fa-boxes"> </i>
             Agregar talla</a>
     </div>
