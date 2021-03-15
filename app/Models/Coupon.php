@@ -12,4 +12,9 @@ class Coupon extends Model
     const ACTIVO = 1;
     const AMOUNT = 'AMONUT';
     const PERCENTAGE = 'PERCENTAGE';
+
+    //Relacion uno a uno inversa
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
 }

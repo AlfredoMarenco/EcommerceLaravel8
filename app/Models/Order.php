@@ -10,7 +10,12 @@ class Order extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    
+
+    //Relacion uno a uno
+    public function coupon(){
+        return $this->hasOne(Coupon::class);
+    }
+
     //Relacion muchos a muchos
     public function products()
     {
