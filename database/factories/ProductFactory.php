@@ -25,6 +25,7 @@ class ProductFactory extends Factory
             'name' => 'Product'.$this->faker->randomNumber(),
             'SKU' => $this->faker->ean13(),
             'price' => $this->faker->randomFloat(2,50,1000),
+            'discount' => $this->faker->randomFloat(2,50,1000),
             'stock' => $this->faker->randomNumber(),
             'description' => $this->faker->paragraph()
         ];
