@@ -67,6 +67,8 @@ class PaymentController extends Controller
                     'order_id'=> $order->id,
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
+                    'color' => $product->options->color,
+                    'size' => $product->options->size,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                     ]
@@ -84,9 +86,9 @@ class PaymentController extends Controller
             $chargeData = [
                 'method' => 'card',
                 'source_id' => $request->token_id,
-                'amount' => (int)str_replace(',', '', Cart::total()),
+                'amount' => (float)str_replace(',', '', Cart::total()),
                 'description' => config('app.name').'-'.$order->id,
-                'order_id' => $order->id,
+                'order_id' => config('app.name').'-'.$order->id,
                 'device_session_id' => $request->deviceIdHiddenFieldName,
                 'redirect_url' => config('app.url').'/checkout/directChargeOpenpay/responsepayment',
                 'use_3d_secure' => 'true',
