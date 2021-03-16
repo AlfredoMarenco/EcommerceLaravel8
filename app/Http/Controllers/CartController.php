@@ -143,15 +143,30 @@ class CartController extends Controller
     {
         //return $request->all();
         $product = Product::find($product);
-        Cart::add([
-            'id' => $product->id,
-            'name' => $product->name,
-            'qty' => $request->qty,
-            'price' => $product->price,
-            'weight' =>  0,
-            'options' => ['size' => $request->size, 'color' => $request->color],
-        ])->associate('App\Models\Product');
-        toast('Agregado al carrito', 'success');
+
+        if ($product->discount) {
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => $request->qty,
+                'price' => $product->discount,
+                'weight' =>  0,
+                'options' => ['size' => $request->size, 'color' => $request->color],
+            ])->associate('App\Models\Product');
+            toast('Agregado al carrito', 'success');
+        } else {
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => $request->qty,
+                'price' => $product->price,
+                'weight' =>  0,
+                'options' => ['size' => $request->size, 'color' => $request->color],
+            ])->associate('App\Models\Product');
+            toast('Agregado al carrito', 'success');
+        }
+
+
         //Alert::success('Success Title', 'Articulo agregado al carrito');
         return back();
     }
