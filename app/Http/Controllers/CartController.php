@@ -64,6 +64,11 @@ class CartController extends Controller
         $preference->items = array($item);
         $preference->payer = $payer;
         $preference->save();
+
+
+/*         $discount = session()->get('coupon')['discount'];
+        $newSubtotal = (Cart::subtotal()-$discount);
+        $newTotal = $newSubtotal; */
         return view('shop.cart', compact('preference'));
     }
 

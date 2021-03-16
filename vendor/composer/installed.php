@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '5882b25723d61d874260e1d263a220402babeb56',
+    'reference' => '5e8404481965cb87bc5486b8bb3f2f9bf1ad462f',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -96,6 +96,15 @@
       array (
         0 => '*',
       ),
+    ),
+    'diglactic/laravel-breadcrumbs' => 
+    array (
+      'pretty_version' => 'v6.1.0',
+      'version' => '6.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '027178500b57295290d9930f113f81df1a7188cb',
     ),
     'dnoegel/php-xdg-base-dir' => 
     array (
@@ -620,12 +629,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '5882b25723d61d874260e1d263a220402babeb56',
+      'reference' => '5e8404481965cb87bc5486b8bb3f2f9bf1ad462f',
     ),
     'laravel/sail' => 
     array (

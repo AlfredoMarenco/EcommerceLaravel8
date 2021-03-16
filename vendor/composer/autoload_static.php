@@ -42,6 +42,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
+        '4685a782a350d8adca31fdd859751b86' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/deprecated.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -200,6 +201,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+            'Diglactic\\Breadcrumbs\\' => 22,
             'DeepCopy\\' => 9,
             'DebugBar\\' => 9,
             'Database\\Seeders\\' => 17,
@@ -644,6 +646,10 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
             3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
+        'Diglactic\\Breadcrumbs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -1062,6 +1068,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'Database\\Factories\\ProductFactory' => __DIR__ . '/../..' . '/database/factories/ProductFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\CategorySeeder' => __DIR__ . '/../..' . '/database/seeders/CategorySeeder.php',
+        'Database\\Seeders\\CouponSeeder' => __DIR__ . '/../..' . '/database/seeders/CouponSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\ProductSeeder' => __DIR__ . '/../..' . '/database/seeders/ProductSeeder.php',
         'Database\\Seeders\\RolSeeder' => __DIR__ . '/../..' . '/database/seeders/RolSeeder.php',
@@ -1141,6 +1148,15 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
         'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
+        'Diglactic\\Breadcrumbs\\Breadcrumbs' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Breadcrumbs.php',
+        'Diglactic\\Breadcrumbs\\Exceptions\\BaseException' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Exceptions/BaseException.php',
+        'Diglactic\\Breadcrumbs\\Exceptions\\DuplicateBreadcrumbException' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Exceptions/DuplicateBreadcrumbException.php',
+        'Diglactic\\Breadcrumbs\\Exceptions\\InvalidBreadcrumbException' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Exceptions/InvalidBreadcrumbException.php',
+        'Diglactic\\Breadcrumbs\\Exceptions\\UnnamedRouteException' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Exceptions/UnnamedRouteException.php',
+        'Diglactic\\Breadcrumbs\\Exceptions\\ViewNotSetException' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Exceptions/ViewNotSetException.php',
+        'Diglactic\\Breadcrumbs\\Generator' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Generator.php',
+        'Diglactic\\Breadcrumbs\\Manager' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/Manager.php',
+        'Diglactic\\Breadcrumbs\\ServiceProvider' => __DIR__ . '/..' . '/diglactic/laravel-breadcrumbs/src/ServiceProvider.php',
         'Doctrine\\Common\\Annotations\\Annotation' => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation.php',
         'Doctrine\\Common\\Annotations\\AnnotationException' => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php',
         'Doctrine\\Common\\Annotations\\AnnotationReader' => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php',

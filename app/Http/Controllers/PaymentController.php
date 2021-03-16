@@ -30,12 +30,14 @@ class PaymentController extends Controller
         if (Cart::count() <= 0) {
             return redirect('/');
         } else {
-            return view('landing.checkout');
+            return view('shop.checkout');
         }
     }
 
     public function directChargeOpenPay(Request $request)
     {
+        /* return config('app.url'); */
+        /* return $request->all(); */
         try {
             $user = auth()->user();
             $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
@@ -83,10 +85,10 @@ class PaymentController extends Controller
                 'method' => 'card',
                 'source_id' => $request->token_id,
                 'amount' => (int)str_replace(',', '', Cart::total()),
-                'description' => env('APP_NAME').'-'.$order->id,
+                'description' => config('app.name').'-'.$order->id,
                 'order_id' => $order->id,
                 'device_session_id' => $request->deviceIdHiddenFieldName,
-                'redirect_url' => env('APP_URL').'/checkout/directChargeOpenpay/responsepayment',
+                'redirect_url' => config('app.url').'/checkout/directChargeOpenpay/responsepayment',
                 'use_3d_secure' => 'true',
                 'customer' => $customer
             ];
@@ -113,7 +115,7 @@ class PaymentController extends Controller
             case 'completed':
                 $orderUpdate->status = 'completed';
                 $orderUpdate->save();
-                return redirect('/user/profile');
+                return redirect()->route('user.profile');
                 break;
             case 'charge_pending':
                 break;
