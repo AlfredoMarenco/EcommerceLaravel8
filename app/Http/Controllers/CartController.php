@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use MercadoPago\Item;
 use MercadoPago\Payer;
 use MercadoPago\Preference;
@@ -20,98 +21,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        SDK::setAccessToken(config('mercadopago.access_token'));
-        $preference = new Preference();
-
-        /* # Create an item object
-        $item = new Item();
-        $item->id = '20';
-        $item->title = 'hola';
-        $item->quantity = 1;
-        $item->currency_id = 'MXN';
-        $item->unit_price = 20;
-        # Create a payer object
-        $payer = new Payer();
-        $payer->email = 'email@email.com';
-        # Setting preference properties
-        $preference->items = array($item);
-        $preference->payer = $payer;
-        # Save External Reference
-        $preference->external_reference = '20';
-        $preference->back_urls = [
-            "success" => route('shop.home'),
-            "pending" => route('shop.home'),
-            "failure" => route('shop.home'),
-        ];
-
-        $preference->auto_return = "all";
-        $preference->notification_url = route('shop.home');
-        # Save and POST preference
-        //dd($preference);
-        $preference->save(); */
-
-        // Crea un objeto de preferencia
-        $preference = new Preference();
-
-        // Crea un ítem en la preferencia
-        $item = new Item();
-        $item->title = 'Mi producto';
-        $item->quantity = 1;
-        $item->unit_price = 75.56;
-        # Create a payer object
-        $payer = new Payer();
-        $payer->email = 'email@email.com';
-        $preference->items = array($item);
-        $preference->payer = $payer;
-        $preference->save();
-
-
-/*         $discount = session()->get('coupon')['discount'];
-        $newSubtotal = (Cart::subtotal()-$discount);
-        $newTotal = $newSubtotal; */
-        return view('shop.cart', compact('preference'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return view('shop.cart');
     }
 
     /**
@@ -148,7 +58,6 @@ class CartController extends Controller
     {
         //return $request->all();
         $product = Product::find($product);
-
         if ($product->discount) {
             Cart::add([
                 'id' => $product->id,
@@ -170,14 +79,12 @@ class CartController extends Controller
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
         }
-
-
-        //Alert::success('Success Title', 'Articulo agregado al carrito');
         return back();
     }
 
     public function remove($rowId)
     {
+
         Cart::remove($rowId);
 
         return back();

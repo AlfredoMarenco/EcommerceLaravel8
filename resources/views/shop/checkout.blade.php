@@ -24,18 +24,12 @@
 
                 <div class="row">
                     <main class="col-md-8">
-                        <div class="card p-3">
+                        <div class="card p-5">
                             <form action="{{ route('checkout.chargeOpenpay') }}" method="POST" role="form"
                                 id="payment-form">
                                 @csrf
                                 <input type="hidden" name="token_id" id="token_id">
                                 <input type="hidden" name="use_card_points" id="use_card_points" value="false">
-                                <div class="form-group">
-                                    <label for="username">Name on card</label>
-                                    <input type="text" class="form-control" name="username"
-                                        placeholder="Ejemplo. John Smith" autocomplete="off"
-                                        data-openpay-card="holder_name">
-                                </div>
                                 {{-- Start Adress Shipping --}}
                                 <div class="row">
                                     <div class="form-group col-3">
@@ -43,11 +37,15 @@
                                         <input type="text" class="form-control" name="street">
                                     </div>
                                     <div class="form-group col-3">
+                                        <label for="crosses">Number</label>
+                                        <input type="text" class="form-control" name="number">
+                                    </div>
+                                    <div class="form-group col-3">
                                         <label for="crosses">Crosses</label>
                                         <input type="text" class="form-control" name="crosses">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="suburb">uburb</label>
+                                        <label for="suburb">Suburb</label>
                                         <input type="text" class="form-control" name="suburb">
                                     </div>
                                     <div class="form-group col-3">
@@ -62,13 +60,19 @@
                                         <label for="postal_code">Postal Code</label>
                                         <input type="text" class="form-control" name="postal_code">
                                     </div>
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-12">
                                         <label for="reference">Reference</label>
                                         <input type="text" class="form-control" name="reference">
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
                                 <!-- form-group.// -->
+                                <div class="form-group">
+                                    <label for="username">Name on card</label>
+                                    <input type="text" class="form-control" name="username"
+                                        placeholder="Ejemplo. John Smith" autocomplete="off"
+                                        data-openpay-card="holder_name">
+                                </div>
                                 <div class="form-group">
                                     <label for="cardNumber">Card number</label>
                                     <div class="input-group">
@@ -234,39 +238,4 @@
     <!-- ========================= SECTION CONTENT END// ========================= -->
 
 
-@endsection
-
-
-@section('js')
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            OpenPay.setId('muv34p7t7jqezwhjs17d');
-            OpenPay.setApiKey('pk_c271d8eb7d184499b65a93ac224b1c06');
-            OpenPay.setSandboxMode(false);
-            //Se genera el id de dispositivo
-            var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
-            //console.log(deviceSessionId);
-
-            $('#pay-button').on('click', function(event) {
-                event.preventDefault();
-                $("#pay-button").prop("disabled", true);
-                OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
-            });
-
-            var sucess_callbak = function(response) {
-                var token_id = response.data.id;
-                $('#token_id').val(token_id);
-                $('#payment-form').submit();
-            };
-
-            var error_callbak = function(response) {
-                var desc = response.data.description != undefined ? response.data.description : response
-                    .message;
-                alert("ERROR [" + response.status + "] " + desc);
-                $("#pay-button").prop("disabled", false);
-            };
-        });
-
-    </script>
 @endsection

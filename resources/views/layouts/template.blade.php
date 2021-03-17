@@ -116,7 +116,7 @@
                                     <form class="text-center" method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                    this.closest('form').submit();">
+                                                                        this.closest('form').submit();">
                                             Log out
                                         </a>
                                     </form>
@@ -138,7 +138,7 @@
                                     <div class="d-flex justify-content-around align-items-center text-truncate">
                                         {{-- <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
                                              alt=""> --}}
-                                            <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif>
+                                        <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif>
                                         <p class="row">
                                             <b class="col-12">{{ $product->name }}</b>
                                             <small class="col-12">
@@ -206,6 +206,38 @@
 
     @yield('js')
     @include('sweetalert::alert')
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            OpenPay.setId('m4gx48zqyw8xs4en1z1u');
+            OpenPay.setApiKey('pk_de55d471af484c4080a63e7463fc9cd4');
+            OpenPay.setSandboxMode(true);
+            //Se genera el id de dispositivo
+            var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+            //console.log(deviceSessionId);
+
+            $('#pay-button').on('click', function(event) {
+                event.preventDefault();
+                $("#pay-button").prop("disabled", true);
+                OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
+            });
+
+            var sucess_callbak = function(response) {
+                var token_id = response.data.id;
+                $('#token_id').val(token_id);
+                $('#payment-form').submit();
+            };
+
+            var error_callbak = function(response) {
+                var desc = response.data.description != undefined ? response.data.description : response
+                    .message;
+                alert("ERROR [" + response.status + "] " + desc);
+                $("#pay-button").prop("disabled", false);
+            };
+        });
+
+    </script>
 </body>
 
 </html>

@@ -5,11 +5,11 @@
     <section class="py-4">
         <div class="container">
             <!-- <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Category name</a></li>
-                        <li class="breadcrumb-item"><a href="#">Sub category</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Items</li>
-                        </ol> -->
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Category name</a></li>
+                            <li class="breadcrumb-item"><a href="#">Sub category</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Items</li>
+                            </ol> -->
         </div>
     </section>
     <!-- ========================= SECTION CONTENT ========================= -->
@@ -57,7 +57,9 @@
 
                         <div class="mb-3">
                             @if ($product->discount)
-                                <var class="price h4">{{ $product->presentPriceDiscount() }}</var>
+                                <var class="price h4 text-danger">Antes: <strike>{{ $product->presentPrice() }}
+                                    </strike></var> / <var class="price h4">Ahora:
+                                    {{ $product->presentPriceDiscount() }}</var>
                             @else
                                 <var class="price h4">{{ $product->presentPrice() }}</var>
                             @endif
@@ -112,72 +114,72 @@
                         {!! $product->description !!}
                     </p>
                     <!-- <ul class="list-check">
-                                        <li>Material: Stainless steel</li>
-                                        <li>Weight: 82kg</li>
-                                        <li>built-in drip tray</li>
-                                        <li>Open base for pots and pans</li>
-                                        <li>On request available in propane execution</li>
-                                        </ul>
+                                            <li>Material: Stainless steel</li>
+                                            <li>Weight: 82kg</li>
+                                            <li>built-in drip tray</li>
+                                            <li>Open base for pots and pans</li>
+                                            <li>On request available in propane execution</li>
+                                            </ul>
 
-                                        <h5 class="title-description">Specifications</h5>
-                                        <table class="table table-bordered">
-                                        <tr>
-                                            <th colspan="2">Basic specs</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Type of energy</td>
-                                            <td>Lava stone</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Number of zones</td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Automatic connection </td>
-                                            <td> <i class="fa fa-check text-success"></i> Yes </td>
-                                        </tr>
+                                            <h5 class="title-description">Specifications</h5>
+                                            <table class="table table-bordered">
+                                            <tr>
+                                                <th colspan="2">Basic specs</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Type of energy</td>
+                                                <td>Lava stone</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Number of zones</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Automatic connection </td>
+                                                <td> <i class="fa fa-check text-success"></i> Yes </td>
+                                            </tr>
 
-                                        <tr>
-                                            <th colspan="2">Dimensions</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Width</td>
-                                            <td>500mm</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Depth</td>
-                                            <td>400mm</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Height </td>
-                                            <td>700mm</td>
-                                        </tr>
+                                            <tr>
+                                                <th colspan="2">Dimensions</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Width</td>
+                                                <td>500mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Depth</td>
+                                                <td>400mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Height </td>
+                                                <td>700mm</td>
+                                            </tr>
 
-                                        <tr>
-                                            <th colspan="2">Materials</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Exterior</td>
-                                            <td>Stainless steel</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Interior</td>
-                                            <td>Iron</td>
-                                        </tr>
+                                            <tr>
+                                                <th colspan="2">Materials</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Exterior</td>
+                                                <td>Stainless steel</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Interior</td>
+                                                <td>Iron</td>
+                                            </tr>
 
-                                        <tr>
-                                            <th colspan="2">Connections</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Heating Type</td>
-                                            <td>Gas</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Connected load gas</td>
-                                            <td>15 Kw</td>
-                                        </tr>
+                                            <tr>
+                                                <th colspan="2">Connections</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Heating Type</td>
+                                                <td>Gas</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Connected load gas</td>
+                                                <td>15 Kw</td>
+                                            </tr>
 
-                                            </table> -->
+                                                </table> -->
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\UserController;
@@ -20,5 +21,6 @@ Route::resource('products', ProductController::class)->except('show')->names('ad
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 Route::resource('colors', ColorController::class)->except('show')->names('admin.colors');
 Route::resource('sizes', SizeController::class)->except('show')->names('admin.sizes');
+Route::resource('orders', OrderController::class)->names('admin.orders');
 /* Route::resource('variants', VariantController::class)->except('show')->names('admin.variants');
  */

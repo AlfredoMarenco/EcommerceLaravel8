@@ -230,9 +230,13 @@ return [
             'icon' => 'fas fa-fw fa-home',
             'can' => 'admin.home'
         ],
-
+        [
+            'text' => 'Orden',
+            'route' => 'admin.orders.index',
+            'icon' => 'fas fa-fw fa-receipt',
+            'can' => 'admin.home'
+        ],
         ['header' => 'PRODUCTOS'],
-
         [
             'text' => 'Productos',
             'route'  => 'admin.products.index',
@@ -245,7 +249,6 @@ return [
             'icon'  => 'fab fa-fw fa-buffer',
             'can' => 'admin.categories.index'
         ],
-
         [
             'text' => 'Variantes de producto',
             'icon' => 'fas fa-fw fa-sitemap',
