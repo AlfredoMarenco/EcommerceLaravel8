@@ -16,11 +16,11 @@ class CreateCouponsTable extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->text('code');
+            $table->string('code')->unique();
+            $table->string('type');
+            $table->integer('value')->nullable();
+            $table->integer('percent_off')->nullable();
             $table->enum('status',[Coupon::ACTIVO,Coupon::DESACTIVADO])->default(Coupon::ACTIVO);
-            $table->enum('type',[Coupon::AMOUNT,Coupon::PERCENTAGE])->default(Coupon::AMOUNT);
-            $table->double('limit');
             $table->timestamps();
         });
     }

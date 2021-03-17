@@ -61,12 +61,21 @@
                             <figcaption class="info-wrap">
                                 <a href="{{ route('shop.product', $product) }}"
                                     class="title mb-2">{{ $product->name }}</a>
-                                <div class="price-wrap">
-                                    <strike><span class="price">Antes: {{ $product->presentPrice() }}</span></strike>
-                                    <span class="price"> / </span>
-                                    <span class="price" style="color: green;">Ahora: {{ $product->presentPrice() }}</span>
-                                    {{-- <small class="text-muted">/Cada una</small> --}}
-                                </div>
+                                @if ($product->discount)
+                                    <div class="price-wrap">
+                                        <strike><span class="price">Antes: {{ $product->presentPrice() }}</span></strike>
+                                        <span class="price"> / </span>
+                                        <span class="price" style="color: green;">Ahora:
+                                            {{ $product->presentPriceDiscount() }}</span>
+                                        {{-- <small class="text-muted">/Cada una</small> --}}
+                                    </div>
+                                @else
+                                    <div class="price-wrap">
+                                        <span class="price">Precio:
+                                            {{ $product->presentPrice() }}</span>
+                                        {{-- <small class="text-muted">/Cada una</small> --}}
+                                    </div>
+                                @endif
                                 <!-- price-wrap.// -->
                                 <div class="rating-wrap mb-2">
                                     <ul class="rating-stars">
@@ -89,8 +98,8 @@
                                 {!! Form::hidden('qty', 1) !!}
                                 {!! Form::submit('Agregar al Carrito', ['class' => 'btn btn-dark']) !!}
                                 {!! Form::close() !!} --}}
-                                <a href="{{ route('shop.product', $product) }}"
-                                    class="btn btn-block btn-dark">Ver detalles del producto</a>
+                                <a href="{{ route('shop.product', $product) }}" class="btn btn-block btn-dark">Ver
+                                    detalles del producto</a>
                             </figcaption>
                         </figure>
                     </div>

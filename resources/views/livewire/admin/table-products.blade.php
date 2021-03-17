@@ -28,6 +28,7 @@
                         <th scope="col">Preview</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Precio descuento</th>
                         <th scope="col">Existencia</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -40,6 +41,11 @@
                             </td>
                             <td>{{ $product->name }}</td>
                             <td>${{ number_format($product->price, 2) }} </td>
+                            @if ($product->discount)
+                                <td>${{ number_format($product->discount, 2) }} </td>
+                            @else
+                                <td>Sin descuento</td>
+                            @endif
                             <td>{{ number_format($product->stock) }}</td>
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('admin.products.edit', $product) }}"

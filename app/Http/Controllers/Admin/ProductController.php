@@ -30,8 +30,13 @@ class ProductController extends Controller
         if (Cache::has('products')) {
             $products = Cache::get('products');
         } else {
+<<<<<<< HEAD
              $products = Product::paginate(15);
             Cache::put('products', $products); 
+=======
+            $products = Product::paginate(15);
+            Cache::put('products', $products);
+>>>>>>> bd62e7bcf2b3e17d037bd77187b3314440438236
         }
         return view('admin.products.index', compact('products'));
     }

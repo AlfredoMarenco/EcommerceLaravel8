@@ -11,6 +11,7 @@
         "php": "^7.3|^8.0",
         "bumbummen99/shoppingcart": "^3.2",
         "conekta/conekta-php": "^4.3",
+        "diglactic/laravel-breadcrumbs": "^6.1",
         "doctrine/inflector": "1.4.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
