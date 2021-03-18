@@ -65,7 +65,7 @@ Route::get('/create/webhook', function () {
 });
 
 Route::get('/webhook', function () {
-    return 'hola';
+    return response()->json(202);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
