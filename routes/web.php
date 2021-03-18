@@ -45,7 +45,7 @@ Route::prefix('checkout')->group(function () {
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
 
-Route::post('/create/webhook', function () {
+Route::any('/create/webhook', function () {
     $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
     $webhook = array(
         'url' => 'https://ecommerce.testvandu.com/webhook',
@@ -64,7 +64,7 @@ Route::post('/create/webhook', function () {
     return $webhook;
 });
 
-Route::post('/webhook', function () {
+Route::any('/webhook', function () {
     return response()->json(200);
 });
 
