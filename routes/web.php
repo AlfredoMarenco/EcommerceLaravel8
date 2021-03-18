@@ -64,7 +64,7 @@ Route::get('/create/webhook', function () {
     return $webhook;
 });
 
-Route::get('/webhook', function () {
+Route::post('/webhook', function () {
     return response()->json(202);
 });
 
