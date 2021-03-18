@@ -20,7 +20,7 @@ Route::any('/webhook', function () {
     return $respuesta;
 });
 
-Route::post('/create/webhook', function () {
+Route::any('/create/webhook', function () {
     $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
     $webhook = array(
         'url' => 'https://ecommerce.testvandu.com/webhook/',
