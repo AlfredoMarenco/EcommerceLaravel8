@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::any('/mywebhook', function () {
     $content    =   file_get_contents("php://input");
     $respuesta  =   json_encode($content);
-    Log::info($respuesta);
+    echo $respuesta;
     return response()->json(200);
 });
 
