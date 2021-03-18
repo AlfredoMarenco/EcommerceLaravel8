@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('/webhook', function (Request $request) {
-    return $request;
-    return response()->json(200);
+Route::post('/webhook', function () {
+    $content    =   file_get_contents("php://input");
+    $respuesta  =   json_decode($content);
+
+    return $respuesta;
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
