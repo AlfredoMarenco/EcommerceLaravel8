@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any('/mywebhook', function (Request $request) {
-    echo $request->all();
-
     return response()->json(200);
 });
 
@@ -29,13 +27,13 @@ Route::any('/create/webhook', function () {
         'user' => 'marenco',
         'password' => 'marencos6359:D',
         'event_types' => array(
-          'charge.refunded',
-          'charge.failed',
-          'charge.cancelled',
-          'charge.created',
-          'chargeback.accepted'
+            'charge.refunded',
+            'charge.failed',
+            'charge.cancelled',
+            'charge.created',
+            'chargeback.accepted'
         )
-        );
+    );
     $webhook = $openpay->webhooks->add($webhook);
 });
 
