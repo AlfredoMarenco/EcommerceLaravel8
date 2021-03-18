@@ -31,10 +31,17 @@
                                     <strong class="text-warning">
                                         {{ $order->status }}
                                     </strong>
-                                        @break
-                                    @case('')
-
-                                        @break
+                                    @break
+                                    @case('charge_pending')
+                                    <strong class="text-dark">
+                                        {{ $order->status }}
+                                    </strong>
+                                    @break
+                                    @case('completed')
+                                    <strong class="text-success">
+                                        {{ $order->status }}
+                                    </strong>
+                                    @break
                                     @default
 
                                 @endswitch

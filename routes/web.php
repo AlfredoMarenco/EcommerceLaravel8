@@ -45,8 +45,24 @@ Route::prefix('checkout')->group(function () {
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
 
-Route::post('/coupon' , [CouponController::class,'store'])->name('coupon.store');
-Route::delete('/coupon' , [CouponController::class,'destroy'])->name('coupon.destroy');
+Route::get('/create/webhook', function () {
+    $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
+    $webhook = array(
+        'url' => 'http://ecommerce.testvandu.com/openpay/webhook',
+        'user' => 'juanito',
+        'password' => 'passjuanito',
+        'event_types' => array(
+          'charge.refunded',
+          'charge.failed',
+          'charge.cancelled',
+          'charge.created',
+          'chargeback.accepted'
+        )
+        );
+    $webhook = $openpay->webhooks->add($webhook);
+
+    return $webhook;
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
