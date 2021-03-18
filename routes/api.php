@@ -23,7 +23,7 @@ Route::any('/mywebhook', function () {
 Route::any('/create/webhook', function () {
     $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
     $webhook = array(
-        'url' => 'https://ecommerce.testvandu.com/mywebhook/',
+        'url' => 'https://ecommerce.testvandu.com/api/mywebhook/',
         'user' => 'marenco',
         'password' => 'marencos6359:D',
         'event_types' => array(
