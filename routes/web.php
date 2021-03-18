@@ -64,7 +64,7 @@ Route::get('/create/webhook', function () {
     return $webhook;
 });
 
-Route::post('/webhook', function () {
+Route::get('/webhook', function () {
     return 'hola';
 });
 
