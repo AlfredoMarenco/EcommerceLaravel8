@@ -48,9 +48,9 @@ Route::prefix('checkout')->group(function () {
 Route::get('/create/webhook', function () {
     $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
     $webhook = array(
-        'url' => 'https://ecommerce.testvandu.com/openpay/webhook',
-        'user' => 'juanito',
-        'password' => 'passjuanito',
+        'url' => 'https://ecommerce.testvandu.com/webhook',
+        'user' => 'marenco',
+        'password' => 'marencos6359:D',
         'event_types' => array(
           'charge.refunded',
           'charge.failed',
