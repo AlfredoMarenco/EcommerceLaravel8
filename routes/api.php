@@ -20,7 +20,7 @@ Route::any('/mywebhook', function () {
     $content    =   file_get_contents("php://input");
     $respuesta  =   json_decode($content);
     Log::info($respuesta);
-    return response()->json($respuesta,200);
+    return response()->json(200);
 });
 
 Route::any('/create/webhook', function () {
