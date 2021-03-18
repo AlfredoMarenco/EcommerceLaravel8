@@ -13,7 +13,5 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'stripe/*',
-        'https://ecommerce.testvandu.com/create/webhook/',
-        'https://ecommerce.testvandu.com/webhook/'
     ];
 }
