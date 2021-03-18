@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/mywebhook', function () {
+Route::any('/mywebhook', function () {
     return response()->json(200);
 });
 
