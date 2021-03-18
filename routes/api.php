@@ -37,8 +37,6 @@ Route::any('/create/webhook', function () {
         )
         );
     $webhook = $openpay->webhooks->add($webhook);
-
-    return $webhook;
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
