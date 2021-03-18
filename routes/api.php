@@ -17,13 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any('/mywebhook', function () {
-    $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-
-    $d  = var_export($_POST, true);
-    fwrite($myfile, $d);
-
-    fclose($myfile);
-    return response()->json(200);
+    $json = json_decode(file_get_contents('php://input'),true);
+    return response()->json($json,200);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
