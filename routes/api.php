@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any('/mywebhook', function () {
-    $content    =   file_get_contents("php://input");
-    $respuesta  =   json_decode($content);
-    return $respuesta;
+    return response()->json(200);
 });
 
 Route::any('/create/webhook', function () {
