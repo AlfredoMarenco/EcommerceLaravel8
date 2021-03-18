@@ -64,9 +64,7 @@ Route::get('/create/webhook', function () {
     return $webhook;
 });
 
-Route::post('/webhook', function () {
-    return response()->json(202);
-});
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
