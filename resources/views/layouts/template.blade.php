@@ -48,10 +48,10 @@
                         <a class="nav-link active" aria-current="page" href="/">Inicio</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products') }}">Hombre</a>
+                        <a class="nav-link" href="{{ route('shop.products.hombre') }}">Hombre</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products') }}">Mujer</a>
+                        <a class="nav-link" href="{{ route('shop.products.mujer') }}">Mujer</a>
                     </li>
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products') }}" tabindex="-1"
@@ -61,7 +61,7 @@
                         <a class="nav-link" href="blog.html" tabindex="-1" aria-disabled="true">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ofertas</a>
+                        <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true">Ofertas</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">

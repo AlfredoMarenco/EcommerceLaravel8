@@ -14,20 +14,35 @@ class ShopController extends Controller
         return view('shop.index', compact('products'));
     }
 
-    public function showProducts($category_id = null)
+    public function showProducts($var =  null)
     {
-        if ($category_id == null) {
-            $products = Product::where('stock','>',0)->latest('id')->paginate(15);
-            return view('shop.products', compact('products'));
-        } else {
-            $products = Category::where('name',$category_id);
-            dd($products);
-            return view('shop.products', compact('products'));
+        switch ($var) {
+            case null:
+                $products = Product::where('stock', '>', 0)->inRandomOrder()->paginate(15);
+                return view('shop.products', compact('products'));
+                break;
+
+            case 'discounts':
+                $products = Product::where('stock', '>', 0)->where('discount', '>', 0)->latest('id')->paginate(15);
+                return view('shop.products', compact('products'));
+                break;
+            case 'hombre':
+                $products = Category::with('products')->where('name', 'Hombre')->get();
+                return view('shop.men', compact('products'));
+                break;
+            case 'mujer':
+                $products = Category::with('products')->where('name', 'Mujer')->get();
+        return view('shop.women', compact('products'));
+                break;
+
+            default:
+                # code...
+                break;
         }
     }
 
     public function showProduct(Product $product)
     {
-        return view('shop.product',compact('product'));
+        return view('shop.product', compact('product'));
     }
 }
