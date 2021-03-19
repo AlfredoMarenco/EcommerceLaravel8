@@ -51,7 +51,11 @@ Route::prefix('blog')->group(function () {
     Route::get('/', function(){
         return view('blog.index');
     });
-    
+});
+Route::prefix('post')->group(function () { 
+    Route::get('/', function(){
+        return view('blog.post');
+    });
 });
 
 Route::get('/create/webhook', function () {
