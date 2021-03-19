@@ -19,26 +19,26 @@
           <div>
             <h2>COMO CREAR TU ARMARIO MINIMALISTA</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestias ipsam neque quis ab esse deserunt tenetur! Architecto magnam incidunt, dolores beatae quidem accusantium eos officia quod pariatur dolor harum provident magni in explicabo iste quisquam. Totam sequi saepe nesciunt. magni in explicabo iste quisquam. Totam sequi saepe nesciunt. 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestias ipsam neque quis ab esse deserunt tenetur! Architecto magnam incidunt, dolores beatae quidem accusantium eos officia quod pariatur dolor harum provident magni in explicabo iste quisquam. Totam sequi saepe nesciunt. magni in explicabo iste quisquam. Totam sequi saepe nesciunt.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestias ipsam neque quis ab esse deserunt tenetur! Architecto magnam incidunt, dolores beatae quidem accusantium eos officia quod pariatur dolor harum provident magni in explicabo iste quisquam. Totam sequi saepe nesciunt. magni in explicabo iste quisquam. Totam sequi saepe nesciunt. <br> <br>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestias ipsam neque quis ab esse deserunt tenetur! Architecto magnam incidunt, dolores beatae quidem accusantium eos officia quod pariatur dolor harum provident magni in explicabo iste quisquam. Totam sequi saepe nesciunt. magni in explicabo iste quisquam. Totam sequi saepe nesciunt. <br>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestias ipsam neque quis ab esse deserunt tenetur! Architecto magnam incidunt, dolores beatae quidem accusantium eos officia quod pariatur dolor harum provident magni in explicabo iste quisquam. Totam sequi saepe nesciunt. magni in explicabo iste quisquam. Totam sequi saepe nesciunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestias ipsam neque quis ab esse deserunt tenetur! Architecto magnam incidunt, dolores beatae quidem accusantium eos officia quod pariatur dolor harum provident magni in explicabo iste quisquam. Totam sequi saepe nesciunt. magni in explicabo iste quisquam. Totam sequi saepe nesciunt. <br>
             </p>
           </div>
-          
+
           <div>
             <h3><i class="fas fa-share"></i> Comparte este post</h3>
             <div class="share-links"><a href="https://www.facebook.com/sharer.php?u=https://renealonso.com/significado-de-moda/" target="_blank" rel="nofollow" data-tooltip="" data-placement="bottom" title="" class="share-facebook" data-original-title="Facebook"><i class="fab fa-facebook-square"></i></a>
                <a href="https://twitter.com/intent/tweet?text=SIGNIFICADO+DE+MODA&amp;url=https://renealonso.com/significado-de-moda/" target="_blank" rel="nofollow" data-tooltip="" data-placement="bottom" title="" class="share-twitter" data-original-title="Twitter"> <i class="fab fa-twitter-square"></i></a>
-               
+
            </div>
         </div>
 
 
-         
+
         </div>  <!--no borres este-->
-        
-        
+
+
       </div>
 
       <div class="col-3 " id="catego">

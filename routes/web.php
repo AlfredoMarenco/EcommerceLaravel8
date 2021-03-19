@@ -24,8 +24,8 @@ Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('
 Route::get('/products/{var?}', [ShopController::class, 'showProducts'])->name('shop.products');
 
 Route::prefix('/user')->group(function () {
-    Route::get('/profile',[UserController::class,'index'])->name('user.profile');
-    Route::get('/orders',[UserController::class,'showOrders'])->name('user.orders');
+    Route::get('/profile', [UserController::class, 'index'])->name('user.profile');
+    Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
 });
 
 //Rutas del carrito de compras
@@ -41,17 +41,19 @@ Route::prefix('/cartshop')->group(function () {
 Route::prefix('checkout')->group(function () {
     Route::get('/', [PaymentController::class, 'index'])->name('checkout.index');
     Route::post('/directChargeOpenpay', [PaymentController::class, 'directChargeOpenPay'])->name('checkout.chargeOpenpay');
-    Route::get('/directChargeOpenpay/responsepayment/',[PaymentController::class,'validateChargeOpenPay']);
+    Route::get('/directChargeOpenpay/responsepayment/', [PaymentController::class, 'validateChargeOpenPay']);
     Route::post('/directChargeConekta', [PaymentController::class, 'directChargeConekta'])->name('checkout.chargeConekta');
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
 
 // Rutas del blog
-Route::prefix('blog')->group(function () { 
-    Route::get('/', function(){
+Route::prefix('blog')->group(function () {
+    Route::get('/', function () {
         return view('blog.index');
     });
-    
+    Route::get('/', function () {
+        return view('blog.post');
+    });
 });
 
 Route::get('/create/webhook', function () {
@@ -61,13 +63,13 @@ Route::get('/create/webhook', function () {
         'user' => 'marenco',
         'password' => 'marencos6359:D',
         'event_types' => array(
-          'charge.refunded',
-          'charge.failed',
-          'charge.cancelled',
-          'charge.created',
-          'chargeback.accepted'
+            'charge.refunded',
+            'charge.failed',
+            'charge.cancelled',
+            'charge.created',
+            'chargeback.accepted'
         )
-        );
+    );
     $webhook = $openpay->webhooks->add($webhook);
 
     return $webhook;
