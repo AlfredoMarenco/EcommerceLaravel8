@@ -22,11 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ShopController::class, 'index'])->name('shop.home');
 Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
 Route::get('/products/{var?}', [ShopController::class, 'showProducts'])->name('shop.products');
-Route::get('/products/hombre', [ShopController::class, 'showProductsMen'])->name('shop.products.hombre');
-Route::get('/products/mujer', [ShopController::class, 'showProductsWomen'])->name('shop.products.mujer');
 
 Route::prefix('/user')->group(function () {
     Route::get('/profile',[UserController::class,'index'])->name('user.profile');
+    Route::get('/orders',[UserController::class,'showOrders'])->name('user.orders');
 });
 
 //Rutas del carrito de compras
