@@ -24,8 +24,9 @@ Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('
 Route::get('/products/{var?}', [ShopController::class, 'showProducts'])->name('shop.products');
 
 Route::prefix('/user')->group(function () {
-    Route::get('/profile',[UserController::class,'index'])->name('user.profile');
-    Route::get('/orders',[UserController::class,'showOrders'])->name('user.orders');
+    Route::get('/profile', [UserController::class, 'index'])->name('user.profile');
+    Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
+    Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
 });
 
 //Rutas del carrito de compras
@@ -41,7 +42,7 @@ Route::prefix('/cartshop')->group(function () {
 Route::prefix('checkout')->group(function () {
     Route::get('/', [PaymentController::class, 'index'])->name('checkout.index');
     Route::post('/directChargeOpenpay', [PaymentController::class, 'directChargeOpenPay'])->name('checkout.chargeOpenpay');
-    Route::get('/directChargeOpenpay/responsepayment/',[PaymentController::class,'validateChargeOpenPay']);
+    Route::get('/directChargeOpenpay/responsepayment/', [PaymentController::class, 'validateChargeOpenPay']);
     Route::post('/directChargeConekta', [PaymentController::class, 'directChargeConekta'])->name('checkout.chargeConekta');
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
@@ -50,6 +51,9 @@ Route::prefix('checkout')->group(function () {
 Route::prefix('blog')->group(function () {
     Route::get('/', function(){
         return view('blog.index');
+    });
+    Route::get('/post', function () {
+        return view('blog.post');
     });
 });
 

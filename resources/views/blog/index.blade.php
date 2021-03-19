@@ -28,7 +28,7 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui molestiae voluptatem distinctio,
               accusamus, sequi officiis quis laborum harum optio repellat velit, nam dolor! Accusantium magni deleniti
               accusamus. Veniam ipsa deleniti eos incidunt, sapiente iure odit id mollitia ullam obcaecati nam.</p>
-            <a href="/post.html" class="btn btn-dark">Leer más</a>
+            <a href="./post" class="btn btn-dark">Leer más</a>
             <hr>
           </div>
         </div>
@@ -46,7 +46,7 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui molestiae voluptatem distinctio,
               accusamus, sequi officiis quis laborum harum optio repellat velit, nam dolor! Accusantium magni deleniti
               accusamus. Veniam ipsa deleniti eos incidunt, sapiente iure odit id mollitia ullam obcaecati nam.</p>
-            <a href="/post.html" class="btn btn-dark">Leer más</a>
+            <a href="./post" class="btn btn-dark">Leer más</a>
             <hr>
           </div>
         </div>
@@ -64,7 +64,7 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui molestiae voluptatem distinctio,
               accusamus, sequi officiis quis laborum harum optio repellat velit, nam dolor! Accusantium magni deleniti
               accusamus. Veniam ipsa deleniti eos incidunt, sapiente iure odit id mollitia ullam obcaecati nam.</p>
-            <a href="/post.html" class="btn btn-dark">Leer más</a>
+            <a href="./post" class="btn btn-dark">Leer más</a>
             <hr>
           </div>
         </div>

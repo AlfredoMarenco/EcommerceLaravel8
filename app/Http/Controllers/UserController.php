@@ -10,7 +10,6 @@ class UserController extends Controller
 {
     public function index()
     {
-
         $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->get();
         return view('shop.user.profile', compact('orders'));
     }
@@ -20,5 +19,12 @@ class UserController extends Controller
     {
         $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->get();
         return view('shop.user.orders', compact('orders'));
+    }
+
+
+    public function edit(){
+        $user = auth()->user();
+        return view('shop.user.settings',compact('user'));
+
     }
 }
