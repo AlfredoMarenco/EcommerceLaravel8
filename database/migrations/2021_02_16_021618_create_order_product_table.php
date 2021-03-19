@@ -19,6 +19,7 @@ class CreateOrderProductTable extends Migration
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quanty');
+            $table->float('price');
             $table->text('color')->nullable();
             $table->text('size')->nullable();
 

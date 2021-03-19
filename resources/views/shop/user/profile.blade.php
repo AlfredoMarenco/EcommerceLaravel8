@@ -4,7 +4,7 @@
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content padding-y pt-5">
         <div class="container">
-            <div class="row">
+            <div class="row mt-5">
                 @include('shop.user.nav-profile')
                 <main class="col-md-9">
 
@@ -21,15 +21,6 @@
                                 </div>
                             </figure>
                             <hr>
-                            <p>
-                                <i class="fa fa-map-marker text-muted"></i> &nbsp; My address:
-                                <br>
-                                Tashkent city, Street name, Building 123, House 321 &nbsp
-                                <a href="#" class="btn-link"> Edit</a>
-                            </p>
-
-
-
                             <article class="card-group card-stat">
                                 <figure class="card bg">
                                     <div class="p-3">
@@ -37,7 +28,7 @@
                                         <span>Orders</span>
                                     </div>
                                 </figure>
-                                <figure class="card bg">
+{{--                                 <figure class="card bg">
                                     <div class="p-3">
                                         <h4 class="title">5</h4>
                                         <span>Wishlists</span>
@@ -54,7 +45,7 @@
                                         <h4 class="title">50</h4>
                                         <span>Delivered items</span>
                                     </div>
-                                </figure>
+                                </figure> --}}
                             </article>
 
 
@@ -69,7 +60,6 @@
                                     <div class="col-md-6">
                                         <figure class="itemside  mb-3">
                                             @foreach ($order->products as $product)
-
                                             <div class="aside"><img src="{{ Storage::url($product->image->url) }}" class="border img-sm"></div>
                                             @endforeach
                                             <figcaption class="info">
@@ -89,7 +79,7 @@
                                 <!-- col.// -->
                             </div> <!-- row.// -->
 
-                            <a href="#" class="btn btn-outline-primary btn-block"> See all orders <i
+                            <a href="{{ route('user.orders') }}" class="btn btn-outline-primary btn-block"> See all orders <i
                                     class="fa fa-chevron-down"></i> </a>
                         </div> <!-- card-body .// -->
                     </article> <!-- card.// -->

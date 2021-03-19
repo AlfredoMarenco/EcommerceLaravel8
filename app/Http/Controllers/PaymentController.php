@@ -59,7 +59,7 @@ class PaymentController extends Controller
         $order = Order::create([
             'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
             'id_gateway' => null,
-            'status' => 'process',
+            'status' => 'charge_pending',
             'user_id' => $user->id,
             'shipping_address_id' => $shipping_address->id,
         ]);
@@ -110,7 +110,7 @@ class PaymentController extends Controller
         ];
 
         $charge = $openpay->charges->create($chargeData);
-        
+
         $url3D = $charge->serializableData["payment_method"]->url;
         Cart::destroy();
         return redirect($url3D);

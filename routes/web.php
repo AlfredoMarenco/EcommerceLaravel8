@@ -21,10 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ShopController::class, 'index'])->name('shop.home');
 Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
-Route::get('/products/{category_id?}', [ShopController::class, 'showProducts'])->name('shop.products');
+Route::get('/products/{var?}', [ShopController::class, 'showProducts'])->name('shop.products');
 
 Route::prefix('/user')->group(function () {
     Route::get('/profile',[UserController::class,'index'])->name('user.profile');
+    Route::get('/orders',[UserController::class,'showOrders'])->name('user.orders');
 });
 
 //Rutas del carrito de compras
@@ -45,8 +46,28 @@ Route::prefix('checkout')->group(function () {
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
 
-Route::post('/coupon' , [CouponController::class,'store'])->name('coupon.store');
-Route::delete('/coupon' , [CouponController::class,'destroy'])->name('coupon.destroy');
+Route::get('/create/webhook', function () {
+    $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
+    $webhook = array(
+        'url' => 'https://ecommerce.testvandu.com/webhook',
+        'user' => 'marenco',
+        'password' => 'marencos6359:D',
+        'event_types' => array(
+          'charge.refunded',
+          'charge.failed',
+          'charge.cancelled',
+          'charge.created',
+          'chargeback.accepted'
+        )
+        );
+    $webhook = $openpay->webhooks->add($webhook);
+
+    return $webhook;
+});
+
+Route::post('/webhook', function () {
+    return response()->json(200);
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');

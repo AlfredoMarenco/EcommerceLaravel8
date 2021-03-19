@@ -34,7 +34,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('shop.home') }}">
                 <img src="{{ asset('template/images/rene/logo-nav.png') }}" alt="" width="auto" height="34"
                     class="d-inline-block align-top" />
             </a>
@@ -45,13 +45,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ms-2">
-                        <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('shop.home') }}">Inicio</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products') }}">Hombre</a>
+                        <a class="nav-link" href="{{ route('shop.products','hombre') }}">Hombre</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products') }}">Mujer</a>
+                        <a class="nav-link" href="{{ route('shop.products','mujer') }}">Mujer</a>
                     </li>
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products') }}" tabindex="-1"
@@ -61,7 +61,7 @@
                         <a class="nav-link" href="blog.html" tabindex="-1" aria-disabled="true">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ofertas</a>
+                        <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true">Ofertas</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">
@@ -111,7 +111,7 @@
                             <div class="dropdown-menu dropdown-menu-right mr-3" aria-labelledby="navbarDropdown"
                                 style="min-width: 15rem;">
                                 <div class="px-3 py-2">
-                                    <a class="btn btn-link btn-block" href="/cart.html">Perfil</a>
+                                    <a class="btn btn-link btn-block" href="{{ route('user.profile') }}">Perfil</a>
 
                                     <form class="text-center" method="POST" action="{{ route('logout') }}">
                                         @csrf
