@@ -46,6 +46,13 @@ Route::prefix('checkout')->group(function () {
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
 
+// Rutas del blog
+Route::prefix('blog')->group(function () { 
+    Route::get('/', function(){
+        return view('blog.index');
+    });
+});
+
 Route::get('/create/webhook', function () {
     $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
     $webhook = array(

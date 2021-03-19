@@ -17,7 +17,7 @@
                                 <div class="text">
                                     <strong> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </strong> <br>
                                     <p class="mb-2"> {{ Auth::user()->email }} </p>
-                                    <a href="#" class="btn btn-light btn-sm">Edit</a>
+                                    
                                 </div>
                             </figure>
                             <hr>
@@ -25,7 +25,7 @@
                                 <figure class="card bg">
                                     <div class="p-3">
                                         <h4 class="title">{{ $orders->count() }}</h4>
-                                        <span>Orders</span>
+                                        <span>Órdenes</span>
                                     </div>
                                 </figure>
 {{--                                 <figure class="card bg">
@@ -53,7 +53,7 @@
                     </article> <!-- card.// -->
                     <article class="card  mb-3">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">Recent orders </h5>
+                            <h5 class="card-title mb-4">Órdenes recientes </h5>
 
                             <div class="row">
                                 @foreach ($orders as $order)
@@ -71,7 +71,7 @@
                                                     </p>
                                                 @endforeach
                                                 <p>$ {{ number_format($order->amount, 2) }}</p>
-                                                <span class="text-success">Order {{ $order->status }} </span>
+                                                <span class="text-success">Orden {{ $order->status }} </span>
                                             </figcaption>
                                         </figure>
                                     </div>
@@ -79,7 +79,7 @@
                                 <!-- col.// -->
                             </div> <!-- row.// -->
 
-                            <a href="{{ route('user.orders') }}" class="btn btn-outline-primary btn-block"> See all orders <i
+                            <a href="{{ route('user.orders') }}" class="btn btn-outline-primary btn-block"> Ver todas las órdenes <i
                                     class="fa fa-chevron-down"></i> </a>
                         </div> <!-- card-body .// -->
                     </article> <!-- card.// -->
