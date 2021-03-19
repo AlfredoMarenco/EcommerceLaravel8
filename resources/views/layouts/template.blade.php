@@ -58,7 +58,7 @@
                             aria-disabled="true">Tienda</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="blog.html" tabindex="-1" aria-disabled="true">Blog</a>
+                        <a class="nav-link" href="blog" tabindex="-1" aria-disabled="true">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true">Ofertas</a>

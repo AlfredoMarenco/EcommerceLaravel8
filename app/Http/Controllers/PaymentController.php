@@ -71,10 +71,9 @@ class PaymentController extends Controller
                     'order_id' => $order->id,
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
+                    'price' => $product->price,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
                 ]
             ]);
         }

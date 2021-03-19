@@ -47,33 +47,10 @@ Route::prefix('checkout')->group(function () {
 });
 
 // Rutas del blog
-Route::prefix('blog')->group(function () { 
+Route::prefix('blog')->group(function () {
     Route::get('/', function(){
         return view('blog.index');
     });
-});
-
-Route::get('/create/webhook', function () {
-    $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
-    $webhook = array(
-        'url' => 'https://ecommerce.testvandu.com/webhook',
-        'user' => 'marenco',
-        'password' => 'marencos6359:D',
-        'event_types' => array(
-          'charge.refunded',
-          'charge.failed',
-          'charge.cancelled',
-          'charge.created',
-          'chargeback.accepted'
-        )
-        );
-    $webhook = $openpay->webhooks->add($webhook);
-
-    return $webhook;
-});
-
-Route::post('/webhook', function () {
-    return response()->json(200);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
