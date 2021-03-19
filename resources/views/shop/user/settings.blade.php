@@ -32,29 +32,28 @@
                                             <input type="text" class="form-control" value="{{ $user->phone }}">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->
-                                    <button class="btn btn-dark">Save</button>
-
+                                    <button class="btn btn-light btn-block">Actualizar datos</button>
                                 </div> <!-- col.// -->
                             </form>
 
-                            <form method="POST" action="{{ route('password.update') }}">
+                            <form method="POST" action="{{ route('user.update.password') }}">
                                 @csrf
-                                <div class="col-md-9">
+                                <div class="col-md-9 mt-5">
                                     <div class="form-row">
                                         <div class="col form-group col-12">
                                             <label>Current Password</label>
-                                            <input type="password" class="form-control">
+                                            <input type="password" name="current_password" class="form-control">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
                                             <label>New Password</label>
-                                            <input type="password" class="form-control">
+                                            <input type="password" name="password" class="form-control">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
                                             <label>Confirm Password</label>
-                                            <input type="password" class="form-control">
+                                            <input type="password" name="password_confirmation" class="form-control">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->
-                                    <button class="btn btn-light">Change password</button>
+                                    <button class="btn btn-dark btn-block">Change password</button>
                                 </div>
                             </form>
                         </div> <!-- card-body.// -->

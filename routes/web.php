@@ -27,6 +27,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/profile', [UserController::class, 'index'])->name('user.profile');
     Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
     Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
+    Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
 });
 
 //Rutas del carrito de compras
