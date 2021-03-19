@@ -494,11 +494,15 @@ footer h2 {
 
 /* BLOG STYLES */
 
-@media (max-width: 762px) {
+::-webkit-scrollbar {
+  display: none;
+}
+
+/** @media (max-width: 762px) {
   #catego {
     display: none;
   }
-}
+}**/
 .breadcrumb {
   margin-top: 100px;
   margin-bottom: 20px;
@@ -537,8 +541,12 @@ footer h2 {
   text-decoration: none;
 }
 
+/**
+
+
+
 .recientes {
-  padding-top: 155px;
+  
   border: 5px !important;
   align-content: right;
 }
@@ -551,7 +559,8 @@ footer h2 {
   padding-top: 10px;
 }
 
-.recientes li {
+ **/
+ li {
   list-style: none;
 }
 
