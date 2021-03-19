@@ -42,7 +42,7 @@
                                         @foreach ($order->products as $product)
                                             <tr>
                                                 <td width="65">
-                                                    <img src="{{ Storage::url($product->image->url) }}" class="img-xs border">
+                                                    <img src="{{ Storage::url($product->image->url) }}" class="img-md border">
                                                 </td>
                                                 <td>
                                                     <p class="title mb-0">{{ $product->name }}</p>
