@@ -50,13 +50,8 @@ Route::prefix('checkout')->group(function () {
 });
 
 // Rutas del blog
-
-
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
-    Route::get('/post', function () {
-        return view('blog.post');
-    });
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
