@@ -16,7 +16,8 @@
             <div class="col-9" style="OVERFLOW: auto;  HEIGHT: 600px;">
                 @foreach ($posts as $post)
                     <div class="row">
-                        <img src="{{ Storage::url($post->image->url) }}" class="w-100 img-fluid" alt="">
+                        <!--1140x445-->
+                        <img src="{{ Storage::url($post->image->url) }}" width="1140px" height="445px" alt="">
                         <div class="col-2 col-md-2 col-sm-12 c-entrada">
                             <h2>12</h2>
                             <p class="bg-dark ">Marzo</p>

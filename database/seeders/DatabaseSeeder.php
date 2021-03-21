@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::deleteDirectory('productos');
         Storage::makeDirectory('productos');
 
         $this->call(RolSeeder::class);
