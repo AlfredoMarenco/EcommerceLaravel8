@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ShopController;
@@ -49,10 +50,10 @@ Route::prefix('checkout')->group(function () {
 });
 
 // Rutas del blog
+
+
 Route::prefix('blog')->group(function () {
-    Route::get('/', function(){
-        return view('blog.index');
-    });
+    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/post', function () {
         return view('blog.post');
     });

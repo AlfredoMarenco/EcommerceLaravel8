@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Image;
-use App\Models\Product;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
 
-class ProductSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,12 +15,12 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $products = Product::factory(30)->create();
+        $posts = Post::factory(30)->create();
 
-        foreach ($products as $product) {
+        foreach ($posts as $post) {
             Image::factory(1)->create([
-                'imageable_id' => $product->id,
-                'imageable_type' => 'App\Models\Product'
+                'imageable_id' => $post->id,
+                'imageable_type' => Post::class
             ]);
         }
     }

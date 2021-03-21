@@ -25,4 +25,21 @@ class Post extends Model
     {
         return $this->belongsToMany(Comment::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    //Relacion uno a muchos polimorfica
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+    
+    //Relacion uno a muchos polimorfica
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
