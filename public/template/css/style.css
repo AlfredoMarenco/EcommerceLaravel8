@@ -542,17 +542,10 @@ footer h2 {
 }
 
 /**
-
-
-
 .recientes {
   
   border: 5px !important;
   align-content: right;
-}
-
-.recientes-1 {
-  padding-top: 20px;
 }
 
 .recientes-1 h5 {
@@ -560,6 +553,10 @@ footer h2 {
 }
 
  **/
+ .titular-post, .comparte-este {
+  padding-top: 20px;
+}
+
  li {
   list-style: none;
 }
