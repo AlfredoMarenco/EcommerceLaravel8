@@ -85,6 +85,7 @@
                         </article> <!-- card order-item .// -->
 
                     @endforeach
+                    {{ $orders->links() }}
                 </main> <!-- col.// -->
             </div>
 

@@ -85,7 +85,7 @@ class PaymentController extends Controller
             'email' => $user->email,
             'requires_account' => false,
             'address' =>  [
-                'line1' => $request->street. " ". $request->number,
+                'line1' => $request->street . " " . $request->number,
                 'line2' => $request->suburb,
                 'line3' => $request->crosses,
                 'state' => $request->state,
@@ -140,6 +140,7 @@ class PaymentController extends Controller
                 break;
         }
     }
+
 
     public function directChargeConekta(Request $request)
     {

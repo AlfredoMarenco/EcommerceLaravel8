@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Openpay;
 
 class OrderController extends Controller
 {
@@ -16,7 +17,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::paginate(10);
-        return view('admin.orders.index',compact('orders'));
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -46,9 +47,13 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
+        $charge = $openpay->charges->get($order->id_gateway);
+        $card = $charge->card->serializableData;
+        /*       */
+        return view('admin.orders.show', compact('order', 'card'));
     }
 
     /**
@@ -80,8 +85,14 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_gateway)
     {
-        //
+        $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
+
+        $refundData = array('description' => 'Reembolso');
+        $charge = $openpay->charges->get($id_gateway);
+        $response = $charge->refund($refundData);
+
+        dd($response);
     }
 }

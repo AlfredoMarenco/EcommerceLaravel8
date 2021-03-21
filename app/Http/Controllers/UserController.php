@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function showOrders()
     {
-        $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->get();
+        $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->paginate(5);
         return view('shop.user.orders', compact('orders'));
     }
 
