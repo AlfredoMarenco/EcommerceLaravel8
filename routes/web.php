@@ -129,11 +129,11 @@ Route::post('/reset-password', function (Request $request) {
 })->middleware('guest')->name('password.update');
 
 
-Route::get('/auth/redirect/{drive}', function ($drive) {
+Route::get('login/auth/redirect/{drive}', function ($drive) {
     return Socialite::driver($drive)->redirect();
 })->name('login.drive');
 
-Route::get('/auth/callback/{drive}', function ($drive) {
+Route::get('login/auth/callback/{drive}', function ($drive) {
     $user = Socialite::driver($drive)->user();
     dd($user);
     /* return $user->token; */
