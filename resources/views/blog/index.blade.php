@@ -31,7 +31,7 @@
                                 <span class="badge badge-dark">{{ $tag->name }}</span>
                             @endforeach
 
-                            <div class="text-dark mt-1">
+                            <div class="text-dark mt-1 text-justify">
                                 {!! $post->extract !!}
                             </div >
                             <div class="d-flex justify-content-start mt-4">

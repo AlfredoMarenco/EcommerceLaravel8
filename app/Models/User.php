@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,7 +14,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Laravel\Cashier\Billable;
 
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -22,6 +24,8 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use Billable;
     use HasRoles;
+    use Notifiable;
+    use CanResetPassword;
 
 
     /**

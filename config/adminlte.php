@@ -234,9 +234,10 @@ return [
             'text' => 'Orden',
             'route' => 'admin.orders.index',
             'icon' => 'fas fa-fw fa-receipt',
-            'can' => 'admin.home'
+            'can' => 'admin.orders.index'
         ],
-        ['header' => 'PRODUCTOS'],
+        ['header' => 'PRODUCTOS',
+        'can' => 'admin.products.index'],
         [
             'text' => 'Productos',
             'route'  => 'admin.products.index',
@@ -252,6 +253,7 @@ return [
         [
             'text' => 'Variantes de producto',
             'icon' => 'fas fa-fw fa-sitemap',
+            'can' => 'admin.variants.index',
             'submenu' => [
                 [
                     'text' => 'Tipos de variantes',
@@ -287,17 +289,19 @@ return [
 
             ],
         ],
-        ['header' => 'BLOG'],
+        ['header' => 'BLOG',
+        'can' => 'admin.posts.index'],
         [
             'text' => 'Post',
             'route'  => 'admin.posts.index',
             'icon' => 'fab fa-fw fa-blogger-b',
-            'can' => 'admin.products.index'
+            'can' => 'admin.posts.index'
         ],
         [
             'text' => 'Tags',
             'route'  => 'admin.tags.index',
-            'icon' => 'fas fa-fw fa-tags'
+            'icon' => 'fas fa-fw fa-tags',
+            'can' => 'admin.tags.index'
         ],
 
         [
@@ -317,7 +321,7 @@ return [
             'can' => 'admin.roles.index'
         ],
 
-        ['header' => 'account_settings'],
+/*         ['header' => 'account_settings'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -327,7 +331,7 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
+        ], */
         // [
         //     'text'    => 'multilevel',
         //     'icon'    => 'fas fa-fw fa-share',

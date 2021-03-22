@@ -19,7 +19,7 @@
                     <img class="img-fluid" @if ($post->image) src="{{ Storage::url($post->image->url) }}" @else src="http://ximg.es/1140x445/000/fff" @endif width="1140px" height="445px">
                     <div class="col-md-12">
                         <h2 class="titular-post">{{ $post->title }}</h2>
-                        <div class="text-dark">
+                        <div class="text-dark text-justify">
                             {!! $post->body !!}
                         </div>
                     </div>
