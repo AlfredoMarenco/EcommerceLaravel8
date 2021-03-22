@@ -532,10 +532,10 @@ footer h2 {
   padding-top: 20px;
 }
 
-.t-entrada p {
-  color: #ebebeb;
+/* .t-entrada p {
+  color: #000;
   text-align: justify;
-}
+} */
 
 .t-entrada a {
   text-decoration: none;
@@ -543,7 +543,7 @@ footer h2 {
 
 /**
 .recientes {
-  
+
   border: 5px !important;
   align-content: right;
 }

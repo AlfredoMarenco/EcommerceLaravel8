@@ -12,7 +12,7 @@ class Post extends Model
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
-
+    protected $guarded = ['id'];
 
     //Relacion uno a muchos inversa
     public function users()
@@ -36,7 +36,7 @@ class Post extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
-    
+
     //Relacion uno a muchos polimorfica
     public function image()
     {

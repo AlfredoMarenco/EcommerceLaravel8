@@ -9,6 +9,8 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     //Relacion muchos a muchos
     public function posts()
     {

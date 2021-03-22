@@ -287,6 +287,18 @@ return [
 
             ],
         ],
+        ['header' => 'BLOG'],
+        [
+            'text' => 'Post',
+            'route'  => 'admin.posts.index',
+            'icon' => 'fab fa-fw fa-blogger-b',
+            'can' => 'admin.products.index'
+        ],
+        [
+            'text' => 'Tags',
+            'route'  => 'admin.tags.index',
+            'icon' => 'fas fa-fw fa-tags'
+        ],
 
         [
             'header' => 'ADMINISTRACION DE USUARIOS',
