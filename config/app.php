@@ -165,6 +165,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        ArielMejiaDev\LarapexCharts\LarapexChartsServiceProvider::class,
 
 
         /*
@@ -237,7 +238,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'LarapexChart'=> ArielMejiaDev\LarapexCharts\Facades\LarapexChart::class,
 
     ],
 
