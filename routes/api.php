@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any('/mywebhook', function () {
-    $json = file_get_contents('php://input');
-    Log::info($json);
-/*     if($json->type == 'verification'){
+    $response = file_get_contents('php://input');
+    Log::info($response);
+    if($response['type'] == 'verification'){
         Log::info('Se hizo cargo de tipo reembolso!!!!!!');
-    } */
+    }
     return response()->json(200);
 });
 
