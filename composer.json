@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "arielmejiadev/larapex-charts": "^2.1",
         "bumbummen99/shoppingcart": "^3.2",
         "conekta/conekta-php": "^4.3",
         "diglactic/laravel-breadcrumbs": "^6.1",

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -132,3 +133,4 @@ Route::post('/reset-password', function (Request $request) {
 
 Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
 Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
+

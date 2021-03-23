@@ -24,7 +24,7 @@ Route::resource('products', ProductController::class)->except('show')->names('ad
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 Route::resource('colors', ColorController::class)->except('show')->names('admin.colors');
 Route::resource('sizes', SizeController::class)->except('show')->names('admin.sizes');
-Route::resource('orders', OrderController::class)->names('admin.orders');
+Route::resource('orders', OrderController::class)->except('create','store')->names('admin.orders');
 Route::resource('post', PostController::class)->names('admin.posts');
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 

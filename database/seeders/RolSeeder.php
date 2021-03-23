@@ -181,5 +181,21 @@ class RolSeeder extends Seeder
             'name' => 'admin.posts.destroy',
             'description' => 'Eliminar posts'
         ])->syncRoles([$role1]);
+
+
+        Permission::create([
+            'name' => 'admin.orders.index',
+            'description' => 'Ver ordenes'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.orders.edit',
+            'description' => 'Editar ordenes'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.orders.destroy',
+            'description' => 'Eliminar ordenes'
+        ])->syncRoles([$role1]);
     }
 }
