@@ -85,6 +85,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Comment::class);
     }
 
+    public function socialProfiles(){
+        return $this->hasMany(SocialProfile::class);
+    }
+
     public function adminlte_image()
     {
         return 'https://picsum.photos/300/300';

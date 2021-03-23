@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
@@ -129,12 +130,5 @@ Route::post('/reset-password', function (Request $request) {
 })->middleware('guest')->name('password.update');
 
 
-Route::get('login/auth/redirect/{drive}', function ($drive) {
-    return Socialite::driver($drive)->redirect();
-})->name('login.drive');
-
-Route::get('login/auth/callback/{drive}', function ($drive) {
-    $user = Socialite::driver($drive)->user();
-    dd($user);
-    /* return $user->token; */
-});
+Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
+Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
