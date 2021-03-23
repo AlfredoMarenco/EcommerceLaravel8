@@ -22,7 +22,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::paginate(10);
+        $orders = Order::paginate(50);
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -98,7 +98,7 @@ class OrderController extends Controller
         $refundData = array('description' => 'Reembolso');
         $charge = $openpay->charges->get($id_gateway);
         $response = $charge->refund($refundData);
-
+        $response = $response->refund;
         dd($response);
     }
 }
