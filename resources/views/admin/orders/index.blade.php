@@ -37,7 +37,7 @@
                                         {{ $order->status }}
                                     </strong>
                                     @break
-                                    @case('completed')
+                                    @case('charge.succeeded')
                                     <strong class="text-success">
                                         {{ $order->status }}
                                     </strong>

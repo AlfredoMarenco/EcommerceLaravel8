@@ -57,6 +57,17 @@ class Payment
     }
 
     /**
+     * Capture a payment that is being held for the customer.
+     *
+     * @param  array  $options
+     * @return \Stripe\PaymentIntent
+     */
+    public function capture(array $options = [])
+    {
+        return $this->paymentIntent->capture($options, Cashier::stripeOptions());
+    }
+
+    /**
      * Determine if the payment needs a valid payment method.
      *
      * @return bool
@@ -77,6 +88,26 @@ class Payment
     }
 
     /**
+     * Determine if the payment needs to be confirmed.
+     *
+     * @return bool
+     */
+    public function requiresConfirmation()
+    {
+        return $this->paymentIntent->status === StripePaymentIntent::STATUS_REQUIRES_CONFIRMATION;
+    }
+
+    /**
+     * Determine if the payment needs to be captured.
+     *
+     * @return bool
+     */
+    public function requiresCapture()
+    {
+        return $this->paymentIntent->status === StripePaymentIntent::STATUS_REQUIRES_CAPTURE;
+    }
+
+    /**
      * Determine if the payment was cancelled.
      *
      * @return bool
@@ -94,6 +125,16 @@ class Payment
     public function isSucceeded()
     {
         return $this->paymentIntent->status === StripePaymentIntent::STATUS_SUCCEEDED;
+    }
+
+    /**
+     * Determine if the payment is processing.
+     *
+     * @return bool
+     */
+    public function isProcessing()
+    {
+        return $this->paymentIntent->status === StripePaymentIntent::STATUS_PROCESSING;
     }
 
     /**

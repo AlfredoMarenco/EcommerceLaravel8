@@ -11,7 +11,23 @@
                     @foreach ($orders as $order)
                         <article class="card mb-4">
                             <header class="card-header">
-                                {{-- <a href="#" class="float-right"> <i class="fa fa-print"></i> Print</a> --}}
+                                @switch($order->status)
+                                    @case('completed')
+                                    <a href="#" class="float-right text-success">
+                                        <i class="fa fa-receipt"></i>
+                                        {{ $order->status }}
+                                    </a>
+                                    @break
+                                    @case('charge_pending')
+                                    <a href="#" class="float-right text-warning">
+                                        <i class="fa fa-receipt"></i>
+                                        {{ $order->status }}
+                                    </a>
+                                    @break
+                                    @default
+
+                                @endswitch
+
                                 <strong class="d-inline-block mr-3">Order ID: {{ $order->id }}</strong>
                                 <span>Order Date: {{ $order->created_at->toDayDateTimeString() }}</span>
                             </header>
@@ -42,22 +58,25 @@
                                         @foreach ($order->products as $product)
                                             <tr>
                                                 <td width="65">
-                                                    <img src="{{ Storage::url($product->image->url) }}" class="img-xs border">
+                                                    <img src="{{ Storage::url($product->image->url) }}"
+                                                        class="img-md border">
                                                 </td>
                                                 <td>
                                                     <p class="title mb-0">{{ $product->name }}</p>
-                                                    <p class="title mb-0">Quanty:{{ $product->quanty }}</p>
-                                                    <var class="price text-muted">${{ number_format($product->price,2) }}</var>
+                                                    <p class="title mb-0">Quanty:{{ $product->pivot->quanty }}</p>
+                                                    <var
+                                                        class="price text-muted">${{ number_format($product->pivot->price, 2) }}</var>
                                                 </td>
                                                 <td>
                                                     @if ($product->color || $product->size)
-                                                    Color:
-                                                    {{ $product->color }}
-                                                    <br>
-                                                    Size: {{ $product->size }}
-                                                @else
-                                                    SKU: {{ $product->SKU }}
-                                                @endif </td>
+                                                        Color:
+                                                        {{ $product->color }}
+                                                        <br>
+                                                        Size: {{ $product->size }}
+                                                    @else
+                                                        SKU: {{ $product->SKU }}
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -66,6 +85,7 @@
                         </article> <!-- card order-item .// -->
 
                     @endforeach
+                    {{ $orders->links() }}
                 </main> <!-- col.// -->
             </div>
 

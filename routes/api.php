@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Http\Controllers\ApiController;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -16,31 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('/mywebhook', function () {
-    $json = json_decode(file_get_contents('php://input'),true);
-    Log::info($json);
-    return response()->json(200);
-});
 
-Route::any('/create/webhook', function () {
-    $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
-    $webhook = array(
-        'url' => 'https://ecommerce.testvandu.com/api/mywebhook/',
-        'user' => 'marenco',
-        'password' => 'marencos6359:D',
-        'event_types' => array(
-          'charge.refunded',
-          'charge.failed',
-          'charge.cancelled',
-          'charge.created',
-          'chargeback.accepted'
-        )
-        );
-    $webhook = $openpay->webhooks->add($webhook);
-
-    return $webhook;
-});
-
+Route::apiResource('/mywebhook',ApiController::class)->names('api.webhook');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

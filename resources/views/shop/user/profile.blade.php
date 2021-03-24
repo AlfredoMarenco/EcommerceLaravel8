@@ -12,12 +12,13 @@
                         <div class="card-body">
                             <figure class="icontext">
                                 <div class="icon">
-                                    <img class="rounded-circle img-sm border" src="{{ asset('images/avatars/avatar3.jpg') }}">
+                                    <img class="rounded-circle img-sm border"
+                                        src="{{ asset('images/avatars/avatar3.jpg') }}">
                                 </div>
                                 <div class="text">
                                     <strong> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </strong> <br>
                                     <p class="mb-2"> {{ Auth::user()->email }} </p>
-                                    
+
                                 </div>
                             </figure>
                             <hr>
@@ -28,7 +29,7 @@
                                         <span>Órdenes</span>
                                     </div>
                                 </figure>
-{{--                                 <figure class="card bg">
+                                {{-- <figure class="card bg">
                                     <div class="p-3">
                                         <h4 class="title">5</h4>
                                         <span>Wishlists</span>
@@ -47,8 +48,6 @@
                                     </div>
                                 </figure> --}}
                             </article>
-
-
                         </div> <!-- card-body .// -->
                     </article> <!-- card.// -->
                     <article class="card  mb-3">
@@ -60,7 +59,8 @@
                                     <div class="col-md-6">
                                         <figure class="itemside  mb-3">
                                             @foreach ($order->products as $product)
-                                            <div class="aside"><img src="{{ Storage::url($product->image->url) }}" class="border img-sm"></div>
+                                                <div class="aside"><img src="{{ Storage::url($product->image->url) }}"
+                                                        class="border img-sm"></div>
                                             @endforeach
                                             <figcaption class="info">
                                                 <time class="text-muted"><i class="fa fa-calendar-alt"></i>
@@ -71,7 +71,14 @@
                                                     </p>
                                                 @endforeach
                                                 <p>$ {{ number_format($order->amount, 2) }}</p>
-                                                <span class="text-success">Orden {{ $order->status }} </span>
+                                                @switch($order->status)
+                                                    @case('completed')
+                                                    <span class="text-success">Orden recibida</span>
+                                                    @break
+                                                    @case('charge_pending')
+                                                    <span class="text-warning">Cargo no autenticado</span>
+                                                    @break
+                                                @endswitch
                                             </figcaption>
                                         </figure>
                                     </div>
@@ -79,8 +86,8 @@
                                 <!-- col.// -->
                             </div> <!-- row.// -->
 
-                            <a href="{{ route('user.orders') }}" class="btn btn-outline-primary btn-block"> Ver todas las órdenes <i
-                                    class="fa fa-chevron-down"></i> </a>
+                            <a href="{{ route('user.orders') }}" class="btn btn-outline-primary btn-block"> Ver todas las
+                                órdenes <i class="fa fa-chevron-down"></i> </a>
                         </div> <!-- card-body .// -->
                     </article> <!-- card.// -->
 

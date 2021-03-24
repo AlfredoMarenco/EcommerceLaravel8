@@ -71,10 +71,9 @@ class PaymentController extends Controller
                     'order_id' => $order->id,
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
+                    'price' => $product->price,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
                 ]
             ]);
         }
@@ -86,7 +85,7 @@ class PaymentController extends Controller
             'email' => $user->email,
             'requires_account' => false,
             'address' =>  [
-                'line1' => $request->street. " ". $request->number,
+                'line1' => $request->street . " " . $request->number,
                 'line2' => $request->suburb,
                 'line3' => $request->crosses,
                 'state' => $request->state,
@@ -122,12 +121,12 @@ class PaymentController extends Controller
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $charge = $openpay->charges->get($idOrderOpenPay);
         $idOrder = $charge->serializableData["order_id"];
-        $validationCharge = $charge->status;
+        /* $validationCharge = $charge->status; */
         $orderUpdate = Order::find($idOrder);
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
         //dd($charge);
-        switch ($validationCharge) {
+/*         switch ($validationCharge) {
             case 'completed':
                 $orderUpdate->status = 'completed';
                 $orderUpdate->save();
@@ -139,8 +138,9 @@ class PaymentController extends Controller
             default:
                 return 'no se que madres paso';
                 break;
-        }
+        } */
     }
+
 
     public function directChargeConekta(Request $request)
     {

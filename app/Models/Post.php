@@ -12,7 +12,7 @@ class Post extends Model
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
-
+    protected $guarded = ['id'];
 
     //Relacion uno a muchos inversa
     public function users()
@@ -24,5 +24,22 @@ class Post extends Model
     public function comments()
     {
         return $this->belongsToMany(Comment::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    //Relacion uno a muchos polimorfica
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    //Relacion uno a muchos polimorfica
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

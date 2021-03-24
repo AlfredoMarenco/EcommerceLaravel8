@@ -20,8 +20,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->text('title');
             $table->text('slug');
-            $table->text('extract');
-            $table->longText('body');
+            $table->text('extract')->nullable();
+            $table->longText('body')->nullable();
             $table->enum('status',[Post::BORRADOR,Post::REVISION,Post::PUBLICADO])->default(Post::BORRADOR);
             $table->unsignedBigInteger('user_id');
 

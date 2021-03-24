@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
+/*     public function __construct(){
+        $this->middleware('verified');
+    } */
     public function index()
     {
         $products = Product::where('stock', '>', 0)->latest('id')->get();

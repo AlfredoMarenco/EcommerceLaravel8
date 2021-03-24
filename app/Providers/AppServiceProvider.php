@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Configuración para fechas en español
+        Carbon::setUTF8(true);
+        Carbon::setLocale(config('app.locale'));
+        setlocale(LC_ALL, 'es_MX', 'es', 'ES', 'es_MX.utf8');
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
     }
