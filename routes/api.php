@@ -24,6 +24,16 @@ Route::any('/mywebhook', function () {
     if ($type == 'verification') {
         Log::info('capturamos el valor del tipo de transaccion');
     }
+
+    switch ($type) {
+        case 'charge.refunded':
+            Log::info('Estamos detectando un reembolso');
+            break;
+
+        default:
+            # code...
+            break;
+    }
 /*     if($response['type'] == 'verification'){
         Log::info('Se hizo cargo de tipo reembolso!!!!!!');
     } */

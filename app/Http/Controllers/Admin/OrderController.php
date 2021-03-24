@@ -99,6 +99,6 @@ class OrderController extends Controller
         $charge = $openpay->charges->get($id_gateway);
         $response = $charge->refund($refundData);
         $response = $response->refund;
-        dd($response);
+        /* dd($response); */
     }
 }
