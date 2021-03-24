@@ -31,9 +31,8 @@ Route::any('/mywebhook', function () {
             $order = Order::where('id_gateway', $id_gateway)->get();
             Log::info($order);
             Log::info($id_gateway);
-            $order->update([
-                'status' => 'charge.refunded',
-            ]);
+            $order->status = 'charge.refunded';
+            $order->save();
             /*Log::info($response['transaction']['id']);
             Log::info('Hemos reembolsado la orden con id_gateway = ' . $response['transaction']['id'] . ' con exito'); */
             break;
