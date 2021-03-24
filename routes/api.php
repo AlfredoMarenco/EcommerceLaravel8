@@ -27,7 +27,7 @@ Route::any('/mywebhook', function () {
 
     switch ($type) {
         case 'charge.refunded':
-            Log::info('Estamos detectando un reembolso');
+            Log::info($type);
             break;
 
         default:
