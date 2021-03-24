@@ -103,7 +103,7 @@ class PaymentController extends Controller
             'description' => config('app.name') . '-' . $order->id,
             'order_id' => $order->id,
             'device_session_id' => $request->deviceIdHiddenFieldName,
-            'redirect_url' => config('app.url') . '/user/profile',
+            'redirect_url' => config('app.url') . '/checkout/directChargeOpenpay/responsepayment',
             'use_3d_secure' => 'true',
             'customer' => $customer
         ];
@@ -117,7 +117,7 @@ class PaymentController extends Controller
 
     public function validateChargeOpenPay()
     {
-        $idOrderOpenPay = $_GET['id'];
+        /* $idOrderOpenPay = $_GET['id'];
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $charge = $openpay->charges->get($idOrderOpenPay);
         $idOrder = $charge->serializableData["order_id"];
@@ -138,7 +138,8 @@ class PaymentController extends Controller
             default:
                 return 'no se que madres paso';
                 break;
-        }
+        } */
+        return redirect()->route('user.profile');
     }
 
 
