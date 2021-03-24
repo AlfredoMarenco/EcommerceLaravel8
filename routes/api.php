@@ -28,7 +28,7 @@ Route::any('/mywebhook', function () {
 
     switch ($type) {
         case 'charge.refunded':
-            $order = Order::where('id_gateway', 'like', (string)$id_gateway)->get();
+            $order = Order::where('id_gateway', 'like', '%'.$id_gateway.'%')->first();
             Log::info($order);
             Log::info($id_gateway);
             /* $order->status = 'charge.refunded';
