@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::any('/mywebhook', function () {
     $response = json_decode(file_get_contents('php://input'),true);
     Log::info($response);
-    foreach ($response as $info) {
-        if ($response['type'] == 'verification') {
-            Log::info('Esto es una verificacion');
-        }
+    $type = $response['type'];
+
+    if ($type == 'verification') {
+        Log::info('capturamos el valor del tipo de transaccion');
     }
 /*     if($response['type'] == 'verification'){
         Log::info('Se hizo cargo de tipo reembolso!!!!!!');
