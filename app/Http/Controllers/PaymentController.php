@@ -117,16 +117,16 @@ class PaymentController extends Controller
 
     public function validateChargeOpenPay()
     {
-        /* $idOrderOpenPay = $_GET['id'];
+        $idOrderOpenPay = $_GET['id'];
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $charge = $openpay->charges->get($idOrderOpenPay);
         $idOrder = $charge->serializableData["order_id"];
-        $validationCharge = $charge->status;
+        /* $validationCharge = $charge->status; */
         $orderUpdate = Order::find($idOrder);
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
         //dd($charge);
-        switch ($validationCharge) {
+/*         switch ($validationCharge) {
             case 'completed':
                 $orderUpdate->status = 'completed';
                 $orderUpdate->save();
@@ -139,7 +139,6 @@ class PaymentController extends Controller
                 return 'no se que madres paso';
                 break;
         } */
-        return redirect()->route('user.profile');
     }
 
 
