@@ -20,6 +20,7 @@ Route::any('/mywebhook', function () {
     $response = json_decode(file_get_contents('php://input'), true);
     Log::info($response);
     $type = $response['type'];
+    $id_gateway = $response['transaction']['id'];
 
     if ($type == 'verification') {
         Log::info('capturamos el valor del tipo de transaccion');
@@ -27,7 +28,7 @@ Route::any('/mywebhook', function () {
 
     switch ($type) {
         case 'charge.refunded':
-            $order = Order::where('id_gateway', 'like', $response['transaction']['id'])->get();
+            $order = Order::where('id_gateway', 'like', $id_gateway)->get();
             Log::info($order);
             /* $order->status = 'charge.refunded';
             $order->update();
