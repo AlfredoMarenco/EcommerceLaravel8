@@ -34,9 +34,6 @@ Route::any('/mywebhook', function () {
             # code...
             break;
     }
-/*     if($response['type'] == 'verification'){
-        Log::info('Se hizo cargo de tipo reembolso!!!!!!');
-    } */
     return response()->json(200);
 });
 
