@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('/mywebhook', function () {
+
+Route::apiResource('/mywebhook',ApiController::class);
+/* Route::any('/mywebhook', function () {
     $response = json_decode(file_get_contents('php://input'), true);
-    /* Log::info($response); */
+    Log::info($response);
     $type = $response['type'];
     $id_gateway = $response['transaction']['id'];
 
@@ -31,10 +34,13 @@ Route::any('/mywebhook', function () {
             $order = Order::where('id_gateway', $id_gateway)->get();
             Log::info($order);
             Log::info($id_gateway);
+            dd($order);
             $order->status = 'charge.refunded';
-            $order->save();
-            /*Log::info($response['transaction']['id']);
-            Log::info('Hemos reembolsado la orden con id_gateway = ' . $response['transaction']['id'] . ' con exito'); */
+            $order->update([
+                'status' => 'charge.refunded'
+            ]);
+            Log::info($response['transaction']['id']);
+            Log::info('Hemos reembolsado la orden con id_gateway = ' . $response['transaction']['id'] . ' con exito');
             break;
 
         default:
@@ -42,7 +48,7 @@ Route::any('/mywebhook', function () {
             break;
     }
     return response()->json(200);
-});
+}); */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
