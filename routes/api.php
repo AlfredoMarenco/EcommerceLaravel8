@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::any('/mywebhook', function () {
     $response = json_decode(file_get_contents('php://input'), true);
-    Log::info($response);
+    /* Log::info($response); */
     $type = $response['type'];
     $id_gateway = $response['transaction']['id'];
 
