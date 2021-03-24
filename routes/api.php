@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any('/mywebhook', function () {
-    $response = json_decode(file_get_contents('php://input'),true);
+    $response = json_decode(file_get_contents('php://input'), true);
     Log::info($response);
     $type = $response['type'];
 
@@ -27,7 +27,7 @@ Route::any('/mywebhook', function () {
 
     switch ($type) {
         case 'charge.refunded':
-            Log::info($type);
+            Log::info($response['transaction']['id']);
             break;
 
         default:
