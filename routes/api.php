@@ -27,12 +27,12 @@ Route::any('/mywebhook', function () {
 
     switch ($type) {
         case 'charge.refunded':
-            $order = Order::where('id_gateway','like',$response['transaction']['id'])->first();
+            $order = Order::where('id_gateway', 'like', $response['transaction']['id'])->get();
             Log::info($order);
-            $order->status = 'charge.refunded';
+            /* $order->status = 'charge.refunded';
             $order->update();
-            /* Log::info($response['transaction']['id']); */
-            Log::info('Hemos reembolsado la orden con id_gateway = '.$response['transaction']['id'].' con exito');
+            Log::info($response['transaction']['id']);
+            Log::info('Hemos reembolsado la orden con id_gateway = ' . $response['transaction']['id'] . ' con exito'); */
             break;
 
         default:
