@@ -20,7 +20,9 @@ Route::any('/mywebhook', function () {
     $response = json_decode(file_get_contents('php://input'),true);
     Log::info($response);
     foreach ($response as $info) {
-        Log::info($info);
+        if ($info['type'] == 'verification') {
+            Log::info('Esto es una verificacion');
+        }
     }
 /*     if($response['type'] == 'verification'){
         Log::info('Se hizo cargo de tipo reembolso!!!!!!');
