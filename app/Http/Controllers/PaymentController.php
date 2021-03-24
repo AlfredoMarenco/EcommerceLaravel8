@@ -103,7 +103,7 @@ class PaymentController extends Controller
             'description' => config('app.name') . '-' . $order->id,
             'order_id' => $order->id,
             'device_session_id' => $request->deviceIdHiddenFieldName,
-            'redirect_url' => config('app.url') . '/checkout/directChargeOpenpay/responsepayment',
+            'redirect_url' => config('app.url') . '/user/profile',
             'use_3d_secure' => 'true',
             'customer' => $customer
         ];

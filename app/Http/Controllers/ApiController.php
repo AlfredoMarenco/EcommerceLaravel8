@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
 {
@@ -17,44 +19,31 @@ class ApiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         $response = json_decode(file_get_contents('php://input'), true);
-        Log::info($response);
+        /* Log::info($response); */
         $type = $response['type'];
         $id_gateway = $response['transaction']['id'];
 
-        if ($type == 'verification') {
-            Log::info('capturamos el valor del tipo de transaccion');
-        }
-
+        //Recuperamos la orden con el helper first para que podamos utilizar el metodo update ya que si usamos get estariamos recuperando una coleccion y necesitamos el objeto
         switch ($type) {
             case 'charge.refunded':
-                $order = Order::where('id_gateway', $id_gateway)->get();
-                Log::info($order);
-                Log::info($id_gateway);
-                dd($order);
-                $order->status = 'charge.refunded';
+                $order = Order::where('id_gateway', $id_gateway)->first();
                 $order->update([
                     'status' => 'charge.refunded'
                 ]);
-                Log::info($response['transaction']['id']);
-                Log::info('Hemos reembolsado la orden con id_gateway = ' . $response['transaction']['id'] . ' con exito');
+                break;
+            case 'charge.success':
+                $order = Order::where('id_gateway', $id_gateway)->first();
+                $order->update([
+                    'status' => 'charge.success'
+                ]);
                 break;
 
             default:
@@ -75,16 +64,6 @@ class ApiController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
