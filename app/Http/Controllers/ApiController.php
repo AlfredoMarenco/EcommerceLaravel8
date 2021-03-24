@@ -39,10 +39,10 @@ class ApiController extends Controller
                     'status' => 'charge.refunded'
                 ]);
                 break;
-            case 'charge.success':
+            case 'charge.succeeded':
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 $order->update([
-                    'status' => 'charge.success'
+                    'status' => 'charge.succeeded'
                 ]);
                 break;
 
