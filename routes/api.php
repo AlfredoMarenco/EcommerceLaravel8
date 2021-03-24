@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +27,11 @@ Route::any('/mywebhook', function () {
 
     switch ($type) {
         case 'charge.refunded':
-            Log::info($response['transaction']['id']);
+            $order = Order::where('id_gateway',$response['transaction']['id'])->first();
+            $order->status = 'charge.refunded';
+            $order->update();
+            /* Log::info($response['transaction']['id']); */
+            Log::info('Hemos reembolsado la orden con id_gateway = '.$response['transaction']['id'].' con exito');
             break;
 
         default:
