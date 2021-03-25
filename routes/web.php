@@ -51,13 +51,9 @@ Route::prefix('blog')->group(function () {
     Route::get('/', function () {
         return view('blog.index');
     });
-<<<<<<< HEAD
-    Route::get('/', function () {
-=======
 });
-Route::prefix('post')->group(function () { 
+Route::prefix('post')->group(function () {
     Route::get('/', function(){
->>>>>>> eb13c25692407ef8ae84b409b93aba4b039a0943
         return view('blog.post');
     });
 });
