@@ -25,6 +25,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\TagController' => $baseDir . '/app/Http/Controllers/Admin/TagController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\Admin\\VariantController' => $baseDir . '/app/Http/Controllers/Admin/VariantController.php',
+    'App\\Http\\Controllers\\ApiController' => $baseDir . '/app/Http/Controllers/ApiController.php',
     'App\\Http\\Controllers\\BlogController' => $baseDir . '/app/Http/Controllers/BlogController.php',
     'App\\Http\\Controllers\\CartController' => $baseDir . '/app/Http/Controllers/CartController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',

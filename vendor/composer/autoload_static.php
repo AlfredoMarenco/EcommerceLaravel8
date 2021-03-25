@@ -770,6 +770,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Controllers\\Admin\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TagController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Admin\\VariantController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/VariantController.php',
+        'App\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiController.php',
         'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/CartController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
