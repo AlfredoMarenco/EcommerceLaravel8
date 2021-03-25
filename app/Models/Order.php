@@ -19,7 +19,7 @@ class Order extends Model
     //Relacion muchos a muchos
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('quanty','price','color','size');
     }
 
     //Relacion uno a muchos inversa

@@ -59,9 +59,9 @@
             <h4 class="card-title mb-4">Sign in</h4>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <a href="#" class="btn btn-facebook btn-block mb-2"> <i class="fab fa-facebook-f"></i> &nbsp Sign in with
+                <a href="{{ route('login.drive','facebook') }}" class="btn btn-facebook btn-block mb-2"> <i class="fab fa-facebook-f"></i> &nbsp Sign in with
                     Facebook</a>
-                <a href="#" class="btn btn-google btn-block mb-4"> <i class="fab fa-google"></i> &nbsp Sign in with
+                <a href="{{ route('login.drive','google') }}" class="btn btn-google btn-block mb-4"> <i class="fab fa-google"></i> &nbsp Sign in with
                     Google</a>
                 <div class="form-group">
                     <input type="email" name="email" class="form-control" placeholder="Username">
@@ -71,7 +71,7 @@
                 </div> <!-- form-group// -->
 
                 <div class="form-group">
-                    <a href="#" class="float-right">Forgot password?</a>
+                    <a href="{{ route('password.request') }}" class="float-right">Forgot password?</a>
                     <label class="float-left custom-control custom-checkbox"> <input type="checkbox"
                             class="custom-control-input" checked="">
                         <div class="custom-control-label"> Remember </div>
