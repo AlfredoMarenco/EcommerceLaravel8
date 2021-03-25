@@ -64,6 +64,11 @@ Route::prefix('blog')->group(function () {
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
+// Ruta de galería
+Route::get('/galery', function(){
+    return view('galeria.index');
+    });
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
 })->name('dashboard');
