@@ -64,6 +64,12 @@ Route::prefix('blog')->group(function () {
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
+Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
+
+//Rutas de login con redes sociales
+Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
+Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
 })->name('dashboard');
@@ -83,7 +89,8 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
+/*Rutas para manejo de verificacion de
+usuarios y de reestablecimiento de contraseñas*/
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');
@@ -99,7 +106,6 @@ Route::post('/forgot-password', function (Request $request) {
         ? back()->with(['status' => __($status)])
         : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.email');
-
 
 Route::get('/reset-password/{token}', function ($token) {
     return view('auth.reset-password', ['token' => $token]);
@@ -131,6 +137,5 @@ Route::post('/reset-password', function (Request $request) {
 })->middleware('guest')->name('password.update');
 
 
-Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
-Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
+
 
