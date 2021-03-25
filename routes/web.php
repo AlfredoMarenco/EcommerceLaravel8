@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
@@ -65,6 +66,7 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
+
 
 //Rutas de login con redes sociales
 Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
