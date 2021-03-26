@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\ColorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
@@ -27,4 +28,5 @@ Route::resource('sizes', SizeController::class)->except('show')->names('admin.si
 Route::resource('orders', OrderController::class)->except('create','store')->names('admin.orders');
 Route::resource('post', PostController::class)->names('admin.posts');
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
+Route::resource('collections', CollectionController::class)->except('show')->names('admin.collections');
 

@@ -97,7 +97,7 @@
             style="background-image: url({{ asset('template/images/rene/04-NuevaColeccion03-1024x517.jpg') }});">
             <div class="container interior">
                 <h2 class="collec">NEW COLLECTION</h2>
-                <a href="" class="btn btn-primary">ENTER</a>
+                <a href="{{ route('galery.index') }}" class="btn btn-primary">ENTER</a>
             </div>
         </div>
     </section>

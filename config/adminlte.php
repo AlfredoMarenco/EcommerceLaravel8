@@ -304,6 +304,13 @@ return [
             'can' => 'admin.tags.index'
         ],
 
+        [   'header' => 'GALERIA'],
+
+        [
+            'text' => 'Colecciones',
+            'route'  => 'admin.collections.index',
+            'icon'  => 'fas fa-fw fa-images ',
+        ],
         [
             'header' => 'ADMINISTRACION DE USUARIOS',
             'can' => 'admin.users.index'
