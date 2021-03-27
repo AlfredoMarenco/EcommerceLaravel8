@@ -99,7 +99,7 @@ class PaymentController extends Controller
         $chargeData = [
             'method' => 'card',
             'source_id' => $request->token_id,
-            'amount' => number_format(floatval(Cart::total()), 2, '.', ''),
+            'amount' => floatval(str_replace(',', '', Cart::total())),
             'description' => config('app.name') . '-' . $order->id,
             'order_id' => $order->id,
             'device_session_id' => $request->deviceIdHiddenFieldName,
