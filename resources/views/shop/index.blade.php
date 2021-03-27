@@ -54,7 +54,9 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <!-- ========================= SECTION SLIDER  ========================= -->
+
+    
+    <!-- ========================= 
     <hr>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -90,7 +92,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>  -->
+    <!-- find de segundo slider -->
+
+
 
     <section id="new-collection">
         <div class="bg-overlay mt-5 mb-5"
