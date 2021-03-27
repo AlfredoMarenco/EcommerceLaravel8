@@ -12,7 +12,7 @@
 
     <meta property="og:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO">
     <meta property="og:type" content="website" />
-    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>   
+    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>
     <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>
     <meta name="og:url" content="https://www.renealonso.com"/>
     <meta name="og:site_name" content="Rene Alonso"/>
@@ -24,7 +24,7 @@
     <meta name="twitter:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
     <meta name="twitter:creator" content="@FashionAlonso" />
 
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    {{-- <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
     <!-- jQuery -->
     <script src="{{ asset('template/js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
