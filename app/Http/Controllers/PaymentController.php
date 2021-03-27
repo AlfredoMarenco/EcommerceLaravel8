@@ -101,6 +101,7 @@ class PaymentController extends Controller
             'source_id' => $request->token_id,
             'amount' =>  ''.str_replace(',', '', Cart::total()),
             'currency' => 'MXN',
+            'comfirm' => false,
             'description' => config('app.name') . '-' . $order->id,
             'order_id' => $order->id,
             'device_session_id' => $request->deviceIdHiddenFieldName,
