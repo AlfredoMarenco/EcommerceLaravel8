@@ -7,7 +7,23 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Rene Alonso | Shop</title>
+    <title>Rene Alonso | Nueva colección disponible</title>
+
+
+    <meta property="og:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO">
+    <meta property="og:type" content="website" />
+    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>   
+    <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>
+    <meta name="og:url" content="https://www.renealonso.com"/>
+    <meta name="og:site_name" content="Rene Alonso"/>
+    <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
+    <meta name="twitter:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO" />
+    <meta name="twitter:site" content="@FashionAlonso" />
+    <meta name="twitter:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
+    <meta name="twitter:creator" content="@FashionAlonso" />
+
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- jQuery -->
     <script src="{{ asset('template/js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
@@ -62,6 +78,9 @@
                     </li>
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true">Ofertas</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">

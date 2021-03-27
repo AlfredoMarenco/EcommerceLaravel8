@@ -324,12 +324,23 @@ p,
 
 #sec {
   padding-top: 750px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 @media (max-width: 500px) {
   #sec {
     padding-top: 860px;
     padding-bottom: 80px;
+  }
+}
+
+#tsec {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+@media (max-width: 500px) {
+  #tsec {
+    padding-top: 10px;
+    padding-bottom: 15px;
   }
 }
 
@@ -348,6 +359,9 @@ p,
     background-repeat: no-repeat;
   }
 }
+
+
+
 .der {
   /*padding-top: 400px;*/
   background-image: url(/images/rene/02-imagencuadrada06.jpg);
@@ -407,6 +421,56 @@ p,
     margin-bottom: 20px;
   }
 }
+
+/* WOMEN */
+.tmedio {
+  /* padding: 200px; */ 
+  padding-top: 200px;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-bottom: 100px;
+}
+@media (max-width: 500px) {
+  .tmedio {
+    padding-top: 120px !important;
+    padding-bottom: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.tmedio h1 {
+  color: #fff;
+  font-size: 75px;
+  margin-left: 65px;
+  padding-top: 180px;
+}
+@media (max-width: 500px) {
+  .tmedio h1 {
+    font-size: 50px;
+    margin-left: 65px;
+  }
+}
+
+.tmedio a {
+  color: #fff;
+  margin-left: 110px;
+  margin-bottom: 50px;
+}
+@media (max-width: 500px) {
+  .tmedio a {
+    color: #fff;
+    margin-left: 81px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+/*END WOMEN */
+
+
 
 .sol {
   padding-top: 290px !important;
