@@ -139,6 +139,8 @@ class PaymentController extends Controller
                 return 'no se que madres paso';
                 break;
         } */
+
+        return redirect()->route('user.profile');
     }
 
 

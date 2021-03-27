@@ -39,14 +39,12 @@ class ApiController extends Controller
                 $order->update([
                     'status' => 'charge.refunded'
                 ]);
-                return redirect()->route('user.profile');
                 break;
             case 'charge.succeeded':
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 $order->update([
                     'status' => 'charge.succeeded'
                 ]);
-                return redirect()->route('user.profile');
                 break;
 
             default:
