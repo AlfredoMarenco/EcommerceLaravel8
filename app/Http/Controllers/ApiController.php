@@ -52,6 +52,12 @@ class ApiController extends Controller
                     'status' => 'charge.failed'
                 ]);
                 break;
+            case 'charge.created':
+                $order = Order::where('id_gateway', $id_gateway)->first();
+                $order->update([
+                    'status' => 'charge.created'
+                ]);
+                break;
 
             default:
                 # code...
