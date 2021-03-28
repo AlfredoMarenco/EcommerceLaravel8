@@ -44,6 +44,7 @@ return array(
     'App\\Http\\Livewire\\Admin\\FormNewProduct' => $baseDir . '/app/Http/Livewire/Admin/FormNewProduct.php',
     'App\\Http\\Livewire\\Admin\\ModalConfirmationCancel' => $baseDir . '/app/Http/Livewire/Admin/ModalConfirmationCancel.php',
     'App\\Http\\Livewire\\Admin\\TableCategories' => $baseDir . '/app/Http/Livewire/Admin/TableCategories.php',
+    'App\\Http\\Livewire\\Admin\\TableCollections' => $baseDir . '/app/Http/Livewire/Admin/TableCollections.php',
     'App\\Http\\Livewire\\Admin\\TableColors' => $baseDir . '/app/Http/Livewire/Admin/TableColors.php',
     'App\\Http\\Livewire\\Admin\\TablePost' => $baseDir . '/app/Http/Livewire/Admin/TablePost.php',
     'App\\Http\\Livewire\\Admin\\TableProducts' => $baseDir . '/app/Http/Livewire/Admin/TableProducts.php',

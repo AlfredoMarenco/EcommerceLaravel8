@@ -59,6 +59,7 @@ class PaymentController extends Controller
             'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
             'id_gateway' => null,
             'status' => 'charge_pending',
+            'status' => 'card',
             'user_id' => $user->id,
             'shipping_address_id' => $shipping_address->id,
         ]);
@@ -162,6 +163,7 @@ class PaymentController extends Controller
             'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
             'id_gateway' => null,
             'status' => 'charge_pending',
+            'status' => 'store',
             'user_id' => $user->id,
             'shipping_address_id' => $shipping_address->id,
         ]);
@@ -210,9 +212,9 @@ class PaymentController extends Controller
 
         $charge = $openpay->charges->create($chargeData);
         dd($charge);
-        $url3D = $charge->serializableData["payment_method"]->url;
+        $reference = $charge->serializableData["payment_method"]->reference;
         Cart::destroy();
-        return redirect()->route('user.profile');
+        return redirect('');
     }
 
     public function directChargeConekta(Request $request)

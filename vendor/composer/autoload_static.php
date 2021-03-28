@@ -789,6 +789,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Livewire\\Admin\\FormNewProduct' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/FormNewProduct.php',
         'App\\Http\\Livewire\\Admin\\ModalConfirmationCancel' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/ModalConfirmationCancel.php',
         'App\\Http\\Livewire\\Admin\\TableCategories' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableCategories.php',
+        'App\\Http\\Livewire\\Admin\\TableCollections' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableCollections.php',
         'App\\Http\\Livewire\\Admin\\TableColors' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableColors.php',
         'App\\Http\\Livewire\\Admin\\TablePost' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TablePost.php',
         'App\\Http\\Livewire\\Admin\\TableProducts' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableProducts.php',
