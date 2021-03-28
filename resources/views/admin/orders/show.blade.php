@@ -77,6 +77,7 @@
                                     <i class="fa fa-receipt"></i>
                                     Cancelada/Reembolsada
                                 </h4>
+                                <p>Orden cancelada: {{ $order->updated_at }}</p>
                                 @break
                                 @default
 
