@@ -211,10 +211,11 @@ class PaymentController extends Controller
         ];
 
         $charge = $openpay->charges->create($chargeData);
-        dd($charge);
-        $reference = $charge->serializableData["payment_method"]->reference;
+        $order->update($charge->id);
+        //dd($charge);
+        /* $reference = $charge->serializableData["payment_method"]->reference; */
         Cart::destroy();
-        return redirect('');
+        return redirect()->route('user.orders');
     }
 
     public function directChargeConekta(Request $request)
