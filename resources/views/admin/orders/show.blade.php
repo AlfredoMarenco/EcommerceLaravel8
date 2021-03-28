@@ -25,6 +25,11 @@
                                 Nombre: {{ $order->user->name }}
                                 <br>
                                 Apellido: {{ $order->user->last_name }}
+                                <br>
+                                Email: {{ $order->user->email }}
+                                <br>
+                                Telefono: {{ $order->user->phone }}
+                                <br>
                             </p>
                             <h5>Direccion</h5>
                             <div><span>Street:</span> {{ $order->shipping_address->street }}.</div>
