@@ -21,7 +21,10 @@
                     <tr>
                         <td>
                             <p>
-                                Cliente: {{ $order->user->name }} {{ $order->user->last_name }}<br>
+                                <h5>Cliente</h5>
+                                Nombre: {{ $order->user->name }}
+                                <br>
+                                Apellido: {{ $order->user->last_name }}
                             </p>
                             <h5>Direccion</h5>
                             <div><span>Street:</span> {{ $order->shipping_address->street }}.</div>
