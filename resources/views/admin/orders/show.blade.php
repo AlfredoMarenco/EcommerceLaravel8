@@ -79,6 +79,13 @@
                                 </h4>
                                 <p>Orden cancelada: {{ $order->updated_at }}</p>
                                 @break
+                                @case('charge.failed')
+                                <h4 class="float-center text-danger">
+                                    <i class="fa fa-receipt"></i>
+                                    Cancelada/Rechazada
+                                </h4>
+                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                @break
                                 @default
 
                             @endswitch

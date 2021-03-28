@@ -42,6 +42,11 @@
                                         Cancelada/Reembolsada
                                     </strong>
                                     @break
+                                    @case('charge.failed')
+                                    <strong class="text-danger">
+                                        Cancelada/Rechazada
+                                    </strong>
+                                    @break
                                     @default
 
                                 @endswitch
