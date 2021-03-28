@@ -63,19 +63,19 @@
                                 @case('charge_pending')
                                 <h4 class="float-center text-warning">
                                     <i class="fa fa-receipt"></i>
-                                    {{ $order->status }}
+                                    Pendiente
                                 </h4>
                                 @break
                                 @case('charge.succeeded')
                                 <h4 class="float-center text-success">
                                     <i class="fa fa-receipt"></i>
-                                    {{ $order->status }}
+                                    Completada
                                 </h4>
                                 @break
                                 @case('charge.refunded')
-                                <h4 class="float-center text-warning">
+                                <h4 class="float-center text-danger">
                                     <i class="fa fa-receipt"></i>
-                                    {{ $order->status }}
+                                    Cancelada/Reembolsada
                                 </h4>
                                 @break
                                 @default
