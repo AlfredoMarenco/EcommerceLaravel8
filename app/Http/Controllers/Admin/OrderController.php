@@ -100,5 +100,7 @@ class OrderController extends Controller
         $response = $charge->refund($refundData);
         $response = $response->refund;
         /* dd($response); */
+
+        return redirect()->route('admin.orders.index')->withSuccess('La orden ha sido cancelada y reembolsada');
     }
 }
