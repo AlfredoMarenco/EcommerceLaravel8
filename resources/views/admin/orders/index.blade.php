@@ -29,17 +29,17 @@
                                 @switch($order->status)
                                     @case('charge_pending')
                                     <strong class="text-dark">
-                                        Orden pendiente
+                                        Pendiente
                                     </strong>
                                     @break
                                     @case('charge.succeeded')
                                     <strong class="text-success">
-                                        Orden completada
+                                        Completada
                                     </strong>
                                     @break
                                     @case('charge.refunded')
                                     <strong class="text-danger">
-                                        Orden cancelada y reembolsada
+                                        Cancelada/Reembolsada
                                     </strong>
                                     @break
                                     @default
