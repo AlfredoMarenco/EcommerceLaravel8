@@ -21,15 +21,15 @@
                     <tr>
                         <td>
                             <p>
-                                <h5>Cliente</h5>
-                                Nombre: {{ $order->user->name }}
-                                <br>
-                                Apellido: {{ $order->user->last_name }}
-                                <br>
-                                Email: {{ $order->user->email }}
-                                <br>
-                                Telefono: {{ $order->user->phone }}
-                                <br>
+                            <h5>Cliente</h5>
+                            Nombre: {{ $order->user->name }}
+                            <br>
+                            Apellido: {{ $order->user->last_name }}
+                            <br>
+                            Email: {{ $order->user->email }}
+                            <br>
+                            Telefono: {{ $order->user->phone }}
+                            <br>
                             </p>
                             <h5>Direccion</h5>
                             <div><span>Street:</span> {{ $order->shipping_address->street }}.</div>
@@ -60,13 +60,19 @@
                         <td>
                             <h5>Order: {{ $order->id }}</h5>
                             @switch($order->status)
-                                @case('completed')
+                                @case('charge_pending')
+                                <h4 class="float-center text-warning">
+                                    <i class="fa fa-receipt"></i>
+                                    {{ $order->status }}
+                                </h4>
+                                @break
+                                @case('charge.succeeded')
                                 <h4 class="float-center text-success">
                                     <i class="fa fa-receipt"></i>
                                     {{ $order->status }}
                                 </h4>
                                 @break
-                                @case('charge_pending')
+                                @case('charge.refunded')
                                 <h4 class="float-center text-warning">
                                     <i class="fa fa-receipt"></i>
                                     {{ $order->status }}
@@ -115,7 +121,7 @@
                             </td>
                             <td>
                                 <div class="h3 float-left">
-                                    Total: ${{ number_format($order->amount,2) }}
+                                    Total: ${{ number_format($order->amount, 2) }}
                                 </div>
                             </td>
                         </tr>
