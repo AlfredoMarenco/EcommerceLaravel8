@@ -39,8 +39,7 @@ class PaymentController extends Controller
 
     public function directChargeOpenPay(Request $request)
     {
-        /* return config('app.url'); */
-        /* return $request->all(); */
+        //Creamos la instancia de openpay para poder hacer las solicitudes
         $user = auth()->user();
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $description = '';
@@ -99,7 +98,7 @@ class PaymentController extends Controller
         $chargeData = [
             'method' => 'card',
             'source_id' => $request->token_id,
-            'amount' =>  ''.str_replace(',', '', Cart::total()),
+            'amount' =>  '' . str_replace(',', '', Cart::total()),
             'currency' => 'MXN',
             /* 'confirm' => false, */
             'description' => config('app.name') . '-' . $order->id,
@@ -127,24 +126,94 @@ class PaymentController extends Controller
         $orderUpdate = Order::find($idOrder);
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
-        //dd($charge);
-/*         switch ($validationCharge) {
-            case 'completed':
-                $orderUpdate->status = 'completed';
-                $orderUpdate->save();
-                return redirect()->route('user.profile');
-                break;
-            case 'charge_pending':
-                return 'esta pendiente';
-                break;
-            default:
-                return 'no se que madres paso';
-                break;
-        } */
-
         return redirect()->route('user.profile');
     }
 
+    public function storeReference(){
+        if (Cart::count() <= 0) {
+            return redirect('/');
+        } else {
+                /* $response = Http::get('https://api-sepomex.hckdrk.mx/query/get_estados');
+            return $response->json() */;
+            return view('shop.checkout-store');
+        }
+    }
+
+    //PAGO EN EFECTIVO
+    public function storeReferenceOpenPay(Request $request)
+    {
+
+        $user = auth()->user();
+        $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
+        $description = '';
+        //Creamos la direccion que se le asignara a la orden de compra
+        $shipping_address = ShippingAddress::create([
+            'street' => $request->street,
+            'number' => $request->number,
+            'crosses' => $request->crosses,
+            'suburb' => $request->suburb,
+            'reference' => $request->reference,
+            'state' => $request->state,
+            'city' => $request->city,
+            'postal_code' => $request->postal_code,
+        ]);
+        //Creamos la orden en la base de datos con un estado de process que indicara que no esta aun terminada la transaccion
+        $order = Order::create([
+            'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+            'id_gateway' => null,
+            'status' => 'charge_pending',
+            'user_id' => $user->id,
+            'shipping_address_id' => $shipping_address->id,
+        ]);
+
+        //Creamos los registros de la orden en la tabla order_producto obteniendo el contenido del carrito
+        foreach (Cart::content() as $product) {
+            DB::table('order_product')->insert([
+                [
+                    'order_id' => $order->id,
+                    'product_id' => $product->id,
+                    'quanty' => $product->qty,
+                    'price' => $product->price,
+                    'color' => $product->options->color,
+                    'size' => $product->options->size,
+                ]
+            ]);
+        }
+        //Obtenemos los datos del cliente que esta autenticado y la pasamos a una variable $customer
+        $customer = [
+            'name' => $user->name,
+            'last_name' => $user->last_name,
+            'phone_number' => $user->phone,
+            'email' => $user->email,
+            'requires_account' => false,
+            'address' =>  [
+                'line1' => $request->street . " " . $request->number,
+                'line2' => $request->suburb,
+                'line3' => $request->crosses,
+                'state' => $request->state,
+                'city' => $request->city,
+                'postal_code' => $request->postal_code,
+                'country_code' => 'MX'
+            ],
+        ];
+
+        //Creacion de la referencia de pago en efectivo
+        $chargeData = [
+            'method' => 'store',
+            'amount' =>  '' . str_replace(',', '', Cart::total()),
+            'currency' => 'MXN',
+            'description' => config('app.name') . '-' . $order->id,
+            'order_id' => $order->id,
+            'due_date' => Carbon::now()->addDay(3),
+            'customer' => $customer
+        ];
+
+        $charge = $openpay->charges->create($chargeData);
+        dd($charge);
+        $url3D = $charge->serializableData["payment_method"]->url;
+        Cart::destroy();
+        return redirect()->route('user.profile');
+    }
 
     public function directChargeConekta(Request $request)
     {
