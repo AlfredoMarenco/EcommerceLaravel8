@@ -211,6 +211,7 @@ class PaymentController extends Controller
         ];
 
         $charge = $openpay->charges->create($chargeData);
+        return $charge['id'];
         $order->update($charge->id);
         //dd($charge);
         /* $reference = $charge->serializableData["payment_method"]->reference; */
