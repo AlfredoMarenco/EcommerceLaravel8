@@ -27,17 +27,17 @@
                             <td>{{ $order->amount }}</td>
                             <td>
                                 @switch($order->status)
-                                    @case('process')
-                                    <strong class="text-warning">
-                                        {{ $order->status }}
-                                    </strong>
-                                    @break
                                     @case('charge_pending')
                                     <strong class="text-dark">
                                         {{ $order->status }}
                                     </strong>
                                     @break
                                     @case('charge.succeeded')
+                                    <strong class="text-success">
+                                        {{ $order->status }}
+                                    </strong>
+                                    @break
+                                    @case('charge.refunded')
                                     <strong class="text-success">
                                         {{ $order->status }}
                                     </strong>
