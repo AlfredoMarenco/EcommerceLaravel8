@@ -27,7 +27,7 @@ class ApiController extends Controller
     public function store()
     {
         $response = json_decode(file_get_contents('php://input'), true);
-       /*  Log::info($response);
+        /*  Log::info($response);
         return response()->json(200); */
         $type = $response['type'];
         $id_gateway = $response['transaction']['id'];
@@ -44,6 +44,12 @@ class ApiController extends Controller
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 $order->update([
                     'status' => 'charge.succeeded'
+                ]);
+                break;
+            case 'charge.failed':
+                $order = Order::where('id_gateway', $id_gateway)->first();
+                $order->update([
+                    'status' => 'charge.failed'
                 ]);
                 break;
 
