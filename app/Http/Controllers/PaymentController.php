@@ -163,7 +163,7 @@ class PaymentController extends Controller
             'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
             'id_gateway' => null,
             'status' => 'charge_pending',
-            'status' => 'store',
+            'type' => 'store',
             'user_id' => $user->id,
             'shipping_address_id' => $shipping_address->id,
         ]);
