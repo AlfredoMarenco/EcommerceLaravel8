@@ -18,7 +18,7 @@ class HomeController extends Controller
         //Graficas de ordenes generedas hoy y acomulados
         $orderCompleteToday = Order::where('status', 'charge.succeeded')->whereBetween('created_at', [Carbon::today(), Carbon::now()])->count();
         $orderPendingToday = Order::where('status', 'charge_pending')->whereBetween('created_at', [Carbon::today(), Carbon::now()])->count();
-        $orderComplete = Order::where('status', 'completed')->count();
+        $orderComplete = Order::where('status', 'charge.succeeded')->count();
         $orderPending = Order::where('status', 'charge_pending')->count();
 
         $chart = (new LarapexChart)->donutChart()
