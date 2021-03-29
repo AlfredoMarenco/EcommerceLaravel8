@@ -141,24 +141,60 @@
                                     <dd class="text-right h5"><strong>${{ Cart::total() }} MXN</strong></dd>
                                 </dl>
                                 <hr>
-                                <div class="d-flex justify-content-center">
-                                    <i class="fab fa-cc-mastercard fa-2x"></i>
-                                    <i class="fab fa-cc-visa fa-2x ml-2"></i>
-                                </div>
-
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
-                        <div class="card">
-                            <div class="card-body">
-                                <a class="btn btn-dark mercadopago-button" href="{{ route('checkout.index') }}">Pago con
-                                    tarjeta</a>
-                                <hr>
-                                <div class="d-flex justify-content-center">
-                                    <i class="fas fa-money-bill fa-2x text-success"></i>
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button"
+                                            data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Pago con tarjeta
+                                        </button>
+                                    </h2>
                                 </div>
-                                <a class="btn btn-dark mercadopago-button mt-3"
-                                    href="{{ route('checkout.storeReference') }}">Pago en efectivo</a>
-                                {{-- <form action="{{ route('checkout.chargeMercadoPago') }}" method="POST">
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-center">
+                                            <i class="fab fa-cc-mastercard fa-2x"></i>
+                                            <i class="fab fa-cc-visa fa-2x ml-2"></i>
+                                        </div>
+                                        <a class="btn btn-dark mercadopago-button"
+                                            href="{{ route('checkout.index') }}">Pago con
+                                            tarjeta</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                            data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            Pago en efectivo
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-center">
+                                            <i class="fas fa-money-bill fa-2x text-success"></i>
+                                        </div>
+                                        <a class="btn btn-dark mercadopago-button mt-3"
+                                            href="{{ route('checkout.storeReference') }}">Pago en efectivo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{{--                         <div class="card">
+                            <div class="card-body">
+                                <hr>
+                                <form action="{{ route('checkout.chargeMercadoPago') }}" method="POST">
                                     @csrf
                                 <script src="https://www.mercadopago.com.mx/integrations/v1/web-tokenize-checkout.js"
                                 data-public-key="TEST-00d1db82-ccd9-4cbc-b92e-66ad0079742b"
@@ -171,9 +207,9 @@
                                     <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                         data-preference-id="{!! $preference->id !!}">
                                     </script>
-                                </form> --}}
+                                </form>
                             </div>
-                        </div>
+                        </div> --}}
                     </aside> <!-- col.// -->
                 </div>
             </div> <!-- container .//  -->
