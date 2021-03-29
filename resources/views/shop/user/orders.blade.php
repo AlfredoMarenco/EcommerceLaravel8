@@ -15,31 +15,37 @@
                                     @case('charge_pending')
                                     <a href="#" class="float-right text-warning">
                                         <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
+                                        Procesando tu pago
                                     </a>
                                     @break
                                     @case('charge.created')
-                                    <a href="#" class="float-right text-dark">
+                                    <a href="#" class="float-right text-success">
                                         <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
+                                        Pago pendiente
                                     </a>
                                     @break
                                     @case('charge.succeeded')
                                     <a href="#" class="float-right text-success">
                                         <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
+                                        Aceptada
                                     </a>
                                     @break
                                     @case('charge.refunded')
                                     <a href="#" class="float-right text-info">
                                         <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
+                                        Reembolsada
                                     </a>
                                     @break
                                     @case('charge.failed')
                                     <a href="#" class="float-right text-danger">
                                         <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
+                                        Cargo rechazado
+                                    </a>
+                                    @break
+                                    @case('charge.cancelled')
+                                    <a href="#" class="float-right text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        Referencia expirada
                                     </a>
                                     @break
                                     @default

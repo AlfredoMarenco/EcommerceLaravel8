@@ -53,6 +53,12 @@
                                     </strong>
                                     @break
                                     @default
+                                    @case('charge.cancelled')
+                                    <strong class="text-danger">
+                                        Referencia Expirada
+                                    </strong>
+                                    @break
+                                    @default
 
                                 @endswitch
                             </td>

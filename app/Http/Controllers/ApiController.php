@@ -34,7 +34,7 @@ class ApiController extends Controller
 
         //Recuperamos la orden con el helper first para que podamos utilizar el metodo update ya que si usamos get estariamos recuperando una coleccion y necesitamos el objeto
         switch ($type) {
-            case 'charge.refunded':
+            case 'charge.refunded': //Estado para reembolsos
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
@@ -42,7 +42,7 @@ class ApiController extends Controller
                     ]);
                 }
                 break;
-            case 'charge.succeeded':
+            case 'charge.succeeded': //Estados para cargos exitosos
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
@@ -50,7 +50,7 @@ class ApiController extends Controller
                     ]);
                 }
                 break;
-            case 'charge.failed':
+            case 'charge.failed': //Estado para cargos fallidos
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
@@ -58,11 +58,19 @@ class ApiController extends Controller
                     ]);
                 }
                 break;
-            case 'charge.created':
+            case 'charge.created': //Estado para referencias de pago paynet
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
                         'status' => 'charge.created'
+                    ]);
+                }
+                break;
+            case 'charge.cancelled': //Estado para referencias de pagos expiradas
+                $order = Order::where('id_gateway', $id_gateway)->first();
+                if ($order) {
+                    $order->update([
+                        'status' => 'charge.cancelled'
                     ]);
                 }
                 break;
