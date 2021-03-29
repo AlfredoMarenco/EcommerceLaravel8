@@ -36,27 +36,35 @@ class ApiController extends Controller
         switch ($type) {
             case 'charge.refunded':
                 $order = Order::where('id_gateway', $id_gateway)->first();
-                $order->update([
-                    'status' => 'charge.refunded'
-                ]);
+                if ($order) {
+                    $order->update([
+                        'status' => 'charge.refunded'
+                    ]);
+                }
                 break;
             case 'charge.succeeded':
                 $order = Order::where('id_gateway', $id_gateway)->first();
-                $order->update([
-                    'status' => 'charge.succeeded'
-                ]);
+                if ($order) {
+                    $order->update([
+                        'status' => 'charge.succeeded'
+                    ]);
+                }
                 break;
             case 'charge.failed':
                 $order = Order::where('id_gateway', $id_gateway)->first();
-                $order->update([
-                    'status' => 'charge.failed'
-                ]);
+                if ($order) {
+                    $order->update([
+                        'status' => 'charge.failed'
+                    ]);
+                }
                 break;
             case 'charge.created':
                 $order = Order::where('id_gateway', $id_gateway)->first();
-                $order->update([
-                    'status' => 'charge.created'
-                ]);
+                if ($order) {
+                    $order->update([
+                        'status' => 'charge.created'
+                    ]);
+                }
                 break;
 
             default:
