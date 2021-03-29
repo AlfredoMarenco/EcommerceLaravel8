@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <h6 class="text-muted">Payment</h6>
-                                        <span class="b">{{ $order->type }}</span>
+                                        <span class="b">{{ $order->type }}</span><br>
                                         <span class="b">Total: $ {{ number_format($order->amount, 2) }} </span>
                                         </p>
                                     </div>
