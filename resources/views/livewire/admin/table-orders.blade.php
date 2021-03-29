@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex flex-row justify-content-start">
-                <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda del cliente">
+                <input class="form-control col-5" wire:model="search" type="text" placeholder="Busquedar por cliente o numero de orden">
             </div>
             <div class="d-flex flex-row-reverse justify-content-between my-3">
                 <div>
