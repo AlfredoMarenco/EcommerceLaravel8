@@ -23,8 +23,8 @@
             <div class="container mb-3 mt-5 py-3">
                 <div class="row">
                     <main class="col-md-8">
-                        <h4>Dirección de envio</h4>
                         <div class="card p-5">
+                            <h4>Dirección de envio</h4>
                             <form action="{{ route('checkout.chargeOpenpay') }}" method="POST" role="form"
                                 id="payment-form">
                                 @csrf
