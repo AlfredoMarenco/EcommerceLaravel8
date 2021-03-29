@@ -30,36 +30,36 @@
                                 {{-- Start Adress Shipping --}}
                                 <div class="row">
                                     <div class="form-group col-3">
-                                        <label for="street">Street</label>
-                                        <input type="text" class="form-control" name="street">
+                                        <label for="street">Calle</label>
+                                        <input type="text" class="form-control" name="street" placeholder="C. 473">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="crosses">Number</label>
-                                        <input type="text" class="form-control" name="number">
+                                        <label for="crosses">Numero</label>
+                                        <input type="text" class="form-control" name="number" placeholder="#605">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="crosses">Crosses</label>
-                                        <input type="text" class="form-control" name="crosses">
+                                        <label for="crosses">Cruzamientos</label>
+                                        <input type="text" class="form-control" name="crosses" placeholder="por 40 y 42">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="suburb">Suburb</label>
-                                        <input type="text" class="form-control" name="suburb">
+                                        <label for="suburb">Colonia</label>
+                                        <input type="text" class="form-control" name="suburb" placeholder="Col. Los heroes">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="state">State</label>
-                                        <input type="text" class="form-control" name="state">
+                                        <label for="state">Estado</label>
+                                        <input type="text" class="form-control" name="state" placeholder="Mérida">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="city">City</label>
-                                        <input type="text" class="form-control" name="city">
+                                        <label for="city">Ciudad</label>
+                                        <input type="text" class="form-control" name="city" placeholder="Yucatán">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="postal_code">Postal Code</label>
-                                        <input type="text" class="form-control" name="postal_code">
+                                        <label for="postal_code">Codigo postal</label>
+                                        <input type="text" class="form-control" name="postal_code" placeholder="97000">
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="reference">Reference</label>
-                                        <input type="text" class="form-control" name="reference">
+                                        <label for="reference">Referencias</label>
+                                        <input type="text" class="form-control" name="reference" placeholder="Casa de 2 pisos de color blanco">
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
