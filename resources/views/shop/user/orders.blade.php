@@ -66,7 +66,8 @@
                                     <div class="col-md-8">
                                         <h6 class="text-muted">Direccion de envio</h6>
                                         <p>{{ $order->user->name }} {{ $order->user->last_name }} <br>
-                                            Phone: {{ auth()->user()->phone }}<br> Email: {{ auth()->user()->email }} <br>
+                                            Phone: {{ auth()->user()->phone }}<br> Email: {{ auth()->user()->email }}
+                                            <br>
                                             Location: {{ $order->shipping_address->street }} #
                                             {{ $order->shipping_address->number }} entre
                                             {{ $order->shipping_address->crosses }}
@@ -77,6 +78,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <h6 class="text-muted">Payment</h6>
+                                        <span class="b">{{ $order->type }}</span>
                                         <span class="b">Total: $ {{ number_format($order->amount, 2) }} </span>
                                         </p>
                                     </div>
@@ -103,8 +105,17 @@
                                                         {{ $product->color }}
                                                         <br>
                                                         Size: {{ $product->size }}
+                                                        <br>
+                                                        SKU: {{ $product->SKU }}
                                                     @else
                                                         SKU: {{ $product->SKU }}
+                                                    @endif
+
+                                                    @if ($order->type == 'store')
+                                                        <div>
+                                                            <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
+                                                                target="_blank" class="btn btn-dark mt-2">Imprimir orden de pago</a>
+                                                        </div>
                                                     @endif
                                                 </td>
                                             </tr>
