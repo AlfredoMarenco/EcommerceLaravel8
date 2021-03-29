@@ -141,9 +141,10 @@
                                     <dd class="text-right h5"><strong>${{ Cart::total() }} MXN</strong></dd>
                                 </dl>
                                 <hr>
-                                <p class="text-center mb-3">
-                                    <img src="images/misc/payments.png" height="26">
-                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="fab fa-cc-mastercard fa-2x"></i>
+                                    <i class="fab fa-cc-visa fa-2x ml-2"></i>
+                                </div>
 
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
