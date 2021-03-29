@@ -47,12 +47,14 @@
                             <p>
                             <h4>Importe: ${{ number_format($order->amount, 2) }} MXN </h4>
                             </p>
-                            <p>Tarjeta:
-                                <span class="text-success">
-                                    <i class="far fa-lg fa-credit-card"></i>
-                                    {{ $card['card_number'] }}
-                                </span>
-                            </p>
+                            @if ($card)
+                                <p>Tarjeta:
+                                    <span class="text-success">
+                                        <i class="far fa-lg fa-credit-card"></i>
+                                        {{ $card['card_number'] }}
+                                    </span>
+                                </p>
+                            @endif
                             <p>
                                 Fecha del cargo: {{ $order->created_at }}
                             </p>
