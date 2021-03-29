@@ -48,6 +48,12 @@
                                         Referencia expirada
                                     </a>
                                     @break
+                                    @case('charge.expired')
+                                    <a href="#" class="float-right text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        No autenticado
+                                    </a>
+                                    @break
                                     @default
 
                                 @endswitch
@@ -60,7 +66,7 @@
                                     <div class="col-md-8">
                                         <h6 class="text-muted">Direccion de envio</h6>
                                         <p>{{ $order->user->name }} {{ $order->user->last_name }} <br>
-                                            Phone: {{ auth()->user()->phone }} Email: {{ auth()->user()->email }} <br>
+                                            Phone: {{ auth()->user()->phone }}<br> Email: {{ auth()->user()->email }} <br>
                                             Location: {{ $order->shipping_address->street }} #
                                             {{ $order->shipping_address->number }} entre
                                             {{ $order->shipping_address->crosses }}

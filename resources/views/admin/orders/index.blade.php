@@ -57,8 +57,13 @@
                                         Referencia Expirada
                                     </strong>
                                     @break
-                                    @default
+                                    @case('charge.expired')
+                                    <strong class="text-danger">
+                                        No autenticado
+                                    </strong>
+                                    @break
 
+                                    @default
                                 @endswitch
                             </td>
                             <td>

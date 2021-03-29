@@ -74,6 +74,14 @@ class ApiController extends Controller
                     ]);
                 }
                 break;
+            case 'charge.expired': //Estado cargos con tarjeta pendientes expiradas
+                $order = Order::where('id_gateway', $id_gateway)->first();
+                if ($order) {
+                    $order->update([
+                        'status' => 'charge.expired'
+                    ]);
+                }
+                break;
 
             default:
                 # code...
