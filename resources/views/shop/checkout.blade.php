@@ -105,7 +105,7 @@
                                             <label data-toggle="tooltip" title=""
                                                 data-original-title="3 digits code on back side of the card">CVV <i
                                                     class="fa fa-question-circle"></i></label>
-                                            <input class="form-control" type="text" data-openpay-card="cvv2" maxlength="4">
+                                            <input class="form-control" type="text" data-openpay-card="cvv2" placeholder="123" maxlength="4">
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
