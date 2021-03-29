@@ -85,7 +85,7 @@
                                                     <span class="text-danger">Cargo rechazado</span>
                                                     @break
                                                     @case('charge.expired')
-                                                    <span class="text-danger">No autenticado</span>
+                                                    <span class="text-info">No autenticado</span>
                                                     @break
                                                 @endswitch
                                             </figcaption>
