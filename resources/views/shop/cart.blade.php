@@ -161,6 +161,9 @@
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
+                                        <div class="d-flex justify-content-center mb-3">
+                                            <img width="35%" src="{{ asset('images/openpay/openpay_color.png') }}" alt="">
+                                        </div>
                                         <div class="d-flex justify-content-center">
                                             <i class="fab fa-cc-mastercard fa-2x text-dark"></i>
                                             <i class="fab fa-cc-visa fa-2x ml-2 text-secondary"></i>
@@ -184,6 +187,9 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
+                                        <div class="d-flex justify-content-center mb-3">
+                                            <img width="35%" src="{{ asset('images/openpay/paynet.png') }}" alt="">
+                                        </div>
                                         <div class="d-flex justify-content-center">
                                             <i class="fas fa-money-bill fa-2x text-success"></i>
                                         </div>
