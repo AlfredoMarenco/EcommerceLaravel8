@@ -163,7 +163,7 @@
                                             <i class="fab fa-cc-mastercard fa-2x"></i>
                                             <i class="fab fa-cc-visa fa-2x ml-2"></i>
                                         </div>
-                                        <a class="btn btn-dark mercadopago-button"
+                                        <a class="btn btn-dark mercadopago-button mt-3"
                                             href="{{ route('checkout.index') }}">Pago con
                                             tarjeta</a>
                                     </div>
