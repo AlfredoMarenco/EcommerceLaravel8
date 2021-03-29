@@ -206,7 +206,7 @@ class PaymentController extends Controller
             'currency' => 'MXN',
             'description' => config('app.name') . '-' . $order->id,
             'order_id' => $order->id,
-            'due_date' => Carbon::now()->addDay(3),
+            'due_date' => Carbon::now()->addMinute(3),
             'customer' => $customer
         ];
 
