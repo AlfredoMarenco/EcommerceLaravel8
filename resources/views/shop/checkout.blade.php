@@ -77,7 +77,7 @@
                                     <label for="cardNumber">Numero de tarjeta</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="cardNumber" autocomplete="off"
-                                            data-openpay-card="card_number" maxlength="16">
+                                            data-openpay-card="card_number" placeholder="4242 4242 4242 4242" maxlength="16">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i> &nbsp;
