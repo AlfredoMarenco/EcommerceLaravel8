@@ -21,12 +21,11 @@
     @if (Cart::count())
         <section class="section-content padding-y">
             <div class="container mb-3 mt-5 py-3">
-
+                <h4>Dirección de envio</h4>
                 <div class="row">
                     <main class="col-md-8">
                         <div class="card p-5">
-                            <form action="{{ route('checkout.storeOpenpay') }}" method="POST"
-                                id="payment-form">
+                            <form action="{{ route('checkout.storeOpenpay') }}" method="POST" id="payment-form">
                                 @csrf
                                 {{-- Start Adress Shipping --}}
                                 <div class="row">
