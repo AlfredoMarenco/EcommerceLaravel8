@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="d-flex flex-row-reverse justify-content-between my-3">
                 <div>
-                    {{ $posts->links() }}
+                    {{ $orders->links() }}
                 </div>
                 <div>
                     <label for="paginate">Articulos a mostrar</label>
@@ -82,7 +82,7 @@
             </table>
         </div>
         <div class="d-flex flex-row-reverse">
-            {{ $posts->links() }}
+            {{ $orders->links() }}
         </div>
     </div>
 </div>
