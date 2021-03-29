@@ -1,6 +1,20 @@
 <div>
     <div class="card">
         <div class="card-body">
+            <div class="d-flex flex-row-reverse justify-content-between my-3">
+                <div>
+                    {{ $posts->links() }}
+                </div>
+                <div>
+                    <label for="paginate">Articulos a mostrar</label>
+                    <select wire:model="paginate" name="paginate" class="border">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
             <table class="table table-striped text-center">
                 <thead class="thead-dark">
                     <tr>
@@ -66,6 +80,9 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            {{ $posts->links() }}
         </div>
     </div>
 </div>
