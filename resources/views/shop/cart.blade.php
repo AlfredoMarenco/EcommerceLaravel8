@@ -143,7 +143,7 @@
                                 <hr>
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
-
+                        <h4>Metodos de pago</h4>
                         <div class="accordion" id="accordionExample">
                             <div class="card">
                                 <div class="card-header" id="headingOne">
