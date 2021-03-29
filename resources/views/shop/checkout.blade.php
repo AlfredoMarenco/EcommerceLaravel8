@@ -33,51 +33,51 @@
                                 {{-- Start Adress Shipping --}}
                                 <div class="row">
                                     <div class="form-group col-3">
-                                        <label for="street">Street</label>
-                                        <input type="text" class="form-control" name="street">
+                                        <label for="street">Calle</label>
+                                        <input type="text" class="form-control" name="street" placeholder="C. 473">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="crosses">Number</label>
-                                        <input type="text" class="form-control" name="number">
+                                        <label for="crosses">Numero</label>
+                                        <input type="text" class="form-control" name="number" placeholder="#605">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="crosses">Crosses</label>
-                                        <input type="text" class="form-control" name="crosses">
+                                        <label for="crosses">Cruzamientos</label>
+                                        <input type="text" class="form-control" name="crosses" placeholder="por 40 y 42">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="suburb">Suburb</label>
-                                        <input type="text" class="form-control" name="suburb">
+                                        <label for="suburb">Colonia</label>
+                                        <input type="text" class="form-control" name="suburb" placeholder="Col. Los heroes">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="state">State</label>
-                                        <input type="text" class="form-control" name="state">
+                                        <label for="state">Estado</label>
+                                        <input type="text" class="form-control" name="state" placeholder="Mérida">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="city">City</label>
-                                        <input type="text" class="form-control" name="city">
+                                        <label for="city">Ciudad</label>
+                                        <input type="text" class="form-control" name="city" placeholder="Yucatán">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="postal_code">Postal Code</label>
-                                        <input type="text" class="form-control" name="postal_code">
+                                        <label for="postal_code">Codigo postal</label>
+                                        <input type="text" class="form-control" name="postal_code" placeholder="97000">
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="reference">Reference</label>
-                                        <input type="text" class="form-control" name="reference">
+                                        <label for="reference">Referencias</label>
+                                        <input type="text" class="form-control" name="reference" placeholder="Casa de 2 pisos de color blanco">
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
                                 <!-- form-group.// -->
                                 <div class="form-group">
-                                    <label for="username">Name on card</label>
+                                    <label for="username">Nombre del totular de la tarjeta</label>
                                     <input type="text" class="form-control" name="username"
                                         placeholder="Ejemplo. John Smith" autocomplete="off"
                                         data-openpay-card="holder_name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cardNumber">Card number</label>
+                                    <label for="cardNumber">Numero de tarjeta</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="cardNumber" autocomplete="off"
-                                            data-openpay-card="card_number">
+                                            data-openpay-card="card_number" maxlength="12">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i> &nbsp;
@@ -90,12 +90,12 @@
                                 <div class="row">
                                     <div class="col-md-8 flex-grow-0">
                                         <div class="form-group">
-                                            <label><span class="hidden-xs">Expiration</span> </label>
+                                            <label><span class="hidden-xs">Fecha de expiracion</span> </label>
                                             <div class="form-inline" style="min-width: 220px">
-                                                <input class="form-control" type="text" placeholder="ex. 01"
+                                                <input class="form-control" type="text" placeholder="ex. 01" maxlength="2"
                                                     data-openpay-card="expiration_month">
                                                 <span style="width:20px; text-align: center"> / </span>
-                                                <input class="form-control" type="text" placeholder="ex. 2021"
+                                                <input class="form-control" type="text" placeholder="ex. 24" maxlength="2"
                                                     data-openpay-card="expiration_year">
                                             </div>
                                         </div>
@@ -105,7 +105,7 @@
                                             <label data-toggle="tooltip" title=""
                                                 data-original-title="3 digits code on back side of the card">CVV <i
                                                     class="fa fa-question-circle"></i></label>
-                                            <input class="form-control" type="text" data-openpay-card="cvv2">
+                                            <input class="form-control" type="text" data-openpay-card="cvv2" maxlength="4">
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
