@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }} {{ $order->user->last_name }}</td>
-                            <td>{{ $order->amount }}</td>
+                            <td>$ {{ number_format($order->amount,2) }}</td>
                             <td>
                                 @switch($order->status)
                                     @case('charge_pending')
