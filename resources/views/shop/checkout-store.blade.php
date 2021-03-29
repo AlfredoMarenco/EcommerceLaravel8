@@ -138,9 +138,9 @@
                                     <dd class="text-right h5"><strong>${{ Cart::total() }} MXN</strong></dd>
                                 </dl>
                                 <hr>
-                                <p class="text-center mb-3">
-                                    <img src="{{ asset('images/misc/payments.png') }}" height="26">
-                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="fas fa-money-bill fa-2x text-success"></i>
+                                </div>
 
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
