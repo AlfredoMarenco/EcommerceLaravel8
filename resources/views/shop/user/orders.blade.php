@@ -19,7 +19,7 @@
                                     </a>
                                     @break
                                     @case('charge.created')
-                                    <a href="#" class="float-right text-success">
+                                    <a href="#" class="float-right text-warning">
                                         <i class="fa fa-receipt"></i>
                                         Pago pendiente
                                     </a>
