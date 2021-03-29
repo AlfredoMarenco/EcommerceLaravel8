@@ -52,7 +52,6 @@
                                         Cancelada/Rechazada
                                     </strong>
                                     @break
-                                    @default
                                     @case('charge.cancelled')
                                     <strong class="text-danger">
                                         Referencia Expirada
