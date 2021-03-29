@@ -149,7 +149,8 @@
                         </div> <!-- card .// -->
                         <div class="card">
                             <div class="card-body">
-                                <a class="btn btn-dark mercadopago-button" href="{{ route('checkout.index') }}">Realizar el pedido</a>
+                                <a class="btn btn-dark mercadopago-button" href="{{ route('checkout.index') }}">Pago con tarjeta</a>
+                                <a class="btn btn-dark mercadopago-button" href="{{ route('checkout.storeReference') }}">Pago en efectivo</a>
                                 {{-- <form action="{{ route('checkout.chargeMercadoPago') }}" method="POST">
                                     @csrf
                                 <script src="https://www.mercadopago.com.mx/integrations/v1/web-tokenize-checkout.js"
