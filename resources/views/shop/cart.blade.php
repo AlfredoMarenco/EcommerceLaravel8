@@ -153,7 +153,7 @@
                                     tarjeta</a>
                                 <hr>
                                 <div class="d-flex justify-content-center">
-                                    <i class="fas fa-money-bill text-success"></i>
+                                    <i class="fas fa-money-bill fa-x2 text-success"></i>
                                 </div>
                                 <a class="btn btn-dark mercadopago-button mt-3"
                                     href="{{ route('checkout.storeReference') }}">Pago en efectivo</a>
