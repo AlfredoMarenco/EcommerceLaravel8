@@ -12,14 +12,32 @@
                         <article class="card mb-4">
                             <header class="card-header">
                                 @switch($order->status)
-                                    @case('completed')
+                                    @case('charge_pending')
+                                    <a href="#" class="float-right text-warning">
+                                        <i class="fa fa-receipt"></i>
+                                        {{ $order->status }}
+                                    </a>
+                                    @break
+                                    @case('charge.created')
+                                    <a href="#" class="float-right text-dark">
+                                        <i class="fa fa-receipt"></i>
+                                        {{ $order->status }}
+                                    </a>
+                                    @break
+                                    @case('charge.succeeded')
                                     <a href="#" class="float-right text-success">
                                         <i class="fa fa-receipt"></i>
                                         {{ $order->status }}
                                     </a>
                                     @break
-                                    @case('charge_pending')
-                                    <a href="#" class="float-right text-warning">
+                                    @case('charge.refunded')
+                                    <a href="#" class="float-right text-info">
+                                        <i class="fa fa-receipt"></i>
+                                        {{ $order->status }}
+                                    </a>
+                                    @break
+                                    @case('charge.failed')
+                                    <a href="#" class="float-right text-danger">
                                         <i class="fa fa-receipt"></i>
                                         {{ $order->status }}
                                     </a>

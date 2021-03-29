@@ -63,7 +63,13 @@
                                 @case('charge_pending')
                                 <h4 class="float-center text-warning">
                                     <i class="fa fa-receipt"></i>
-                                    Pendiente
+                                    Pendiente/Tarjeta
+                                </h4>
+                                @break
+                                @case('charge.created')
+                                <h4 class="float-center text-warning">
+                                    <i class="fa fa-receipt"></i>
+                                    Pendiente/Efectivo
                                 </h4>
                                 @break
                                 @case('charge.succeeded')

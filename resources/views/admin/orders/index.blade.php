@@ -29,7 +29,12 @@
                                 @switch($order->status)
                                     @case('charge_pending')
                                     <strong class="text-dark">
-                                        Pendiente
+                                        Pendiente/Tarjeta
+                                    </strong>
+                                    @break
+                                    @case('charge.created')
+                                    <strong class="text-dark">
+                                        Pendiente/Efectivo
                                     </strong>
                                     @break
                                     @case('charge.succeeded')
