@@ -87,6 +87,9 @@
                                                     @case('charge.expired')
                                                     <span class="text-info">No autenticado</span>
                                                     @break
+                                                    @case('charge.created')
+                                                    <span class="text-warning">Pago pendiente</span>
+                                                    @break
                                                 @endswitch
                                             </figcaption>
                                         </figure>
