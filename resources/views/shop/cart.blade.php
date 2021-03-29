@@ -160,8 +160,8 @@
                                     data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-center">
-                                            <i class="fab fa-cc-mastercard fa-2x text-danger"></i>
-                                            <i class="fab fa-cc-visa fa-2x ml-2 text-info"></i>
+                                            <i class="fab fa-cc-mastercard fa-2x text-dark"></i>
+                                            <i class="fab fa-cc-visa fa-2x ml-2 text-secondary"></i>
                                         </div>
                                         <a class="btn btn-dark mercadopago-button mt-3"
                                             href="{{ route('checkout.index') }}">Pago con
