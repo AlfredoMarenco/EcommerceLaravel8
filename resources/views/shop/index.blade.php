@@ -11,21 +11,21 @@
 
 
     <!--Form-->
-    <main role="main" class="container"> 
-   
+    <main role="main" class="container">
+
         <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
 
           <div class="modal-dialog" role="document">
 
             <div class="modal-content">
-            
+
               <div class="modal-header">
                 <h5 id="tituloVentana">Solicita más información </h5>
                 <button class="close" data-dismiss ="modal" aria-label="Cerrar">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-  
+
               <div class="modal-body">
                 <div class="alert alert-succes">
 
@@ -50,11 +50,11 @@
 
                     <button type="submit" class="btn btn-secondary">Enviar</button>
                   </form>
-                  
+
 
                 </div>
               </div>
-  
+
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal" >Cerrar</button>
               </div>
@@ -79,7 +79,7 @@
                     style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
                     <div class="medio">
                         <h1>MEN</h1>
-                        <a href="" class="btn btn-primary">ENTER</a>
+                        <a href="{{ route('shop.products','hombre') }}"class="btn btn-primary">ENTER</a>
                     </div>
                 </div>
             </div>
@@ -125,15 +125,15 @@
                     style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
                     <div class="tmedio">
                         <h1>WOMEN</h1>
-                        <a href="" class="btn btn-primary">ENTER</a>
+                        <a href="{{ route('shop.products','mujer') }}" class="btn btn-primary">ENTER</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    
-    <!-- ========================= 
+
+    <!-- =========================
     <hr>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
