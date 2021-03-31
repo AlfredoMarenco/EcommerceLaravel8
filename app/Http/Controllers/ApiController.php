@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderShipped;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ApiController extends Controller
 {
@@ -48,6 +50,7 @@ class ApiController extends Controller
                     $order->update([
                         'status' => 'charge.succeeded'
                     ]);
+                    Mail::to(auth()->user())->send(new OrderShipped($order));
                 }
                 break;
             case 'charge.failed': //Estado para cargos fallidos

@@ -116,7 +116,6 @@ class PaymentController extends Controller
 
         $url3D = $charge->serializableData["payment_method"]->url;
         Cart::destroy();
-        Mail::to($request->user())->send(new OrderShipped($order));
         return redirect($url3D);
     }
 
@@ -130,6 +129,7 @@ class PaymentController extends Controller
         $orderUpdate = Order::find($idOrder);
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
+    
         return redirect()->route('user.profile');
     }
 
