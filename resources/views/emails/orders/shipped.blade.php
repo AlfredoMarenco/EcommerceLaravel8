@@ -9,6 +9,7 @@
 @foreach ($order->products as $product)
 | {{ $product->pivot->quanty  }}      | {{ $product->name }}      | ${{ number_format($product->pivot->price, 2) }}      |
 @endforeach
+|                                     |                  |                                            |
 |                                     |     Total        | ${{ number_format($order->amount,2) }}     |
 @endcomponent
 
