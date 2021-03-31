@@ -3,7 +3,7 @@
 
 Tu orden ha sido creada
 
-@component('mail::button', ['url' => {{ route('user.orders') }},'color' => 'success'])
+@component('mail::button', ['url' => 'https://renealonso.com/user/orders','color' => 'success'])
 Ver orden
 @endcomponent
 
