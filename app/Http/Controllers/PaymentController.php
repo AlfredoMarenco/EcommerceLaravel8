@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderShipped;
 use App\Models\Order;
 use App\Models\ShippingAddress;
 use Carbon\Carbon;
@@ -14,6 +15,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use MercadoPago\Payment;
 use MercadoPago\SDK;
 use Openpay;
@@ -114,6 +116,7 @@ class PaymentController extends Controller
 
         $url3D = $charge->serializableData["payment_method"]->url;
         Cart::destroy();
+        Mail::to($request->user())->send(new OrderShipped($order));
         return redirect($url3D);
     }
 
