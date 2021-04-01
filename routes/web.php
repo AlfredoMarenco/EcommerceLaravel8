@@ -7,6 +7,8 @@ use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Mail\OrderShipped;
+use App\Models\Order;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -138,6 +140,10 @@ Route::post('/reset-password', function (Request $request) {
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
+Route::get('/mailable', function () {
+    $order = Order::find(801);
 
+    return new OrderShipped($order);
+});
 
 

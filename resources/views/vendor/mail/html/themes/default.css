@@ -194,6 +194,7 @@ img {
     border-bottom: 1px solid #edeff2;
     margin: 0;
     padding-bottom: 8px;
+    text-align: center;
 }
 
 .table td {
@@ -202,6 +203,7 @@ img {
     line-height: 18px;
     margin: 0;
     padding: 10px 0;
+    text-align: center;
 }
 
 .content-cell {
@@ -287,4 +289,21 @@ img {
 
 .break-all {
     word-break: break-all;
+}
+
+
+.social-icons
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons img{
+    margin: 0 2px 0 2px;
+}
+
+.order{
+    display:flex;
+    justify-content: space-between;
 }
