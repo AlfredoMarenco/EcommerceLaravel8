@@ -307,3 +307,8 @@ img {
     display:flex;
     justify-content: space-between;
 }
+
+
+.failed{
+    color:#e53e3e;
+}

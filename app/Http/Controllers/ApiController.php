@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderFailed;
 use App\Mail\OrderShipped;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -60,6 +61,7 @@ class ApiController extends Controller
                         'status' => 'charge.failed'
                     ]);
                 }
+                Mail::to($order->user->email)->send(new OrderFailed($order));
                 break;
             case 'charge.created': //Estado para referencias de pago paynet
                 $order = Order::where('id_gateway', $id_gateway)->first();

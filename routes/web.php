@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Mail\OrderFailed;
 use App\Mail\OrderShipped;
 use App\Models\Order;
 use Illuminate\Auth\Events\PasswordReset;
@@ -143,7 +144,7 @@ Route::post('/reset-password', function (Request $request) {
 Route::get('/mailable', function () {
     $order = Order::find(405);
 
-    return new OrderShipped($order);
+    return new OrderFailed($order);
 });
 
 
