@@ -9,17 +9,5 @@
 <br>
 <p>Lamentablemente su orden no se ha podido realizar con exito por que se a <strong>declinado su tarjeta</strong>, si el problema continua le recomendamos comunicarse con su banco emisor.</p><br>
 <br>
-<center>
-    <small>Consulta los terminos y condiciones, asi como nuestras politicas de privacidad</small>
-    <br>
-    <br>
-        <strong style="color:black;">Visita nuestras redes sociales</strong><br>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/Rene-Alonsomx-103679577867663"> <img width="30px" src="{{ asset('template/images/icons/facebook.png') }}" alt=""></a>
-            <a href="https://www.instagram.com/renealonso.mx/"> <img width="30px" src="{{ asset('template/images/icons/instagram.png') }}" alt=""></a>
-            <a href="https://twitter.com/FashionAlonso"> <img width="30px" src="{{ asset('template/images/icons/signo-de-twitter.png') }}" alt=""></a>
-        </div>
 
-
-</center>
 @endcomponent

@@ -20,16 +20,5 @@
 @component('mail::button', ['url' => 'https://renealonso.com/user/orders','color' => 'success'])
 Ver orden
 @endcomponent
-<center>
-<small>Consulta los terminos y condiciones, asi como nuestras politicas de privacidad</small>
-<br>
-<br>
-    <strong style="color:black;">Visita nuestras redes sociales</strong><br>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/Rene-Alonsomx-103679577867663"> <img width="30px" src="{{ asset('template/images/icons/facebook-brands.svg') }}" alt=""></a>
-        <a href="https://www.instagram.com/renealonso.mx/"> <img width="30px" src="{{ asset('template/images/icons/instagram-square-brands.svg') }}" alt=""></a>
-        <a href="https://twitter.com/FashionAlonso"> <img width="30px" src="{{ asset('template/images/icons/twitter-square-brands.svg') }}" alt=""></a>
-    </div>
-</center>
 
 @endcomponent
