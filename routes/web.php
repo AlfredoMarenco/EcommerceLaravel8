@@ -141,7 +141,7 @@ Route::post('/reset-password', function (Request $request) {
 })->middleware('guest')->name('password.update');
 
 Route::get('/mailable', function () {
-    $order = Order::find(801);
+    $order = Order::find(405);
 
     return new OrderShipped($order);
 });

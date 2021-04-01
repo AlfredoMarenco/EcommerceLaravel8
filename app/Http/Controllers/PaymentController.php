@@ -129,7 +129,7 @@ class PaymentController extends Controller
         $orderUpdate = Order::find($idOrder);
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
-        Mail::to(auth()->user())->send(new OrderShipped($orderUpdate));
+        /* Mail::to(auth()->user())->send(new OrderShipped($orderUpdate)); */
         return redirect()->route('user.profile');
     }
 
