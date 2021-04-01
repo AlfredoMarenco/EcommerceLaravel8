@@ -7,7 +7,7 @@
 ¡Hola {{ $order->user->name }}!
 <br>
 <br>
-<p>Lamentablemente su orden no se ha podido realizar con exito por que se a <strong>declinado su tarjeta</strong>, si el problema persiste le recomendamos comunicarse con su banco emisor.</p><br>
+<p>Lamentablemente su orden no se ha podido realizar con exito por que se a <strong>declinado su tarjeta</strong>, si el problema continua le recomendamos comunicarse con su banco emisor.</p><br>
 <br>
 <center>
     <small>Consulta los terminos y condiciones, asi como nuestras politicas de privacidad</small>
