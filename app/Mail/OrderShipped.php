@@ -30,6 +30,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.orders.shipped')->attachFromStorage('/productos');
+        return $this->markdown('emails.orders.shipped');
     }
 }
