@@ -2,57 +2,33 @@
 
 @section('css')
     <style>
-        /* The container */
-        .container {
-            cursor: pointer;
-            font-size: 22px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        .colors {
+            width: 25px;
+            height: 25px;
+            border-radius: 25%;
         }
 
-        /* Hide the browser's default radio button */
-        .container input {
-            opacity: 0;
-            cursor: pointer;
+        .sizes {
+            width: 25px;
+            height: 25px;
+            border:2px solid black;
+            border-radius: 25%;
         }
 
-        /* Create a custom radio button */
-        .checkmark {
-            height: 20px;
-            width: 20px;
-            background-color: #eee;
+        .sizes-label {
+            font-size: 13px;
+            margin-top: -27px;
+            margin-left: 3px;
         }
 
-        /* On mouse-over, add a grey background color */
-        .container:hover input~.checkmark {
-            background-color: #ccc;
+        input[type="radio"] {
+            appearance: none;
         }
 
-        /* When the radio button is checked, add a blue background */
-        .container input:checked~.checkmark {
-            background-color: #2196F3;
+        input[type="radio"]:checked {
+            border:2px solid rgb(62, 163, 31);
         }
 
-        /* Create the indicator (the dot/circle - hidden when not checked) */
-        .checkmark:after {
-            content: "";
-            display: none;
-        }
-
-        /* Show the indicator (dot/circle) when checked */
-        .container input:checked~.checkmark:after {
-            display: block;
-        }
-
-        /* Style the indicator (dot/circle) */
-        .container .checkmark:after {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgb(88, 88, 88);
-        }
     </style>
 @endsection
 
@@ -60,11 +36,11 @@
     <section class="py-4">
         <div class="container">
             <!-- <ol class="breadcrumb">
-                                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                                            <li class="breadcrumb-item"><a href="#">Category name</a></li>
-                                                            <li class="breadcrumb-item"><a href="#">Sub category</a></li>
-                                                            <li class="breadcrumb-item active" aria-current="page">Items</li>
-                                                            </ol> -->
+                                                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                                            <li class="breadcrumb-item"><a href="#">Category name</a></li>
+                                                                            <li class="breadcrumb-item"><a href="#">Sub category</a></li>
+                                                                            <li class="breadcrumb-item active" aria-current="page">Items</li>
+                                                                            </ol> -->
         </div>
     </section>
     <!-- ========================= SECTION CONTENT ========================= -->
@@ -123,18 +99,17 @@
                             @csrf
                             <div class="d-flex justify-content-start">
                                 @foreach ($product->colors as $color)
-                                    <label style="background-color: {{ $color->code }};" >
-                                        {!! Form::radio('color', $color->name, null, ['class' => 'mx-1 radio']) !!}
+                                    <label style="background-color: {{ $color->code }};" class="colors mx-1">
+                                        {!! Form::radio('color', $color->name, null, ['class' => 'colors']) !!}
                                         <span class="checkmark"></span>
                                     </label>
                                 @endforeach
                             </div>
                             <div class="d-flex justify-content-start">
                                 @foreach ($product->sizes as $size)
-                                    <label>
-                                        {!! Form::radio('size', $size->slug, null, ['class' => 'mx-1 radio']) !!}
-                                        {{ $size->slug }}
-                                        <span class="checkmark"></span>
+                                    <label class="mx-1">
+                                        {!! Form::radio('size', $size->slug, null, ['class' => 'sizes']) !!}
+                                        <p class="sizes-label">{{ $size->slug }}</p>
                                     </label>
                                 @endforeach
                             </div>
@@ -169,72 +144,72 @@
                         {!! $product->description !!}
                     </p>
                     <!-- <ul class="list-check">
-                                                                            <li>Material: Stainless steel</li>
-                                                                            <li>Weight: 82kg</li>
-                                                                            <li>built-in drip tray</li>
-                                                                            <li>Open base for pots and pans</li>
-                                                                            <li>On request available in propane execution</li>
-                                                                            </ul>
+                                                                                            <li>Material: Stainless steel</li>
+                                                                                            <li>Weight: 82kg</li>
+                                                                                            <li>built-in drip tray</li>
+                                                                                            <li>Open base for pots and pans</li>
+                                                                                            <li>On request available in propane execution</li>
+                                                                                            </ul>
 
-                                                                            <h5 class="title-description">Specifications</h5>
-                                                                            <table class="table table-bordered">
-                                                                            <tr>
-                                                                                <th colspan="2">Basic specs</th>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Type of energy</td>
-                                                                                <td>Lava stone</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Number of zones</td>
-                                                                                <td>2</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Automatic connection </td>
-                                                                                <td> <i class="fa fa-check text-success"></i> Yes </td>
-                                                                            </tr>
+                                                                                            <h5 class="title-description">Specifications</h5>
+                                                                                            <table class="table table-bordered">
+                                                                                            <tr>
+                                                                                                <th colspan="2">Basic specs</th>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Type of energy</td>
+                                                                                                <td>Lava stone</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Number of zones</td>
+                                                                                                <td>2</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Automatic connection </td>
+                                                                                                <td> <i class="fa fa-check text-success"></i> Yes </td>
+                                                                                            </tr>
 
-                                                                            <tr>
-                                                                                <th colspan="2">Dimensions</th>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Width</td>
-                                                                                <td>500mm</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Depth</td>
-                                                                                <td>400mm</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Height </td>
-                                                                                <td>700mm</td>
-                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <th colspan="2">Dimensions</th>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Width</td>
+                                                                                                <td>500mm</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Depth</td>
+                                                                                                <td>400mm</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Height </td>
+                                                                                                <td>700mm</td>
+                                                                                            </tr>
 
-                                                                            <tr>
-                                                                                <th colspan="2">Materials</th>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Exterior</td>
-                                                                                <td>Stainless steel</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Interior</td>
-                                                                                <td>Iron</td>
-                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <th colspan="2">Materials</th>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Exterior</td>
+                                                                                                <td>Stainless steel</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Interior</td>
+                                                                                                <td>Iron</td>
+                                                                                            </tr>
 
-                                                                            <tr>
-                                                                                <th colspan="2">Connections</th>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Heating Type</td>
-                                                                                <td>Gas</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Connected load gas</td>
-                                                                                <td>15 Kw</td>
-                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <th colspan="2">Connections</th>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Heating Type</td>
+                                                                                                <td>Gas</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Connected load gas</td>
+                                                                                                <td>15 Kw</td>
+                                                                                            </tr>
 
-                                                                                </table> -->
+                                                                                                </table> -->
                 </div>
             </div>
         </div>
