@@ -6,13 +6,15 @@
         <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted>
             @foreach ($configurations as $configuration)
                 @if ($configuration->name == 'Video')
-                    <source src="{{ Storage::url($configuration->image->url) }}" type="video/mp4" />
+                    @isset($configuration->image)
+                        <source src="{{ Storage::url($configuration->image->url) }}" type="video/mp4" />
+                    @else
+                        <source src="{{ asset('template/images/rene/01videobase-06.mp4') }}" type="video/mp4" />
+                    @endisset
                 @endif
             @endforeach
         </video>
     </header>
-
-
 
     <!--Form-->
     <main role="main" class="container">
@@ -85,16 +87,27 @@
             <div class="row">
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenLeft')
-                        <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                            style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                        </div>
+                        @isset($configuration->image)
+                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            </div>
+                        @else
+                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                                style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                            </div>
+                        @endisset
                     @endif
                 @endforeach
 
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenRight')
-                        <div class="col-lg-6 col-md-6 col-sm-12 der"
-                            style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                        @isset($configuration->image)
+                            <div class="col-lg-6 col-md-6 col-sm-12 der"
+                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            @else
+                                <div class="col-lg-6 col-md-6 col-sm-12 der"
+                                    style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                                @endisset
                     @endif
                 @endforeach
                 <div class="medio">
@@ -106,95 +119,11 @@
         </div>
     </section>
 
-    <!-- ========================= SECTION SLIDER  ========================= 
-    <div id="mainCarousel" class="carousel slide" data-ride="carousel">
-        {{-- <ol class="carousel-indicators">
-            <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#mainCarousel" data-slide-to="1"></li>
-            <li data-target="#mainCarousel" data-slide-to="2"></li>
-            <li data-target="#mainCarousel" data-slide-to="3"></li>
-        </ol> --}}
-        <div class="carousel-inner slider">
-            @foreach ($configurations as $configuration)
-                @if ($configuration->name == 'Slider')
-                    @foreach ($configuration->images as $image)
-                        <div class="carousel-item slider @if ($loop->first) active @endif
-                            ">
-                            <img class="d-block" src="{{ Storage::url($image->url) }}" alt="Second slide" />
-                        </div>
-                    @endforeach
-                @endif
-            @endforeach
-        </div>
-        <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-
-    <section id="tsec">
-        <div class="container">
-            <div class="row">
-                @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'WomenLeft')
-                        <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                            style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                        </div>
-                    @endif
-                @endforeach
-
-                @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'WomenRight')
-                        <div class="col-lg-6 col-md-6 col-sm-12 der"
-                            style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                    @endif
-                @endforeach
-                <div class="tmedio">
-                    <h1>WOMEN</h1>
-                    <a href="{{ route('shop.products', 'mujer') }}" class="btn btn-primary">ENTER</a>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-<<<<<<< HEAD
-    
-  
-    <hr>
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('template/images/rene/slider-4.jpg') }}" class="d-block wv-100 h-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('template/images/rene/slider-4.jpg') }}" class="d-block w-100 h-100" alt="..." />
-            </div>
-        </div>
-        <a class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div> Fin del slider-->
-
-
     <!--slider Jquery-->
     <div id="mislider">
 
     </div>
-
-      <!-- end slider Jquery-->
-
-
+    <!-- end slider Jquery-->
 
     <section id="ther">
         <div class="container mt-5 mb-5">
@@ -211,48 +140,7 @@
                 </div>
             </div>
         </div>
-    </section>  -->
-=======
-
-    <!-- =========================
-                                                        <hr>
-                                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                                            <div class="carousel-inner">
-                                                                <div class="carousel-item active">
-                                                                    <img src="{{ asset('template/images/rene/slider-4.jpg') }}" class="d-block wv-100 h-100" alt="..." />
-                                                                </div>
-                                                                <div class="carousel-item">
-                                                                    <img src="{{ asset('template/images/rene/slider-4.jpg') }}" class="d-block w-100 h-100" alt="..." />
-                                                                </div>
-                                                            </div>
-                                                            <a class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                                <span class="sr-only">Previous</span>
-                                                            </a>
-                                                            <a class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                                <span class="sr-only">Next</span>
-                                                            </a>
-                                                        </div>
-
-                                                        <section id="ther">
-                                                            <div class="container mt-5 mb-5">
-                                                                <div class="row">
-                                                                    <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                                                        style="background-image: url({{ asset('template/images/rene/02-imagencuadrada03-1-1.jpg') }});">
-                                                                    </div>
-                                                                    <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                                                        style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
-                                                                        <div class="medio">
-                                                                            <h1>MEN</h1>
-                                                                            <a href="" class="btn btn-primary">ENTER</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </section>  -->
->>>>>>> 9dc1c15a78ca32255fce9a7397b035a3eb8e7d0b
-    <!-- find de segundo slider -->
+    </section>
 
 
 
