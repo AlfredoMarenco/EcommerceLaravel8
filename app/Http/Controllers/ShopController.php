@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Configuration;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,8 @@ class ShopController extends Controller
     } */
     public function index()
     {
-        $products = Product::where('stock', '>', 0)->latest('id')->get();
-        return view('shop.index', compact('products'));
+        $configurations = Configuration::all();
+        return view('shop.index',compact('configurations'));
     }
 
     public function showProducts($var =  null)

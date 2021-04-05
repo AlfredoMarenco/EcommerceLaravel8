@@ -21,7 +21,15 @@
                     <tr>
                         <td>
                             <p>
-                                Cliente: {{ $order->user->name }} {{ $order->user->last_name }}<br>
+                            <h5>Cliente</h5>
+                            Nombre: {{ $order->user->name }}
+                            <br>
+                            Apellido: {{ $order->user->last_name }}
+                            <br>
+                            Email: {{ $order->user->email }}
+                            <br>
+                            Telefono: {{ $order->user->phone }}
+                            <br>
                             </p>
                             <h5>Direccion</h5>
                             <div><span>Street:</span> {{ $order->shipping_address->street }}.</div>
@@ -39,12 +47,14 @@
                             <p>
                             <h4>Importe: ${{ number_format($order->amount, 2) }} MXN </h4>
                             </p>
-                            <p>Tarjeta:
-                                <span class="text-success">
-                                    <i class="far fa-lg fa-credit-card"></i>
-                                    {{ $card['card_number'] }}
-                                </span>
-                            </p>
+                            @if ($card)
+                                <p>Tarjeta:
+                                    <span class="text-success">
+                                        <i class="far fa-lg fa-credit-card"></i>
+                                        {{ $card['card_number'] }}
+                                    </span>
+                                </p>
+                            @endif
                             <p>
                                 Fecha del cargo: {{ $order->created_at }}
                             </p>
@@ -52,18 +62,53 @@
                         <td>
                             <h5>Order: {{ $order->id }}</h5>
                             @switch($order->status)
-                                @case('completed')
-                                <h4 class="float-center text-success">
-                                    <i class="fa fa-receipt"></i>
-                                    {{ $order->status }}
-                                </h4>
-                                @break
                                 @case('charge_pending')
                                 <h4 class="float-center text-warning">
                                     <i class="fa fa-receipt"></i>
-                                    {{ $order->status }}
+                                    Pendiente/Tarjeta
                                 </h4>
                                 @break
+                                @case('charge.created')
+                                <h4 class="float-center text-warning">
+                                    <i class="fa fa-receipt"></i>
+                                    Pendiente/Efectivo
+                                </h4>
+                                @break
+                                @case('charge.succeeded')
+                                <h4 class="float-center text-success">
+                                    <i class="fa fa-receipt"></i>
+                                    Completada
+                                </h4>
+                                @break
+                                @case('charge.refunded')
+                                <h4 class="float-center text-danger">
+                                    <i class="fa fa-receipt"></i>
+                                    Cancelada/Reembolsada
+                                </h4>
+                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                @break
+                                @case('charge.failed')
+                                <h4 class="float-center text-danger">
+                                    <i class="fa fa-receipt"></i>
+                                    Cancelada/Rechazada
+                                </h4>
+                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                @break
+                                @case('charge.cancelled')
+                                <h4 class="float-center text-danger">
+                                    <i class="fa fa-receipt"></i>
+                                    Referencia expirada
+                                </h4>
+                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                @break
+                                @case('charge.expired')
+                                <h4 class="float-center text-danger">
+                                    <i class="fa fa-receipt"></i>
+                                    No autenticado
+                                </h4>
+                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                @break
+
                                 @default
 
                             @endswitch
@@ -107,7 +152,7 @@
                             </td>
                             <td>
                                 <div class="h3 float-left">
-                                    Total: ${{ number_format($order->amount,2) }}
+                                    Total: ${{ number_format($order->amount, 2) }}
                                 </div>
                             </td>
                         </tr>
