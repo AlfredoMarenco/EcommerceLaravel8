@@ -106,7 +106,7 @@
         </div>
     </section>
 
-    <!-- ========================= SECTION SLIDER  ========================= -->
+    <!-- ========================= SECTION SLIDER  ========================= 
     <div id="mainCarousel" class="carousel slide" data-ride="carousel">
         {{-- <ol class="carousel-indicators">
             <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
@@ -163,6 +163,56 @@
         </div>
     </section>
 
+<<<<<<< HEAD
+    
+  
+    <hr>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('template/images/rene/slider-4.jpg') }}" class="d-block wv-100 h-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('template/images/rene/slider-4.jpg') }}" class="d-block w-100 h-100" alt="..." />
+            </div>
+        </div>
+        <a class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> Fin del slider-->
+
+
+    <!--slider Jquery-->
+    <div id="mislider">
+
+    </div>
+
+      <!-- end slider Jquery-->
+
+
+
+    <section id="ther">
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada03-1-1.jpg') }});">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 der"
+                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
+                    <div class="medio">
+                        <h1>MEN</h1>
+                        <a href="" class="btn btn-primary">ENTER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  -->
+=======
 
     <!-- =========================
                                                         <hr>
@@ -201,6 +251,7 @@
                                                                 </div>
                                                             </div>
                                                         </section>  -->
+>>>>>>> 9dc1c15a78ca32255fce9a7397b035a3eb8e7d0b
     <!-- find de segundo slider -->
 
 
