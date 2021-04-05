@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <!-- ========================= SECTION SLIDER  ========================= -->
+    <!-- ========================= SECTION SLIDER  ========================= 
     <div id="mainCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
@@ -133,7 +133,7 @@
     </section>
 
     
-    <!-- ========================= 
+  
     <hr>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -152,7 +152,17 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div> Fin del slider-->
+
+
+    <!--slider Jquery-->
+    <div id="mislider">
+
     </div>
+
+      <!-- end slider Jquery-->
+
+
 
     <section id="ther">
         <div class="container mt-5 mb-5">

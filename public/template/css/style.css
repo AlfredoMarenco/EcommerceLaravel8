@@ -510,7 +510,7 @@ p,
   }
 }
 
-.carousel-item {
+/* .carousel-item {
   height: 100vh;
   min-height: 350px;
   background: no-repeat center center scroll;
@@ -518,7 +518,14 @@ p,
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+} */
+
+/* Slider jquery */
+#mislider{
+  height: 100vh;
 }
+
+
 
 .interior .btn-primary {
   background-color: transparent !important;
