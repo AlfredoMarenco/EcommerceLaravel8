@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Mail\OrderFailed;
+use App\Mail\OrderShipped;
+use App\Models\Order;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -13,8 +17,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-use ArielMejiaDev\LarapexCharts\LarapexChart;
-use Laravel\Socialite\Facades\Socialite;
 
 
 
@@ -54,6 +56,8 @@ Route::prefix('checkout')->group(function () {
     Route::get('/', [PaymentController::class, 'index'])->name('checkout.index');
     Route::post('/directChargeOpenpay', [PaymentController::class, 'directChargeOpenPay'])->name('checkout.chargeOpenpay');
     Route::get('/directChargeOpenpay/responsepayment/', [PaymentController::class, 'validateChargeOpenPay']);
+    Route::get('/storeReference', [PaymentController::class, 'storeReference'])->name('checkout.storeReference');
+    Route::post('/storeReferenceOpenpay', [PaymentController::class, 'storeReferenceOpenPay'])->name('checkout.storeOpenpay');
     Route::post('/directChargeConekta', [PaymentController::class, 'directChargeConekta'])->name('checkout.chargeConekta');
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
@@ -64,10 +68,12 @@ Route::prefix('blog')->group(function () {
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
-// Ruta de galería
-Route::get('/galery', function(){
-    return view('galeria.index');
-    });
+Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
+
+
+//Rutas de login con redes sociales
+Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
+Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
@@ -88,7 +94,8 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
+/*Rutas para manejo de verificacion de
+usuarios y de reestablecimiento de contraseñas*/
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');
@@ -104,7 +111,6 @@ Route::post('/forgot-password', function (Request $request) {
         ? back()->with(['status' => __($status)])
         : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.email');
-
 
 Route::get('/reset-password/{token}', function ($token) {
     return view('auth.reset-password', ['token' => $token]);
@@ -135,7 +141,10 @@ Route::post('/reset-password', function (Request $request) {
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
+Route::get('/mailable', function () {
+    $order = Order::find(405);
 
-Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
-Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
+    return new OrderFailed($order);
+});
+
 

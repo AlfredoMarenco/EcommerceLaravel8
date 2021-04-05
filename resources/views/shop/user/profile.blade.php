@@ -72,11 +72,23 @@
                                                 @endforeach
                                                 <p>$ {{ number_format($order->amount, 2) }}</p>
                                                 @switch($order->status)
-                                                    @case('completed')
-                                                    <span class="text-success">Orden recibida</span>
+                                                    @case('charge.succeeded')
+                                                    <span class="text-success">Aceptada</span>
                                                     @break
                                                     @case('charge_pending')
-                                                    <span class="text-warning">Cargo no autenticado</span>
+                                                    <span class="text-warning">Procesando pago</span>
+                                                    @break
+                                                    @case('charge.refunded')
+                                                    <span class="text-danger">Reembolsada</span>
+                                                    @break
+                                                    @case('charge.failed')
+                                                    <span class="text-danger">Cargo rechazado</span>
+                                                    @break
+                                                    @case('charge.expired')
+                                                    <span class="text-info">No autenticado</span>
+                                                    @break
+                                                    @case('charge.created')
+                                                    <span class="text-warning">Pago pendiente</span>
                                                     @break
                                                 @endswitch
                                             </figcaption>

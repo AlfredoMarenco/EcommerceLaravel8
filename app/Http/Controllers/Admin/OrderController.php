@@ -22,8 +22,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        return view('admin.orders.index', compact('orders'));
+        return view('admin.orders.index');
     }
 
     /**
@@ -57,9 +56,20 @@ class OrderController extends Controller
     {
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $charge = $openpay->charges->get($order->id_gateway);
-        $card = $charge->card->serializableData;
-        /*       */
-        return view('admin.orders.show', compact('order', 'card'));
+
+        switch ($order->type) {
+            case 'card':
+                $card = $charge->card->serializableData;
+                return view('admin.orders.show', compact('order', 'card'));
+                break;
+            case 'store':
+                $card=null;
+                return view('admin.orders.show', compact('order', 'card'));
+                break;
+            default:
+                # code...
+                break;
+        }
     }
 
     /**
@@ -100,5 +110,7 @@ class OrderController extends Controller
         $response = $charge->refund($refundData);
         $response = $response->refund;
         /* dd($response); */
+
+        return redirect()->route('admin.orders.index')->withSuccess('La orden ha sido cancelada y reembolsada');
     }
 }

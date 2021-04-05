@@ -12,16 +12,46 @@
                         <article class="card mb-4">
                             <header class="card-header">
                                 @switch($order->status)
-                                    @case('completed')
-                                    <a href="#" class="float-right text-success">
-                                        <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
-                                    </a>
-                                    @break
                                     @case('charge_pending')
                                     <a href="#" class="float-right text-warning">
                                         <i class="fa fa-receipt"></i>
-                                        {{ $order->status }}
+                                        Procesando tu pago
+                                    </a>
+                                    @break
+                                    @case('charge.created')
+                                    <a href="#" class="float-right text-warning">
+                                        <i class="fa fa-receipt"></i>
+                                        Pago pendiente
+                                    </a>
+                                    @break
+                                    @case('charge.succeeded')
+                                    <a href="#" class="float-right text-success">
+                                        <i class="fa fa-receipt"></i>
+                                        Aceptada
+                                    </a>
+                                    @break
+                                    @case('charge.refunded')
+                                    <a href="#" class="float-right text-info">
+                                        <i class="fa fa-receipt"></i>
+                                        Reembolsada
+                                    </a>
+                                    @break
+                                    @case('charge.failed')
+                                    <a href="#" class="float-right text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        Cargo rechazado
+                                    </a>
+                                    @break
+                                    @case('charge.cancelled')
+                                    <a href="#" class="float-right text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        Referencia expirada
+                                    </a>
+                                    @break
+                                    @case('charge.expired')
+                                    <a href="#" class="float-right text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        No autenticado
                                     </a>
                                     @break
                                     @default
@@ -36,7 +66,8 @@
                                     <div class="col-md-8">
                                         <h6 class="text-muted">Direccion de envio</h6>
                                         <p>{{ $order->user->name }} {{ $order->user->last_name }} <br>
-                                            Phone: {{ auth()->user()->phone }} Email: {{ auth()->user()->email }} <br>
+                                            Phone: {{ auth()->user()->phone }}<br> Email: {{ auth()->user()->email }}
+                                            <br>
                                             Location: {{ $order->shipping_address->street }} #
                                             {{ $order->shipping_address->number }} entre
                                             {{ $order->shipping_address->crosses }}
@@ -47,6 +78,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <h6 class="text-muted">Payment</h6>
+                                        <span class="b">{{ $order->type }}</span><br>
                                         <span class="b">Total: $ {{ number_format($order->amount, 2) }} </span>
                                         </p>
                                     </div>
@@ -73,8 +105,17 @@
                                                         {{ $product->color }}
                                                         <br>
                                                         Size: {{ $product->size }}
+                                                        <br>
+                                                        SKU: {{ $product->SKU }}
                                                     @else
                                                         SKU: {{ $product->SKU }}
+                                                    @endif
+
+                                                    @if ($order->type == 'store')
+                                                        <div>
+                                                            <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
+                                                                target="_blank" class="btn btn-dark mt-2">Imprimir orden de pago</a>
+                                                        </div>
                                                     @endif
                                                 </td>
                                             </tr>

@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class VariantController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.variants.index')->only('index');
+        $this->middleware('can:admin.variants.edit')->only('edit', 'update');
+        $this->middleware('can:admin.variants.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +35,7 @@ class VariantController extends Controller
     {
         $colors = Color::all();
         $sizes = Size::all();
-        return view('admin.variants.create',compact('colors','sizes','product'));
+        return view('admin.variants.create', compact('colors', 'sizes', 'product'));
     }
 
     /**
@@ -42,8 +48,8 @@ class VariantController extends Controller
     {
         $product->colors()->sync($request->colors);
         $product->sizes()->sync($request->sizes);
-        
-        return redirect()->route('admin.variants.create',$product);
+
+        return redirect()->route('admin.variants.create', $product);
     }
 
     /**

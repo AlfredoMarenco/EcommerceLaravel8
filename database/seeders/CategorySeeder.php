@@ -21,9 +21,5 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'Mujer'
         ]);
-
-        Category::create([
-            'name' => 'Entretenimiento'
-        ]);
     }
 }
