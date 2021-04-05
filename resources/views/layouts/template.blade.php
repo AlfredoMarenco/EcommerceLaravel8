@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="{{ asset('template/css/ui.css') }}" />
     <link rel="stylesheet" href="{{ asset('template/css/responsive.css') }}" />
 
+    <link rel="stylesheet" href="{{ asset('template/css/politicas.css') }}" />
+
     <!-- Font awesome 5 -->
     <link href="{{ asset('template/fonts/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet" />
 
