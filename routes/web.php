@@ -70,6 +70,14 @@ Route::prefix('blog')->group(function () {
 
 Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
 
+// Ruta política de privacidad & condiciones de uso
+Route::get('/politicas-de-privacidad', function(){
+    return view('politicas.index');
+    });
+Route::get('/condiciones-de-uso', function(){
+    return view('politicas.condiciones');
+    });
+
 
 //Rutas de login con redes sociales
 Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');

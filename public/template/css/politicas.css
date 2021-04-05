@@ -1,0 +1,24 @@
+/* Estilos politicas de privacidad */
+#politica {
+    padding-top: 80px;
+
+}
+#politica h1{
+    text-align: center;
+   
+  }
+
+#politica .cuerpo {
+    text-align: justify;
+    margin-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 50px;
+} @media (max-width: 500px) {
+    #politica .cuerpo {
+        padding-top: 30px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
