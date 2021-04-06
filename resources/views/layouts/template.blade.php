@@ -159,9 +159,9 @@
                                 style="min-width: 20rem;">
                                 @foreach (Cart::content() as $product)
                                     <div class="d-flex justify-content-around align-items-center text-truncate">
-                                        {{-- <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
-                                             alt=""> --}}
-                                        <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif>
+                                        <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
+                                        width="20%" alt="">
+                                        {{-- <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif> --}}
                                         <p class="row">
                                             <b class="col-12">{{ $product->name }}</b>
                                             <small class="col-12">

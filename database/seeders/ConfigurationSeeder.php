@@ -31,11 +31,23 @@ class ConfigurationSeeder extends Seeder
             'resources' => 'image'
         ]);
         Configuration::create([
+            'name' => 'Collection',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
             'name' => 'WomenRight',
             'resources' => 'image'
         ]);
         Configuration::create([
             'name' => 'WomenLeft',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'PublicRight',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'PublicLeft',
             'resources' => 'image'
         ]);
     }
