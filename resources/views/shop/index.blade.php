@@ -95,7 +95,7 @@
                             </div>
                         @else
                             <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
                             </div>
                         @endisset
                     @endif
@@ -108,7 +108,7 @@
                                 style="background-image: url({{ Storage::url($configuration->image->url) }});">
                             @else
                                 <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
                                 @endisset
                     @endif
                 @endforeach
@@ -152,7 +152,7 @@
                             </div>
                         @else
                             <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
                             </div>
                         @endisset
                     @endif
@@ -165,7 +165,7 @@
                                 style="background-image: url({{ Storage::url($configuration->image->url) }});">
                             @else
                                 <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
                         @endisset
                     @endif
                 @endforeach
