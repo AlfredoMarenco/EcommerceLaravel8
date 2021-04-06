@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Configuration;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -136,6 +137,15 @@ class ConfigurationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+    }
+
+
+    public function deleteSlide($id){
+        $resource = Image::find($id);
+        /* dd($resource); */
+        $resource->delete();
+
+        return back();
     }
 }

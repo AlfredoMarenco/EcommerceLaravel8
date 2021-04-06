@@ -50,7 +50,7 @@
                             <img id="picture3" class="img-fluid" src="{{ Storage::url($collection->image3) }}">
                         @else
                             <img id="picture3" class="img-fluid" src="http://ximg.es/430x330/000/fff">
-                            @endif
+                        @endif
                         </div>
                     </div>
                     <div class="col-6">

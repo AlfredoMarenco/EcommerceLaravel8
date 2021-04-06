@@ -127,9 +127,9 @@
             @foreach ($configurations as $configuration)
                 @if ($configuration->name == 'Slider')
                     @foreach ($configuration->images as $images)
-                    <li>
-                        <img src="{{ Storage::url($images->url) }}" alt="">
-                    </li>
+                        <li>
+                            <img src="{{ Storage::url($images->url) }}" alt="">
+                        </li>
                     @endforeach
                 @endif
             @endforeach
@@ -144,17 +144,37 @@
     <section id="ther">
         <div class="container mt-5 mb-5">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada03-1-1.jpg') }});">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
-                    <div class="medio">
-                        <h1>MEN</h1>
-                        <a href="" class="btn btn-primary">ENTER</a>
-                    </div>
+                @foreach ($configurations as $configuration)
+                    @if ($configuration->name == 'WomenLeft')
+                        @isset($configuration->image)
+                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            </div>
+                        @else
+                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                                style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                            </div>
+                        @endisset
+                    @endif
+                @endforeach
+
+                @foreach ($configurations as $configuration)
+                    @if ($configuration->name == 'WomenRight')
+                        @isset($configuration->image)
+                            <div class="col-lg-6 col-md-6 col-sm-12 der"
+                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            @else
+                                <div class="col-lg-6 col-md-6 col-sm-12 der"
+                                    style="background-image: url('http://ximg.es/1140x445/000/fff');">
+                        @endisset
+                    @endif
+                @endforeach
+                <div class="medio">
+                    <h1>WOMEN</h1>
+                    <a href="" class="btn btn-primary">ENTER</a>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 

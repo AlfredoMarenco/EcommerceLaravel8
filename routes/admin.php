@@ -20,6 +20,7 @@ Route::get('variants', [VariantController::class, 'index'])->name('admin.variant
 Route::get('variants/toassign/{product}', [VariantController::class, 'create'])->name('admin.variants.create');
 Route::post('variants/toassign/{product}/store', [VariantController::class, 'store'])->name('admin.variants.store');
 Route::post('uploadimage',[PostController::class,'uploadImage'])->name('admin.posts.upload');
+Route::get('configurations/slider/delete/{id}',[ConfigurationController::class,'deleteSlide'])->name('admin.configurations.delete');
 Route::resource('user', UserController::class)->only('index', 'edit', 'update')->names('admin.users');
 Route::resource('roles', RolController::class)->names('admin.roles');
 Route::resource('products', ProductController::class)->except('show')->names('admin.products');
