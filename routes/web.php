@@ -73,10 +73,10 @@ Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
 // Ruta política de privacidad & condiciones de uso
 Route::get('/politicas-de-privacidad', function(){
     return view('politicas.index');
-    });
+    })->name('politicas-de-privacidad');
 Route::get('/condiciones-de-uso', function(){
     return view('politicas.condiciones');
-    });
+    })->name('condiciones-de-uso');
 
 
 //Rutas de login con redes sociales

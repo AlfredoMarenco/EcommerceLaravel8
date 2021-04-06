@@ -239,9 +239,9 @@
                         href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ">Twitter</a></span>
                 <span class="px-3">|</span>
                 <span><a href="https://www.instagram.com/renealonso.mx/">Instagram</a></span> <span class="px-3">|</span>
-                <span><a href="">Politicas de privacidad</a></span>
+                <span><a href="{{ route('politicas-de-privacidad') }}">Politicas de privacidad</a></span>
                 <span class="px-3">|</span>
-                <span><a href="">Condiciones de uso y compra</a></span>
+                <span><a href="{{ route('condiciones-de-uso') }}">Condiciones de uso y compra</a></span>
             </div>
         </div>
     </section>
