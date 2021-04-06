@@ -254,5 +254,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/jquery.superslides.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.superslides.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
 @endsection

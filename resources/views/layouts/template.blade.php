@@ -44,10 +44,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 
     <!-- custom javascript -->
-    <script src="{{ asset('template/js/script.js') }}" type="text/javascript"></script>
-    
-    <script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
-
     @yield('css')
 
 </head>
