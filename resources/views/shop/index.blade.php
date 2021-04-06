@@ -166,7 +166,7 @@
                             @else
                                 <div class="col-lg-6 col-md-6 col-sm-12 der"
                                     style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                        @endisset
+                                @endisset
                     @endif
                 @endforeach
                 <div class="medio">
@@ -181,13 +181,27 @@
 
 
     <section id="new-collection">
-        <div class="bg-overlay mt-5 mb-5"
-            style="background-image: url({{ asset('template/images/rene/04-NuevaColeccion03-1024x517.jpg') }});">
-            <div class="container interior">
-                <h2 class="collec">NEW COLLECTION</h2>
-                <a href="{{ route('galery.index') }}" class="btn btn-primary">ENTER</a>
-            </div>
-        </div>
+        @foreach ($configurations as $configuration)
+            @if ($configuration->name == 'Collection')
+                @isset($configuration->image)
+                    <div class="bg-overlay mt-5 mb-5"
+                        style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                        <div class="container interior">
+                            <h2 class="collec">NEW COLLECTION</h2>
+                            <a href="{{ route('galery.index') }}" class="btn btn-primary">ENTER</a>
+                        </div>
+                    </div>
+                @else
+                    <div class="bg-overlay mt-5 mb-5"
+                        style="background-image: url({{ asset('template/images/rene/04-NuevaColeccion03-1024x517.jpg') }});">
+                        <div class="container interior">
+                            <h2 class="collec">NEW COLLECTION</h2>
+                            <a href="{{ route('galery.index') }}" class="btn btn-primary">ENTER</a>
+                        </div>
+                    </div>
+                @endisset
+            @endif
+        @endforeach
     </section>
 
 
@@ -195,14 +209,34 @@
     <section id="ther">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada03-1-1.jpg') }});">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                    style="background-image: url({{ asset('template/images/rene/02-imagencuadrada06.jpg') }});">
-                    <div class="medio sol"></div>
-                </div>
+                @foreach ($configurations as $configuration)
+                    @if ($configuration->name == 'PublicLeft')
+                        @isset($configuration->image)
+                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            </div>
+                        @else
+                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                            </div>
+                        @endisset
+                    @endif
+                @endforeach
+
+                @foreach ($configurations as $configuration)
+                    @if ($configuration->name == 'PublicRight')
+                        @isset($configuration->image)
+                            <div class="col-lg-6 col-md-6 col-sm-12 der"
+                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            @else
+                                <div class="col-lg-6 col-md-6 col-sm-12 der"
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                                @endisset
+                    @endif
+                @endforeach
+                <div class="medio sol"></div>
             </div>
+        </div>
         </div>
     </section>
 
