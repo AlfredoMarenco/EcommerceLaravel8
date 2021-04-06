@@ -1,5 +1,7 @@
 @extends('layouts.template')
-
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/superslides.css') }}">
+@endsection
 
 @section('content')
     <header class="section-header">
@@ -120,8 +122,22 @@
     </section>
 
     <!--slider Jquery-->
-    <div id="mislider">
-
+    <div id="slides">
+        <ul class="slides-container">
+            @foreach ($configurations as $configuration)
+                @if ($configuration->name == 'Slider')
+                    @foreach ($configuration->images as $images)
+                    <li>
+                        <img src="{{ Storage::url($images->url) }}" alt="">
+                    </li>
+                    @endforeach
+                @endif
+            @endforeach
+        </ul>
+        <nav class="slides-navigation">
+            <a href="#" class="next">&#62</a>
+            <a href="#" class="prev">&#60</a>
+        </nav>
     </div>
     <!-- end slider Jquery-->
 
@@ -215,4 +231,8 @@
             <img src="{{ asset('template/images/rene/logo-nav.png') }}" class="img-fluid" alt="" />
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/jquery.superslides.js') }}" type="text/javascript"></script>
 @endsection

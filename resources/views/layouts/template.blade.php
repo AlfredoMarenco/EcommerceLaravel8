@@ -12,11 +12,11 @@
 
     <meta property="og:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO">
     <meta property="og:type" content="website" />
-    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>
-    <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021."/>
-    <meta name="og:url" content="https://www.renealonso.com"/>
-    <meta name="og:site_name" content="Rene Alonso"/>
-    <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg"/>
+    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
+    <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
+    <meta name="og:url" content="https://www.renealonso.com" />
+    <meta name="og:site_name" content="Rene Alonso" />
+    <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
     <meta name="twitter:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO" />
@@ -45,9 +45,11 @@
 
     <!-- custom javascript -->
     <script src="{{ asset('template/js/script.js') }}" type="text/javascript"></script>
+    
+    <script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
 
     @yield('css')
-      
+
 </head>
 
 <body>
@@ -67,23 +69,26 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('shop.home') }}">Inicio</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products','hombre') }}">Hombre</a>
+                        <a class="nav-link" href="{{ route('shop.products', 'hombre') }}">Hombre</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products','mujer') }}">Mujer</a>
+                        <a class="nav-link" href="{{ route('shop.products', 'mujer') }}">Mujer</a>
                     </li>
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products') }}" tabindex="-1"
                             aria-disabled="true">Tienda</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('blog.index') }}" tabindex="-1" aria-disabled="true">Blog</a>
+                        <a class="nav-link" href="{{ route('blog.index') }}" tabindex="-1"
+                            aria-disabled="true">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true">Ofertas</a>
+                        <a class="nav-link" href="{{ route('shop.products', 'discounts') }}" tabindex="-1"
+                            aria-disabled="true">Ofertas</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products','discounts') }}" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
+                        <a class="nav-link" href="{{ route('shop.products', 'discounts') }}" tabindex="-1"
+                            aria-disabled="true" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">
@@ -138,7 +143,7 @@
                                     <form class="text-center" method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                                             Log out
                                         </a>
                                     </form>
@@ -226,10 +231,10 @@
     </script>
     <!--jquery slider-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/jquery.backstretch.min.js"></script>
+    {{-- <script src="js/jquery.backstretch.min.js"></script> --}}
 
     <!-- end jquery slider-->
-  
+
 
     @livewireScripts
 
