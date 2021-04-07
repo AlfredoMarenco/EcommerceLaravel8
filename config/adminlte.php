@@ -310,7 +310,7 @@ return [
 
         ['header' => 'Pagina web'],
         [
-            'text' => 'Configuraciones',
+            'text' => 'Inicio',
             'route'  => 'admin.configurations.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],

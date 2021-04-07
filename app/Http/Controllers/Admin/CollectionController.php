@@ -79,22 +79,24 @@ class CollectionController extends Controller
      */
     public function update(Request $request, Collection $collection)
     {
-        try {
-            if ($request->file('image1') || $request->file('image2') || $request->file('image3')) {
-                $image1 = Storage::put('collections', $request->file('image1'));
-                $image2 = Storage::put('collections', $request->file('image2'));
-                $image3 = Storage::put('collections', $request->file('image3'));
 
-                $collection->update([
-                    'name' => $request->name,
-                    'image1' => $image1,
-                    'image2' => $image2,
-                    'image3' => $image3,
-                ]);
-            }
+        if ($request->file('image1') || $request->file('image2') || $request->file('image3')) {
+            $image1 = Storage::put('collections', $request->file('image1'));
+            $image2 = Storage::put('collections', $request->file('image2'));
+            $image3 = Storage::put('collections', $request->file('image3'));
+
+            $collection->update([
+                'name' => $request->name,
+                'image1' => $image1,
+                'image2' => $image2,
+                'image3' => $image3,
+            ]);
             return redirect()->route('admin.collections.edit', $collection);
-        } catch (\Throwable $th) {
-            return redirect()->route('admin.collections.edit', $collection)->withToastError('Algo a salido mal');
+        } else {
+            $collection->update([
+                'name' => $request->name,
+            ]);
+            return redirect()->route('admin.collections.edit', $collection);
         }
     }
 
