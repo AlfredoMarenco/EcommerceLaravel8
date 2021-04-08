@@ -87,6 +87,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
 })->name('dashboard');
 
+/*Rutas para manejo de verificacion de
+usuarios y de reestablecimiento de contraseñas*/
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -102,8 +104,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-/*Rutas para manejo de verificacion de
-usuarios y de reestablecimiento de contraseñas*/
+
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');

@@ -101,7 +101,6 @@
                                 @foreach ($product->colors as $color)
                                     <label style="background-color: {{ $color->code }};" class="colors mx-1">
                                         {!! Form::radio('color', $color->name, null, ['class' => 'colors']) !!}
-                                        <span class="checkmark"></span>
                                     </label>
                                 @endforeach
                             </div>
