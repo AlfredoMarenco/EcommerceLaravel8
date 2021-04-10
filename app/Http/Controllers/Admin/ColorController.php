@@ -24,7 +24,7 @@ class ColorController extends Controller
     public function index()
     {
         $colors = Color::all();
-        return view('admin.colors.index',compact('colors'));
+        return view('admin.colors.index', compact('colors'));
     }
 
     /**
@@ -47,7 +47,7 @@ class ColorController extends Controller
     {
         $color = Color::create($request->all());
 
-        return redirect()->route('admin.colors.edit',$color)->with('colorSuccess', 'Color agregado con exito');
+        return redirect()->route('admin.colors.edit', $color)->with('colorSuccess', 'Color agregado con exito');
     }
 
     /**
@@ -69,7 +69,7 @@ class ColorController extends Controller
      */
     public function edit(Color $color)
     {
-        return view('admin.colors.edit',compact('color'));
+        return view('admin.colors.edit', compact('color'));
     }
 
     /**
@@ -79,11 +79,15 @@ class ColorController extends Controller
      * @param  int  $color
      * @return \Illuminate\Http\Response
      */
-    public function update(ColorRequest $request, Color $color)
+    public function update(Request $request, Color $color)
     {
+        $request->validate([
+            'name' => "required|unique:colors,name,$color->id",
+        ]);
+
         $color->update($request->all());
 
-        return redirect()->route('admin.colors.edit',$color)->with('colorUpdate', 'Color actualizado con exito');
+        return redirect()->route('admin.colors.edit', $color)->with('colorUpdate', 'Color actualizado con exito');
     }
 
     /**

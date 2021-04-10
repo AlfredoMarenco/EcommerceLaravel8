@@ -81,6 +81,10 @@ class SizeController extends Controller
      */
     public function update(Request $request, Size $size)
     {
+        $request->validate([
+            'name' => "required|unique:sizes,name,$size->id",
+        ]);
+        
         $size->update($request->all());
 
         return redirect()->route('admin.sizes.edit', $size)->with('sizeUpdate', 'Talla actualizada con éxito!');
