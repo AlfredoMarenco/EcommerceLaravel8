@@ -30,7 +30,6 @@ class ProductRequest extends FormRequest
             'stock' => 'required',
             'category_id' => 'required',
             'description' => 'required',
-            'file' => 'image'
         ];
 
         return $rules;

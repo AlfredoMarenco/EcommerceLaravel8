@@ -59,10 +59,13 @@ class ProductController extends Controller
         $product = Product::create($request->all());
 
         if ($request->file('file')) {
-            $url = Storage::put('productos', $request->file('file'));
-            $product->image()->create([
-                'url' => $url,
-            ]);
+            $files = $request->file('file');
+            foreach ($files as $file) {
+                $url = Storage::put('productos', $file);
+                $product->image()->create([
+                    'url' => $url,
+                ]);
+            }
         }
 
         if ($request->category_id) {
@@ -96,17 +99,11 @@ class ProductController extends Controller
         $product->update($request->all());
 
         if ($request->file('file')) {
-            $url = Storage::put('productos', $request->file('file'));
-
-            if ($product->image) {
-                Storage::delete($product->image->url);
-
-                $product->image->update([
-                    'url' => $url
-                ]);
-            } else {
+            $files = $request->file('file');
+            foreach ($files as $file) {
+                $url = Storage::put('productos', $file);
                 $product->image()->create([
-                    'url' => $url
+                    'url' => $url,
                 ]);
             }
         }

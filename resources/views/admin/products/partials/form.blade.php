@@ -68,7 +68,7 @@
         <div class="col">
             <div class="form-group">
                 {!! Form::label('file', 'Imagen del producto') !!}
-                {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                {!! Form::file('file[]', ['class' => 'form-control-file', 'accept' => 'image/*', 'multiple' => true]) !!}
             </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita praesentium iusto quas ipsa
                 repellat laboriosam veniam ullam sed repellendus eos.</p>
@@ -78,8 +78,18 @@
     @error('file')
         <small class="text-danger">{{ $message }}</small>
     @enderror
-    <div class="form-row">
 
+    @isset($product->images)
+        <h4 class="mt-5">Imagenes del producto</h4>
+        <div class="row mt-2">
+            @foreach ($product->images as $image)
+                <div class="col-md-3">
+                    <img src="{{ Storage::url($image->url) }}" class="img-fluid w-100" alt="">
+                </div>
+            @endforeach
+        @endisset
+    </div>
+    <div class="form-row">
         <div class="form group col-md-12">
             {!! Form::label('description', 'Descripcion') !!}
             {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
@@ -87,5 +97,4 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-
     </div>
