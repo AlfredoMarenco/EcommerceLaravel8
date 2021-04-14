@@ -353,14 +353,12 @@ p,
 }
 @media (max-width: 500px) {
   .izq {
+    padding-top: 100%;
     background-position: center;
     background-size: contain;
-
     background-repeat: no-repeat;
   }
 }
-
-
 
 .der {
   /*padding-top: 400px;*/

@@ -27,8 +27,8 @@ class ShopController extends Controller
                 break;
 
             case 'discounts':
-                $products = Product::where('stock', '>', 0)->where('discount', '>', 0)->latest('id')->paginate(15);
-                return view('shop.products', compact('products'));
+                $products = Product::where('discount', '!=', null)->paginate(15);
+                return view('shop.discount', compact('products'));
                 break;
             case 'hombre':
                 $products = Category::with('products')->where('name', 'Hombre')->get();
