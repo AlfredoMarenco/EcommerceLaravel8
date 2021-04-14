@@ -2,25 +2,49 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/superslides.css') }}">
     <style>
-        .botonCenter {
+        .botonCenterMen {
             position: absolute;
             left: 50%;
             top: 60%;
         }
 
-        .title {
+        .titleMen {
             color: #fff;
             font-size: 75px;
         }
 
         @media (max-width: 500px) {
-            .botonCenter {
+            .botonCenterMen {
                 position: absolute;
                 left: 35%;
                 top: 50%;
             }
 
-            .title {
+            .titleMen {
+                color: #fff;
+                font-size: 75px;
+            }
+        }
+
+        .botonCenterWomen {
+            position: absolute;
+            left: 44%;
+            top: 60%;
+        }
+
+        .titleWomen {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        @media (max-width: 500px) {
+            .botonCenterWomen {
+                position: absolute;
+                left: 27%;
+                top: 50%;
+            }
+
+            .titleWomen {
                 color: #fff;
                 font-size: 75px;
             }
@@ -135,8 +159,8 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div
                                 style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
-                                <div class="botonCenter text-center">
-                                    <h1 class="title">MEN</h1>
+                                <div class="botonCenterMen text-center">
+                                    <h1 class="titleMen">MEN</h1>
                                     <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
                                 </div>
                             </div>
@@ -193,8 +217,8 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div
                                 style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
-                                <div class="botonCenter text-center">
-                                    <h1 class="title">WOMEN</h1>
+                                <div class="botonCenterWomen text-center">
+                                    <h1 class="titleWomen">WOMEN</h1>
                                     <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
                                 </div>
                             </div>
