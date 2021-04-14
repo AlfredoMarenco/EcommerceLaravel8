@@ -147,43 +147,6 @@
         </div>
     </section>
 
-    {{-- <section id="sec">
-        <div class="container">
-
-            <div class="row">
-                @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'MenLeft')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            </div>
-                        @else
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                            </div>
-                        @endisset
-                    @endif
-                @endforeach
-
-                @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'MenRight')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            @else
-                                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                                @endisset
-                    @endif
-                @endforeach
-                <div class="medio">
-                    <h1>MEN</h1>
-                    <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section> --}}
 
     <!--slider Jquery-->
     <div id="slides">
@@ -204,19 +167,22 @@
         </nav>
     </div>
     <!-- end slider Jquery-->
-
     <section id="ther">
-        <div class="container mt-5 mb-5">
+        <div class="container">
             <div class="row">
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'WomenLeft')
                         @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @else
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @endisset
                     @endif
@@ -224,25 +190,20 @@
 
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'WomenRight')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            @else
-                                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                                @endisset
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div
+                                style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                <div class="botonCenter text-center">
+                                    <h1 class="title">WOMEN</h1>
+                                    <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                 @endforeach
-                <div class="medio">
-                    <h1>WOMEN</h1>
-                    <a href="" class="btn btn-primary">ENTER</a>
-                </div>
             </div>
         </div>
-        </div>
     </section>
-
-
 
     <section id="new-collection">
         @foreach ($configurations as $configuration)
@@ -269,19 +230,22 @@
     </section>
 
 
-
     <section id="ther">
         <div class="container">
             <div class="row">
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'PublicLeft')
                         @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @else
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @endisset
                     @endif
@@ -289,18 +253,14 @@
 
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'PublicRight')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            @else
-                                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                                @endisset
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div
+                                style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                            </div>
+                        </div>
                     @endif
                 @endforeach
-                <div class="medio sol"></div>
             </div>
-        </div>
         </div>
     </section>
 
