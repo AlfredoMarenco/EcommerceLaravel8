@@ -1,6 +1,32 @@
 @extends('layouts.template')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/superslides.css') }}">
+    <style>
+        .botonCenter {
+            position: absolute;
+            left: 50%;
+            top: 60%;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        @media (max-width: 500px) {
+            .botonCenter {
+                position: absolute;
+                left: 35%;
+                top: 50%;
+            }
+
+            .title {
+                color: #fff;
+                font-size: 75px;
+            }
+        }
+
+    </style>
 @endsection
 
 @section('content')
@@ -83,9 +109,47 @@
     </main>
 
     <!-- ========================= SECTION MAIN END// ========================= -->
-
     <section id="sec">
         <div class="container">
+            <div class="row">
+                @foreach ($configurations as $configuration)
+                    @if ($configuration->name == 'MenLeft')
+                        @isset($configuration->image)
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
+                            </div>
+                        @endisset
+                    @endif
+                @endforeach
+
+                @foreach ($configurations as $configuration)
+                    @if ($configuration->name == 'MenRight')
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div
+                                style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                <div class="botonCenter text-center">
+                                    <h1 class="title">MEN</h1>
+                                    <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- <section id="sec">
+        <div class="container">
+
             <div class="row">
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenLeft')
@@ -119,7 +183,7 @@
             </div>
         </div>
         </div>
-    </section>
+    </section> --}}
 
     <!--slider Jquery-->
     <div id="slides">
