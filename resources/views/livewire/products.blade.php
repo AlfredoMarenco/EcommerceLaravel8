@@ -90,7 +90,7 @@
                                         </div>
                             @endif
                             <!-- price-wrap.// -->
-                            <div class="rating-wrap mb-2">
+                            {{-- <div class="rating-wrap mb-2">
                                 <ul class="rating-stars">
                                     <li style="width: 100%;" class="stars-active">
                                         <i class="fa fa-star"></i> <i class="fa fa-star"></i>
@@ -104,7 +104,7 @@
                                     </li>
                                 </ul>
                                 <div class="label-rating">9/10</div>
-                            </div>
+                            </div> --}}
                             <!-- rating-wrap.// -->
                             <hr />
                             {{-- {!! Form::open(['route' => ['cart.addItem',$product]]) !!}
