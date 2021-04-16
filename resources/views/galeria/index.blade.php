@@ -7,12 +7,11 @@
         <div class="container-fluid">
             @foreach ($configurations as $configuration)
                 @if ($configuration->name == 'HeadCollections')
-                    @isset($record)
+                    @isset($configuration->image)
                         <img src="{{ Storage::url($configuration->image->url) }}" class="img-fluid" alt="">
                     @else
                         <img src="{{ asset('template/images/rene/galeria.jpg') }}" class="img-fluid" alt="">
                     @endisset
-
                 @endif
             @endforeach
         </div>
