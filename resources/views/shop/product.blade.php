@@ -49,11 +49,12 @@
 
             <!-- ============================ ITEM DETAIL ======================== -->
             <div class="row">
+                {{-- @livewire('galery-products', ['product' => $product]) --}}
                 <aside class="col-md-6">
                     <div class="card">
                         <article class="gallery-wrap">
                             <div class="img-big-wrap">
-                                <div> <a href="#"><img class="img-fluid" src="{{ Storage::url($product->image->url) }}"></a></div>
+                                <a href="#"><img class="img-fluid" src="{{ Storage::url($product->image->url) }}"></a>
                             </div> <!-- slider-product.// -->
                             <div class="thumbs-wrap">
                                 @foreach ($product->images as $image)
