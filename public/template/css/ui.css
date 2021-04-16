@@ -1273,7 +1273,6 @@ body {
     text-align: center;
     display: block; }
   .gallery-wrap .img-big-wrap img {
-    height: 480px;
     width: auto;
     display: inline-block;
     cursor: -webkit-zoom-in;

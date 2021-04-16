@@ -53,7 +53,7 @@
                     <div class="card">
                         <article class="gallery-wrap">
                             <div class="img-big-wrap">
-                                <div> <a href="#"><img src="{{ Storage::url($product->image->url) }}"></a></div>
+                                <div> <a href="#"><img class="img-fluid" src="{{ Storage::url($product->image->url) }}"></a></div>
                             </div> <!-- slider-product.// -->
                             <div class="thumbs-wrap">
                                 @foreach ($product->images as $image)
