@@ -15,7 +15,7 @@ class ShopController extends Controller
     public function index()
     {
         $configurations = Configuration::all();
-        return view('shop.index',compact('configurations'));
+        return view('bajce.index',compact('configurations'));
     }
 
     public function showProducts($var =  null)
