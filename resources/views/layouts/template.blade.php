@@ -195,7 +195,67 @@
             </div>
         </div>
     </nav>
+        <!--Form-->
+        <main role="main" class="container">
 
+            <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
+                aria-hidden="true">
+
+                <div class="modal-dialog" role="document">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 id="tituloVentana">Solicita más información </h5>
+                            <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="alert alert-succes">
+
+                                <form class="contact" name="contact-form" method="post" action="enviar.php">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Nombre</label>
+                                        <input type="name" name="nombre" class="form-control" id="exampleFormControlInput1"
+                                            required="required" placeholder="Escribe tu nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Email</label>
+                                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                                            required="required" placeholder="Escribe tu correo electrónico">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Teléfono</label>
+                                        <input type="tel" name="telefono" class="form-control" id="phone" pattern="[0-9]{10}"
+                                            required="required" placeholder="Escribe tu teléfono">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Mensaje</label>
+                                        <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1"
+                                            required="required" rows="3"
+                                            placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
+                                    </div>
+                                    <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
+                                        style="margin-bottom: 10px;"></div>
+
+                                    <button type="submit" class="btn btn-secondary">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </main>
     @yield('content')
     <!-- ========================= SECTION FOOTER ========================= -->
     <footer class="bg-dark mt-4">

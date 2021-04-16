@@ -85,6 +85,7 @@
             @foreach ($product->images as $image)
                 <div class="col-md-3">
                     <img src="{{ Storage::url($image->url) }}" class="img-fluid w-100" alt="">
+                    <a href="{{ route('admin.product.image.delete',$image->id) }}" class="btn btn-sm btn-danger my-2 float-right">Eliminar</a>
                 </div>
             @endforeach
         @endisset

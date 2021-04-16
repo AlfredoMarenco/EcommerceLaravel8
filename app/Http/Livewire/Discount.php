@@ -19,7 +19,7 @@ class Discount extends Component
     {
         if ($this->color == null) {
             return view('livewire.discount', [
-                'products' => Product::where('discount','>',0)->whereBetween('price', [$this->priceMin, $this->priceMax])->inRandomOrder()->paginate(15),
+                'products' => Product::where('discount','>',0)->whereBetween('price', [$this->priceMin, $this->priceMax])->latest('id')->paginate(15),
                 'colors' => Color::all(),
                 'sizes' => Size::all(),
             ]);

@@ -5,8 +5,16 @@
 
     <section id="cabecera-1" class="mb-5" style="text-align: center; margin-top: 70px">
         <div class="container-fluid">
-            <img src="{{ asset('template/images/rene/galeria.jpg') }}" class="img-fluid" alt="">
+            @foreach ($configurations as $configuration)
+                @if ($configuration->name == 'HeadCollections')
+                    @isset($record)
+                        <img src="{{ Storage::url($configuration->image->url) }}" class="img-fluid" alt="">
+                    @else
+                        <img src="{{ asset('template/images/rene/galeria.jpg') }}" class="img-fluid" alt="">
+                    @endisset
 
+                @endif
+            @endforeach
         </div>
     </section>
 

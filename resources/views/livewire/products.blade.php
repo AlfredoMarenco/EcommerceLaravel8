@@ -60,7 +60,7 @@
                             @if ($product->discount)
                                 <div class="img-wrap">
                                     <span class="badge badge-danger"> DESCUENTO </span>
-                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
+                                    <img class="img-fluid" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
                                 </div>
                                 <!-- img-wrap.// -->
                                 <figcaption class="info-wrap">
