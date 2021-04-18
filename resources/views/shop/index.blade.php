@@ -55,7 +55,7 @@
 
 @section('content')
     <header class="section-header">
-        <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted>
+        <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted playsinline>
             @foreach ($configurations as $configuration)
                 @if ($configuration->name == 'Video')
                     @isset($configuration->image)
