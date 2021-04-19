@@ -221,6 +221,12 @@
                 </div>
             </div> <!-- container .//  -->
         </section>
+
+        <!-- ========================= SECTION  ========================= -->
+        <section class="section-name border-top padding-y">
+            
+        </section>
+        <!-- ========================= SECTION  END// ========================= -->
     @else
         <section class="section-content padding-y">
             <div class="container mb-3 mt-5 py-3">
