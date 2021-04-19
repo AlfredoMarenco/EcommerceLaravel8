@@ -21,7 +21,7 @@
         <div class="container">
             @foreach ($collections as $collection)
                 <div class="row mt-4">
-                    <div class="col-lg-6 col-md-6 col-sm-12 imagenes-int" style="text-align: right">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4 imagenes-int" style="text-align: right">
                         <img src="{{ Storage::url($collection->image1) }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 imagenes-pequenas" style="text-align: center">

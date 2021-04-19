@@ -11,7 +11,7 @@
         .sizes {
             width: 25px;
             height: 25px;
-            border:2px solid black;
+            border: 2px solid black;
             border-radius: 25%;
         }
 
@@ -26,7 +26,7 @@
         }
 
         input[type="radio"]:checked {
-            border:2px solid rgb(62, 163, 31);
+            border: 2px solid rgb(62, 163, 31);
         }
 
     </style>
@@ -36,11 +36,11 @@
     <section class="py-4">
         <div class="container">
             <!-- <ol class="breadcrumb">
-                                                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                                                            <li class="breadcrumb-item"><a href="#">Category name</a></li>
-                                                                            <li class="breadcrumb-item"><a href="#">Sub category</a></li>
-                                                                            <li class="breadcrumb-item active" aria-current="page">Items</li>
-                                                                            </ol> -->
+                                                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                                                <li class="breadcrumb-item"><a href="#">Category name</a></li>
+                                                                                <li class="breadcrumb-item"><a href="#">Sub category</a></li>
+                                                                                <li class="breadcrumb-item active" aria-current="page">Items</li>
+                                                                                </ol> -->
         </div>
     </section>
     <!-- ========================= SECTION CONTENT ========================= -->
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="form-group col-md">
                                     <button class="btn text-white btn-dark mr-2">
-                                        <i class="fas fa-shopping-cart"></i> <span class="text">Add to Cart</span>
+                                        <i class="fas fa-shopping-cart"></i> <span class="text">Agregar al carrito</span>
                                     </button>
                                 </div>
                             </div>
@@ -144,72 +144,72 @@
                         {!! $product->description !!}
                     </p>
                     <!-- <ul class="list-check">
-                                                                                            <li>Material: Stainless steel</li>
-                                                                                            <li>Weight: 82kg</li>
-                                                                                            <li>built-in drip tray</li>
-                                                                                            <li>Open base for pots and pans</li>
-                                                                                            <li>On request available in propane execution</li>
-                                                                                            </ul>
+                                                                                                <li>Material: Stainless steel</li>
+                                                                                                <li>Weight: 82kg</li>
+                                                                                                <li>built-in drip tray</li>
+                                                                                                <li>Open base for pots and pans</li>
+                                                                                                <li>On request available in propane execution</li>
+                                                                                                </ul>
 
-                                                                                            <h5 class="title-description">Specifications</h5>
-                                                                                            <table class="table table-bordered">
-                                                                                            <tr>
-                                                                                                <th colspan="2">Basic specs</th>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Type of energy</td>
-                                                                                                <td>Lava stone</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Number of zones</td>
-                                                                                                <td>2</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Automatic connection </td>
-                                                                                                <td> <i class="fa fa-check text-success"></i> Yes </td>
-                                                                                            </tr>
+                                                                                                <h5 class="title-description">Specifications</h5>
+                                                                                                <table class="table table-bordered">
+                                                                                                <tr>
+                                                                                                    <th colspan="2">Basic specs</th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Type of energy</td>
+                                                                                                    <td>Lava stone</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Number of zones</td>
+                                                                                                    <td>2</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Automatic connection </td>
+                                                                                                    <td> <i class="fa fa-check text-success"></i> Yes </td>
+                                                                                                </tr>
 
-                                                                                            <tr>
-                                                                                                <th colspan="2">Dimensions</th>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Width</td>
-                                                                                                <td>500mm</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Depth</td>
-                                                                                                <td>400mm</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Height </td>
-                                                                                                <td>700mm</td>
-                                                                                            </tr>
+                                                                                                <tr>
+                                                                                                    <th colspan="2">Dimensions</th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Width</td>
+                                                                                                    <td>500mm</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Depth</td>
+                                                                                                    <td>400mm</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Height </td>
+                                                                                                    <td>700mm</td>
+                                                                                                </tr>
 
-                                                                                            <tr>
-                                                                                                <th colspan="2">Materials</th>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Exterior</td>
-                                                                                                <td>Stainless steel</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Interior</td>
-                                                                                                <td>Iron</td>
-                                                                                            </tr>
+                                                                                                <tr>
+                                                                                                    <th colspan="2">Materials</th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Exterior</td>
+                                                                                                    <td>Stainless steel</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Interior</td>
+                                                                                                    <td>Iron</td>
+                                                                                                </tr>
 
-                                                                                            <tr>
-                                                                                                <th colspan="2">Connections</th>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Heating Type</td>
-                                                                                                <td>Gas</td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>Connected load gas</td>
-                                                                                                <td>15 Kw</td>
-                                                                                            </tr>
+                                                                                                <tr>
+                                                                                                    <th colspan="2">Connections</th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Heating Type</td>
+                                                                                                    <td>Gas</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Connected load gas</td>
+                                                                                                    <td>15 Kw</td>
+                                                                                                </tr>
 
-                                                                                                </table> -->
+                                                                                                    </table> -->
                 </div>
             </div>
         </div>
@@ -265,4 +265,21 @@
         </div>
         </div>
     </section>
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Disable cut copy paste
+            $('body').bind('cut copy paste', function(e) {
+                e.preventDefault();
+            });
+
+            //Disable mouse right click
+            $("body").on("contextmenu", function(e) {
+                return false;
+            });
+        });
+
+    </script>
 @endsection

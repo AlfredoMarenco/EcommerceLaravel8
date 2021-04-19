@@ -253,15 +253,15 @@
                 <!-- col-md-6.// -->
             </div>
             <div class="row justify-content-md-center pt-5">
-                <span><a href="https://www.facebook.com/Rene-Alonsomx-103679577867663">Facebook</a></span> <span
+                <span><a href="https://www.facebook.com/Rene-Alonsomx-103679577867663" target="_blank">Facebook</a></span> <span
                     class="px-3">|</span>
                 <span><a
-                        href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ">Twitter</a></span>
+                        href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ" target="_blank">Twitter</a></span>
                 <span class="px-3">|</span>
-                <span><a href="https://www.instagram.com/renealonso.mx/">Instagram</a></span> <span class="px-3">|</span>
-                <span><a href="{{ route('politicas-de-privacidad') }}">Politicas de privacidad</a></span>
+                <span><a href="https://www.instagram.com/renealonso.mx/" target="_blank">Instagram</a></span> <span class="px-3">|</span>
+                <span><a href="{{ route('politicas-de-privacidad') }}" target="_blank">Políticas de privacidad</a></span>
                 <span class="px-3">|</span>
-                <span><a href="{{ route('condiciones-de-uso') }}">Condiciones de uso y compra</a></span>
+                <span><a href="{{ route('condiciones-de-uso') }}" target="_blank">Condiciones de uso y compra</a></span>
             </div>
         </div>
     </section>

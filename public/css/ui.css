@@ -1276,8 +1276,7 @@ body {
     height: 480px;
     width: auto;
     display: inline-block;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in; }
+ }
 
 .gallery-wrap .thumbs-wrap {
   text-align: center;
@@ -1297,8 +1296,7 @@ body {
     max-height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in; }
+ }
 
 .item-option-select {
   margin-bottom: 1rem;

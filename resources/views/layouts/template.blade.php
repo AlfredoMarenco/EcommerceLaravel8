@@ -27,7 +27,7 @@
     {{-- <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
     <!-- jQuery -->
     <script src="{{ asset('template/js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
-    
+
 
     <!-- Styles-->
     <link rel="stylesheet" href="{{ asset('template/css/bootstrap.css') }}" />
