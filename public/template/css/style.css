@@ -323,8 +323,8 @@ p,
 }
 
 #sec {
-  padding-top: 750px;
-  padding-bottom: 50px;
+  margin-top: 850px;
+  margin-bottom: 50px;
 }
 @media (max-width: 500px) {
   #sec {
@@ -343,6 +343,8 @@ p,
     padding-bottom: 15px;
   }
 }
+
+
 
 .izq {
   padding-top: 200px;
@@ -379,6 +381,8 @@ p,
     background-repeat: no-repeat;
   }
 }
+
+
 
 .medio {
   /* padding: 200px; */
@@ -421,6 +425,8 @@ p,
     margin-bottom: 20px;
   }
 }
+
+
 
 /* WOMEN */
 .tmedio {

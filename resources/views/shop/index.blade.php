@@ -87,12 +87,13 @@
     <section id="sec">
         <div class="container">
             <div class="row">
+                
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenLeft')
                         @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 izq"
+                        style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                    </div>
                         @else
                             <div class="col-lg-6 col-md-6 col-sm-12 izq"
                                 style="background-image: url('https://ximg.es/1140x445/000/fff');">
