@@ -68,10 +68,10 @@
                                             class="title mb-2">{{ $product->name }}</a>
 
                                         <div class="price-wrap">
-                                            <strike><span class="price">Antes: {{ $product->price }}</span></strike>
+                                            <strike><span class="price">Antes: {{ $product->presentPrice() }}</span></strike>
                                             <span class="price"> / </span>
                                             <span class="price" style="color: green;">Ahora:
-                                                {{ $product->discount }}</span>
+                                                {{ $product->presentPriceDiscount() }}</span>
                                             {{-- <small class="text-muted">/Cada una</small> --}}
                                         </div>
                                     @else
@@ -84,12 +84,12 @@
                                                 class="title mb-2">{{ $product->name }}</a>
                                             <div class="price-wrap">
                                                 <span class="price">Precio:
-                                                    {{ $product->price }}</span>
+                                                    {{ $product->presentPrice() }}</span>
                                                 {{-- <small class="text-muted">/Cada una</small> --}}
                                             </div>
                                 @endif
                                 <!-- price-wrap.// -->
-                                <div class="rating-wrap mb-2">
+                                {{-- <div class="rating-wrap mb-2">
                                     <ul class="rating-stars">
                                         <li style="width: 100%;" class="stars-active">
                                             <i class="fa fa-star"></i> <i class="fa fa-star"></i>
@@ -103,7 +103,7 @@
                                         </li>
                                     </ul>
                                     <div class="label-rating">9/10</div>
-                                </div>
+                                </div> --}}
                                 <!-- rating-wrap.// -->
                                 <hr />
                                 {{-- {!! Form::open(['route' => ['cart.addItem',$product]]) !!}
@@ -121,7 +121,7 @@
             </div>
             <!-- row end.// -->
             <div class="d-flex justify-content-center">
-
+                {{ $products->links() }}
             </div>
 
 

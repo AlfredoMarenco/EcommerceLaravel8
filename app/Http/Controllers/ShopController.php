@@ -22,20 +22,18 @@ class ShopController extends Controller
     {
         switch ($var) {
             case null:
-                $products = Product::where('stock', '>', 0)->inRandomOrder()->paginate(15);
-                return view('shop.products', compact('products'));
+                return view('shop.products');
                 break;
 
             case 'discounts':
-                $products = Product::where('stock', '>', 0)->where('discount', '>', 0)->latest('id')->paginate(15);
-                return view('shop.products', compact('products'));
+                return view('shop.discount');
                 break;
             case 'hombre':
-                $products = Category::with('products')->where('name', 'Hombre')->get();
+                $products = Category::with('products')->where('name', 'Hombre')->latest('id')->paginate(15);
                 return view('shop.men', compact('products'));
                 break;
             case 'mujer':
-                $products = Category::with('products')->where('name', 'Mujer')->get();
+                $products = Category::with('products')->where('name', 'Mujer')->latest('id')->paginate(15);
         return view('shop.women', compact('products'));
                 break;
 

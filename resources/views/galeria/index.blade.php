@@ -5,8 +5,15 @@
 
     <section id="cabecera-1" class="mb-5" style="text-align: center; margin-top: 70px">
         <div class="container-fluid">
-            <img src="{{ asset('template/images/rene/galeria.jpg') }}" class="img-fluid" alt="">
-
+            @foreach ($configurations as $configuration)
+                @if ($configuration->name == 'HeadCollections')
+                    @isset($configuration->image)
+                        <img src="{{ Storage::url($configuration->image->url) }}" class="img-fluid" alt="">
+                    @else
+                        <img src="{{ asset('template/images/rene/galeria.jpg') }}" class="img-fluid" alt="">
+                    @endisset
+                @endif
+            @endforeach
         </div>
     </section>
 
@@ -14,7 +21,7 @@
         <div class="container">
             @foreach ($collections as $collection)
                 <div class="row mt-4">
-                    <div class="col-lg-6 col-md-6 col-sm-12 imagenes-int" style="text-align: right">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4 imagenes-int" style="text-align: right">
                         <img src="{{ Storage::url($collection->image1) }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 imagenes-pequenas" style="text-align: center">

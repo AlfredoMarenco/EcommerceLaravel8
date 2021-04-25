@@ -19,7 +19,7 @@ class Products extends Component
     {
         if ($this->color == null) {
             return view('livewire.products',[
-                'products' => Product::whereBetween('price',[$this->priceMin, $this->priceMax])->inRandomOrder()->paginate(15),
+                'products' => Product::whereBetween('price',[$this->priceMin, $this->priceMax])->latest('id')->paginate(15),
                 'colors' => Color::all(),
                 'sizes' => Size::all(),
             ]);

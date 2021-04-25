@@ -21,6 +21,7 @@ Route::get('variants/toassign/{product}', [VariantController::class, 'create'])-
 Route::post('variants/toassign/{product}/store', [VariantController::class, 'store'])->name('admin.variants.store');
 Route::post('uploadimage',[PostController::class,'uploadImage'])->name('admin.posts.upload');
 Route::get('configurations/slider/delete/{id}',[ConfigurationController::class,'deleteSlide'])->name('admin.configurations.delete');
+Route::get('priducts/image/delete/{id}',[ProductController::class,'deleteImage'])->name('admin.product.image.delete');
 Route::resource('user', UserController::class)->only('index', 'edit', 'update')->names('admin.users');
 Route::resource('roles', RolController::class)->names('admin.roles');
 Route::resource('products', ProductController::class)->except('show')->names('admin.products');

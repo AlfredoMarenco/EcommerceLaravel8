@@ -37,7 +37,7 @@
                                         <input type="text" class="form-control" name="street" placeholder="C. 473">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="crosses">Numero</label>
+                                        <label for="crosses">Número</label>
                                         <input type="text" class="form-control" name="number" placeholder="#605">
                                     </div>
                                     <div class="form-group col-3">
@@ -57,27 +57,29 @@
                                         <input type="text" class="form-control" name="city" placeholder="Yucatán">
                                     </div>
                                     <div class="form-group col-3">
-                                        <label for="postal_code">Codigo postal</label>
+                                        <label for="postal_code">Código postal</label>
                                         <input type="text" class="form-control" name="postal_code" placeholder="97000">
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="reference">Referencias</label>
-                                        <input type="text" class="form-control" name="reference" placeholder="Casa de 2 pisos de color blanco">
+                                        <input type="text" class="form-control" name="reference"
+                                            placeholder="Casa de 2 pisos de color blanco">
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
                                 <!-- form-group.// -->
                                 <div class="form-group">
-                                    <label for="username">Nombre del totular de la tarjeta</label>
+                                    <label for="username">Nombre del titular de la tarjeta</label>
                                     <input type="text" class="form-control" name="username"
                                         placeholder="Ejemplo. John Smith" autocomplete="off"
                                         data-openpay-card="holder_name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cardNumber">Numero de tarjeta</label>
+                                    <label for="cardNumber">Número de tarjeta</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="cardNumber" autocomplete="off"
-                                            data-openpay-card="card_number" placeholder="4242 4242 4242 4242" maxlength="16">
+                                            data-openpay-card="card_number" placeholder="4242 4242 4242 4242"
+                                            maxlength="16">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i> &nbsp;
@@ -105,22 +107,19 @@
                                             <label data-toggle="tooltip" title=""
                                                 data-original-title="3 digits code on back side of the card">CVV <i
                                                     class="fa fa-question-circle"></i></label>
-                                            <input class="form-control" type="text" data-openpay-card="cvv2" placeholder="123" maxlength="4">
+                                            <input class="form-control" type="text" data-openpay-card="cvv2"
+                                                placeholder="123" maxlength="4">
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
 
-                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Some secureity information Lorem
-                                    ipsum
-                                    dolor
-                                    sit
-                                    amet, consectetur adipisicing elit, sed do eiusmod</p>
+                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Renealonso.com mantiene tus datos seguros con certificado SSL</p>
 
                                 <div class="card-body border-top">
                                     {{-- <a href="#" class="btn btn-dark float-md-right"> Make Purchase <i
                                 class="fa fa-chevron-right"></i> </a> --}}
                                     <a href="{{ route('shop.home') }}" class="btn btn-light"> <i
-                                            class="fa fa-chevron-left"></i> Continue shopping </a>
+                                            class="fa fa-chevron-left"></i> Continuar comprando </a>
                                 </div>
                         </div> <!-- card.// -->
 
@@ -151,12 +150,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="alert alert-success mt-3">
-                                    <p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within
-                                        1-2 weeks
+                                    <p class="icontext"><i class="icon text-success fa fa-truck"></i> Flete sujeto al volúmen de la compra
                                     </p>
                                 </div>
                                 <dl class="dlist-align">
-                                    <dt>Total price:</dt>
+                                    <dt>Total de compra:</dt>
                                     <dd class="text-right">${{ Cart::subtotal() }} MXN</dd>
                                 </dl>
                                 {{-- <dl class="dlist-align">
@@ -193,19 +191,18 @@
                         </div> <!-- card .// -->
                         <div class="card">
                             <div class="card-body">
-                                <button class="subscribe btn btn-dark mercadopago-button btn-block" id="pay-button"> Confirm
+                                <button class="subscribe btn btn-dark mercadopago-button btn-block" id="pay-button"> Confirmar Pedido
                                 </button>
                             </div>
                         </div>
                         </form>
                         <div class="container">
-                            <h6>Payment and refund policy</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h6>Políticas de privacidad</h6>
+                            <p>Al hacer click en "Confirmar Pedido", acepto que he leido las <a
+                                    href="{{ route('politicas-de-privacidad') }}"><strong>Políticas de
+                                        privacidad</strong></a> y <a
+                                    href="{{ route('condiciones-de-uso') }}"><strong>Terminos y condiciones.</strong></a>
+                            </p>
                         </div><!-- container // -->
                     </aside> <!-- col.// -->
                 </div>

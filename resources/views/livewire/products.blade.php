@@ -60,7 +60,7 @@
                             @if ($product->discount)
                                 <div class="img-wrap">
                                     <span class="badge badge-danger"> DESCUENTO </span>
-                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
+                                    <img class="img-fluid" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
                                 </div>
                                 <!-- img-wrap.// -->
                                 <figcaption class="info-wrap">
@@ -90,7 +90,7 @@
                                         </div>
                             @endif
                             <!-- price-wrap.// -->
-                            <div class="rating-wrap mb-2">
+                            {{-- <div class="rating-wrap mb-2">
                                 <ul class="rating-stars">
                                     <li style="width: 100%;" class="stars-active">
                                         <i class="fa fa-star"></i> <i class="fa fa-star"></i>
@@ -104,7 +104,7 @@
                                     </li>
                                 </ul>
                                 <div class="label-rating">9/10</div>
-                            </div>
+                            </div> --}}
                             <!-- rating-wrap.// -->
                             <hr />
                             {{-- {!! Form::open(['route' => ['cart.addItem',$product]]) !!}

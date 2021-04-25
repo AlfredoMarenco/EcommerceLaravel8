@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Image;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -124,5 +125,11 @@ class ProductController extends Controller
         $product->delete();
         /* dd($response); */
         return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
+    }
+
+    public function deleteImage($id){
+        $resource = Image::find($id);
+        $resource->delete();
+        return back();
     }
 }

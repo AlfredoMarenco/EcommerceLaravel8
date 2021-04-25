@@ -1,11 +1,61 @@
 @extends('layouts.template')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/superslides.css') }}">
+    <style>
+        .botonCenterMen {
+            position: absolute;
+            left: 50%;
+            top: 60%;
+        }
+
+        .titleMen {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        @media (max-width: 500px) {
+            .botonCenterMen {
+                position: absolute;
+                left: 35%;
+                top: 50%;
+            }
+
+            .titleMen {
+                color: #fff;
+                font-size: 75px;
+            }
+        }
+
+        .botonCenterWomen {
+            position: absolute;
+            left: 44%;
+            top: 60%;
+        }
+
+        .titleWomen {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        @media (max-width: 500px) {
+            .botonCenterWomen {
+                position: absolute;
+                left: 27%;
+                top: 50%;
+            }
+
+            .titleWomen {
+                color: #fff;
+                font-size: 75px;
+            }
+        }
+
+    </style>
 @endsection
 
 @section('content')
     <header class="section-header">
-        <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted>
+        <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted playsinline>
             @foreach ($configurations as $configuration)
                 @if ($configuration->name == 'Video')
                     @isset($configuration->image)
@@ -18,72 +68,9 @@
         </video>
     </header>
 
-    <!--Form-->
-    <main role="main" class="container">
 
-        <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
-            aria-hidden="true">
-
-            <div class="modal-dialog" role="document">
-
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <h5 id="tituloVentana">Solicita más información </h5>
-                        <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="alert alert-succes">
-
-                            <form class="contact" name="contact-form" method="post" action="enviar.php">
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Nombre</label>
-                                    <input type="name" name="nombre" class="form-control" id="exampleFormControlInput1"
-                                        required="required" placeholder="Escribe tu nombre">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Email</label>
-                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-                                        required="required" placeholder="Escribe tu correo electrónico">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Teléfono</label>
-                                    <input type="tel" name="telefono" class="form-control" id="phone" pattern="[0-9]{10}"
-                                        required="required" placeholder="Escribe tu teléfono">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Mensaje</label>
-                                    <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1"
-                                        required="required" rows="3"
-                                        placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
-                                </div>
-                                <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
-                                    style="margin-bottom: 10px;"></div>
-
-                                <button type="submit" class="btn btn-secondary">Enviar</button>
-                            </form>
-
-
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-    </main>
 
     <!-- ========================= SECTION MAIN END// ========================= -->
-
     <section id="sec">
         <div class="container">
             <div class="row">
@@ -91,12 +78,22 @@
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenLeft')
                         @isset($configuration->image)
+<<<<<<< HEAD
                         <div class="col-lg-6 col-md-6 col-sm-12 izq"
                         style="background-image: url({{ Storage::url($configuration->image->url) }});">
                     </div>
+=======
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
+                            </div>
+>>>>>>> 46342e6b0b8b37979bfa0f9583eb58a1801241ab
                         @else
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @endisset
                     @endif
@@ -104,23 +101,21 @@
 
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenRight')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            @else
-                                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                                @endisset
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div
+                                style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                <div class="botonCenterMen text-center">
+                                    <h1 class="titleMen">MEN</h1>
+                                    <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                 @endforeach
-                <div class="medio">
-                    <h1>MEN</h1>
-                    <a href="{{ route('shop.products', 'hombre') }}" class="btn btn-primary">ENTER</a>
-                </div>
             </div>
         </div>
-        </div>
     </section>
+
 
     <!--slider Jquery-->
     <div id="slides">
@@ -141,19 +136,22 @@
         </nav>
     </div>
     <!-- end slider Jquery-->
-
     <section id="ther">
-        <div class="container mt-5 mb-5">
+        <div class="container">
             <div class="row">
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'WomenLeft')
                         @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @else
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @endisset
                     @endif
@@ -161,25 +159,20 @@
 
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'WomenRight')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            @else
-                                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                                @endisset
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div
+                                style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                <div class="botonCenterWomen text-center">
+                                    <h1 class="titleWomen">WOMEN</h1>
+                                    <a href="{{ route('shop.products', 'mujer') }}" class="btn btn-primary">ENTER</a>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                 @endforeach
-                <div class="medio">
-                    <h1>WOMEN</h1>
-                    <a href="" class="btn btn-primary">ENTER</a>
-                </div>
             </div>
         </div>
-        </div>
     </section>
-
-
 
     <section id="new-collection">
         @foreach ($configurations as $configuration)
@@ -206,19 +199,22 @@
     </section>
 
 
-
     <section id="ther">
         <div class="container">
             <div class="row">
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'PublicLeft')
                         @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @else
-                            <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                                style="background-image: url('https://ximg.es/1140x445/000/fff');">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div
+                                    style="background-image: url('https://ximg.es/1140x445/000/fff');background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                                </div>
                             </div>
                         @endisset
                     @endif
@@ -226,18 +222,14 @@
 
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'PublicRight')
-                        @isset($configuration->image)
-                            <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                            @else
-                                <div class="col-lg-6 col-md-6 col-sm-12 der"
-                                    style="background-image: url('https://ximg.es/1140x445/000/fff');">
-                                @endisset
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div
+                                style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
+                            </div>
+                        </div>
                     @endif
                 @endforeach
-                <div class="medio sol"></div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -268,15 +260,15 @@
                 <!-- col-md-6.// -->
             </div>
             <div class="row justify-content-md-center pt-5">
-                <span><a href="https://www.facebook.com/Rene-Alonsomx-103679577867663">Facebook</a></span> <span
+                <span><a href="https://www.facebook.com/Rene-Alonsomx-103679577867663" target="_blank">Facebook</a></span> <span
                     class="px-3">|</span>
                 <span><a
-                        href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ">Twitter</a></span>
+                        href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ" target="_blank">Twitter</a></span>
                 <span class="px-3">|</span>
-                <span><a href="https://www.instagram.com/renealonso.mx/">Instagram</a></span> <span class="px-3">|</span>
-                <span><a href="{{ route('politicas-de-privacidad') }}">Politicas de privacidad</a></span>
+                <span><a href="https://www.instagram.com/renealonso.mx/" target="_blank">Instagram</a></span> <span class="px-3">|</span>
+                <span><a href="{{ route('politicas-de-privacidad') }}" target="_blank">Políticas de privacidad</a></span>
                 <span class="px-3">|</span>
-                <span><a href="{{ route('condiciones-de-uso') }}">Condiciones de uso y compra</a></span>
+                <span><a href="{{ route('condiciones-de-uso') }}" target="_blank">Condiciones de uso y compra</a></span>
             </div>
         </div>
     </section>

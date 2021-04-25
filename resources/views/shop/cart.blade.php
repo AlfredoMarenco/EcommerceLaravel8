@@ -26,9 +26,9 @@
                             <table class="table table-borderless table-shopping-cart">
                                 <thead class="text-muted">
                                     <tr class="small text-uppercase">
-                                        <th scope="col">Product</th>
-                                        <th scope="col" width="120">Quantity</th>
-                                        <th scope="col" width="120">Price</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col" width="120">Cantidad</th>
+                                        <th scope="col" width="120">Precio</th>
                                         <th scope="col" class="text-right" width="200"> </th>
                                     </tr>
                                 </thead>
@@ -67,7 +67,7 @@
                                             <td class="text-right">
                                                 <a href="{{ route('cart.remove', $product->rowId) }}"
                                                     class="btn btn-light">
-                                                    Remove</a>
+                                                    Eliminar</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,13 +78,12 @@
                                 {{-- <a href="#" class="btn btn-dark float-md-right"> Make Purchase <i
                                 class="fa fa-chevron-right"></i> </a> --}}
                                 <a href="{{ route('shop.home') }}" class="btn btn-light"> <i
-                                        class="fa fa-chevron-left"></i> Continue shopping </a>
+                                        class="fa fa-chevron-left"></i> Continuar comprando </a>
                             </div>
                         </div> <!-- card.// -->
 
                         <div class="alert alert-success mt-3">
-                            <p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 1-2 weeks
-                            </p>
+                            <p class="icontext"> <i class="fa fa-lock"></i> Renealonso.com mantiene tus datos seguros con certificado SSL</p>
                         </div>
 
                     </main> <!-- col.// -->
@@ -112,7 +111,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <dl class="dlist-align">
-                                    <dt>Total price:</dt>
+                                    <dt>Total de compra:</dt>
                                     <dd class="text-right">${{ Cart::subtotal() }} MXN</dd>
                                 </dl>
                                 {{-- <dl class="dlist-align">
@@ -225,15 +224,7 @@
 
         <!-- ========================= SECTION  ========================= -->
         <section class="section-name border-top padding-y">
-            <div class="container">
-                <h6>Payment and refund policy</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div><!-- container // -->
+            
         </section>
         <!-- ========================= SECTION  END// ========================= -->
     @else
@@ -243,7 +234,7 @@
                 <div class="row">
                     <main class="col-md-12">
                         <div class="d-flex justify-content-center font-weight-bold">
-                            El carrito se encuentra vacio
+                            El carrito se encuentra vacío
                         </div>
                         <div class="my-5 text-center">
                             <a class="btn btn-dark btn-lg" href="{{ route('shop.home') }}">Ir al inicio</a>

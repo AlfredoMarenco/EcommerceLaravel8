@@ -355,14 +355,12 @@ p,
 }
 @media (max-width: 500px) {
   .izq {
+    padding-top: 100%;
     background-position: center;
     background-size: contain;
-
     background-repeat: no-repeat;
   }
 }
-
-
 
 .der {
   /*padding-top: 400px;*/
@@ -615,13 +613,8 @@ footer h2 {
   padding-top: 20px;
 }
 
-<<<<<<< HEAD
 .t-entrada p {
   color: #747474;
-=======
-/* .t-entrada p {
-  color: #000;
->>>>>>> fd7228a8054bdcc51536337f8f9250a33b94c983
   text-align: justify;
 } */
 
