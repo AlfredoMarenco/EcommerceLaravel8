@@ -1,4 +1,5 @@
 @extends('layouts.template')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/superslides.css') }}">
     <style>

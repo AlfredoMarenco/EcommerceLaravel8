@@ -5509,7 +5509,7 @@ button.bg-primary:focus {
   background-color: #cc5500 !important; }
 
 .bg-secondary {
-  background-color: #12225b !important; }
+  background-color: #007433 !important; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
@@ -5927,9 +5927,9 @@ button.bg-gray:focus {
           flex: 1 1 auto !important; }
 
 .flex-grow-0 {
-  -webkit-box-flex: 0 !important;
-      -ms-flex-positive: 0 !important;
-          flex-grow: 0 !important; }
+            -webkit-box-flex: 0 !important;
+                -ms-flex-positive: 0 !important;
+                    flex-grow: 0 !important; }
 
 .flex-grow-1 {
   -webkit-box-flex: 1 !important;

@@ -31,7 +31,7 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::get('/', [ShopController::class, 'index'])->name('shop.home');
+/* Route::get('/', [ShopController::class, 'index'])->name('shop.home');
 Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
 Route::get('/products/{var?}', [ShopController::class, 'showProducts'])->name('shop.products');
 
@@ -74,6 +74,7 @@ Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
 Route::get('/politicas-de-privacidad', function(){
     return view('politicas.index');
     })->name('politicas-de-privacidad');
+
 Route::get('/condiciones-de-uso', function(){
     return view('politicas.condiciones');
     })->name('condiciones-de-uso');
@@ -90,6 +91,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 /*Rutas para manejo de verificacion de
 usuarios y de reestablecimiento de contraseñas*/
 
+/*
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -155,5 +157,81 @@ Route::get('/mailable', function () {
 
     return new OrderFailed($order);
 });
+ */
 
+ // Index
+Route::get('/', function(){
+    return view('bajce.index');
+    });
+// Blog
+    Route::get('/blog',function(){
+        return view('bajce.blog.index');
+    });
+// Artículo
+    Route::get('/articulo', function() {
+        return view('bajce.blog.article');
+    });
+// index producto
+    Route::get('/tienda', function() {
+        return view('bajce.shop.index');
+    });
+// producto detalle
+    Route::get('/producto', function() {
+        return view('bajce.shop.product');
+    });
+// index catálogo
+    route::get ('/catalogo', function() {
+        return view('bajce.catalog.index');
+    });
+// productos del catálogo
+    route::get ('/productos-catalogo', function() {
+        return view('bajce.catalog.catalog');
+    });
+// detalle del catálogo
+    route::get ('/detalle-producto', function() {
+        return view('bajce.catalog.product');
+    });
+// Nosotros
+    route::get ('/nosotros', function() {
+        return view('bajce.about-us');
+    });
 
+// Login
+route::get ('/login', function() {
+    return view('bajce.login');
+});
+
+// Registro
+route::get ('/registrarme', function() {
+    return view('bajce.register');
+});
+
+// Perfil
+route::get ('/perfil', function() {
+    return view('bajce.user.profile');
+});
+
+// configuracion
+route::get ('/configuracion', function() {
+    return view('bajce.user.settings');
+});
+
+// Mis órdenes
+route::get ('/mis-ordenes', function() {
+    return view('bajce.user.my-orders');
+});
+
+// Mi dirección
+route::get ('/mi-direccion', function() {
+    return view('bajce.user.my-adress');
+});
+
+// Pago
+route::get ('/pagar', function() {
+    return view('bajce.shop.payment');
+});
+
+// Carrito
+route::get ('/carrito', function() {
+    return view('bajce.shop.shopping-cart');
+});

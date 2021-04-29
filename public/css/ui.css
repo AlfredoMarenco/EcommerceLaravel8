@@ -123,6 +123,10 @@ a:hover {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1); }
 
+.bg-light {
+  background-color: #fff !important;
+}
+
 .opacity {
   opacity: .5; }
 
@@ -225,7 +229,7 @@ article:after,
   padding-right: 5px; }
 
 .bg {
-  background-color: #f6f7f9; }
+  background-color: #fff !important; }
 
 .bg-white {
   background-color: #fff; }
@@ -246,7 +250,7 @@ article:after,
   background-color: #ffdcb0; }
 
 .bg-light-green {
-  background-color: #abeae8; }
+  background-color: #fff; }
 
 .bg-light-blue {
   background-color: #9fe0ff; }
@@ -417,7 +421,8 @@ p:last-child {
 .section-header {
   background-color: #fff;
   -webkit-box-shadow: 0 0 3px rgba(51, 51, 51, 0.15);
-          box-shadow: 0 0 3px rgba(51, 51, 51, 0.15); }
+          box-shadow: 0 0 3px rgba(51, 51, 51, 0.15); 
+        }
 
 /* ================== header main ==================  */
 .header-top-light .nav-link {
@@ -440,7 +445,8 @@ p:last-child {
 
 .search-header {
   border: 2px solid #ff6a00;
-  border-radius: 0.55rem; }
+  border-radius: 0.55rem; 
+}
   .search-header .form-control, .search-header .custom-select {
     border-color: transparent; }
   .search-header select {
@@ -1196,20 +1202,401 @@ a[class*='card'] {
 
 /* ================== PAGES =================== */
 body {
-  background-color: #f6f7f9; }
+  background-color: rgb(255, 255, 255); }
 
 /* ================ PAGES HEADER ================== */
+/*
 .section-pagetop {
   padding: 45px 0; }
 
 .slider-home-banner .carousel-item img {
-  width: 100%;
-  height: 375px;
+  width: auto;
+  height: 595px;
   -o-object-fit: cover;
      object-fit: cover; }
 
 .special-home-right .card-banner {
   min-height: 112px; }
+
+.carousel-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+
+*/
+
+/* icons bajce */
+
+.iconos {
+  font-size: 28px;
+  color: orange;
+}
+
+/* icons bajce */
+
+
+/* css agregado */
+
+#header-main {
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+} @media (max-width: 500px) {
+  #header-main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.carousel-caption-1 {
+  padding-bottom: 230px;
+}
+.carousel-caption-2 {
+  text-align: left;
+}
+
+.fa-user-circle {
+  font-size: 19px;
+}
+
+.slider-home-banner {
+  margin-top: 170px;
+} @media (max-width: 500px) {
+  .slider-home-banner {
+    margin-top: 300px;
+  }
+}
+
+#info-destacada {
+  padding: 80px;
+}  @media (max-width:500px) {
+  #info-destacada {
+    display: none;
+  }
+}
+.info-destacada-p {
+  text-align: right;
+}
+.info-destacada-p {
+  text-align: left;
+}
+
+.radio {
+  border-radius: 20px;
+}
+
+.info-destacada-inner {
+  margin-top: 7px;
+  
+}
+
+#servicios {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.titulo-servicio {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.p-servicio {
+  font-size: 13px;
+}
+
+.bg-codigo {
+  background-image: url(/images/banners/mueble1-lg.png);
+}
+
+.contenido {
+  margin-top: 120px;
+  margin-bottom: 80px;
+  padding: 150px;
+  text-align: center;
+  
+}
+
+.contenido h2 {
+  color: #f2f2f2;
+}
+
+.imagen-producto {
+  text-align: center;
+}
+
+#catalogo {
+  padding-top: 20px;
+  padding-right: 80px;
+  padding-left: 30px;
+  padding-bottom: 80px;
+}
+
+.carousel-caption-3 {
+  padding-bottom: 138px;
+}
+
+.contenido-2 {
+  padding: 35px;
+}
+
+.info-producto {
+  padding-top: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.contenido-tienda {
+  padding: 80px;
+  color: #fff;
+}
+
+.boton-ir{
+  text-align: center;
+}
+
+.btn-secondary {
+  background-color: yellow !important;
+  color: #000;
+  border: none;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+#tienda {
+  background-image: url(/images/banners/tienda-fondo.png);
+  background-repeat: no-repeat;
+}
+.botones-tienda {
+  margin-top: 60px;
+  
+}
+
+.descripcion-tienda {
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+#sucursales {
+  padding: 100px;
+}
+
+.cabecera-sucursales {
+  padding-bottom: 40px;
+}
+
+.logos-sucursales {
+  padding-top: 50px;
+  text-align: center;
+}
+
+#blog {
+  padding-right: 100px;
+  padding-left: 100px;
+  
+}
+
+.autor {
+  color: gray;
+}
+
+.btn-success {
+  background-color: #007433;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: tomato;
+  border: none;
+}
+
+.boton-entradas {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.boton-entradas-2 {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#marcas {
+  padding: 80px;
+
+}
+.cabecera-marcas {
+  padding-bottom: 40px;
+}
+.marcas-logo {
+  text-align: center;
+}
+
+#newsletter {
+  padding: 80px;
+}
+
+.formulario-newsletter, .boton-newsletter {
+  padding-top: 20px;
+}
+
+
+
+.logo-footer {
+  text-align: center;
+}
+
+/*===== NOSOTROS =====*/
+
+#header-nosotros {
+  margin-top: 145px;
+  background-image: url(/images/banners/cabecera.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-nosotros {
+  padding: 120px;
+  text-align: center;
+}
+
+.cont-nosotros {
+  color: #fff;
+}
+
+#videos {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+}
+
+.cabecera-videos {
+  text-align: center;
+  
+}
+
+#sucursales-nosotros {
+  padding: 100px;
+}
+
+.sucursales-change {
+  padding-bottom: 40px;
+}
+
+#marcas-nosotros {
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.cabecera-marcas-nosotros {
+  padding-bottom: 40px;
+}
+
+.logos-nosotros {
+  padding-top: 40px;
+}
+
+/*========== ENTRADAS ============*/
+#contenido-entrada {
+  margin-top: 90px;
+  padding: 100px;
+}
+
+.boton-cargar {
+  margin-top: 15px;
+}
+
+.cargar {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/*======= DETALLE ENTRADA =========*/
+#interior-entrada {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 190px;
+}
+
+.imagen-interior {
+  text-align: center;
+}
+
+.contenido-interior {
+  padding-top: 20px;
+}
+
+#info-entrada {
+  padding-left: 50px;
+  padding-right: 35px;
+  text-align: justify;
+}
+
+.botones-redes {
+  padding: 38px;
+}
+
+.facebook-btn {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.facebook-btn:hover {
+  background-color: #314f92;
+  color: #fff;
+  
+}
+.twitter-btn {
+  background-color: #00acee;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.twitter-btn:hover {
+  background-color: #039cd8;
+  color: #fff;
+  
+}
+
+#sugerencias, #comentarios {
+  padding: 38px;
+}
+
+/*======CONTENIDO CATALOGO==========*/
+.section-content {
+  margin-top: 120px;
+}
+
+/*======DETALLE DE PRODUCTOS CATALOGO=======*/
+#section-name-cat {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/*====interno productos =======*/
+#productos-sugeridos {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+
+
+/*========== CARRITO =========*/
+#section-content-cart {
+  margin-top: 150px;
+}
+#productos-sugeridos-2 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+
+/* FIN css agregado */
+
 
 .card-deal {
   -webkit-box-orient: horizontal;
