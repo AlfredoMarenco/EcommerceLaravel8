@@ -39,7 +39,7 @@
 
     <h2 class="title mt-3">{{ $product->name }}</h2>
 
-    <p>{{$product->description}}</p>
+    <p>{!! $product->description !!}</p>
 
 
     <dl class="row">
