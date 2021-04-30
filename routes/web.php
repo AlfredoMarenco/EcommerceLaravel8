@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginSocialiteController;
@@ -93,7 +94,14 @@ Route::get('/mailable', function () {
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
 Route::get('/tienda', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
 
+//Rutas Catalogo
+Route::prefix('/catalogue')->group(function () {
+    Route::get('/',[CatalogueController::class,'index'])->name('catalogue.index');
+    Route::get('/products',[CatalogueController::class,'products'])->name('catalogue.products');
+    Route::get('/product/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
+});
 //Rutas de login con redes sociales
 Route::get('login/auth/redirect/{drive}', [LoginSocialiteController::class, 'redirect'])->name('login.drive');
 Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);

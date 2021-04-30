@@ -21,6 +21,6 @@ class ShopController extends Controller
 
     public function showProduct(Product $product)
     {
-        return view('shop.product', compact('product'));
+        return view('bajce.shop.product', compact('product'));
     }
 }

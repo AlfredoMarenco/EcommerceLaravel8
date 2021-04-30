@@ -7,7 +7,7 @@
 <section class="section-intro ">
 	<div class="container-fluid p-0">
 	<!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
-	
+
 	<!---->
 	<div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
 	  <ol class="carousel-indicators">
@@ -20,10 +20,10 @@
 		  <div class="carousel-caption carousel-caption-3 d-md-block">
 			<h1 >Catálogo de <br>
 				Madera</h1>
-			<a href="/productos-catalogo" class="btn btn-primary">Ver catálogo</a>
+			<a href="{{ route('catalogue.products') }}" class="btn btn-primary">Ver catálogo</a>
 		  </div>
 		</div>
-		
+
 	  </div>
 	  <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,10 +33,10 @@
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="sr-only">Next</span>
 	  </a>
-	</div> 
-	<!-- ============ COMPONENT SLIDER BOOTSTRAP end.// ===========  .// -->	
+	</div>
+	<!-- ============ COMPONENT SLIDER BOOTSTRAP end.// ===========  .// -->
 	</div> <!-- container end.// -->
 	</section>
 
-    
+
 @endsection

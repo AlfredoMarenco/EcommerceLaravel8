@@ -221,7 +221,7 @@
                     <div class="info-producto">
                     <h5>Tablones de madera</h5>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
-                    <a href="/productos-catalogo" class="btn btn-primary btn-block">Ver catálogo</a>
+                    <a href="{{ route('catalogue.products') }}" class="btn btn-primary btn-block">Ver catálogo</a>
                     </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
                     <div class="info-producto">
                         <h5>Tablones de madera</h5>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
-                    <a href="/productos-catalogo" class="btn btn-primary btn-block">Ver catálogo</a>
+                    <a href="{{ route('catalogue.products') }}" class="btn btn-primary btn-block">Ver catálogo</a>
                     </div>
                     </div>
                 </div>
@@ -249,7 +249,7 @@
                     <div class="info-producto">
                         <h5>Tablones de madera</h5>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
-                    <a href="/productos-catalogo" class="btn btn-primary btn-block">Ver catálogo</a>
+                    <a href="{{ route('catalogue.products') }}" class="btn btn-primary btn-block">Ver catálogo</a>
                     </div>
                     </div>
                 </div>

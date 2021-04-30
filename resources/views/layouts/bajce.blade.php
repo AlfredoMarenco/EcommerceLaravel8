@@ -12,21 +12,21 @@
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
     <!-- jQuery -->
-    <script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
     <!-- Bootstrap4 files-->
-    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font awesome 5 -->
-    <link href="fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="{{ asset('fonts/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet">
 
     <!-- custom style -->
-    <link href="css/ui.css" rel="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/ui.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- custom javascript -->
-    <script src="js/script.js" type="text/javascript"></script>
+    <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
 
 </head>
 
@@ -108,7 +108,7 @@
                         <a class="nav-link" href="/nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/catalogo">Catálogos</a>
+                        <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('shop.index') }}">Tienda</a>

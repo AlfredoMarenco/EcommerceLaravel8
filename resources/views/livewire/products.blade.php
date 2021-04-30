@@ -136,10 +136,10 @@
                              <figure class="card card-product-grid">
                                  <div class="img-wrap">
                                      <span class="badge badge-danger"> Nuevo </span>
-                                     <a href="/producto"><img src="{{ Storage::url($product->image->url) }}"></a>
+                                     <a href="{{ route('shop.product',$product) }}"><img src="{{ Storage::url($product->image->url) }}"></a>
                                  </div> <!-- img-wrap.// -->
                                  <figcaption class="info-wrap">
-                                     <a href="/producto" class="title mb-2">{{ $product->name }}</a>
+                                     <a href="{{ route('shop.product',$product) }}" class="title mb-2">{{ $product->name }}</a>
                                      <div class="price-wrap">
                                          <span class="price">{{ $product->presentPrice() }}</span>
                                          <small class="text-muted">/ pza</small>
@@ -177,12 +177,12 @@
                              <figure class="card card-product-grid">
                                  <div class="img-wrap">
                                      <span class="badge badge-success"> VENTA EN SUCURSAL </span>
-                                     <a href="/producto">
+                                     <a href="{{ route('catalogue.product',$product) }}">
                                          <img src="{{ Storage::url($product->image->url) }}">
                                      </a>
                                  </div> <!-- img-wrap.// -->
                                  <figcaption class="info-wrap">
-                                     <a href="/producto" class="title mb-2">{{ $product->name }}</a>
+                                     <a href="{{ route('catalogue.product',$product) }}" class="title mb-2">{{ $product->name }}</a>
                                      <div class="price-wrap">
                                          <span class="price">{{ $product->presentPrice() }}</span>
                                          <small class="text-muted">/ pza</small>
