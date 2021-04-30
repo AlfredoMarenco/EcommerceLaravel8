@@ -209,7 +209,7 @@
                                          <span class="tag"> 2 años de garantía </span>
                                          <span class="tag"> PLAYCON </span>
                                      </p>
-                                     <a href="/carrito" class="btn btn-block btn-success"> Ver más </a>
+                                     <a href="{{ route('catalogue.product',$product) }}" class="btn btn-block btn-success"> Ver más </a>
                                  </figcaption>
                              </figure>
                          </div> <!-- col.// -->
