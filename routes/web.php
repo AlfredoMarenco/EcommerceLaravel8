@@ -64,11 +64,7 @@ Route::prefix('checkout')->group(function () {
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
 });
 
-// Rutas del blog
-Route::prefix('blog')->group(function () {
-    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
-    Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
-});
+
 
 Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
 
@@ -102,6 +98,14 @@ Route::prefix('/catalogue')->group(function () {
     Route::get('/products',[CatalogueController::class,'products'])->name('catalogue.products');
     Route::get('/product/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 });
+
+// Rutas del blog
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
+});
+
+
 //Rutas de login con redes sociales
 Route::get('login/auth/redirect/{drive}', [LoginSocialiteController::class, 'redirect'])->name('login.drive');
 Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
@@ -172,10 +176,6 @@ Route::post('/reset-password', function (Request $request) {
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
-// Blog
-Route::get('/blog', function () {
-    return view('bajce.blog.index');
-});
 // Artículo
 Route::get('/articulo', function () {
     return view('bajce.blog.article');

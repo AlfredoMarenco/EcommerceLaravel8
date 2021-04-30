@@ -13,16 +13,16 @@ class BlogController extends Controller
         $carbon = new Carbon();
         $posts = Post::where('status','like','3')->paginate(5);
         $recents = Post::inRandomOrder()->paginate(4);
-        return view('blog.index', compact('posts','recents','carbon'));
+        return view('bajce.blog.index', compact('posts','recents','carbon'));
     }
 
     public function show(Post $post)
     {
         if ($post->status != 3) {
-            return redirect()->route('blog.index');
+            return redirect()->route('bajce.blog.index');
         }
         $recents = Post::inRandomOrder()->paginate(4);
-        return view('blog.post', compact('post','recents'));
+        return view('bajce.blog.article', compact('post','recents'));
     }
 
 }

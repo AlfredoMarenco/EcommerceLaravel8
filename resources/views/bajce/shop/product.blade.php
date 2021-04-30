@@ -60,7 +60,7 @@
                             <var class="price h4">MXN {{ $product->presentPrice() }}</var>
                         </div> <!-- price-detail-wrap .// -->
 
-                        <p>{{ $product->description }} </p>
+                        <p>{!! $product->description !!} </p>
 
 
                         <dl class="row">
