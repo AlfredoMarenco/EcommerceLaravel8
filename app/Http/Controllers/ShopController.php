@@ -14,34 +14,10 @@ class ShopController extends Controller
     } */
     public function index()
     {
-        $configurations = Configuration::all();
-        return view('bajce.index',compact('configurations'));
+        $products = Product::paginate(10);
+        return view('bajce.shop.index',compact('products'));
     }
 
-    public function showProducts($var =  null)
-    {
-        switch ($var) {
-            case null:
-                return view('shop.products');
-                break;
-
-            case 'discounts':
-                return view('shop.discount');
-                break;
-            case 'hombre':
-                $products = Category::with('products')->where('name', 'Hombre')->latest('id')->paginate(15);
-                return view('shop.men', compact('products'));
-                break;
-            case 'mujer':
-                $products = Category::with('products')->where('name', 'Mujer')->latest('id')->paginate(15);
-        return view('shop.women', compact('products'));
-                break;
-
-            default:
-                # code...
-                break;
-        }
-    }
 
     public function showProduct(Product $product)
     {

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
@@ -80,8 +81,21 @@ Route::get('/condiciones-de-uso', function(){
     })->name('condiciones-de-uso');
 
 
+
+
+Route::get('/mailable', function () {
+    $order = Order::find(405);
+
+    return new OrderFailed($order);
+});
+ */
+
+// Index
+Route::get('/', [LandingPageController::class, 'index'])->name('index');
+Route::get('/tienda', [ShopController::class, 'index'])->name('shop.index');
+
 //Rutas de login con redes sociales
-Route::get('login/auth/redirect/{drive}',[LoginSocialiteController::class, 'redirect'])->name('login.drive');
+Route::get('login/auth/redirect/{drive}', [LoginSocialiteController::class, 'redirect'])->name('login.drive');
 Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -90,8 +104,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 /*Rutas para manejo de verificacion de
 usuarios y de reestablecimiento de contraseñas*/
-
-/*
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -152,86 +164,63 @@ Route::post('/reset-password', function (Request $request) {
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
-Route::get('/mailable', function () {
-    $order = Order::find(405);
-
-    return new OrderFailed($order);
-});
- */
-
- // Index
-Route::get('/', function(){
-    return view('bajce.index');
-    });
 // Blog
-    Route::get('/blog',function(){
-        return view('bajce.blog.index');
-    });
-// Artículo
-    Route::get('/articulo', function() {
-        return view('bajce.blog.article');
-    });
-// index producto
-    Route::get('/tienda', function() {
-        return view('bajce.shop.index');
-    });
-// producto detalle
-    Route::get('/producto', function() {
-        return view('bajce.shop.product');
-    });
-// index catálogo
-    route::get ('/catalogo', function() {
-        return view('bajce.catalog.index');
-    });
-// productos del catálogo
-    route::get ('/productos-catalogo', function() {
-        return view('bajce.catalog.catalog');
-    });
-// detalle del catálogo
-    route::get ('/detalle-producto', function() {
-        return view('bajce.catalog.product');
-    });
-// Nosotros
-    route::get ('/nosotros', function() {
-        return view('bajce.about-us');
-    });
-
-// Login
-route::get ('/login', function() {
-    return view('bajce.login');
+Route::get('/blog', function () {
+    return view('bajce.blog.index');
 });
+// Artículo
+Route::get('/articulo', function () {
+    return view('bajce.blog.article');
+});
+// index producto
 
-// Registro
-route::get ('/registrarme', function() {
-    return view('bajce.register');
+// producto detalle
+Route::get('/producto', function () {
+    return view('bajce.shop.product');
+});
+// index catálogo
+route::get('/catalogo', function () {
+    return view('bajce.catalog.index');
+});
+// productos del catálogo
+route::get('/productos-catalogo', function () {
+    return view('bajce.catalog.catalog');
+});
+// detalle del catálogo
+route::get('/detalle-producto', function () {
+    return view('bajce.catalog.product');
+});
+// Nosotros
+route::get('/nosotros', function () {
+    return view('bajce.about-us');
 });
 
 // Perfil
-route::get ('/perfil', function() {
+route::get('/perfil', function () {
     return view('bajce.user.profile');
 });
 
 // configuracion
-route::get ('/configuracion', function() {
+route::get('/configuracion', function () {
     return view('bajce.user.settings');
 });
 
 // Mis órdenes
-route::get ('/mis-ordenes', function() {
+route::get('/mis-ordenes', function () {
     return view('bajce.user.my-orders');
 });
 
 // Mi dirección
-route::get ('/mi-direccion', function() {
+route::get('/mi-direccion', function () {
     return view('bajce.user.my-adress');
 });
 
 // Pago
-route::get ('/pagar', function() {
+route::get('/pagar', function () {
     return view('bajce.shop.payment');
 });
 
 // Carrito
-route::get ('/carrito', function() {
+route::get('/carrito', function () {
     return view('bajce.shop.shopping-cart');
 });

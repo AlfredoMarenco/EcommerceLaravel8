@@ -11,6 +11,8 @@ class Product extends Model
 
     protected $guarded = ['id','created_at','updated_at'];
 
+    const ONLINE = 0;
+    const STORE = 1;
     //Relacion muchos a muchos
     public function orders()
     {

@@ -51,8 +51,13 @@
             <small class="text-danger">{{ $message }}</small>
         @enderror
     </div>
-
-
+    <div class="form-group col-md-4">
+        {!! Form::label('type', 'Tipo de producto') !!}
+        {!! Form::select('type', [0 => 'En linea',1 => 'Tienda'], null, ['class' => 'form-control']) !!}
+        @error('type')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
 </div>
 <div class="row mb-3">
     <div class="col">
@@ -73,7 +78,6 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita praesentium iusto quas ipsa
                 repellat laboriosam veniam ullam sed repellendus eos.</p>
         </div>
-
     </div>
     @error('file')
         <small class="text-danger">{{ $message }}</small>
@@ -85,12 +89,13 @@
             @foreach ($product->images as $image)
                 <div class="col-md-3">
                     <img src="{{ Storage::url($image->url) }}" class="img-fluid w-100" alt="">
-                    <a href="{{ route('admin.product.image.delete',$image->id) }}" class="btn btn-sm btn-danger my-2 float-right">Eliminar</a>
+                    <a href="{{ route('admin.product.image.delete', $image->id) }}"
+                        class="btn btn-sm btn-danger my-2 float-right">Eliminar</a>
                 </div>
             @endforeach
         @endisset
     </div>
-    <div class="form-row">
+    <div class="form-row mb-3 mx-2">
         <div class="form group col-md-12">
             {!! Form::label('description', 'Descripcion') !!}
             {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
@@ -98,4 +103,5 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
+    </div>
     </div>

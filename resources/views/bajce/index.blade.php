@@ -1,11 +1,10 @@
 @extends('layouts.bajce')
-
 @section('content')
     <!-- ========================= SECTION MAIN  ========================= -->
 <section class="section-intro ">
     <div class="container-fluid p-0">
     <!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
-    
+
     <!---->
     <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -21,7 +20,7 @@
             <a href="/tienda" class="btn btn-primary">COMPRAR</a>
           </div>
         </div>
-        
+
       </div>
       <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -31,12 +30,12 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div> 
-    <!-- ============ COMPONENT SLIDER BOOTSTRAP end.// ===========  .// -->	
+    </div>
+    <!-- ============ COMPONENT SLIDER BOOTSTRAP end.// ===========  .// -->
     </div> <!-- container end.// -->
     </section>
     <!-- ========================= SECTION MAIN END// ========================= -->
-    
+
     <section id="info-destacada">
         <div class="container">
             <div class="row">
@@ -70,7 +69,7 @@
                                     <p>Conoce nuestros productos seleccionados
                                         especialmente para ti.</p>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-4">
@@ -94,7 +93,7 @@
                                         especialmente para ti.</p>
                                 </div>
                             </div>
-    
+
                             <div class="col-4">
                                 <img src="/images/banners/d-5-2.png" class="img-fluid radio" alt="">
                                 <div class="carousel-caption carousel-caption-2">
@@ -106,18 +105,18 @@
                         </div>
                     </div>
                 </div>
-            
+
             </div>
         </div>
-    
+
     </section>
-    
-    
-    
+
+
+
     <div class="container">
-    
+
         <section id="servicios">
-            
+
                 <h3 style="text-align: center;" class=" mt-5 mb-5">
                     CONOCE NUESTROS SERVICIOS
                 </h3>
@@ -157,13 +156,13 @@
                         </div>
                     </div>
                 </div>
-            
+
         </section>
-    </div> 
-    
-    
+    </div>
+
+
     <section id="tienda" style="margin-top: 100px;">
-        
+
         <div class="contenido-tienda">
             <h3 style="text-align: center;" class="mt-5">
                 Tienda en linea
@@ -200,10 +199,10 @@
                 </div>
             </div>
         </div>
-    
+
     </section>
-    
-    
+
+
     <section id="catalogo">
         <div class="cabecera">
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
@@ -211,7 +210,7 @@
             </h3>
             <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae deserunt quos similique natus quaerat omnis!</p>
         </div>
-    
+
         <div class="row mt-5">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card">
@@ -256,12 +255,12 @@
                 </div>
             </div>
         </div>
-    
+
     </section>
-    
-    
-    
-    
+
+
+
+
     <section id="codigo" class="p-0">
         <div class="bg-codigo">
             <div class="contenido">
@@ -272,10 +271,10 @@
             </div>
         </div>
     </section>
-    
-    
-    
-    
+
+
+
+
         <section id="sucursales">
             <div class="cabecera-sucursales">
                 <h3 style="text-align: center; text-transform: uppercase;">
@@ -297,15 +296,15 @@
                         </span>
                         </p>
                         <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
         </section>
-    
-    
-    
+
+
+
         <section id="blog">
             <div class="cabecera">
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
@@ -313,7 +312,7 @@
                 </h3>
                 <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae deserunt quos similique natus quaerat omnis!</p>
             </div>
-    
+
             <div class="row mt-5">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
@@ -367,19 +366,19 @@
             <div class="boton-entradas">
                 <a href="/blog" class="btn btn-primary boton-entradas-2">Ver más</a>
             </div>
-    
+
         </section>
-    
-    
+
+
         <section id="marcas">
-    
+
             <div class="cabecera-marcas">
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                     Marcas con las que trabajamos
                 </h3>
-                
+
             </div>
-    
+
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="marcas-logo">
@@ -403,7 +402,7 @@
                 </div>
             </div>
         </section>
-    
+
     <!--========== NEWSLETTER =============-->
     <section id="newsletter">
     <div class="container">
@@ -425,5 +424,5 @@
         </div>
     </div>
     </section>
-    
+
 @endsection

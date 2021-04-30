@@ -27,7 +27,8 @@ class ProductFactory extends Factory
             'price' => $this->faker->randomFloat(2,50,1000),
             'discount' => $this->faker->randomFloat(2,50,1000),
             'stock' => $this->faker->randomNumber(),
-            'description' => $this->faker->paragraph()
+            'description' => $this->faker->paragraph(),
+            'type' => $this->faker->randomElement([Product::ONLINE,Product::STORE])
         ];
     }
 }

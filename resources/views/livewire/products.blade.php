@@ -1,128 +1,225 @@
-<div>
-    <!-- ========================= SECTION CONTENT ========================= -->
-    <section class="section-content padding-y">
-        <div class="container pt-4">
-            <!-- ============================  FILTER TOP  ================================= -->
-            <div class="card mb-3 mt-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">Filter by</div>
-                        <!-- col.// -->
-                        <div class="d-flex justify-content-end col-md-10">
-                            <ul class="list-inline">
-                                Colors:
-                                @foreach ($colors as $color)
-                                    <li class="list-inline-item mr-1">
-                                        <label style="background-color: {{ $color->code }};" class="colors">
-                                            <input type="checkbox" wire:model="color" value="{{ $color->id }}">
-                                        </label>
-                                    </li>
-                                @endforeach
-                                Sizes:
-                                @foreach ($sizes as $size)
-                                    <li class="list-inline-item mr-1">
-                                        <label class="mx-1">
-                                            <input type="checkbox" wire:model="size" value="{{ $size->id }}">
-                                            <p class="sizes-label">{{ $size->slug }}</p>
-                                        </label>
-                                    </li>
-                                @endforeach
+ <!-- ========================= SECTION CONTENT ========================= -->
+ <section class="section-content padding-y">
+     <div class="container">
+         <!-- ============================  FILTER TOP  ================================= -->
+         <div class="card mb-3">
+             <div class="card-body">
+                 <ol class="breadcrumb float-left">
+                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                     <li class="breadcrumb-item"><a href="#">Catálogo</a></li>
+                     <li class="breadcrumb-item active">Productos</li>
+                 </ol>
+             </div> <!-- card-body .// -->
+         </div> <!-- card.// -->
+         <!-- ============================ FILTER TOP END.// ================================= -->
+         <div class="row">
+             <aside class="col-md-2">
+                 <article class="filter-group">
+                     <h6 class="title">
+                         <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1"> Tipo de
+                             producto </a>
+                     </h6>
+                     <div class="filter-content collapse show" id="collapse_1">
+                         <div class="inner">
+                             <ul class="list-menu">
+                                 <li><a href="#">Accesorios hogar </a></li>
+                                 <li><a href="#">Aislantes </a></li>
+                                 <li><a href="#">Bisagras, broches y pasadores </a></li>
+                                 <li><a href="#">Guardapolvos </a></li>
+                                 <li><a href="#">Jaladeras </a></li>
+                                 <li><a href="#">Ménsulas</a></li>
+                                 <li><a href="#">Soportes metálicos </a></li>
+                             </ul>
+                         </div> <!-- inner.// -->
+                     </div>
+                 </article> <!-- filter-group  .// -->
+                 <article class="filter-group">
+                     <h6 class="title">
+                         <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_2"> Marcas
+                         </a>
+                     </h6>
+                     <div class="filter-content collapse show" id="collapse_2">
+                         <div class="inner">
+                             <label class="custom-control custom-checkbox">
+                                 <input type="checkbox" checked="" class="custom-control-input">
+                                 <div class="custom-control-label">Anchor
+                                     <b class="badge badge-pill badge-light float-right">12</b>
+                                 </div>
+                             </label>
+                             <label class="custom-control custom-checkbox">
+                                 <input type="checkbox" checked="" class="custom-control-input">
+                                 <div class="custom-control-label">Anchor wire
+                                     <b class="badge badge-pill badge-light float-right">15</b>
+                                 </div>
+                             </label>
+                             <label class="custom-control custom-checkbox">
+                                 <input type="checkbox" checked="" class="custom-control-input">
+                                 <div class="custom-control-label">Ducasse
+                                     <b class="badge badge-pill badge-light float-right">35</b>
+                                 </div>
+                             </label>
+                             <label class="custom-control custom-checkbox">
+                                 <input type="checkbox" checked="" class="custom-control-input">
+                                 <div class="custom-control-label">Playcon
+                                     <b class="badge badge-pill badge-light float-right">89</b>
+                                 </div>
+                             </label>
+                             <label class="custom-control custom-checkbox">
+                                 <input type="checkbox" class="custom-control-input">
+                                 <div class="custom-control-label">Frost king
+                                     <b class="badge badge-pill badge-light float-right">30</b>
+                                 </div>
+                             </label>
+                         </div> <!-- inner.// -->
+                     </div>
+                 </article> <!-- filter-group .// -->
+                 <article class="filter-group">
+                     <h6 class="title">
+                         <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_3"> Rango de
+                             precio </a>
+                     </h6>
+                     <div class="filter-content collapse show" id="collapse_3">
+                         <div class="inner">
+                             <input type="range" class="custom-range" min="0" max="100" name="">
+                             <div class="form-row">
+                                 <div class="form-group col-md-6">
+                                     <label>Min</label>
+                                     <input class="form-control" placeholder="$0" type="number">
+                                 </div>
+                                 <div class="form-group text-right col-md-6">
+                                     <label>Max</label>
+                                     <input class="form-control" placeholder="$1,000" type="number">
+                                 </div>
+                             </div> <!-- form-row.// -->
+                             <button class="btn btn-block btn-primary">Aplicar</button>
+                         </div> <!-- inner.// -->
+                     </div>
+                 </article> <!-- filter-group .// -->
 
-                                <li class="list-inline-item mr-3">
-                                    <div class="form-inline">
-                                        <label class="mr-2">Price</label>
-                                        <input class="form-control form-control-sm" placeholder="Min" type="number"
-                                            wire:model="priceMin" />
-                                        <span class="px-2"> - </span>
-                                        <input class="form-control form-control-sm" placeholder="Max" type="number"
-                                            wire:model="priceMax" />
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- col.// -->
-                    </div>
-                    <!-- row.// -->
-                </div>
-                <!-- card-body .// -->
-            </div>
-            <!-- card.// -->
-            <!-- ============================ FILTER TOP END.// ================================= -->
-            <header class="mb-3">
-                <div class="form-inline">
-                    <strong class="mr-md-auto">{{ $products->count() }} Items found </strong>
-            </header>
-            <!-- sect-heading -->
-            <div class="row">
-                @foreach ($products as $product)
-                    <div class="col-md-3">
-                        <figure class="card card-product-grid">
-                            @if ($product->discount)
-                                <div class="img-wrap">
-                                    <span class="badge badge-danger"> DESCUENTO </span>
-                                    <img class="img-fluid" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
-                                </div>
-                                <!-- img-wrap.// -->
-                                <figcaption class="info-wrap">
-                                    <a href="{{ route('shop.product', $product) }}"
-                                        class="title mb-2">{{ $product->name }}</a>
+                 <article class="filter-group">
+                     <h6 class="title">
+                         <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_5"> Condition
+                         </a>
+                     </h6>
+                     <div class="filter-content collapse show" id="collapse_5">
+                         <div class="inner">
+                             <label class="custom-control custom-radio">
+                                 <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                                 <div class="custom-control-label">Todo</div>
+                             </label>
 
-                                    <div class="price-wrap">
-                                        <strike><span class="price">Antes:
-                                                {{ $product->presentPrice() }}</span></strike>
-                                        <span class="price"> / </span>
-                                        <span class="price" style="color: green;">Ahora:
-                                            {{ $product->presentPriceDiscount() }}</span>
-                                        {{-- <small class="text-muted">/Cada una</small> --}}
-                                    </div>
-                                @else
-                                    <div class="img-wrap">
-                                        <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
-                                    </div>
-                                    <!-- img-wrap.// -->
-                                    <figcaption class="info-wrap">
-                                        <a href="{{ route('shop.product', $product) }}"
-                                            class="title mb-2">{{ $product->name }}</a>
-                                        <div class="price-wrap">
-                                            <span class="price">Precio:
-                                                {{ $product->presentPrice() }}</span>
-                                            {{-- <small class="text-muted">/Cada una</small> --}}
-                                        </div>
-                            @endif
-                            <!-- price-wrap.// -->
-                            {{-- <div class="rating-wrap mb-2">
-                                <ul class="rating-stars">
-                                    <li style="width: 100%;" class="stars-active">
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <div class="label-rating">9/10</div>
-                            </div> --}}
-                            <!-- rating-wrap.// -->
-                            <hr />
-                            {{-- {!! Form::open(['route' => ['cart.addItem',$product]]) !!}
-                                {!! Form::hidden('qty', 1) !!}
-                                {!! Form::submit('Agregar al Carrito', ['class' => 'btn btn-dark']) !!}
-                                {!! Form::close() !!} --}}
-                            <a href="{{ route('shop.product', $product) }}" class="btn btn-block btn-dark">Ver
-                                detalles del producto</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                @endforeach
-                <!-- col.// -->
-            </div>
-            <!-- row end.// -->
-            <div class="d-flex justify-content-center">
-                {{ $products->links() }}
-            </div>
-    </section>
-    <!-- ========================= SECTION CONTENT END// ========================= -->
-</div>
+                             <label class="custom-control custom-radio">
+                                 <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                 <div class="custom-control-label">Precio especial</div>
+                             </label>
+                         </div> <!-- inner.// -->
+                     </div>
+                 </article> <!-- filter-group .// -->
+
+             </aside> <!-- col.// -->
+             <main class="col-md-10">
+                 <header class="mb-3">
+                     <div class="form-inline">
+                         <strong class="mr-md-auto">32 Productos encontrados </strong>
+                         <select class="mr-2 form-control">
+                             <option>Más recientes</option>
+                             <option>Mejor Calificación</option>
+                             <option>Más econónimos</option>
+                         </select>
+                     </div>
+                 </header><!-- sect-heading -->
+
+                 <div class="row">
+                     @foreach ($products as $product)
+                     @if ($product->type == 0)
+                         <div class="col-md-3">
+                             <figure class="card card-product-grid">
+                                 <div class="img-wrap">
+                                     <span class="badge badge-danger"> Nuevo </span>
+                                     <a href="/producto"><img src="{{ Storage::url($product->image->url) }}"></a>
+                                 </div> <!-- img-wrap.// -->
+                                 <figcaption class="info-wrap">
+                                     <a href="/producto" class="title mb-2">{{ $product->name }}</a>
+                                     <div class="price-wrap">
+                                         <span class="price">{{ $product->presentPrice() }}</span>
+                                         <small class="text-muted">/ pza</small>
+                                         <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
+                                     </div> <!-- price-wrap.// -->
+                                     <div class="rating-wrap my-3">
+                                         <ul class="rating-stars">
+                                             <li style="width:80%" class="stars-active">
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                             </li>
+                                             <li>
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                             </li>
+                                         </ul>
+                                         <small class="label-rating text-muted">132 Opiniones</small>
+                                     </div> <!-- rating-wrap.// -->
+                                     <hr>
+                                     <p class="mb-3">
+                                         <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
+                                         <span class="tag"> 2 años de garantía </span>
+                                         <span class="tag"> PLAYCON </span>
+                                     </p>
+                                     <a href="/carrito" class="btn btn-block btn-primary"> <i
+                                             class="fas fa-cart-plus"></i> Agregar al carrito </a>
+                                 </figcaption>
+                             </figure>
+                         </div> <!-- col.// -->
+                         @else
+                         {{-- Catalogo --}}
+                         <div class="col-md-3">
+                             <figure class="card card-product-grid">
+                                 <div class="img-wrap">
+                                     <span class="badge badge-success"> VENTA EN SUCURSAL </span>
+                                     <a href="/producto">
+                                         <img src="{{ Storage::url($product->image->url) }}">
+                                     </a>
+                                 </div> <!-- img-wrap.// -->
+                                 <figcaption class="info-wrap">
+                                     <a href="/producto" class="title mb-2">{{ $product->name }}</a>
+                                     <div class="price-wrap">
+                                         <span class="price">{{ $product->presentPrice() }}</span>
+                                         <small class="text-muted">/ pza</small>
+                                         <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
+                                     </div> <!-- price-wrap.// -->
+                                     <div class="rating-wrap my-3">
+                                         <ul class="rating-stars">
+                                             <li style="width:80%" class="stars-active">
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                             </li>
+                                             <li>
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                             </li>
+                                         </ul>
+                                         <small class="label-rating text-muted">132 Opiniones</small>
+                                     </div> <!-- rating-wrap.// -->
+                                     <hr>
+                                     <p class="mb-3">
+                                         <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
+                                         <span class="tag"> 2 años de garantía </span>
+                                         <span class="tag"> PLAYCON </span>
+                                     </p>
+                                     <a href="/carrito" class="btn btn-block btn-success"> Ver más </a>
+                                 </figcaption>
+                             </figure>
+                         </div> <!-- col.// -->
+                         @endif
+                     @endforeach
+
+                 </div>
+                 {{ $products->links() }}
+             </main> <!-- col.// -->
+         </div>
+     </div> <!-- container .//  -->
+ </section>
+ <!-- ========================= SECTION CONTENT END// ========================= -->
