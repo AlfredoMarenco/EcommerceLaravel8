@@ -14,7 +14,7 @@ class ShopController extends Controller
     } */
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::where('type',0)->paginate(10);
         return view('bajce.shop.index',compact('products'));
     }
 

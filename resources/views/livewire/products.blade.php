@@ -131,7 +131,6 @@
 
                  <div class="row">
                      @foreach ($products as $product)
-                     @if ($product->type == 0)
                          <div class="col-md-3">
                              <figure class="card card-product-grid">
                                  <div class="img-wrap">
@@ -171,49 +170,6 @@
                                  </figcaption>
                              </figure>
                          </div> <!-- col.// -->
-                         @else
-                         {{-- Catalogo --}}
-                         <div class="col-md-3">
-                             <figure class="card card-product-grid">
-                                 <div class="img-wrap">
-                                     <span class="badge badge-success"> VENTA EN SUCURSAL </span>
-                                     <a href="{{ route('catalogue.product',$product) }}">
-                                         <img src="{{ Storage::url($product->image->url) }}">
-                                     </a>
-                                 </div> <!-- img-wrap.// -->
-                                 <figcaption class="info-wrap">
-                                     <a href="{{ route('catalogue.product',$product) }}" class="title mb-2">{{ $product->name }}</a>
-                                     <div class="price-wrap">
-                                         <span class="price">{{ $product->presentPrice() }}</span>
-                                         <small class="text-muted">/ pza</small>
-                                         <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
-                                     </div> <!-- price-wrap.// -->
-                                     <div class="rating-wrap my-3">
-                                         <ul class="rating-stars">
-                                             <li style="width:80%" class="stars-active">
-                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                 <i class="fa fa-star"></i>
-                                             </li>
-                                             <li>
-                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                 <i class="fa fa-star"></i>
-                                             </li>
-                                         </ul>
-                                         <small class="label-rating text-muted">132 Opiniones</small>
-                                     </div> <!-- rating-wrap.// -->
-                                     <hr>
-                                     <p class="mb-3">
-                                         <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                         <span class="tag"> 2 años de garantía </span>
-                                         <span class="tag"> PLAYCON </span>
-                                     </p>
-                                     <a href="{{ route('catalogue.product',$product) }}" class="btn btn-block btn-success"> Ver más </a>
-                                 </figcaption>
-                             </figure>
-                         </div> <!-- col.// -->
-                         @endif
                      @endforeach
 
                  </div>
