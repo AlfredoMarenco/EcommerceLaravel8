@@ -66,23 +66,14 @@
                         </a> <!-- brand-wrap.// -->
                     </div>
                     <div class="col-6 col-sm col-md col-lg flex-md-grow-0">
-
-
-
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-                        <form action="#" class="search-header">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar">
-                                <select class="custom-select border-left" name="category_name">
-                                    <option value="">Todo</option>
-                                    <option value="codex">Categoría uno</option>
-                                    <option value="comments">Categoría dos</option>
-                                    <option value="content">Categoría tres</option>
-                                    <option value="content">Categoría cuatro</option>
-                                </select>
-                            </div>
-                        </form> <!-- search-wrap .end// -->
+                        {!! Form::open(['class' => 'search-header']) !!}
+                        <div class="input-group">
+                            {!! Form::text('search', null, ['class' => 'form-control']) !!}
+                            {!! Form::select('category', $categories, null, ['class' => 'custom-select border-left']) !!}
+                        </div>
+                        {!! Form::close() !!}
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
                         <a href="/carrito" class="nav-link"> <i class="fa fa-shopping-cart"></i> </a>

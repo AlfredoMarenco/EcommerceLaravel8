@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-/*     public function __construct(){
+    /*     public function __construct(){
         $this->middleware('verified');
     } */
     public function index()
     {
-        $products = Product::where('type',0)->paginate(10);
-        return view('bajce.shop.index',compact('products'));
+        $categories = Category::pluck('name', 'id');
+        $products = Product::where('type', 0)->paginate(10);
+        return view('bajce.shop.index', compact('products','categories'));
     }
 
 
