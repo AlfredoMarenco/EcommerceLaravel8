@@ -1234,7 +1234,14 @@ body {
   color: orange;
 }
 
-/* icons bajce */
+/* end icons bajce */
+
+/*BTN AMARILLO*/
+
+.btn-primary {
+  background-color: #fca71f !important;
+  border: none !important;
+}
 
 
 /* css agregado */
