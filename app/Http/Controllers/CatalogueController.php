@@ -15,7 +15,7 @@ class CatalogueController extends Controller
         return view('bajce.catalog.index', compact('catalogues'));
     }
 
-    public function products()
+    public function products(Category $category)
     {
         $products = Product::where('type', 1)->latest('id')->paginate(5);
         return view('bajce.catalog.catalog', compact('products'));

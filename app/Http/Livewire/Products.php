@@ -17,21 +17,8 @@ class Products extends Component
 
     public function render()
     {
-        if ($this->color == null) {
-            return view('livewire.products',[
-                'products' => Product::whereBetween('price',[$this->priceMin, $this->priceMax])->latest('id')->paginate(15),
-                'colors' => Color::all(),
-                'sizes' => Size::all(),
-            ]);
-        }else{
-            return view('livewire.products',[
-                'products' => Product::whereHas('colors',function(Builder $query){
-                    $query->where('id','like', $this->color);
-                })->whereBetween('price',[$this->priceMin, $this->priceMax])->inRandomOrder()->paginate(15),
-                'colors' => Color::all(),
-                'sizes' => Size::all(),
-            ]);
-        }
-
+        return view('livewire.products', [
+            'products' => Product::where('type', 0)->latest('id')->paginate(10),
+        ]);
     }
 }
