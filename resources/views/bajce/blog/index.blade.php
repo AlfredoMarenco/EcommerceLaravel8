@@ -15,7 +15,7 @@
                         </div>
                         <p class="mt-3" style="color: gray;">{{ $carbon->diffForHumans($post->created_at) }}</p>
                         <h3>{{ $post->title }}</h3>
-                        <p>{{ $post->extract }}</p>
+                        <p>{!! $post->extract !!}</p>
                         <a href="{{ route('blog.show',$post) }}"> Ver más <i class="far fa-arrow-alt-circle-right"></i></a>
                         {{-- <div class="boton-cargar">
 					<a href="" class="btn btn-success cargar">Cargar más</a>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalogue;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CatalogueController extends Controller
@@ -15,10 +16,13 @@ class CatalogueController extends Controller
         return view('bajce.catalog.index', compact('catalogues'));
     }
 
-    public function products(Category $category)
+    public function products($category_id)
     {
-        $products = Product::where('type', 1)->latest('id')->paginate(5);
-        return view('bajce.catalog.catalog', compact('products'));
+        /* $products = Product::where('type', 1)->latest('id')->paginate(5); */
+        $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
+            $query->where('category_id', $category_id);
+        })->where('type', 1)->latest('id')->paginate(10);
+        return view('bajce.catalog.catalog', compact('products', 'category_id'));
     }
 
     public function product(Product $product)
