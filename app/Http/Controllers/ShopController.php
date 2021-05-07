@@ -14,9 +14,8 @@ class ShopController extends Controller
     } */
     public function index()
     {
-        $categories = Category::pluck('name', 'id');
         $products = Product::where('type', 0)->paginate(10);
-        return view('bajce.shop.index', compact('products','categories'));
+        return view('bajce.shop.index', compact('products'));
     }
 
 

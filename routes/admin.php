@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CatalogueController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\ColorController;
@@ -33,4 +34,5 @@ Route::resource('post', PostController::class)->names('admin.posts');
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 Route::resource('collections', CollectionController::class)->except('show')->names('admin.collections');
 Route::resource('configurations', ConfigurationController::class)->except('show')->names('admin.configurations');
+Route::resource('catalogues', CatalogueController::class)->except('show')->names('admin.catalogues');
 

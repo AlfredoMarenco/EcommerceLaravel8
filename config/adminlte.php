@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Ecommerce | ',
+    'title_prefix' => 'Bajce | ',
     'title_postfix' => '',
 
     /*
@@ -290,6 +290,15 @@ return [
                 ],
 
             ],
+        ],
+        [
+            'header' => 'Catalogo',
+            'can' => 'admin.posts.index'
+        ],
+        [
+            'text' => 'Catalogos',
+            'route' => 'admin.catalogues.index',
+            'icon'  => 'fab fa-fw fa-buffer',
         ],
         [
             'header' => 'BLOG',

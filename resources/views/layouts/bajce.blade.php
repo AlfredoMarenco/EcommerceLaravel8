@@ -71,7 +71,7 @@
                         {!! Form::open(['class' => 'search-header']) !!}
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
-                            {!! Form::select('category', $categories, null, ['class' => 'custom-select border-left']) !!}
+                            {!! Form::select('category', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div> <!-- col.// -->

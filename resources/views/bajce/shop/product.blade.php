@@ -57,7 +57,7 @@
                         </div> <!-- rating-wrap.// -->
 
                         <div class="mb-3">
-                            <var class="price h4">MXN {{ $product->presentPrice() }}</var>
+                            <var class="price h4">{{ $product->presentPrice() }} MXN</var>
                         </div> <!-- price-detail-wrap .// -->
 
                         <p>{!! $product->description !!} </p>
@@ -95,7 +95,7 @@
                                     <i class="fas fa-shopping-cart"></i> <span class="text">Añadir al carrito</span>
                                 </a>
                                 <a href="#" class="btn btn-success">
-                                    <i class="fab fa-whatsapp"></i> <span class="text">Consultar en tienda</span>
+                                    <i class="fab fa-shopping-basket"></i> <span class="text">Comprar</span>
                                 </a>
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->

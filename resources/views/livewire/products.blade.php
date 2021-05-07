@@ -166,12 +166,11 @@
                                          <span class="tag"> PLAYCON </span>
                                      </p>
                                      <a href="/carrito" class="btn btn-block btn-primary"> <i
-                                             class="fas fa-cart-plus"></i> Agregar al carrito </a>
+                                             class="fas fa-cart-plus"></i> Añadir al carrito </a>
                                  </figcaption>
                              </figure>
                          </div> <!-- col.// -->
                      @endforeach
-
                  </div>
                  {{ $products->links() }}
              </main> <!-- col.// -->

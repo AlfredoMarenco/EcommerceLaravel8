@@ -8,6 +8,7 @@
             <h3>Más recientes</h3>
             <div class="row">
                 @foreach ($posts as $post)
+                @if ($post->status = 3)
                     <div class="col-8 mb-5">
                         <div class="imagen-destacada">
                             <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
@@ -20,6 +21,7 @@
 					<a href="" class="btn btn-success cargar">Cargar más</a>
 				</div> --}}
                     </div>
+                    @endif
                 @endforeach
                 <div class="col-4">
                     <h3>Lo más destacado</h3>
@@ -34,7 +36,7 @@
                                     </b>
                                     <span>{{ $carbon->diffForHumans($recent->created_at) }} </span>
                                     <span> <br>
-                                        <a href="/detalle-entrada.html"> Ver más <i
+                                        <a href="{{ route('blog.show',$recent) }}"> Ver más <i
                                                 class="far fa-arrow-alt-circle-right"></i></a>
                                     </span>
                                 </p>
