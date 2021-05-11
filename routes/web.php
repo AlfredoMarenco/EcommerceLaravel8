@@ -95,7 +95,7 @@ Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('
 //Rutas Catalogo
 Route::prefix('/catalogue')->group(function () {
     Route::get('/',[CatalogueController::class,'index'])->name('catalogue.index');
-    Route::get('/products/{category}',[CatalogueController::class,'products'])->name('catalogue.products');
+    Route::get('/products/{category?}',[CatalogueController::class,'products'])->name('catalogue.products');
     Route::get('/product/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 });
 
