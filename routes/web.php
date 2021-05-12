@@ -106,6 +106,16 @@ Route::prefix('blog')->group(function () {
 });
 
 
+//Rutas del carrito de compras
+Route::prefix('/cartshop')->group(function () {
+    Route::get('/', [ShopController::class, 'cart'])->name('cart');
+    Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
+    Route::get('/deleteCart', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
+    Route::any('/update/{rowId}', [CartController::class, 'update'])->name('cart.update');
+});
+
+
 //Rutas de login con redes sociales
 Route::get('login/auth/redirect/{drive}', [LoginSocialiteController::class, 'redirect'])->name('login.drive');
 Route::get('login/auth/callback/{drive}', [LoginSocialiteController::class, 'callback']);
@@ -228,7 +238,4 @@ route::get('/pagar', function () {
     return view('bajce.shop.payment');
 });
 
-// Carrito
-route::get('/carrito', function () {
-    return view('bajce.shop.shopping-cart');
-});
+
