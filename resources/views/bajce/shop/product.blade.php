@@ -77,29 +77,25 @@
                             <dt class="col-sm-3">Disponibilidad</dt>
                             <dd class="col-sm-9">En Stock</dd>
                         </dl>
-
-                        <div class="form-row  mt-4">
-                            <div class="form-group col-md flex-grow-0">
-                                <div class="input-group mb-3 input-spinner">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-light" type="button" id="button-plus"> + </button>
-                                    </div>
-                                    <input type="text" class="form-control" value="1">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
-                                    </div>
+                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                            @csrf
+                            <div class="form-row mt-4">
+                                <div class="form-group col-md flex-grow-0">
+                                    @livewire('count-items-to-cart')
+                                </div> <!-- col.// -->
+                                <div class="form-group col-md">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
+                                    </button>
                                 </div>
-                            </div> <!-- col.// -->
-                            <div class="form-group col-md">
-                                <a href="#" class="btn  btn-primary">
-                                    <i class="fas fa-shopping-cart"></i> <span class="text">Añadir al carrito</span>
-                                </a>
-                                <a href="#" class="btn btn-success">
-                                    <i class="fab fa-shopping-basket"></i> <span class="text">Comprar</span>
-                                </a>
-                            </div> <!-- col.// -->
-                        </div> <!-- row.// -->
-
+                                <div class="form-group col-md mr-5">
+                                    <a href="#" class="btn btn-success">
+                                        <i class="fab fa-shopping-basket"></i><span class="text">Comprar</span>
+                                    </a>
+                                </div>
+                                <!-- col.// -->
+                            </div> <!-- row.// -->
+                        </form>
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->
             </div> <!-- row.// -->

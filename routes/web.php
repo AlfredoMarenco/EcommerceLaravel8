@@ -110,9 +110,11 @@ Route::prefix('blog')->group(function () {
 Route::prefix('/cartshop')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
     Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
-    Route::get('/deleteCart', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
+    Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
-    Route::any('/update/{rowId}', [CartController::class, 'update'])->name('cart.update');
+
 });
 
 

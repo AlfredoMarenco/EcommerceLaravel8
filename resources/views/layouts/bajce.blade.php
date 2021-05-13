@@ -76,7 +76,7 @@
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
-                        <a href="{{ route('cart') }}" class="nav-link"> <i class="fa fa-shopping-cart"></i> </a>
+                        <a href="{{ route('cart') }}" class="nav-link"><span class="notify">{{ Cart::count() }}</span> <i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="col col-lg col-md flex-grow-0">
                         <a href="/perfil" class="nav-link"> <i class="fa fa-user"></i> </a>
