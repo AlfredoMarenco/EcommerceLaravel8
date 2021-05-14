@@ -86,8 +86,6 @@
                         @auth
                             <div class="col col-lg col-md flex-grow-0">
                                 <small>{{ auth()->user()->name }} {{ auth()->user()->last_name }}</small>
-                                <br>
-                                <small>{{ auth()->user()->email }}</small>
                             </div>
                         @else
                             <div class="col col-lg col-md flex-grow-0">
