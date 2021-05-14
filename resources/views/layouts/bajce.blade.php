@@ -89,6 +89,9 @@
                             </div>
                         @else
                             <div class="col col-lg col-md flex-grow-0">
+                                
+                            </div>
+                            <div class="col col-lg col-md flex-grow-0">
                                 <a href="/login" class="btn btn-primary">Iniciar sesión</a>
                             </div>
                         @endauth
