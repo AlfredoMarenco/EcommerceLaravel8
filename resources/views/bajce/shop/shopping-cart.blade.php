@@ -59,7 +59,7 @@
                         </table>
 
                         <div class="card-body border-top">
-                            <a href="/pagar" class="btn btn-primary float-md-right"> Comprar ahora <i
+                            <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right"> Comprar ahora <i
                                     class="fa fa-chevron-right"></i> </a>
                             <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
                             </a>
@@ -87,15 +87,15 @@
                         <div class="card-body">
                             <dl class="dlist-align">
                                 <dt>Precio total:</dt>
-                                <dd class="text-right">MXN 600</dd>
+                                <dd class="text-right">${{ Cart::subtotal() }} MXN</dd>
                             </dl>
-                            <dl class="dlist-align">
+{{--                             <dl class="dlist-align">
                                 <dt>Descuento:</dt>
                                 <dd class="text-right">MXN 120</dd>
-                            </dl>
+                            </dl> --}}
                             <dl class="dlist-align">
                                 <dt>Total:</dt>
-                                <dd class="text-right  h5"><strong>$480</strong></dd>
+                                <dd class="text-right  h5"><strong>${{ Cart::total() }} MXN</strong></dd>
                             </dl>
                             <hr>
                             <p class="text-center mb-3">

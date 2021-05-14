@@ -35,7 +35,7 @@ class PaymentController extends Controller
         } else {
                 /* $response = Http::get('https://api-sepomex.hckdrk.mx/query/get_estados');
             return $response->json() */;
-            return view('shop.checkout');
+            return view('bajce.shop.payment');
         }
     }
 

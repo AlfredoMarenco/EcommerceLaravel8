@@ -62,7 +62,8 @@
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="reference">Referencias</label>
-                                        <input type="text" class="form-control" name="reference" placeholder="Casa de 2 pisos de color blanco">
+                                        <input type="text" class="form-control" name="reference"
+                                            placeholder="Casa de 2 pisos de color blanco">
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
@@ -77,7 +78,8 @@
                                     <label for="cardNumber">Numero de tarjeta</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="cardNumber" autocomplete="off"
-                                            data-openpay-card="card_number" placeholder="4242 4242 4242 4242" maxlength="16">
+                                            data-openpay-card="card_number" placeholder="4242 4242 4242 4242"
+                                            maxlength="16">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i> &nbsp;
@@ -105,7 +107,8 @@
                                             <label data-toggle="tooltip" title=""
                                                 data-original-title="3 digits code on back side of the card">CVV <i
                                                     class="fa fa-question-circle"></i></label>
-                                            <input class="form-control" type="text" data-openpay-card="cvv2" placeholder="123" maxlength="4">
+                                            <input class="form-control" type="text" data-openpay-card="cvv2"
+                                                placeholder="123" maxlength="4">
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
