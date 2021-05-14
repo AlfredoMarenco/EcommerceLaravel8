@@ -79,18 +79,15 @@
                         <a href="{{ route('cart') }}" class="nav-link"><span
                                 class="notify">{{ Cart::count() }}</span> <i class="fa fa-shopping-cart"></i></a>
                     </div>
-                    @auth
-                        <div class="col col-lg col-md flex-grow-0">
-                            <a href="/perfil" class="nav-link"> <i class="fa fa-user"></i> </a>
-                        </div>
-                        <span>
+                    <div class="col col-lg col-md flex-grow-0">
+                        <a href="/perfil" class="nav-link"> <i class="fa fa-user"></i> </a>
+                    </div>
+                    <span>
+                        @auth
                             <div class="col col-lg col-md flex-grow-0 mt-2">
                                 <b>Hola, {{ auth()->user()->name }} 👋🏻</b>
                             </div>
                         @else
-                            <div class="col col-lg col-md flex-grow-0">
-                                
-                            </div>
                             <div class="col col-lg col-md flex-grow-0">
                                 <a href="/login" class="btn btn-primary">Iniciar sesión</a>
                             </div>
