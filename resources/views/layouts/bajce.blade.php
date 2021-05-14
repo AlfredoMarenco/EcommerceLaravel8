@@ -83,9 +83,17 @@
                         <a href="/perfil" class="nav-link"> <i class="fa fa-user"></i> </a>
                     </div>
                     <span>
-                        <div class="col col-lg col-md flex-grow-0">
-                            <a href="/login" class="btn btn-primary">Iniciar sesión</a>
-                        </div>
+                        @auth
+                            <div class="col col-lg col-md flex-grow-0">
+                                <small>{{ auth()->user()->name }} {{ auth()->user()->last_name }}</small>
+                                <br>
+                                <small>{{ auth()->user()->email }}</small>
+                            </div>
+                        @else
+                            <div class="col col-lg col-md flex-grow-0">
+                                <a href="/login" class="btn btn-primary">Iniciar sesión</a>
+                            </div>
+                        @endauth
                     </span>
                 </div> <!-- row.// -->
             </section> <!-- header-main .// -->
