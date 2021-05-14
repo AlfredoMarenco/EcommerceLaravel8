@@ -31,7 +31,7 @@ class ApiController extends Controller
     {
         $response = json_decode(file_get_contents('php://input'), true);
         Log::info($response);
-        return response()->json(200);
+        /* return response()->json(200); */
         $type = $response['type'];
         $id_gateway = $response['transaction']['id'];
 
