@@ -85,7 +85,7 @@
                     <span>
                         @auth
                             <div class="col col-lg col-md flex-grow-0 mt-2">
-                                <small>Hola, :wave_tone1: {{ auth()->user()->name }}</small>
+                                <small>Hola, 👋🏻 {{ auth()->user()->name }}</small>
                             </div>
                         @else
                             <div class="col col-lg col-md flex-grow-0">
