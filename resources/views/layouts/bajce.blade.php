@@ -85,7 +85,7 @@
                     <span>
                         @auth
                             <div class="col col-lg col-md flex-grow-0 mt-2">
-                                <small>Hola, 👋🏻 {{ auth()->user()->name }}</small>
+                                <b>Hola, {{ auth()->user()->name }} 👋🏻</b>
                             </div>
                         @else
                             <div class="col col-lg col-md flex-grow-0">
