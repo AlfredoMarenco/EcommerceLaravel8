@@ -8,7 +8,6 @@
 
 
 @section('content')
-
     <!-- ========================= SECTION CONTENT ========================= -->
     @if (Cart::count())
         <section class="section-content padding-y">

@@ -24,9 +24,11 @@
     <!-- custom style -->
     <link href="{{ asset('css/ui.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('vendor/flexslider/flexslider.css') }}" rel="stylesheet">
 
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
     @yield('css')
 </head>
 
@@ -77,7 +79,8 @@
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
                         <a href="{{ route('cart') }}" class="nav-link"><span
-                                class="notify">{{ Cart::count() }}</span> <i class="fa fa-shopping-cart"></i></a>
+                                class="notify">{{ Cart::instance('default')->count() + Cart::instance('wishlist')->count() }}</span> <i
+                                class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="col col-lg col-md flex-grow-0">
                         <a href="/perfil" class="nav-link"> <i class="fa fa-user"></i> </a>

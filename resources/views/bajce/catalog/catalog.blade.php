@@ -77,27 +77,26 @@
 
                     <header class="mb-3">
                         <div class="form-inline">
-                            <strong class="mr-md-auto">32 Items found </strong>
+                            <strong class="mr-md-auto">{{ $products->total() }} productos encontrados</strong>
                             <select class="mr-2 form-control">
                                 <option>Más Recientes</option>
                                 <option>Menos recientes</option>
-
                             </select>
-
                         </div>
                     </header><!-- sect-heading -->
                     @foreach ($products as $product)
                         <article class="card card-product-list">
                             <div class="row no-gutters">
                                 <aside class="col-md-3">
-                                    <a href="#" class="img-wrap">
+                                    <a href="{{ route('catalogue.product', $product) }}" class="img-wrap">
                                         <span class="badge badge-danger"> Consulta en sucursal </span>
                                         <img src="{{ Storage::url($product->image->url) }}">
                                     </a>
                                 </aside> <!-- col.// -->
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="#" class="h5 title"> {{ $product->name }}</a>
+                                        <a href="{{ route('catalogue.product', $product) }}" class="h5 title">
+                                            {{ $product->name }}</a>
 
 
                                         <p class="mb-3">
@@ -119,7 +118,8 @@
                                             <a href="#" class="btn btn-block btn-success"> <i class="fab fa-whatsapp"></i>
                                                 CONSULTAR EN TIENDA </a>
                                         <div class="boton-ver-producto mt-3">
-                                            <a href="{{ route('catalogue.product',$product) }}" class="btn btn-block btn-primary"></i> VER PRODUCTO
+                                            <a href="{{ route('catalogue.product', $product) }}"
+                                                class="btn btn-block btn-primary"></i> VER PRODUCTO
                                             </a>
                                         </div>
                                         </p>

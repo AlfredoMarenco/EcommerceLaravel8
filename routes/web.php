@@ -111,6 +111,15 @@ Route::prefix('/cartshop')->group(function () {
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
 });
 
+//Rutas wishlist
+Route::prefix('/wishlist')->group(function () {
+    Route::post('/addToWishlist/{id}', [ShopController::class, 'addItemToWishlist'])->name('wishlist.addItem');
+    Route::post('/addsToWishlist/{id}', [ShopController::class, 'addItemsToWishlist'])->name('wishlist.addItems');
+    Route::any('/update/{rowId}', [ShopController::class, 'updateWishlist'])->name('wishlist.update');
+    Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('wishlist.destroy');
+    Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToWishlist'])->name('wishlist.remove');
+});
+
 //Rutas del checkout y los metodos de pago
 Route::prefix('checkout')->group(function () {
     Route::get('/', [PaymentController::class, 'index'])->name('checkout.index');

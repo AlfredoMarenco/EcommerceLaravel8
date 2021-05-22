@@ -7,106 +7,181 @@
         <div class="container">
 
             <div class="row">
-                <main class="col-md-9">
-                    <div class="card">
-
-                        <table class="table table-borderless table-shopping-cart">
-                            <thead class="text-muted">
-                                <tr class="small text-uppercase">
-                                    <th scope="col">Producto</th>
-                                    <th scope="col" width="120">Cantidad</th>
-                                    <th scope="col" width="120">Precio</th>
-                                    <th scope="col" class="text-right" width="200"> </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (Cart::content() as $product)
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside">
-                                                <div class="aside"><img
-                                                        src="{{ Storage::url($product->model->image->url) }}"
-                                                        class="img-sm"></div>
-                                                <figcaption class="info">
-                                                    <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                    <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                        Garantía: 2 años</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td>
-                                            <form action="{{ route('cart.update', $product->rowId) }}">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="number" min="1" value="{{ $product->qty }}" name="qty"
-                                                    class="form-control" onchange="this.form.submit()">
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <div class="price-wrap">
-                                                <var class="price">${{ number_format($product->price, 2) }}</var>
-                                                <a href="{{ route('cart.remove', $product->rowId) }}"><small
-                                                        class="text-muted">Eliminar </small></a>
-                                            </div> <!-- price-wrap .// -->
-                                        </td>
-                                        <td class="text-right">
-                                            <a href="{{ route('shop.product', $product->model->id) }}"
-                                                class="btn btn-block btn-light">Detalles</a>
-                                        </td>
+                @if (Cart::instance('wishlist')->count() + Cart::instance('default')->count() > 0)
+                    <main class="col-md-9">
+                        <div class="card">
+                            <table class="table table-borderless table-shopping-cart">
+                                <thead class="text-muted">
+                                    <tr class="small text-uppercase">
+                                        <th scope="col">Producto</th>
+                                        <th scope="col" width="120">Cantidad</th>
+                                        <th scope="col" width="120">Precio</th>
+                                        <th scope="col" class="text-right" width="200"> </th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach (Cart::instance('default')->content() as $product)
+                                        <tr>
+                                            <td>
+                                                <figure class="itemside">
+                                                    <div class="aside"><img
+                                                            src="{{ Storage::url($product->model->image->url) }}"
+                                                            class="img-sm"></div>
+                                                    <figcaption class="info">
+                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
+                                                            Garantía: 2 años</p>
+                                                    </figcaption>
+                                                </figure>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('cart.update', $product->rowId) }}">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="number" min="1" value="{{ $product->qty }}" name="qty"
+                                                        class="form-control" onchange="this.form.submit()">
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <var class="price">${{ number_format($product->price, 2) }}</var>
+                                                    <a href="{{ route('cart.remove', $product->rowId) }}"><small
+                                                            class="text-muted">Eliminar </small></a>
+                                                </div> <!-- price-wrap .// -->
+                                            </td>
+                                            <td class="text-right">
+                                                <a href="{{ route('shop.product', $product->model->id) }}"
+                                                    class="btn btn-block btn-light">Detalles</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    @if (Cart::instance('wishlist')->count() > 0)
+                                        <tr>
+                                            <td class="text-center">
+                                                <h6 class="text-warning">Productos de la lista (no se pueden comprar en
+                                                    linea)</h6>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                    @foreach (Cart::instance('wishlist')->content() as $product)
+                                        <tr>
+                                            <td>
+                                                <figure class="itemside">
+                                                    <div class="aside"><img
+                                                            src="{{ Storage::url($product->model->image->url) }}"
+                                                            class="img-sm"></div>
+                                                    <figcaption class="info">
+                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
+                                                            Garantía: 2 años</p>
+                                                    </figcaption>
+                                                </figure>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('wishlist.update', $product->rowId) }}">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="number" min="1" value="{{ $product->qty }}" name="qty"
+                                                        class="form-control" onchange="this.form.submit()">
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <var class="price">${{ number_format($product->price, 2) }}</var>
+                                                    <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
+                                                            class="text-muted">Eliminar </small></a>
+                                                </div> <!-- price-wrap .// -->
+                                            </td>
+                                            <td class="text-right">
+                                                <a href="{{ route('shop.product', $product->model->id) }}"
+                                                    class="btn btn-block btn-light">Detalles</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
 
-                        <div class="card-body border-top">
-                            <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right"> Comprar ahora <i
-                                    class="fa fa-chevron-right"></i> </a>
-                            <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
-                            </a>
-                        </div>
-                    </div> <!-- card.// -->
+                            <div class="card-body border-top">
+                                @if (Cart::instance('default')->count() > 0)
+                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
+                                        Pagar con tarjeta
+                                        <i class="far fa-credit-card"></i> </a>
+                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
+                                        Pagar en efectivo
+                                        <i class="far fa-money-bill-alt"></i> </a>
+                                @endif
+                                <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
+                                </a>
+                            </div>
+                        </div> <!-- card.// -->
 
-                </main> <!-- col.// -->
-                <aside class="col-md-3">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <label>¿Tienes un cupón?</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="" placeholder="Código de cupón">
-                                        <span class="input-group-append">
-                                            <button class="btn btn-primary">Aplicar</button>
-                                        </span>
+                    </main> <!-- col.// -->
+                    <aside class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label>¿Tienes un cupón?</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="" placeholder="Código de cupón">
+                                            <span class="input-group-append">
+                                                <button class="btn btn-primary">Aplicar</button>
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div> <!-- card-body.// -->
-                    </div> <!-- card .// -->
-                    <div class="card">
-                        <div class="card-body">
-                            <dl class="dlist-align">
-                                <dt>Precio total:</dt>
-                                <dd class="text-right">${{ Cart::subtotal() }} MXN</dd>
-                            </dl>
-{{--                             <dl class="dlist-align">
+                                </form>
+                            </div> <!-- card-body.// -->
+                        </div> <!-- card .// -->
+                        <div class="card">
+                            <div class="card-body">
+                                @if (Cart::instance('default')->count() > 0)
+                                    <dl class="dlist-align">
+                                        <h6>Total a pagar en linea</h6>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Precio total:</dt>
+                                        <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                    </dl>
+                                    {{-- <dl class="dlist-align">
+                                    <dt>Descuento:</dt>
+                                    <dd class="text-right">MXN 120</dd>
+                                     </dl> --}}
+                                    <dl class="dlist-align">
+                                        <dt>Total:</dt>
+                                        <dd class="text-right  h5"><strong>${{ Cart::instance('default')->total() }}
+                                                MXN</strong></dd>
+                                    </dl>
+                                    <hr>
+                                @endif
+                                @if (Cart::instance('wishlist')->count() > 0)
+                                    <dl class="dlist-align">
+                                        <h6>Cotizacion de productos del catálogo</h6>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Precio total:</dt>
+                                        <dd class="text-right">${{ Cart::instance('wishlist')->subtotal() }} MXN</dd>
+                                    </dl>
+                                    {{-- <dl class="dlist-align">
                                 <dt>Descuento:</dt>
                                 <dd class="text-right">MXN 120</dd>
                             </dl> --}}
-                            <dl class="dlist-align">
-                                <dt>Total:</dt>
-                                <dd class="text-right  h5"><strong>${{ Cart::total() }} MXN</strong></dd>
-                            </dl>
-                            <hr>
-                            <p class="text-center mb-3">
-                                <img src="images/misc/payments.png" height="26">
-                            </p>
-
-                        </div> <!-- card-body.// -->
-                    </div> <!-- card .// -->
-                </aside> <!-- col.// -->
+                                    <dl class="dlist-align">
+                                        <dt>Total:</dt>
+                                        <dd class="text-right  h5"><strong>${{ Cart::instance('wishlist')->total() }}
+                                                MXN</strong></dd>
+                                    </dl>
+                                    <hr>
+                                @endif
+                                <p class="text-center mb-3">
+                                    <img src="images/misc/payments.png" height="26">
+                                </p>
+                            </div> <!-- card-body.// -->
+                        </div> <!-- card .// -->
+                    </aside> <!-- col.// -->
+                @else
+                    <h3 class="mx-auto mt-4">No tienes ningun producto agregado al carrito y/o lista</h3>
+                @endif
             </div>
-
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
@@ -142,7 +217,7 @@
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
                                 <a href="/producto">
-                                    <img src="images/items/bridas.png">
+                                    <img src="{{ Storage::url($product->image->url) }}">
                                 </a>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
@@ -173,8 +248,9 @@
                                 <hr>
                                 <form action="{{ route('cart.addItem', $product) }}" method="POST">
                                     @csrf
-                                     <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i> Añadir al carrito </button>
-                                 </form>
+                                    <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
+                                        Añadir al carrito </button>
+                                </form>
 
                             </figcaption>
                         </figure>
