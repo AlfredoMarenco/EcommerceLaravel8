@@ -11,7 +11,7 @@
             <hr>
         </nav>
         <div class="row">
-            <div class="col-9 pr-4">
+            <div class="col-9">
                 @foreach ($posts as $post)
                     <div class="row">
                         <!--1140x445-->

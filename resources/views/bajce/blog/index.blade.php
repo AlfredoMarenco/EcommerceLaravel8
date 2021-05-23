@@ -9,7 +9,7 @@
             <div class="row">
                 @foreach ($posts as $post)
                 @if ($post->status = 3)
-                    <div class="col-8 mb-5">
+                    <div class="col-lg-8 col-md-8 col-sm-12 mb-5">
                         <div class="imagen-destacada">
                             <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
                         </div>
@@ -23,7 +23,7 @@
                     </div>
                     @endif
                 @endforeach
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <h3>Lo más destacado</h3>
                     <div class="row">
                         @foreach ($recents as $recent)

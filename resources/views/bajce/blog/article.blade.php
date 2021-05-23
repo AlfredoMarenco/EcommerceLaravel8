@@ -25,8 +25,14 @@
 
     <div class="botones-redes">
         <div class="container">
-            <a href="" class="facebook-btn">Compartir en Facebook</a>
-            <a href="" class="twitter-btn">Compartir en Facebook</a>
+            <div class="row">
+                <div class="facebook mt-4">
+                    <a href="" class="facebook-btn">Compartir en Facebook</a>
+                </div>
+                <div class="twitter mt-4">
+                    <a href="" class="twitter-btn">Compartir en twitter</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -36,7 +42,7 @@
             <div class="row">
                 @foreach ($recents as $recent)
                     @if ($recent->status == 3)
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="row">
                                 <!--Destacado 2-->
                                 <div class="col-5 mt-4">
@@ -56,6 +62,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     @endif
                 @endforeach
             </div>

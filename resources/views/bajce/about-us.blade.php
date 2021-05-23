@@ -7,11 +7,15 @@
     <div class="container">
         <div class="bg-nosotros">
                 <div class="cont-nosotros">
-                    <img src="/images/misc/logo-bajce-bco-2.png" class="img-fluid" alt="">
+                   
+                        <div class="imagen-nosotros">
+                            <img src="/images/misc/logo-bajce-bco-2.png" class="img-fluid" alt="">
+                        </div>
+                    
                 
                 <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed justo faucibus tortor venenatis, facilisis. Sed pellentesque quis nullam iaculis non sit porta odio. Congue dictum maecenas ultrices cursus purus nunc vel. Ipsum condimentum magna massa adipiscing suspendisse. 
 
-                    Nam nunc, donec sed sed est sapien, viverra. Diam et sit pharetra, odio elementum eu, adipiscing. Eros urna mi proin enim. Bibendum tellus tellus et suspendisse commodo curabitur. Proin velit est scelerisque sagittis, elementum tortor mus feugiat. Netus proin volutpat sed placerat. Vestibulum tempor lacus, lectus ornare posuere placerat in porta. Tincidunt porta ultricies nibh facilisis. Arcu aenean ut faucibus vitae et nibh duis risus.</p>
+                    </p>
                 </div>
         </div>
     </div>
@@ -23,7 +27,7 @@
             <h3>IMPULSAMOS TU CREATIVIDAD</h3>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-5">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/h-GVXCTVmEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -31,7 +35,7 @@
                 
                 
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-5">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/h-GVXCTVmEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -57,7 +61,7 @@
             </p>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                 <div class="detalles-sucursal">
                     
                     <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
@@ -72,7 +76,7 @@
                     
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                 <div class="detalles-sucursal">
                     
                     <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
@@ -87,7 +91,7 @@
                     
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                 <div class="detalles-sucursal">
                     
                     <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
@@ -105,7 +109,7 @@
         </div>
         <div class="sucursales-2 mt-5">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                     <div class="detalles-sucursal">
                         
                         <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
@@ -120,7 +124,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                     <div class="detalles-sucursal">
                         
                         <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
@@ -135,7 +139,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                     <div class="detalles-sucursal">
                         
                         <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
@@ -157,8 +161,8 @@
 
 <section id="marcas-nosotros">
     <div class="container">
-        <div class="cabecera-marcas-nosotros">
-            <h2>MARCAS CON LAS QUE TRABAJAMOS</h2>
+        <div class="cabecera-marcas-nosotros mb-5">
+            <h3>MARCAS CON LAS QUE TRABAJAMOS</h3>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3">

@@ -14,15 +14,11 @@
     <meta property="og:type" content="website" />
     <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
     <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="og:url" content="https://www.renealonso.com" />
+    <meta name="og:url" content="https://www.bajce.com" />
     <meta name="og:site_name" content="Rene Alonso" />
     <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="twitter:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO" />
-    <meta name="twitter:site" content="@FashionAlonso" />
-    <meta name="twitter:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
-    <meta name="twitter:creator" content="@FashionAlonso" />
+    
 
     {{-- <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
     <!-- jQuery -->
@@ -195,6 +191,7 @@
             </div>
         </div>
     </nav>
+    
         <!--Form-->
         <main role="main" class="container">
 
