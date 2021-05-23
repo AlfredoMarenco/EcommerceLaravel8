@@ -1,4 +1,3 @@
- <!-- ========================= SECTION CONTENT ========================= -->
  <section class="section-content padding-y">
      <div class="container">
          <!-- ============================  FILTER TOP  ================================= -->
@@ -168,8 +167,9 @@
                                          <span class="tag"> PLAYCON </span>
                                      </p>
                                      <form action="{{ route('cart.addItem', $product) }}" method="POST">
-                                        @csrf
-                                         <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i> Añadir al carrito </button>
+                                         @csrf
+                                         <button type="submit" class="btn btn-block btn-primary"><i
+                                                 class="fas fa-cart-plus"></i> Añadir al carrito </button>
                                      </form>
                                      {{-- <a href="{{ route('cart.addItem', $product) }}" class="btn btn-block btn-primary">
                                          <i class="fas fa-cart-plus"></i> Añadir al carrito </a> --}}
