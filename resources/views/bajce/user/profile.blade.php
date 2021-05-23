@@ -15,20 +15,7 @@
         <div class="container">
 
             <div class="row">
-                <aside class="col-md-3">
-                    <nav class="list-group">
-                        <a class="list-group-item active" href="perfil.html"> Mi cuenta </a>
-                        <a class="list-group-item" href="mi-direccion.html"> Mi dirección </a>
-                        <a class="list-group-item" href="mis-ordenes.html"> Mis Órdenes </a>
-                        <a class="list-group-item" href="configuracion.html"> Configurar cuenta </a>
-                        <a class="list-group-item" href="#"> Ayuda </a>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        this.closest('form').submit();"> Cerrar sesión </a>
-                        </form>
-                    </nav>
-                </aside> <!-- col.// -->
+                @include('bajce.user.nav-profile')
                 <main class="col-md-9">
 
                     <article class="card mb-3">

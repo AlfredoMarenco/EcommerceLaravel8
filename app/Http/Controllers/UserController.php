@@ -23,14 +23,14 @@ class UserController extends Controller
     public function showOrders()
     {
         $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->paginate(5);
-        return view('shop.user.orders', compact('orders'));
+        return view('bajce.user.my-orders', compact('orders'));
     }
 
 
     public function edit()
     {
         $user = auth()->user();
-        return view('shop.user.settings', compact('user'));
+        return view('bajce.user.settings', compact('user'));
     }
 
     public function updatePassword(Request $request)

@@ -17,7 +17,7 @@ class LoginSocialiteController extends Controller
     public function callback($drive)
     {
         $userSocialite = Socialite::driver($drive)->user();
-
+        return $userSocialite;
         $user = User::where('email', $userSocialite->getEmail())->first();
 
         if (!$user) {

@@ -122,7 +122,8 @@ Route::prefix('/wishlist')->group(function () {
 
 //Rutas del checkout y los metodos de pago
 Route::prefix('checkout')->group(function () {
-    Route::get('/', [PaymentController::class, 'index'])->name('checkout.index');
+    Route::get('/card', [PaymentController::class, 'index'])->name('checkout.index');
+    Route::get('/cash', [PaymentController::class, 'cash'])->name('checkout.cash');
     Route::post('/directChargeOpenpay', [PaymentController::class, 'directChargeOpenPay'])->name('checkout.chargeOpenpay');
     Route::get('/directChargeOpenpay/responsepayment/', [PaymentController::class, 'validateChargeOpenPay']);
     Route::get('/storeReference', [PaymentController::class, 'storeReference'])->name('checkout.storeReference');

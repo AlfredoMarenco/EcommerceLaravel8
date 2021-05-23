@@ -35,7 +35,18 @@ class PaymentController extends Controller
         } else {
                 /* $response = Http::get('https://api-sepomex.hckdrk.mx/query/get_estados');
             return $response->json() */;
-            return view('bajce.shop.payment');
+            return view('bajce.shop.card-payment');
+        }
+    }
+
+    public function cash()
+    {
+        if (Cart::count() <= 0) {
+            return redirect('/');
+        } else {
+                /* $response = Http::get('https://api-sepomex.hckdrk.mx/query/get_estados');
+            return $response->json() */;
+            return view('bajce.shop.cash-payment');
         }
     }
 
@@ -132,7 +143,8 @@ class PaymentController extends Controller
         return redirect()->route('user.profile');
     }
 
-    public function storeReference(){
+    public function storeReference()
+    {
         if (Cart::count() <= 0) {
             return redirect('/');
         } else {

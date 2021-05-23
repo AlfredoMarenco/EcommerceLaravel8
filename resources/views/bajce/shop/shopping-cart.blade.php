@@ -106,7 +106,7 @@
                                     <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
                                         Pagar con tarjeta
                                         <i class="far fa-credit-card"></i> </a>
-                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
+                                    <a href="{{ route('checkout.cash') }}" class="btn btn-primary float-md-right mx-1">
                                         Pagar en efectivo
                                         <i class="far fa-money-bill-alt"></i> </a>
                                 @endif
