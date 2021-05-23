@@ -36,10 +36,11 @@
     </section>
     <!-- ========================= SECTION MAIN END// ========================= -->
 
-    <section id="info-destacada">
-        <div class="container">
+
+    <section id="info-destacada" class="no-cel">
+        <div class="container mt-5 ">
             <div class="row">
-                <div class="col-3 info-destacada-r">
+                <div class="col-lg-3 col-md-3 col-sm-12 info-destacada-r no-cel">
                     <div class="d-1">
                         <img src="/images/banners/d-1-2.png" class="img-fluid radio" alt="">
                         <div class="carousel-caption carousel-caption-2">
@@ -49,9 +50,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-9 info-destacada-p">
+                <div class="col-9 info-destacada-p no-cel">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="d-2">
                                 <img src="/images/banners/d-2-2.png" class="img-fluid radio" alt="">
                                 <div class="carousel-caption carousel-caption-2">
@@ -61,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 no-cel">
                             <div class="d-3">
                                 <img src="/images/banners/d-3-2.png" class="img-fluid radio" alt="">
                                 <div class="carousel-caption carousel-caption-2">
@@ -72,7 +73,7 @@
 
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 no-cel">
                             <div class="d-4">
                                 <img src="/images/banners/d-4-2.png" class="img-fluid radio" alt="">
                                 <div class="carousel-caption carousel-caption-2">
@@ -83,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="info-destacada-inner">
+                    <div class="info-destacada-inner no-cel">
                         <div class="row">
                             <div class="col-8 radio">
                                 <img src="/images/banners/d-6-2.png" class="img-fluid radio" alt="">
@@ -94,7 +95,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-4">
+                            <div class="col-4 no-cel">
                                 <img src="/images/banners/d-5-2.png" class="img-fluid radio" alt="">
                                 <div class="carousel-caption carousel-caption-2">
                                     <h5>Productos especiales</h5>
@@ -112,7 +113,6 @@
     </section>
 
 
-
     <div class="container">
 
         <section id="servicios">
@@ -124,17 +124,17 @@
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <i class="fas fa-table iconos"></i>
                         <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                        <p class="p-servicio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                        <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <i class="fas fa-table iconos"></i>
                         <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                        <p class="p-servicio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                        <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <i class="fas fa-table iconos"></i>
                         <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                        <p class="p-servicio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                        <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
                     </div>
                 </div>
                 <div id="servicios-2" class="mt-5">
@@ -142,17 +142,17 @@
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <i class="fas fa-table iconos"></i>
                             <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                            <p class="p-servicio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                            <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <i class="fas fa-table iconos"></i>
                             <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                            <p class="p-servicio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                            <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <i class="fas fa-table iconos"></i>
                             <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                            <p class="p-servicio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                            <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit saepe eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
                         </div>
                     </div>
                 </div>
@@ -167,10 +167,10 @@
             <h3 style="text-align: center;" class="mt-5">
                 Tienda en linea
             </h3>
-            <p class="descripcion-tienda" style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magni itaque atque explicabo at dicta hic voluptatum repellendus quas reiciendis. Ullam ex explicabo, consequuntur corrupti, voluptates ipsum ipsa tenetur nemo dolore saepe repellendus sit quidem et provident dicta odit facere delectus suscipit laborum blanditiis quam magni. Provident id recusandae maiores?</p>
+            <p class="descripcion-tienda" style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magni itaque atque explicabo at dicta hic voluptatum repellendus quas reiciendis.</p>
             <div class="boton-ir">
                 <a href="/tienda" class="btn btn-secondary">
-                    Ir a artículos de cocina
+                    Ir a la tienda
                 </a>
             </div>
             <div class="botones-tienda">
@@ -178,21 +178,21 @@
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="boton-ir">
                     <a href="/tienda" class="btn btn-primary btn-block">
-                        Ir a artículos de cocina
+                        Artículos de cocina
                     </a>
                 </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="boton-ir">
                     <a href="/tienda" class="btn btn-primary btn-block">
-                        Ir a artículos de cocina
+                        Artículos de cocina
                     </a>
                 </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="boton-ir">
                     <a href="/tienda" class="btn btn-primary btn-block">
-                        Ir a artículos de cocina
+                        Artículos de cocina
                     </a>
                 </div>
                     </div>
@@ -208,7 +208,7 @@
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                 Consulta nuestro catálogo en linea
             </h3>
-            <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae deserunt quos similique natus quaerat omnis!</p>
+            <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
 
         <div class="row mt-5">
