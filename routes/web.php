@@ -237,16 +237,6 @@ route::get('/nosotros', function () {
     return view('bajce.about-us');
 });
 
-// Perfil
-route::get('/perfil', function () {
-    return view('bajce.user.profile');
-});
-
-// configuracion
-route::get('/configuracion', function () {
-    return view('bajce.user.settings');
-});
-
 // Mis órdenes
 route::get('/mis-ordenes', function () {
     return view('bajce.user.my-orders');

@@ -83,7 +83,7 @@
                                 class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="col col-lg col-md flex-grow-0">
-                        <a href="/perfil" class="nav-link"> <i class="fa fa-user"></i> </a>
+                        <a href="{{ route('user.profile') }}" class="nav-link"> <i class="fa fa-user"></i> </a>
                     </div>
                     <span>
                         @auth

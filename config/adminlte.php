@@ -252,7 +252,7 @@ return [
             'icon'  => 'fab fa-fw fa-buffer',
             'can' => 'admin.categories.index'
         ],
-        [
+       /*  [
             'text' => 'Variantes de producto',
             'icon' => 'fas fa-fw fa-sitemap',
             'can' => 'admin.variants.index',
@@ -290,7 +290,7 @@ return [
                 ],
 
             ],
-        ],
+        ], */
         [
             'header' => 'Catalogo',
             'can' => 'admin.posts.index'
@@ -324,12 +324,12 @@ return [
             'icon'  => 'fas fa-fw fa-cog',
         ],
 
-        ['header' => 'GALERIA'],
+       /*  ['header' => 'GALERIA'],
         [
             'text' => 'Colecciones',
             'route'  => 'admin.collections.index',
             'icon'  => 'fas fa-fw fa-images ',
-        ],
+        ], */
         [
             'header' => 'ADMINISTRACION DE USUARIOS',
             'can' => 'admin.users.index'

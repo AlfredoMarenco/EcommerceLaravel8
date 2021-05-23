@@ -16,7 +16,20 @@
         <div class="container">
 
             <div class="row">
-                @include('bajce.user.nav-profile')
+                <aside class="col-md-3">
+                    <nav class="list-group">
+                        <a class="list-group-item" href="{{ route('user.profile') }}"> Mi cuenta </a>
+                        {{-- <a class="list-group-item" href="mi-direccion.html"> Mi dirección </a> --}}
+                        <a class="list-group-item" href="{{ route('user.orders') }}"> Mis Órdenes </a>
+                        <a class="list-group-item active" href="{{ route('user.settings') }}"> Configurar cuenta </a>
+                        {{-- <a class="list-group-item" href="#"> Ayuda </a> --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    this.closest('form').submit();"> Cerrar sesión </a>
+                        </form>
+                    </nav>
+                </aside> <!-- col.// -->
                 <main class="col-md-9">
 
                     <div class="card">
@@ -26,40 +39,22 @@
                                     <div class="form-row">
                                         <div class="col form-group">
                                             <label>Nombre</label>
-                                            <input type="text" class="form-control" value="Alvar Buenfil">
+                                            <input type="text" class="form-control" value="{{ $user->name }}">
                                         </div> <!-- form-group end.// -->
                                         <div class="col form-group">
+                                            <label>Apellido</label>
+                                            <input type="text" class="form-control" value="{{ $user->last_name }}">
+                                        </div> <!-- form-group end.// -->
+                                    </div> <!-- form-row.// -->
+
+                                    <div class="form-row">
+                                        <div class="col form-group">
                                             <label>Email</label>
-                                            <input type="email" class="form-control" value="ab@agenciavandu.com">
-                                        </div> <!-- form-group end.// -->
-                                    </div> <!-- form-row.// -->
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label>Estado</label>
-                                            <select id="inputState" class="form-control">
-                                                <option> Escoge uno...</option>
-                                                <option>Veracruz</option>
-                                                <option>Campeche</option>
-                                                <option selected="">Yucatán</option>
-                                                <option>Quintana Roo</option>
-                                                <option>Chiapas</option>
-                                            </select>
-                                        </div> <!-- form-group end.// -->
-                                        <div class="form-group col-md-6">
-                                            <label>Ciudad</label>
-                                            <input type="text" class="form-control">
-                                        </div> <!-- form-group end.// -->
-                                    </div> <!-- form-row.// -->
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label>Código Postal</label>
-                                            <input type="text" class="form-control" value="123009">
+                                            <input type="email" class="form-control" value="{{ $user->email }}">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
                                             <label>Teléfono</label>
-                                            <input type="text" class="form-control" value="+123456789">
+                                            <input type="text" class="form-control" value="{{ $user->phone }}">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->
 

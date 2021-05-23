@@ -15,8 +15,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->get();
-        return view('bajce.user.my-orders', compact('orders'));
+        $orders = Order::latest('id')->where('user_id', '=', auth()->user()->id)->paginate(5);
+        return view('bajce.user.profile', compact('orders'));
     }
 
 
