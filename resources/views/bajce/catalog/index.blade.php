@@ -22,7 +22,7 @@
                             <div class="carousel-caption carousel-caption-3 d-md-block">
                                 <h1>Catálogo de <br>
                                     {{ $catalogue->name }}</h1>
-                                <a href="{{ route('catalogue.products') }}" class="btn btn-primary">Ver catálogo</a>
+                                <a href="{{ route('catalogue.products',$catalogue->category_id) }}" class="btn btn-primary">Ver catálogo</a>
                             </div>
                         </div>
                     @endforeach

@@ -9,13 +9,13 @@
             <div class="row">
                 @foreach ($posts as $post)
                 @if ($post->status = 3)
-                    <div class="col-8 mb-5">
+                    <div class="col-lg-8 col-md-8 col-sm-12 mb-5">
                         <div class="imagen-destacada">
                             <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
                         </div>
                         <p class="mt-3" style="color: gray;">{{ $carbon->diffForHumans($post->created_at) }}</p>
                         <h3>{{ $post->title }}</h3>
-                        <p>{{ $post->extract }}</p>
+                        <p>{!! $post->extract !!}</p>
                         <a href="{{ route('blog.show',$post) }}"> Ver más <i class="far fa-arrow-alt-circle-right"></i></a>
                         {{-- <div class="boton-cargar">
 					<a href="" class="btn btn-success cargar">Cargar más</a>
@@ -23,7 +23,7 @@
                     </div>
                     @endif
                 @endforeach
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <h3>Lo más destacado</h3>
                     <div class="row">
                         @foreach ($recents as $recent)

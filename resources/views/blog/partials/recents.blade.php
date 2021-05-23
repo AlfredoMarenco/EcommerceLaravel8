@@ -1,4 +1,4 @@
-<div class="col-3 mb-4" id="catego">
+<div class="col-3 mb-4 nocel" id="catego">
     {{-- <h3>Categorías</h3>
     <a href="">
         <li>Moda</li>

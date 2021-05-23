@@ -19,19 +19,16 @@
 
             <!-- ============================ ITEM DETAIL ======================== -->
             <div class="row">
-                <aside class="col-md-6">
-                    <div class="card">
-                        <article class="gallery-wrap">
-                            <div class="img-big-wrap">
-                                <div> <a href="#"><img src="{{ Storage::url($product->image->url) }}"></a></div>
-                            </div> <!-- slider-product.// -->
-                            <div class="thumbs-wrap">
-                                @foreach ($product->images as $image)
-                                    <a href="#" class="item-thumb"> <img src="{{ Storage::url($image->url) }}"></a>
-                                @endforeach
-                            </div> <!-- slider-nav.// -->
-                        </article> <!-- gallery-wrap .end// -->
-                    </div> <!-- card.// -->
+                <aside class="col-md-6 flexslider">
+                    <!-- Place somewhere in the <body> of your page -->
+                    <!-- Place somewhere in the <body> of your page -->
+                    <ul class="slides">
+                        @foreach ($product->images as $image)
+                            <li data-thumb="{{ Storage::url($image->url) }}">
+                                <img src="{{ Storage::url($image->url) }}">
+                            </li>
+                        @endforeach
+                    </ul>
                 </aside>
                 <main class="col-md-6">
                     <article class="product-info-aside">
@@ -77,29 +74,25 @@
                             <dt class="col-sm-3">Disponibilidad</dt>
                             <dd class="col-sm-9">En Stock</dd>
                         </dl>
-
-                        <div class="form-row  mt-4">
-                            <div class="form-group col-md flex-grow-0">
-                                <div class="input-group mb-3 input-spinner">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-light" type="button" id="button-plus"> + </button>
-                                    </div>
-                                    <input type="text" class="form-control" value="1">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
-                                    </div>
+                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                            @csrf
+                            <div class="form-row mt-4">
+                                <div class="form-group col-md flex-grow-0">
+                                    @livewire('count-items-to-cart')
+                                </div> <!-- col.// -->
+                                <div class="form-group col-md">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
+                                    </button>
                                 </div>
-                            </div> <!-- col.// -->
-                            <div class="form-group col-md">
-                                <a href="#" class="btn  btn-primary">
-                                    <i class="fas fa-shopping-cart"></i> <span class="text">Añadir al carrito</span>
-                                </a>
-                                <a href="#" class="btn btn-success">
-                                    <i class="fab fa-shopping-basket"></i> <span class="text">Comprar</span>
-                                </a>
-                            </div> <!-- col.// -->
-                        </div> <!-- row.// -->
-
+                                <div class="form-group col-md mr-5">
+                                    <a href="#" class="btn btn-success">
+                                        <i class="fab fa-shopping-basket"></i><span class="text">Comprar</span>
+                                    </a>
+                                </div>
+                                <!-- col.// -->
+                            </div> <!-- row.// -->
+                        </form>
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->
             </div> <!-- row.// -->
@@ -223,196 +216,50 @@
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
 
-
-
     <section id="productos-sugeridos">
         <div class="container">
             <h5 class="title-description mb-5" style="text-align: center;">Te podría interesar </h5>
             <div class="row">
+                @foreach ($products as $product)
+                    <div class="col-md-3">
+                        <figure class="card card-product-grid">
+                            <div class="img-wrap">
+                                <img src="{{ Storage::url($product->image->url) }}">
+                            </div> <!-- img-wrap.// -->
+                            <figcaption class="info-wrap">
+                                <a href="#" class="title mb-2">{{ $product->name }}</a>
+                                <p>{!! $product->description !!}</p>
+                                <div class="price-wrap">
+                                    <span class="price">{{ $product->presentPrice() }}</span>
+                                    <small class="text-muted">/ pza</small>
+                                    <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
+                                </div> <!-- price-wrap.// -->
+                                <div class="rating-wrap my-3">
+                                    <ul class="rating-stars">
+                                        <li style="width:80%" class="stars-active">
+                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                    </ul>
+                                    <small class="label-rating text-muted">132 Opiniones</small>
+                                </div> <!-- rating-wrap.// -->
+                                <hr>
+                                <form action="{{ route('cart.addItem', $product) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
+                                        Añadir al carrito </button>
+                                </form>
 
-                <div class="col-md-3">
-                    <figure class="card card-product-grid">
-                        <div class="img-wrap">
-                            <img src="images/items/bridas.png">
-                        </div> <!-- img-wrap.// -->
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title mb-2">BRIDAS PARA TUBO GRIS 7.5 X 2.3 CM</a>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum ipsum corporis recusandae
-                                odit ab.</p>
-                            <div class="price-wrap">
-                                <span class="price">$350.00</span>
-                                <small class="text-muted">/ pza</small>
-
-                                <p class="mb-2"> <small>SKU:</small> 455379 </p>
-                            </div> <!-- price-wrap.// -->
-
-                            <div class="rating-wrap my-3">
-                                <ul class="rating-stars">
-                                    <li style="width:80%" class="stars-active">
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <small class="label-rating text-muted">132 Opiniones</small>
-
-
-                            </div> <!-- rating-wrap.// -->
-
-                            <hr>
-
-
-
-
-
-                            <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i> Agregar al carrito </a>
-
-                        </figcaption>
-                    </figure>
-                </div> <!-- col.// -->
-
-                <div class="col-md-3">
-                    <figure class="card card-product-grid">
-                        <div class="img-wrap">
-                            <img src="images/items/bridas.png">
-                        </div> <!-- img-wrap.// -->
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title mb-2">BRIDAS PARA TUBO GRIS 7.5 X 2.3 CM</a>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum ipsum corporis recusandae
-                                odit ab.</p>
-                            <div class="price-wrap">
-                                <span class="price">$350.00</span>
-                                <small class="text-muted">/ pza</small>
-
-                                <p class="mb-2"> <small>SKU:</small> 455379 </p>
-                            </div> <!-- price-wrap.// -->
-
-                            <div class="rating-wrap my-3">
-                                <ul class="rating-stars">
-                                    <li style="width:80%" class="stars-active">
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <small class="label-rating text-muted">132 Opiniones</small>
-
-
-                            </div> <!-- rating-wrap.// -->
-
-                            <hr>
-
-
-
-
-
-                            <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i> Agregar al carrito </a>
-
-                        </figcaption>
-                    </figure>
-                </div> <!-- col.// -->
-
-                <div class="col-md-3">
-                    <figure class="card card-product-grid">
-                        <div class="img-wrap">
-                            <img src="images/items/bridas.png">
-                        </div> <!-- img-wrap.// -->
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title mb-2">BRIDAS PARA TUBO GRIS 7.5 X 2.3 CM</a>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum ipsum corporis recusandae
-                                odit ab.</p>
-                            <div class="price-wrap">
-                                <span class="price">$350.00</span>
-                                <small class="text-muted">/ pza</small>
-
-                                <p class="mb-2"> <small>SKU:</small> 455379 </p>
-                            </div> <!-- price-wrap.// -->
-
-                            <div class="rating-wrap my-3">
-                                <ul class="rating-stars">
-                                    <li style="width:80%" class="stars-active">
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <small class="label-rating text-muted">132 Opiniones</small>
-
-
-                            </div> <!-- rating-wrap.// -->
-
-                            <hr>
-
-
-
-
-
-                            <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i> Agregar al carrito </a>
-
-                        </figcaption>
-                    </figure>
-                </div> <!-- col.// -->
-
-                <div class="col-md-3">
-                    <figure class="card card-product-grid">
-                        <div class="img-wrap">
-                            <img src="images/items/bridas.png">
-                        </div> <!-- img-wrap.// -->
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title mb-2">BRIDAS PARA TUBO GRIS 7.5 X 2.3 CM</a>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum ipsum corporis recusandae
-                                odit ab.</p>
-                            <div class="price-wrap">
-                                <span class="price">$350.00</span>
-                                <small class="text-muted">/ pza</small>
-
-                                <p class="mb-2"> <small>SKU:</small> 455379 </p>
-                            </div> <!-- price-wrap.// -->
-
-                            <div class="rating-wrap my-3">
-                                <ul class="rating-stars">
-                                    <li style="width:80%" class="stars-active">
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <small class="label-rating text-muted">132 Opiniones</small>
-
-
-                            </div> <!-- rating-wrap.// -->
-
-                            <hr>
-
-
-
-
-
-                            <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i> Agregar al carrito </a>
-
-                        </figcaption>
-                    </figure>
-                </div> <!-- col.// -->
+                            </figcaption>
+                        </figure>
+                    </div> <!-- col.// -->
+                @endforeach
             </div>
         </div>
     </section>
@@ -443,4 +290,18 @@
         </div>
     </section>
 
+@endsection
+
+
+@section('js')
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+
+    </script>
 @endsection

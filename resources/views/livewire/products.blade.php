@@ -134,10 +134,12 @@
                              <figure class="card card-product-grid">
                                  <div class="img-wrap">
                                      <span class="badge badge-danger"> Nuevo </span>
-                                     <a href="{{ route('shop.product',$product) }}"><img src="{{ Storage::url($product->image->url) }}"></a>
+                                     <a href="{{ route('shop.product', $product) }}"><img
+                                             src="{{ Storage::url($product->image->url) }}"></a>
                                  </div> <!-- img-wrap.// -->
                                  <figcaption class="info-wrap">
-                                     <a href="{{ route('shop.product',$product) }}" class="title mb-2">{{ $product->name }}</a>
+                                     <a href="{{ route('shop.product', $product) }}"
+                                         class="title mb-2">{{ $product->name }}</a>
                                      <div class="price-wrap">
                                          <span class="price">{{ $product->presentPrice() }}</span>
                                          <small class="text-muted">/ pza</small>
@@ -164,8 +166,12 @@
                                          <span class="tag"> 2 años de garantía </span>
                                          <span class="tag"> PLAYCON </span>
                                      </p>
-                                     <a href="/carrito" class="btn btn-block btn-primary"> <i
-                                             class="fas fa-cart-plus"></i> Añadir al carrito </a>
+                                     <form action="{{ route('cart.addItem', $product) }}" method="POST">
+                                        @csrf
+                                         <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i> Añadir al carrito </button>
+                                     </form>
+                                     {{-- <a href="{{ route('cart.addItem', $product) }}" class="btn btn-block btn-primary">
+                                         <i class="fas fa-cart-plus"></i> Añadir al carrito </a> --}}
                                  </figcaption>
                              </figure>
                          </div> <!-- col.// -->

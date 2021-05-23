@@ -421,7 +421,7 @@ p:last-child {
 .section-header {
   background-color: #fff;
   -webkit-box-shadow: 0 0 3px rgba(51, 51, 51, 0.15);
-          box-shadow: 0 0 3px rgba(51, 51, 51, 0.15); 
+          box-shadow: 0 0 3px rgba(51, 51, 51, 0.15);
         }
 
 /* ================== header main ==================  */
@@ -445,7 +445,7 @@ p:last-child {
 
 .search-header {
   border: 2px solid #ff6a00;
-  border-radius: 0.55rem; 
+  border-radius: 0.55rem;
 }
   .search-header .form-control, .search-header .custom-select {
     border-color: transparent; }
@@ -1007,7 +1007,7 @@ a[class*='card'] {
 .notify {
   position: absolute;
   top: -4px;
-  right: -10px;
+  right: 4px;
   display: inline-block;
   padding: .25em .6em;
   font-size: 12px;
@@ -1222,7 +1222,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-} 
+}
 
 
 */
@@ -1259,6 +1259,12 @@ body {
 
 .carousel-caption-1 {
   padding-bottom: 230px;
+} @media (max-width: 500px) {
+  .carousel-caption-1 {
+   padding-bottom: 50px;
+  } .carousel-caption-1 h1 {
+    font-size: 20px;
+  }
 }
 .carousel-caption-2 {
   text-align: left;
@@ -1278,8 +1284,8 @@ body {
 
 #info-destacada {
   padding: 80px;
-}  @media (max-width:500px) {
-  #info-destacada {
+} @media (max-width:768px) {
+  .no-cel{
     display: none;
   }
 }
@@ -1296,18 +1302,24 @@ body {
 
 .info-destacada-inner {
   margin-top: 7px;
-  
+
 }
 
 #servicios {
   padding-left: 100px;
   padding-right: 100px;
+} @media (max-width:500px) {
+  #servicios {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
 }
 
 .titulo-servicio {
   margin-top: 15px;
   font-size: 18px;
-}
+} 
 
 .p-servicio {
   font-size: 13px;
@@ -1322,7 +1334,12 @@ body {
   margin-bottom: 80px;
   padding: 150px;
   text-align: center;
-  
+} @media (max-width:500px) {
+  .contenido {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
 }
 
 .contenido h2 {
@@ -1336,8 +1353,16 @@ body {
 #catalogo {
   padding-top: 20px;
   padding-right: 80px;
+  padding-right: 30px;
   padding-left: 30px;
   padding-bottom: 80px;
+} @media (max-width: 500px) {
+  #catalogo {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    text-align: center;
+  }
 }
 
 .carousel-caption-3 {
@@ -1357,10 +1382,21 @@ body {
 .contenido-tienda {
   padding: 80px;
   color: #fff;
+}@media (max-width: 500px) {
+  .contenido-tienda {
+    padding: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
 }
 
 .boton-ir{
   text-align: center;
+} @media (max-width: 500px) {
+  .boton-ir {
+    margin-bottom: 7px;
+    text-align: center;
+  }
 }
 
 .btn-secondary {
@@ -1377,31 +1413,65 @@ body {
 }
 .botones-tienda {
   margin-top: 60px;
-  
+
 }
 
 .descripcion-tienda {
   padding-left: 120px;
   padding-right: 120px;
+} @media (max-width: 500px) {
+  .descripcion-tienda {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+  }
 }
 
 #sucursales {
   padding: 100px;
+} @media (max-width: 500px) {
+  #sucursales {
+    padding: 30px;
+    text-align: center;
+  }
 }
 
+@media (max-width: 500px) {
+  .detalles-sucursal p{
+    font-size: 14px;
+    text-align: center;
+  }
+}
 .cabecera-sucursales {
   padding-bottom: 40px;
+} @media (max-width: 500px) {
+  .cabecera-sucursales h3{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+  }
 }
 
 .logos-sucursales {
   padding-top: 50px;
   text-align: center;
+} @media (max-width: 500px) {
+  .logos-sucursales{
+    padding-bottom: 27px;
+    padding-top: 20px;
+    text-align: center;
+  }
 }
 
 #blog {
   padding-right: 100px;
   padding-left: 100px;
-  
+} @media (max-width: 500px) {
+  #blog {
+    padding-right: 30px;
+    padding-left: 30px;
+    text-align: center;
+  }
 }
 
 .autor {
@@ -1441,6 +1511,11 @@ body {
 
 #newsletter {
   padding: 80px;
+} @media (max-width: 500px) {
+  #newsletter {
+    padding: 30px;
+    text-align: center;
+  }
 }
 
 .formulario-newsletter, .boton-newsletter {
@@ -1451,6 +1526,10 @@ body {
 
 .logo-footer {
   text-align: center;
+} @media (max-width: 500px) {
+  .logo-footer  {
+    margin-bottom: 50px;
+  }
 }
 
 /*===== NOSOTROS =====*/
@@ -1460,11 +1539,32 @@ body {
   background-image: url(/images/banners/cabecera.png);
   background-repeat: no-repeat;
   background-size: cover;
+} @media (max-width:500px) {
+  #header-nosotros {
+    margin-top: 245px;
+  }
 }
+
+
 
 .bg-nosotros {
   padding: 120px;
   text-align: center;
+} @media (max-width:500px) {
+  .bg-nosotros {
+    text-align: justify;
+    padding: 30px;
+  }
+} @media (max-width:500px) {
+  .bg-nosotros p{
+    text-align: justify;
+    padding-top: 25px;
+    padding-bottom: 30px;
+  }
+} @media (max-width:500px) {
+  .imagen-nosotros {
+    padding-top: 50px;
+  }
 }
 
 .cont-nosotros {
@@ -1475,15 +1575,24 @@ body {
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 50px;
+} @media (max-width:500px) {
+  #videos{
+    padding: 30px;
+  }
 }
 
 .cabecera-videos {
   text-align: center;
-  
+
 }
 
 #sucursales-nosotros {
   padding: 100px;
+} @media (max-width:500px) {
+  #sucursales-nosotros{
+    padding: 30px;
+    text-align: center;
+  }
 }
 
 .sucursales-change {
@@ -1495,9 +1604,13 @@ body {
   padding-left: 100px;
   padding-bottom: 50px;
   text-align: center;
+} @media (max-width:500px) {
+  #marcas-nosotros {
+    padding: 30px;
+  }
 }
 
-.cabecera-marcas-nosotros {
+.cabecera-marcas-nosotros h2{
   padding-bottom: 40px;
 }
 
@@ -1509,6 +1622,11 @@ body {
 #contenido-entrada {
   margin-top: 90px;
   padding: 100px;
+} @media (max-width:500px) {
+  #contenido-entrada {
+    margin-top: 250px;
+    padding: 30px;
+  }
 }
 
 .boton-cargar {
@@ -1518,14 +1636,19 @@ body {
 .cargar {
   padding-left: 40px;
   padding-right: 40px;
-}
+} 
+
 
 /*======= DETALLE ENTRADA =========*/
 #interior-entrada {
   padding-left: 50px;
   padding-right: 50px;
   margin-top: 190px;
-}
+}  @media (max-width: 500px) {
+  #interior-entrada {
+    margin-top: 300px;
+  }
+} 
 
 .imagen-interior {
   text-align: center;
@@ -1550,12 +1673,13 @@ body {
   color: #fff;
   padding: 10px;
   border-radius: 5px;
-}
+  margin-right: 10px;
+} 
 
 .facebook-btn:hover {
   background-color: #314f92;
   color: #fff;
-  
+
 }
 .twitter-btn {
   background-color: #00acee;
@@ -1566,7 +1690,7 @@ body {
 .twitter-btn:hover {
   background-color: #039cd8;
   color: #fff;
-  
+
 }
 
 #sugerencias, #comentarios {
