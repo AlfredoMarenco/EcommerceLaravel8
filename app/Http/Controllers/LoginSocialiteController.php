@@ -40,6 +40,6 @@ class LoginSocialiteController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('shop.index');
+        return redirect()->route('index');
     }
 }
