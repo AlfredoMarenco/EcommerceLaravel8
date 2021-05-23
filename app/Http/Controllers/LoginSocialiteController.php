@@ -17,7 +17,6 @@ class LoginSocialiteController extends Controller
     public function callback($drive)
     {
         $userSocialite = Socialite::driver($drive)->user();
-
         $user = User::where('email', $userSocialite->getEmail())->first();
 
         if (!$user) {
@@ -41,6 +40,6 @@ class LoginSocialiteController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('shop.products');
+        return redirect()->route('shop.index');
     }
 }
