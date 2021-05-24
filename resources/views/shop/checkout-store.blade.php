@@ -59,48 +59,26 @@
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="reference">Referencias</label>
-                                        <input type="text" class="form-control" name="reference" placeholder="Casa de 2 pisos de color blanco">
+                                        <input type="text" class="form-control" name="reference"
+                                            placeholder="Casa de 2 pisos de color blanco">
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
-                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Some secureity information Lorem
+                                <p class="alert alert-success">
+                                    <i class="fa fa-lock">
+                                    </i> Some secureity information Lorem
                                     ipsum
                                     dolor
                                     sit
-                                    amet, consectetur adipisicing elit, sed do eiusmod</p>
-
+                                    amet, consectetur adipisicing elit, sed do eiusmod
+                                </p>
                                 <div class="card-body border-top">
-                                    {{-- <a href="#" class="btn btn-dark float-md-right"> Make Purchase <i
-                                class="fa fa-chevron-right"></i> </a> --}}
                                     <a href="{{ route('shop.home') }}" class="btn btn-light"> <i
                                             class="fa fa-chevron-left"></i> Continue shopping </a>
                                 </div>
                         </div> <!-- card.// -->
-
-
-
                     </main> <!-- col.// -->
                     <aside class="col-md-4">
-                        {{-- @if (!session()->has('coupon'))
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <form action="{{ route('coupon.store') }}" method="POST">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label>Have coupon?</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="coupon_code"
-                                                    placeholder="Coupon code">
-                                                <span class="input-group-append">
-                                                    <button class="btn btn-dark">Apply</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div> <!-- card-body.// -->
-                            </div> <!-- card .// -->
-                        @endif --}}
                         <div class="card">
                             <div class="card-body">
                                 <div class="alert alert-success mt-3">
@@ -112,21 +90,6 @@
                                     <dt>Total price:</dt>
                                     <dd class="text-right">${{ Cart::subtotal() }} MXN</dd>
                                 </dl>
-                                {{-- <dl class="dlist-align">
-                                    @if (session()->has('coupon'))
-                                        <dt class="d-flex">Discount: ({{ session()->get('coupon')['name'] }})
-                                            <form action="{{ route('coupon.destroy') }}" method="post"
-                                                style="display:inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-link btn-sm p-0 ml-1 ">Delete</button>
-                                            </form>
-                                        </dt>
-                                        <dd class="text-right">
-                                            -${{ number_format(session()->get('coupon')['discount'], 2)}} MXN
-                                        </dd>
-                                    @endif
-                                </dl> --}}
                                 <hr>
                                 <dl class="dlist-align">
                                     <dt>Subtotal:</dt>
