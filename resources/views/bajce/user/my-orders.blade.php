@@ -26,7 +26,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        this.closest('form').submit();"> Cerrar sesión </a>
+                                                                    this.closest('form').submit();"> Cerrar sesión </a>
                         </form>
                     </nav>
                 </aside> <!-- col.// -->
@@ -129,6 +129,16 @@
                                                     <p class="title mb-0">Cantidad: {{ $product->pivot->quanty }}
                                                     </p>
                                                     <var class="price text-muted">${{ $product->pivot->price }}</var>
+                                                    @if ($order->type == 'store')
+                                                        <div>
+                                                            <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
+                                                                target="_blank" class="btn btn-dark mt-2">Imprimir orden de
+                                                                pago</a>
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                                <td>
+
                                                 </td>
                                                 {{-- <td> Vendedor <br> Grupo Bajce </td> --}}
                                             </tr>
