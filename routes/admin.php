@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Admin\RolController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
@@ -35,4 +36,5 @@ Route::resource('tags', TagController::class)->except('show')->names('admin.tags
 Route::resource('collections', CollectionController::class)->except('show')->names('admin.collections');
 Route::resource('configurations', ConfigurationController::class)->except('show')->names('admin.configurations');
 Route::resource('catalogues', CatalogueController::class)->except('show')->names('admin.catalogues');
+Route::resource('sliders', SliderController::class)->except('show')->names('admin.sliders');
 

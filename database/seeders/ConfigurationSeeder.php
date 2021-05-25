@@ -15,10 +15,6 @@ class ConfigurationSeeder extends Seeder
     public function run()
     {
         Configuration::create([
-            'name' => 'Video',
-            'resources' => 'video'
-        ]);
-        Configuration::create([
             'name' => 'Slider',
             'resources' => 'images'
         ]);

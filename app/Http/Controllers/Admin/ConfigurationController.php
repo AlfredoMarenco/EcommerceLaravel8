@@ -17,8 +17,7 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        $configurations  = Configuration::all();
-        return view('admin.landing.index', compact('configurations'));
+        return view('admin.frontend.slider.index', compact('configurations'));
     }
 
     /**
@@ -137,11 +136,11 @@ class ConfigurationController extends Controller
      */
     public function destroy($id)
     {
-        
     }
 
 
-    public function deleteSlide($id){
+    public function deleteSlide($id)
+    {
         $resource = Image::find($id);
         /* dd($resource); */
         $resource->delete();

@@ -319,10 +319,30 @@ return [
 
         ['header' => 'Pagina web'],
         [
-            'text' => 'Inicio',
-            'route'  => 'admin.configurations.index',
+            'text' => 'Slider',
+            'route'  => 'admin.sliders.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],
+/*         [
+            'text' => 'Mosaico',
+            'route'  => 'admin.slider.index',
+            'icon'  => 'fas fa-fw fa-cog',
+        ],
+        [
+            'text' => 'Seccion Botones',
+            'route'  => 'admin.slider.index',
+            'icon'  => 'fas fa-fw fa-cog',
+        ],
+        [
+            'text' => 'Codigo Cupon',
+            'route'  => 'admin.slider.index',
+            'icon'  => 'fas fa-fw fa-cog',
+        ],
+        [
+            'text' => 'Marcas',
+            'route'  => 'admin.slider.index',
+            'icon'  => 'fas fa-fw fa-cog',
+        ], */
 
        /*  ['header' => 'GALERIA'],
         [

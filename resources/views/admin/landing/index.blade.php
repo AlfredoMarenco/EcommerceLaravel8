@@ -37,7 +37,7 @@
 @section('content')
     <div class="row">
         <div id="wrap" class="col-md-4 wrap">
-            <iframe id="frame" class="frame" src="{{ route('shop.home') }}" allow="fullscreen"></iframe>
+            <iframe id="frame" class="frame" src="{{ route('index') }}" allow="fullscreen"></iframe>
         </div>
         <div class="col-md-8">
             <div class="table-responsive">

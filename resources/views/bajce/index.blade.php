@@ -8,18 +8,20 @@
             <!---->
             <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel1_indicator" data-slide-to="1"></li>
+                    @foreach ($sliders as $slider)
+                    <li data-target="#carousel1_indicator" data-slide-to="{{ $loop->index }}" @if ($loop->first) class="active" @endif></li>
+                    @endforeach
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="images/banners/banner-bajce-lg.png" alt="First slide">
-                        <div class="carousel-caption carousel-caption-1 d-md-block">
-                            <h1>La madera más <br>
-                                fuerte del sureste</h1>
-                            <a href="/tienda" class="btn btn-primary">COMPRAR</a>
+                    @foreach ($sliders as $slider)
+                        <div class="carousel-item @if ($loop->first) active @endif"">
+                            <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}">
+                            <div class="carousel-caption carousel-caption-1 d-md-block">
+                                <h1>{{ $slider->text }}</h1>
+                                <a href="{{ $slider->link }}" class="btn btn-primary">{{ $slider->button }}</a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
 
                 </div>
                 <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
@@ -53,16 +55,16 @@
                 <div class="col-9 info-destacada-p no-cel">
                     <div class="row">
                         @foreach ($posts as $post)
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="d-2">
-                                <img src="{{ Storage::url($post->image->url) }}" class="img-fluid radio" alt="">
-                                <div class="carousel-caption carousel-caption-2">
-                                    <h5>{{ $post->title }}</h5>
-                                    <p>Conoce nuestros productos seleccionados
-                                        especialmente para ti.</p>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="d-2">
+                                    <img src="{{ Storage::url($post->image->url) }}" class="img-fluid radio" alt="">
+                                    <div class="carousel-caption carousel-caption-2">
+                                        <h5>{{ $post->title }}</h5>
+                                        <p>Conoce nuestros productos seleccionados
+                                            especialmente para ti.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <div class="info-destacada-inner no-cel">
@@ -290,8 +292,9 @@
                             </div>
                             <div class="info-producto">
                                 <h5>{{ $post->title }}</h5>
-                                <p>{!! $post->extract!!}</p>
-                                <p class="autor">Por: <span>{{ $post->user->name }} {{ $post->user->last_name }}</span> <span>|</span> <span>{{ $post->created_at->diffForHumans() }}</span>
+                                <p>{!! $post->extract !!}</p>
+                                <p class="autor">Por: <span>{{ $post->user->name }} {{ $post->user->last_name }}</span>
+                                    <span>|</span> <span>{{ $post->created_at->diffForHumans() }}</span>
                                 </p>
                                 <a href="/artiuclo" class="btn btn-success btn-block">LEER MÁS</a>
                             </div>
