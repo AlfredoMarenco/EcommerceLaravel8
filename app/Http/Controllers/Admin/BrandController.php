@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cuponf;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class CuponFController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class CuponFController extends Controller
      */
     public function index()
     {
-        return view('admin.frontend.cupon.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class CuponFController extends Controller
      */
     public function create()
     {
-        return view('admin.frontend.cupon.create');
+        //
     }
 
     /**
@@ -37,15 +35,7 @@ class CuponFController extends Controller
      */
     public function store(Request $request)
     {
-        $cuponfs = Cuponf::create($request->all());
-
-        if ($request->file('file')) {
-            $url = Storage::put('cuponf', $request->file('file'));
-            $cuponfs->image()->create([
-                'url' => $url,
-            ]);
-        }
-        return redirect()->route('admin.cuponfs.edit', $cuponfs)->with('success', 'Cupon agregado de forma exitosa');
+        //
     }
 
     /**
@@ -65,9 +55,9 @@ class CuponFController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cuponf $cuponf)
+    public function edit($id)
     {
-        return view('admin.frontend.cupon.edit', compact('cuponf'));
+        //
     }
 
     /**
@@ -77,26 +67,9 @@ class CuponFController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cuponf $cuponf)
+    public function update(Request $request, $id)
     {
-        $cuponf->update($request->all());
-
-        if ($request->file('file')) {
-            $url = Storage::put('cuponf', $request->file('file'));
-
-            if ($cuponf->image) {
-                Storage::delete($cuponf->image->url);
-
-                $cuponf->image->update([
-                    'url' => $url
-                ]);
-            } else {
-                $cuponf->image()->create([
-                    'url' => $url
-                ]);
-            }
-        }
-        return redirect()->route('admin.cuponfs.edit', $cuponf)->withToastSuccess('Cupon actualizado con éxito');
+        //
     }
 
     /**

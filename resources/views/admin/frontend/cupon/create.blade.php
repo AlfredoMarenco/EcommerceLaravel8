@@ -11,7 +11,7 @@
         <div class="car-body p-3">
             {!! Form::open(['route' => 'admin.cuponfs.store', 'files' => true]) !!}
             @include('admin.frontend.cupon.partials.form')
-            {!! Form::submit('Crear Slider', ['class' => 'btn btn-success btn-block mt-4']) !!}
+            {!! Form::submit('Crear slider', ['class' => 'btn btn-success btn-block mt-4']) !!}
 
             {!! Form::close() !!}
         </div>

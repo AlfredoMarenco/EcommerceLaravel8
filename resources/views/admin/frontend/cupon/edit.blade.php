@@ -10,7 +10,7 @@
     <div class="card">
         <div class="car-body p-3">
             {{-- @livewire('admin.form-new-cupon') --}}
-            {!! Form::model($cupon, ['route' => ['admin.cuponfs.update', $cupon], 'files' => true ,'method' => 'PUT']) !!}
+            {!! Form::model($cuponf, ['route' => ['admin.cuponfs.update', $cuponf], 'files' => true ,'method' => 'PUT']) !!}
 
             @include('admin.frontend.cupon.partials.form')
 

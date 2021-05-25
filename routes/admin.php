@@ -43,3 +43,4 @@ Route::resource('sliders', SliderController::class)->except('show')->names('admi
 Route::resource('mosaics', MosaicController::class)->except('show')->names('admin.mosaics');
 Route::resource('buttons', ButtonController::class)->except('show')->names('admin.buttons');
 Route::resource('cuponfs', CuponFController::class)->except('show')->names('admin.cuponfs');
+Route::resource('brands', CuponFController::class)->except('show')->names('admin.cuponfs');
