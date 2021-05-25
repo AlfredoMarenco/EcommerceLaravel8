@@ -52,37 +52,18 @@
                 </div>
                 <div class="col-9 info-destacada-p no-cel">
                     <div class="row">
+                        @foreach ($posts as $post)
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="d-2">
-                                <img src="/images/banners/d-2-2.png" class="img-fluid radio" alt="">
+                                <img src="{{ Storage::url($post->image->url) }}" class="img-fluid radio" alt="">
                                 <div class="carousel-caption carousel-caption-2">
-                                    <h5>Productos especiales</h5>
+                                    <h5>{{ $post->title }}</h5>
                                     <p>Conoce nuestros productos seleccionados
                                         especialmente para ti.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 no-cel">
-                            <div class="d-3">
-                                <img src="/images/banners/d-3-2.png" class="img-fluid radio" alt="">
-                                <div class="carousel-caption carousel-caption-2">
-                                    <h5>Productos especiales</h5>
-                                    <p>Conoce nuestros productos seleccionados
-                                        especialmente para ti.</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 no-cel">
-                            <div class="d-4">
-                                <img src="/images/banners/d-4-2.png" class="img-fluid radio" alt="">
-                                <div class="carousel-caption carousel-caption-2">
-                                    <h5>Productos especiales</h5>
-                                    <p>Conoce nuestros productos seleccionados
-                                        especialmente para ti.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="info-destacada-inner no-cel">
                         <div class="row">

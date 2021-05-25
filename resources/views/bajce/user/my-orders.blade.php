@@ -150,7 +150,6 @@
                     {{ $orders->links() }}
                 </main> <!-- col.// -->
             </div>
-
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
