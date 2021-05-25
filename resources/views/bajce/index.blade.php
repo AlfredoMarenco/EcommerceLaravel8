@@ -9,7 +9,7 @@
             <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @foreach ($sliders as $slider)
-                    <li data-target="#carousel1_indicator" data-slide-to="{{ $loop->index }}" @if ($loop->first) class="active" @endif></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="{{ $loop->index }}" @if ($loop->first) class="active" @endif></li>
                     @endforeach
                 </ol>
                 <div class="carousel-inner">
@@ -165,27 +165,15 @@
             </div>
             <div class="botones-tienda">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="boton-ir">
-                            <a href="/tienda" class="btn btn-primary btn-block">
-                                Artículos de cocina
-                            </a>
+                    @foreach ($buttons as $button)
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="boton-ir">
+                                <a href="/tienda" class="btn btn-primary btn-block">
+                                    {{ $button->text }}
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="boton-ir">
-                            <a href="/tienda" class="btn btn-primary btn-block">
-                                Artículos de cocina
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="boton-ir">
-                            <a href="/tienda" class="btn btn-primary btn-block">
-                                Artículos de cocina
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -229,7 +217,7 @@
 
 
     <section id="codigo" class="p-0">
-        <div class="bg-codigo">
+        <div style="background-image: url(/images/banners/mueble1-lg.png);">
             <div class="contenido">
                 <h2>Utilia nuestro código:
                     <b>BIENVENIDO</b>
@@ -293,7 +281,8 @@
                             <div class="info-producto">
                                 <h5>{{ $post->title }}</h5>
                                 <p>{!! $post->extract !!}</p>
-                                <p class="autor">Por: <span>{{ $post->user->name }} {{ $post->user->last_name }}</span>
+                                <p class="autor">Por: <span>{{ $post->user->name }}
+                                        {{ $post->user->last_name }}</span>
                                     <span>|</span> <span>{{ $post->created_at->diffForHumans() }}</span>
                                 </p>
                                 <a href="/artiuclo" class="btn btn-success btn-block">LEER MÁS</a>

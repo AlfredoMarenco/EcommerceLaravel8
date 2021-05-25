@@ -323,26 +323,26 @@ return [
             'route'  => 'admin.sliders.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],
-/*         [
+         [
             'text' => 'Mosaico',
-            'route'  => 'admin.slider.index',
+            'route'  => 'admin.mosaics.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],
         [
             'text' => 'Seccion Botones',
-            'route'  => 'admin.slider.index',
+            'route'  => 'admin.buttons.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],
-        [
+         [
             'text' => 'Codigo Cupon',
-            'route'  => 'admin.slider.index',
+            'route'  => 'admin.cuponfs.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],
         [
             'text' => 'Marcas',
-            'route'  => 'admin.slider.index',
+            'route'  => 'admin.sliders.index',
             'icon'  => 'fas fa-fw fa-cog',
-        ], */
+        ],
 
        /*  ['header' => 'GALERIA'],
         [

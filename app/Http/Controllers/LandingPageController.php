@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Button;
 use App\Models\Catalogue;
 use App\Models\Category;
 use App\Models\Post;
@@ -17,6 +18,7 @@ class LandingPageController extends Controller
         $posts = Post::latest('id')->paginate(3);
         $catalogues = Catalogue::latest('id')->paginate(3);
         $sliders = Slider::all();
-        return view('bajce.index',compact('categories','posts','catalogues','sliders'));
+        $buttons = Button::all();
+        return view('bajce.index',compact('categories','posts','catalogues','sliders','buttons'));
     }
 }

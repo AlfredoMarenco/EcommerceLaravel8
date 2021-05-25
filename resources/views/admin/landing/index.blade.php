@@ -36,10 +36,10 @@
 
 @section('content')
     <div class="row">
-        <div id="wrap" class="col-md-4 wrap">
+{{--         <div id="wrap" class="col-md-4 wrap">
             <iframe id="frame" class="frame" src="{{ route('index') }}" allow="fullscreen"></iframe>
-        </div>
-        <div class="col-md-8">
+        </div> --}}
+        <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-sm table-striped text-center">
                     <thead class="thead-dark">

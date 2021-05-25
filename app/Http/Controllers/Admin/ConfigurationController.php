@@ -17,7 +17,8 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        return view('admin.frontend.slider.index', compact('configurations'));
+        $configurations  = Configuration::all();
+        return view('admin.landing.index', compact('configurations'));
     }
 
     /**
@@ -74,6 +75,27 @@ class ConfigurationController extends Controller
     {
         switch ($configuration->resources) {
             case 'image':
+                $files = $request->file('file');
+                foreach ($files as $file) {
+                    if ($file) {
+                        $url = Storage::put('configurations', $file);
+
+                        if ($configuration->image) {
+                            Storage::delete($configuration->image->url);
+
+                            $configuration->image->update([
+                                'url' => $url
+                            ]);
+                        } else {
+                            $configuration->image()->create([
+                                'url' => $url
+                            ]);
+                        }
+                    }
+                }
+                break;
+            case 'image':
+                
                 $files = $request->file('file');
                 foreach ($files as $file) {
                     if ($file) {

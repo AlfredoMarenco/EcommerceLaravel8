@@ -1,20 +1,20 @@
 @extends('adminlte::page')
 
-@section('title', 'Sliders')
+@section('title', 'slider')
 
 @section('content_header')
-    <h1>Editar Slider</h1>
+    <h1>Editar catalogo</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="car-body p-3">
             {{-- @livewire('admin.form-new-slider') --}}
-            {!! Form::model($slider, ['route' => ['admin.sliders.update', $slider], 'files' => true ,'method' => 'PUT']) !!}
+            {!! Form::model($slider, ['route' => ['admin.slider.update', $slider], 'files' => true ,'method' => 'PUT']) !!}
 
-            @include('admin.frontend.slider.partials.form')
+            @include('admin.slider.partials.form')
 
-            {!! Form::submit('Actualizar Slider', ['class' => 'btn btn-success btn-block mt-4']) !!}
+            {!! Form::submit('Actualizar catalogo', ['class' => 'btn btn-success btn-block mt-4']) !!}
             {!! Form::close() !!}
         </div>
     </div>
