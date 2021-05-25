@@ -11,7 +11,7 @@
                     <div class="row">
                         @foreach ($posts as $post)
                             @if ($post->status = 3)
-                                <div class="col-lg-8 col-md-9 col-sm-12 mb-5">
+                                <div class="col-lg-12 col-md-9 col-sm-12 mb-5">
                                     <div class="imagen-destacada">
                                         <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
                                     </div>
