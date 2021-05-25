@@ -10,11 +10,11 @@
     <div class="card">
         <div class="car-body p-3">
             {{-- @livewire('admin.form-new-slider') --}}
-            {!! Form::model($slider, ['route' => ['admin.slider.update', $slider], 'files' => true ,'method' => 'PUT']) !!}
+            {!! Form::model($slider, ['route' => ['admin.sliders.update', $slider], 'files' => true ,'method' => 'PUT']) !!}
 
-            @include('admin.slider.partials.form')
+            @include('admin.frontend.slider.partials.form')
 
-            {!! Form::submit('Actualizar catalogo', ['class' => 'btn btn-success btn-block mt-4']) !!}
+            {!! Form::submit('Actualizar Slider', ['class' => 'btn btn-success btn-block mt-4']) !!}
             {!! Form::close() !!}
         </div>
     </div>
