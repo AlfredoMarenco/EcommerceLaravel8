@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -14,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.frontend.brands.index');
     }
 
     /**
@@ -24,7 +26,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.frontend.brands.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $brand = Brand::create($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('brands', $request->file('file'));
+            $brand->image()->create([
+                'url' => $url,
+            ]);
+        }
+
+        return redirect()->route('admin.brands.edit', $brand)->with('success', 'Marca agregada de forma exitosa');
     }
 
     /**
@@ -55,9 +66,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Brand $brand)
     {
-        //
+        return view('admin.frontend.brands.edit',compact('brand'));
     }
 
     /**
@@ -67,9 +78,26 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
-        //
+        $brand->update($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('brand', $request->file('file'));
+
+            if ($brand->image) {
+                Storage::delete($brand->image->url);
+
+                $brand->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $brand->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+        return redirect()->route('admin.brands.edit', $brand)->withToastSuccess('Marca actualizada con éxito');
     }
 
     /**

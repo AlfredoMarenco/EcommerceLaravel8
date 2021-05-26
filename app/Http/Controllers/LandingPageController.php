@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Button;
 use App\Models\Catalogue;
 use App\Models\Category;
+use App\Models\Cuponf;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Slider;
@@ -19,6 +21,8 @@ class LandingPageController extends Controller
         $catalogues = Catalogue::latest('id')->paginate(3);
         $sliders = Slider::all();
         $buttons = Button::all();
-        return view('bajce.index',compact('categories','posts','catalogues','sliders','buttons'));
+        $cuponfs = Cuponf::all();
+        $brands = Brand::all();
+        return view('bajce.index',compact('categories','posts','catalogues','sliders','buttons','cuponfs','brands'));
     }
 }

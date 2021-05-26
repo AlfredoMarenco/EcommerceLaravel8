@@ -340,7 +340,7 @@ return [
         ],
         [
             'text' => 'Marcas',
-            'route'  => 'admin.sliders.index',
+            'route'  => 'admin.brands.index',
             'icon'  => 'fas fa-fw fa-cog',
         ],
 

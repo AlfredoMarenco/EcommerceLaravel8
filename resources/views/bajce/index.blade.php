@@ -217,14 +217,16 @@
 
 
     <section id="codigo" class="p-0">
-        <div style="background-image: url(/images/banners/mueble1-lg.png);">
-            <div class="contenido">
-                <h2>Utilia nuestro código:
-                    <b>BIENVENIDO</b>
-                </h2>
-                <a href="/tienda" class="btn btn-primary">Ir a la tienda</a>
+        @foreach ($cuponfs as $cuponf)
+            <div style="background-image: url({{ Storage::url($cuponf->image->url) }});">
+                <div class="contenido">
+                    <h2>
+                        {{ $cuponf->text }}
+                    </h2>
+                    <a href="/tienda" class="btn btn-primary">Ir a la tienda</a>
+                </div>
             </div>
-        </div>
+        @endforeach
     </section>
 
 
@@ -309,26 +311,13 @@
         </div>
 
         <div class="row">
+            @foreach ($brands as $brand)
             <div class="col-lg-3 col-md-3 col-sm-3">
                 <div class="marcas-logo">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
+                    <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt="">
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="marcas-logo">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="marcas-logo">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="marcas-logo">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
