@@ -321,27 +321,27 @@ return [
         [
             'text' => 'Slider',
             'route'  => 'admin.sliders.index',
-            'icon'  => 'fas fa-fw fa-cog',
+            'icon'  => 'far fa-images',
         ],
          [
             'text' => 'Mosaico',
-            'route'  => 'admin.mosaics.index',
-            'icon'  => 'fas fa-fw fa-cog',
+            'route'  => 'admin.configurations.index',
+            'icon'  => 'far fa-clone',
         ],
         [
             'text' => 'Seccion Botones',
             'route'  => 'admin.buttons.index',
-            'icon'  => 'fas fa-fw fa-cog',
+            'icon'  => 'fas fa-link',
         ],
          [
             'text' => 'Codigo Cupon',
             'route'  => 'admin.cuponfs.index',
-            'icon'  => 'fas fa-fw fa-cog',
+            'icon'  => 'fas fa-image',
         ],
         [
             'text' => 'Marcas',
             'route'  => 'admin.brands.index',
-            'icon'  => 'fas fa-fw fa-cog',
+            'icon'  => 'fab fa-bandcamp',
         ],
 
        /*  ['header' => 'GALERIA'],

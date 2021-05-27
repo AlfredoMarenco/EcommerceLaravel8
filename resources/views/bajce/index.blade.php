@@ -56,14 +56,16 @@
                     <div class="row">
                         @foreach ($posts as $post)
                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="d-2">
-                                    <img src="{{ Storage::url($post->image->url) }}" class="img-fluid radio" alt="">
-                                    <div class="carousel-caption carousel-caption-2">
-                                        <h5>{{ $post->title }}</h5>
-                                        <p>Conoce nuestros productos seleccionados
-                                            especialmente para ti.</p>
+                                <a href="{{ route('blog.show', $post) }}">
+                                    <div class="d-2 mb-3">
+                                        <img src="{{ Storage::url($post->image->url) }}" class="img-fluid radio" alt="">
+                                        <div class="carousel-caption carousel-caption-2">
+                                            <h5>{{ $post->title }}</h5>
+                                            <p>Conoce nuestros productos seleccionados
+                                                especialmente para ti.</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -312,11 +314,11 @@
 
         <div class="row">
             @foreach ($brands as $brand)
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="marcas-logo">
-                    <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt="">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="marcas-logo">
+                        <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt="">
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </section>

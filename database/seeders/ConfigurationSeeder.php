@@ -15,8 +15,21 @@ class ConfigurationSeeder extends Seeder
     public function run()
     {
         Configuration::create([
-            'name' => 'Cupon',
-            'text' => 'Utilia nuestro código: BIENVENIDO',
+            'name' => 'Vertical',
+            'text' => '',
+            'link' => '',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'Horizontal',
+            'text' => '',
+            'link' => '',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'Horizontal',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
     }
