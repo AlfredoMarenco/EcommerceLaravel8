@@ -24,7 +24,6 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'button' => 'required',
             'link' => 'required'
         ];
     }

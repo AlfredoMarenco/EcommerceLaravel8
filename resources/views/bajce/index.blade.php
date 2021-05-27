@@ -15,10 +15,15 @@
                 <div class="carousel-inner">
                     @foreach ($sliders as $slider)
                         <div class="carousel-item @if ($loop->first) active @endif">
-                            <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}" style="width: 100%; max-height: 500px;">
+                            <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}"
+                                style="width: 100%; max-height: 500px;">
                             <div class="carousel-caption carousel-caption-1 d-md-block">
-                                <h1>{{ $slider->text }}</h1>
-                                <a href="{{ $slider->link }}" class="btn btn-primary">{{ $slider->button }}</a>
+                                @if ($slider->text != '')
+                                    <h1>{{ $slider->text }}</h1>
+                                @endif
+                                @if ($slider->button != '')
+                                    <a href="{{ $slider->link }}" class="btn btn-primary">{{ $slider->button }}</a>
+                                @endif
                             </div>
                         </div>
                     @endforeach
