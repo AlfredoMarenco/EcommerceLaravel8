@@ -23,6 +23,7 @@
         <small class="text-danger">{{ $message }}</small>
     @enderror
 </div>
+
 <div class="row mb-3">
     <div class="col">
         <div class="image-wrapper">

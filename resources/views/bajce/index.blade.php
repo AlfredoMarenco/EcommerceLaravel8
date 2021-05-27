@@ -45,15 +45,15 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 info-destacada-r no-cel">
                     @foreach ($mosaics as $mosaic)
                         @if ($mosaic->id == 1)
-                        <a href="{{ $mosaic->link }}" >
                             <div class="d-1">
-                                <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio" alt="">
-                                <div class="carousel-caption carousel-caption-2">
-                                    <h5>Productos especiales</h5>
-                                    <p>{!! $mosaic->description !!}</p>
-                                </div>
+                                <a href="{{ $mosaic->link }}">
+                                    <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio" alt="">
+                                    <div class="carousel-caption carousel-caption-2">
+                                        <h5>Productos especiales</h5>
+                                        <p>{!! $mosaic->description !!}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
                         @endif
                     @endforeach
                 </div>
@@ -61,45 +61,48 @@
                     <div class="row">
                         @foreach ($mosaics as $mosaic)
                             @if ($mosaic->id == 2)
-                            <a href="{{ $mosaic->link }}" >
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="d-2 mb-3">
-                                        <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio" alt="">
-                                        <div class="carousel-caption carousel-caption-2">
-                                            <h5>{{ $mosaic->text }}</h5>
-                                            <p>{!! $mosaic->description !!}</p>
-                                        </div>
+                                        <a href="{{ $mosaic->link }}">
+                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
+                                                alt="">
+                                            <div class="carousel-caption carousel-caption-2">
+                                                <h5>{{ $mosaic->text }}</h5>
+                                                <p>{!! $mosaic->description !!}</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
                             @endif
                         @endforeach
                         @foreach ($mosaics as $mosaic)
                             @if ($mosaic->id == 3)
-                            <a href="{{ $mosaic->link }}" >
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="d-2 mb-3">
-                                        <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                            alt="">
-                                        <div class="carousel-caption carousel-caption-2">
-                                            <h5>{{ $mosaic->text }}</h5>
-                                            <p>{!! $mosaic->description !!}</p>
-                                        </div>
+                                        <a href="{{ $mosaic->link }}">
+                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
+                                                alt="">
+                                            <div class="carousel-caption carousel-caption-2">
+                                                <h5>{{ $mosaic->text }}</h5>
+                                                <p>{!! $mosaic->description !!}</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             @endif
                         @endforeach
                         @foreach ($mosaics as $mosaic)
                             @if ($mosaic->id == 4)
-                            <a href="{{ $mosaic->link }}" >
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="d-2 mb-3">
-                                        <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                            alt="">
-                                        <div class="carousel-caption carousel-caption-2">
-                                            <h5>{{ $mosaic->text }}</h5>
-                                            <p>{!! $mosaic->description !!}</p>
-                                        </div>
+                                        <a href="{{ $mosaic->link }}">
+                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
+                                                alt="">
+                                            <div class="carousel-caption carousel-caption-2">
+                                                <h5>{{ $mosaic->text }}</h5>
+                                                <p>{!! $mosaic->description !!}</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             @endif
@@ -109,26 +112,29 @@
                         <div class="row">
                             @foreach ($mosaics as $mosaic)
                                 @if ($mosaic->id == 5)
-                                <a href="{{ $mosaic->link }}" >
                                     <div class="col-8 radio">
-                                        <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                            alt="">
-                                        <div class="carousel-caption carousel-caption-2">
-                                            <h5>{{ $mosaic->text }}</h5>
-                                            <p>{!! $mosaic->description !!}</p>
-                                        </div>
+                                        <a href="{{ $mosaic->link }}">
+                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
+                                                alt="">
+                                            <div class="carousel-caption carousel-caption-2">
+                                                <h5>{{ $mosaic->text }}</h5>
+                                                <p>{!! $mosaic->description !!}</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 @endif
                             @endforeach
                             @foreach ($mosaics as $mosaic)
                                 @if ($mosaic->id == 6)
-                                <a href="{{ $mosaic->link }}" >
                                     <div class="col-4 no-cel">
-                                        <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio" alt="">
-                                        <div class="carousel-caption carousel-caption-2">
-                                            <h5>{{ $mosaic->text }}</h5>
-                                            <p>{!! $mosaic->description !!}</p>
-                                        </div>
+                                        <a href="{{ $mosaic->link }}">
+                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
+                                                alt="">
+                                            <div class="carousel-caption carousel-caption-2">
+                                                <h5>{{ $mosaic->text }}</h5>
+                                                <p>{!! $mosaic->description !!}</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 @endif
                             @endforeach
