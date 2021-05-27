@@ -344,7 +344,7 @@
                                         {{ $post->user->last_name }}</span>
                                     <span>|</span> <span>{{ $post->created_at->diffForHumans() }}</span>
                                 </p>
-                                <a href="/artiuclo" class="btn btn-success btn-block">LEER MÁS</a>
+                                <a href="{{ route('blog.show', $post) }}" class="btn btn-success btn-block">LEER MÁS</a>
                             </div>
                         </div>
                     </div>
