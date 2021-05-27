@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'fd7228a8054bdcc51536337f8f9250a33b94c983',
+    'reference' => '2ff1ca98875b0b4eb0e5bc36bc7d2602923b8dd4',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -666,7 +666,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'fd7228a8054bdcc51536337f8f9250a33b94c983',
+      'reference' => '2ff1ca98875b0b4eb0e5bc36bc7d2602923b8dd4',
     ),
     'laravel/sail' => 
     array (
@@ -1342,6 +1342,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'spatie/laravel-cookie-consent' => 
+    array (
+      'pretty_version' => '2.12.13',
+      'version' => '2.12.13.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e93b9efee3a68960e5c832f937170c2fc0b2f37',
     ),
     'spatie/laravel-permission' => 
     array (

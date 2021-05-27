@@ -166,6 +166,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         ArielMejiaDev\LarapexCharts\LarapexChartsServiceProvider::class,
+        Spatie\CookieConsent\CookieConsentServiceProvider::class,
 
 
         /*

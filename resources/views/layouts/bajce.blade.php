@@ -33,8 +33,6 @@
 </head>
 
 <body>
-
-
     <header class="section-header fixed-top">
 
         <nav class="navbar d-none d-md-flex p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">

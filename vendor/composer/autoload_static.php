@@ -103,6 +103,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
             'Stripe\\' => 7,
             'Srmklive\\PayPal\\' => 16,
             'Spatie\\Permission\\' => 18,
+            'Spatie\\CookieConsent\\' => 21,
             'Sample\\' => 7,
         ),
         'R' => 
@@ -392,6 +393,10 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'Spatie\\Permission\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
+        ),
+        'Spatie\\CookieConsent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-cookie-consent/src',
         ),
         'Sample\\' => 
         array (
@@ -759,6 +764,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Actions\\Jetstream\\DeleteUser' => __DIR__ . '/../..' . '/app/Actions/Jetstream/DeleteUser.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\ButtonController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ButtonController.php',
         'App\\Http\\Controllers\\Admin\\CatalogueController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CatalogueController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
@@ -795,6 +801,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Livewire\\Admin\\FormEditProduct' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/FormEditProduct.php',
         'App\\Http\\Livewire\\Admin\\FormNewProduct' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/FormNewProduct.php',
         'App\\Http\\Livewire\\Admin\\ModalConfirmationCancel' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/ModalConfirmationCancel.php',
+        'App\\Http\\Livewire\\Admin\\TableBrands' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableBrands.php',
         'App\\Http\\Livewire\\Admin\\TableButtons' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableButtons.php',
         'App\\Http\\Livewire\\Admin\\TableCatalogues' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableCatalogues.php',
         'App\\Http\\Livewire\\Admin\\TableCategories' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/TableCategories.php',
@@ -5744,6 +5751,8 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\CookieConsent\\CookieConsentMiddleware' => __DIR__ . '/..' . '/spatie/laravel-cookie-consent/src/CookieConsentMiddleware.php',
+        'Spatie\\CookieConsent\\CookieConsentServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-cookie-consent/src/CookieConsentServiceProvider.php',
         'Spatie\\Permission\\Commands\\CacheReset' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CacheReset.php',
         'Spatie\\Permission\\Commands\\CreatePermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreatePermission.php',
         'Spatie\\Permission\\Commands\\CreateRole' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreateRole.php',
