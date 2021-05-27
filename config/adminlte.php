@@ -325,7 +325,7 @@ return [
         ],
          [
             'text' => 'Mosaico',
-            'route'  => 'admin.configurations.index',
+            'route'  => 'admin.mosaics.index',
             'icon'  => 'far fa-clone',
         ],
         [

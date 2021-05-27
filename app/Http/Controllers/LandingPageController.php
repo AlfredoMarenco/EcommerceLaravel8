@@ -7,6 +7,7 @@ use App\Models\Button;
 use App\Models\Catalogue;
 use App\Models\Category;
 use App\Models\Cuponf;
+use App\Models\Mosaic;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Slider;
@@ -23,6 +24,7 @@ class LandingPageController extends Controller
         $buttons = Button::all();
         $cuponfs = Cuponf::all();
         $brands = Brand::all();
-        return view('bajce.index',compact('categories','posts','catalogues','sliders','buttons','cuponfs','brands'));
+        $mosaics = Mosaic::all();
+        return view('bajce.index',compact('categories','posts','catalogues','sliders','buttons','cuponfs','brands','mosaics'));
     }
 }

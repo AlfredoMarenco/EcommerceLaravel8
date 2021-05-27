@@ -27,7 +27,25 @@ class ConfigurationSeeder extends Seeder
             'resources' => 'image'
         ]);
         Configuration::create([
-            'name' => 'Horizontal',
+            'name' => 'Cuadricula 1',
+            'text' => '',
+            'link' => '',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'Cuadricula 2',
+            'text' => '',
+            'link' => '',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'Cuadricula 3',
+            'text' => '',
+            'link' => '',
+            'resources' => 'image'
+        ]);
+        Configuration::create([
+            'name' => 'Cuadricula 4',
             'text' => '',
             'link' => '',
             'resources' => 'image'

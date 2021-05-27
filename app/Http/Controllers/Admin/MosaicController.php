@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mosaic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MosaicController extends Controller
 {
@@ -14,7 +16,7 @@ class MosaicController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.frontend.mosaic.index');
     }
 
     /**
@@ -24,7 +26,7 @@ class MosaicController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.frontend.mosaic.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class MosaicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mosaic = Mosaic::create($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('mosaic', $request->file('file'));
+            $mosaic->image()->create([
+                'url' => $url,
+            ]);
+        }
+        return redirect()->route('admin.mosaics.edit', $mosaic)->with('success', 'Cuadricula agregada de forma exitosa');
     }
 
     /**
@@ -55,9 +65,9 @@ class MosaicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Mosaic $mosaic)
     {
-        //
+        return view('admin.frontend.mosaic.edit', compact('mosaic'));
     }
 
     /**
@@ -67,9 +77,26 @@ class MosaicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Mosaic $mosaic)
     {
-        //
+        $mosaic->update($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('mosaic', $request->file('file'));
+
+            if ($mosaic->image) {
+                Storage::delete($mosaic->image->url);
+
+                $mosaic->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $mosaic->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+        return redirect()->route('admin.mosaics.edit', $mosaic)->withToastSuccess('Cuadricula actualizada con éxito');
     }
 
     /**
@@ -78,8 +105,10 @@ class MosaicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Mosaic $mosaic)
     {
-        //
+        $mosaic->delete();
+
+        return redirect()->route('admin.mosaics.index')->withSuccess('Cuadricula eliminada con éxito');
     }
 }

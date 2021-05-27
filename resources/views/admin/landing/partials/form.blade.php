@@ -1,64 +1,38 @@
+<div class="form-row">
+    <div class="form-group col-md-12">
+        {!! Form::label('text', 'Texto') !!}
+        {!! Form::text('text', null, ['class' => 'form-control', 'placeholder' => 'Nombre de la marca']) !!}
+        @error('text')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="form-group col-md-12">
+        {!! Form::label('link', 'Link') !!}
+        {!! Form::text('link', null, ['class' => 'form-control', 'placeholder' => 'Nombre de la marca']) !!}
+        @error('text')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+</div>
 <div class="row mb-3">
-    <div class="col-6">
+    <div class="col">
         <div class="image-wrapper">
-            @switch($configuration->resources)
-                @case('images')
-                    @isset($configuration->images)
-                        @foreach ($configuration->images as $images)
-                            <img id="picture3" class="img-fluid" src="{{ Storage::url($images->url) }}">
-                            <a href="{{ route('admin.configurations.delete', $images->id) }}"
-                                class="btn btn-danger my-2 float-right">Eliminar</a>
-                        @endforeach
-                    @else
-                        <img id="picture3" class="img-fluid" src="http://ximg.es/430x330/000/fff">
-                    @endisset
-                @break
-                @case('image')
-                    @isset($configuration->image)
-                        <img id="picture3" class="img-fluid" src="{{ Storage::url($configuration->image->url) }}">
-                    @else
-                        <img id="picture3" class="img-fluid" src="http://ximg.es/430x330/000/fff">
-                    @endisset
-
-                @break
-                @case('cupon')
-
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            {!! Form::label('text', 'Texto del banner') !!}
-                            {!! Form::text('text', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @isset($configuration->image)
-                            <img id="picture3" class="img-fluid" src="{{ Storage::url($configuration->image->url) }}">
-                        @else
-                            <img id="picture3" class="img-fluid" src="http://ximg.es/430x330/000/fff">
-                        @endisset
-                    </div>
-
-                @break
-                @case('video')
-                    @isset($configuration->image)
-                        <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted width="450px">
-                            <source src="{{ Storage::url($configuration->image->url) }}" type="video/mp4" />
-                        </video>
-                    @else
-                        <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted width="450px">
-                            <source src="{{ asset('template/images/rene/01videobase-06.mp4') }}" type="video/mp4" />
-                        </video>
-                    @endisset
-                @break
-            @endswitch
+            @isset($brand->image)
+                <img id="picture" class="img-fluid" src="{{ Storage::url($brand->image->url) }}">
+            @else
+                <img id="picture" class="img-fluid"
+                    src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg">
+                @endif
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                {!! Form::label('file', 'Logo de la marca') !!}
+                {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+            </div>
+            <p>Esta imagen sera mostrada en el index del portal como una imagen del slider</p>
         </div>
     </div>
-    <div class="col-6">
-        <div class="form-group">
-            {!! Form::label('file', 'Multimedia') !!}
-            {!! Form::file('file[]', ['class' => 'form-control-file', 'accept' => 'image/*,video/*', 'multiple' => true]) !!}
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita praesentium iusto quas ipsa
-            repellat laboriosam veniam ullam sed repellendus eos.</p>
-    </div>
-</div>
-</div>
+    @error('file')
+        <small class="text-danger">{{ $message }}</small>
+    @enderror

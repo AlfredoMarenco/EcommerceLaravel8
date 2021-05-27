@@ -3,7 +3,7 @@
 @section('title', 'slider')
 
 @section('content_header')
-    <h1>Editar catalogo</h1>
+    <h1>Editar Slider</h1>
 @stop
 
 @section('content')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CuponFRequest;
 use App\Models\Cuponf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +36,7 @@ class CuponFController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CuponFRequest $request)
     {
         $cuponfs = Cuponf::create($request->all());
 
@@ -77,7 +78,7 @@ class CuponFController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cuponf $cuponf)
+    public function update(CuponFRequest $request, Cuponf $cuponf)
     {
         $cuponf->update($request->all());
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +36,7 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
         $slider = Slider::create($request->all());
 
@@ -67,7 +68,7 @@ class SliderController extends Controller
      * @param  Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(SliderRequest $request, Slider $slider)
     {
         $slider->update($request->all());
 
@@ -97,6 +98,9 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+
+        return redirect()->route('admin.sliders.index')->withSuccess('Slider eliminado con éxito');
+
     }
 }

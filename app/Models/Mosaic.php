@@ -9,5 +9,10 @@ class Mosaic extends Model
 {
     use HasFactory;
 
-    //
+    protected $guarded = ['id'];
+    //Relaccion uno a uno
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

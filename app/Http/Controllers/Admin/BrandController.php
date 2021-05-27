@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +36,7 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
         $brand = Brand::create($request->all());
 
@@ -78,7 +79,7 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(BrandRequest $request, Brand $brand)
     {
         $brand->update($request->all());
 
@@ -106,8 +107,10 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+
+        return redirect()->route('admin.brands.index')->withSuccess('Marca eliminado con éxito');
     }
 }

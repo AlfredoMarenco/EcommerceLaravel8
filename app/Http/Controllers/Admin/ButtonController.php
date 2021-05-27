@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ButtonRequest;
 use App\Models\Button;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class ButtonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ButtonRequest $request)
     {
         $button = Button::create($request->all());
         return redirect()->route('admin.buttons.edit', $button)->with('success', 'Boton agregada de forma exitosa');
@@ -72,7 +73,7 @@ class ButtonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Button $button)
+    public function update(ButtonRequest $request, Button $button)
     {
         $button->update($request->all());
 
@@ -85,8 +86,10 @@ class ButtonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Button $button)
     {
-        //
+        $button->delete();
+
+        return redirect()->route('admin.buttons.index')->withSuccess('Boton eliminado con éxito');
     }
 }
