@@ -14,8 +14,8 @@
                 </ol>
                 <div class="carousel-inner">
                     @foreach ($sliders as $slider)
-                        <div class="carousel-item @if ($loop->first) active @endif"">
-                            <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}">
+                        <div class="carousel-item @if ($loop->first) active @endif">
+                            <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}" style="width: 100%; max-height: 500px;">
                             <div class="carousel-caption carousel-caption-1 d-md-block">
                                 <h1>{{ $slider->text }}</h1>
                                 <a href="{{ $slider->link }}" class="btn btn-primary">{{ $slider->button }}</a>
@@ -270,7 +270,7 @@
 
     <section id="codigo" class="p-0">
         @foreach ($cuponfs as $cuponf)
-            <div style="background-image: url({{ Storage::url($cuponf->image->url) }});">
+            <div style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;">
                 <div class="contenido">
                     <h2>
                         {{ $cuponf->text }}
