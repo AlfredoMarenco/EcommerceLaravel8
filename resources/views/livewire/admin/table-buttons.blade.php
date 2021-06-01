@@ -1,8 +1,8 @@
 <div>
     <div class="d-flex flex-row justify-content-between">
         <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de botones">
-        {{-- <a class="btn btn-info" href="{{ route('admin.buttons.create') }}"><i class="fas fa-fw fa-boxes"> </i>
-            Agregar catalogo</a> --}}
+        <a class="btn btn-info" href="{{ route('admin.buttons.create') }}"><i class="fas fa-fw fa-boxes"> </i>
+            Agregar catalogo</a>
     </div>
     @if ($buttons->count())
         <div class="d-flex flex-row-reverse my-3">

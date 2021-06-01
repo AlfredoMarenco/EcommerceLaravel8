@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Configuration;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -13,15 +15,30 @@ class ShopController extends Controller
     //Funcion para mostrar la tienda
     public function index()
     {
-        return view('bajce.shop.index');
+        $products = Product::where('type', 0)->paginate(20);
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('bajce.shop.index', compact('products', 'categories', 'brands'));
     }
 
-
+    //Mostramos un producto en especifico
     public function showProduct(Product $product)
     {
         $products = Product::inRandomOrder()->paginate(4);
         return view('bajce.shop.product', compact('product', 'products'));
     }
+
+    //Mostramos la vista de los productos filtrados por categorias nada mas
+    public function showProductsCategory($category_id)
+    {
+        $categories = Category::all();
+        $brands = Brand::all();
+        $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
+            $query->where('category_id', $category_id);
+        })->where('type', 0)->latest('id')->paginate(10);
+        return view('bajce.shop.index', compact('products', 'categories', 'brands'));
+    }
+
 
     //Mostrámos la vista del carrito
     public function cart()
@@ -59,7 +76,6 @@ class ShopController extends Controller
     //Funcion para agregar n cantidad de productos en una sola peticion
     public function addItemsToCart(Request $request, $product)
     {
-        //return $request->all();
         $product = Product::find($product);
         if ($product->discount) {
             Cart::instance('default')->add([

@@ -225,7 +225,7 @@
                     @foreach ($buttons as $button)
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="boton-ir">
-                                <a href="/tienda" class="btn btn-primary btn-block">
+                                <a href="{{ route('shop.products.category',$button->category_id) }}" class="btn btn-primary btn-block">
                                     {{ $button->text }}
                                 </a>
                             </div>

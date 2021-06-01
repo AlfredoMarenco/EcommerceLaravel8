@@ -84,8 +84,13 @@ Route::get('/mailable', function () {
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
-Route::get('/tienda', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+
+//Rutas Tienda
+Route::prefix('/shop')->group(function () {
+    Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+    Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+    Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+});
 
 //Rutas Catalogo
 Route::prefix('/catalogue')->group(function () {

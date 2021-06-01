@@ -10,4 +10,11 @@ class Button extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+
+    //Relaccion uno a muchos
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
 }
