@@ -11,6 +11,7 @@
         "php": "^7.3|^8.0",
         "arielmejiadev/larapex-charts": "^2.1",
         "bumbummen99/shoppingcart": "^3.2",
+        "ckfinder/ckfinder-laravel-package": "v3.5.1.7",
         "conekta/conekta-php": "^4.3",
         "diglactic/laravel-breadcrumbs": "^6.1",
         "doctrine/inflector": "1.4.0",

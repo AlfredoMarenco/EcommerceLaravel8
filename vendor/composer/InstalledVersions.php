@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '2ff1ca98875b0b4eb0e5bc36bc7d2602923b8dd4',
+    'reference' => '89aed6ab3b6e964d3c9fc8afc801722eb1679b0a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -60,6 +60,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '9cb795bf30988e8c96dd3c40623c48a877bc6714',
+    ),
+    'aws/aws-sdk-php' => 
+    array (
+      'pretty_version' => '3.183.9',
+      'version' => '3.183.9.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3b3aafdceac4cb820e2ae65a8785e4d07db471a7',
     ),
     'bacon/bacon-qr-code' => 
     array (
@@ -96,6 +105,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '786477b54f637a57a80b3de387fb3dcdba5dd940',
+    ),
+    'ckfinder/ckfinder-laravel-package' => 
+    array (
+      'pretty_version' => 'v3.5.1.7',
+      'version' => '3.5.1.7',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '714afc01c36a17ad46fca43c288353b66cd3d1e1',
     ),
     'conekta/conekta-php' => 
     array (
@@ -326,6 +344,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '01de0fe5f71c70d1930ee9a80385f9cc28e0f63a',
+    ),
+    'graham-campbell/guzzle-factory' => 
+    array (
+      'pretty_version' => 'v5.0.0',
+      'version' => '5.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5f6eae0dba2f2a02d72d42f11f3ff9f9f61e1cc8',
     ),
     'graham-campbell/result-type' => 
     array (
@@ -666,7 +693,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '2ff1ca98875b0b4eb0e5bc36bc7d2602923b8dd4',
+      'reference' => '89aed6ab3b6e964d3c9fc8afc801722eb1679b0a',
     ),
     'laravel/sail' => 
     array (
@@ -730,6 +757,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '9be3b16c877d477357c015cec057548cf9b2a14a',
+    ),
+    'league/flysystem-aws-s3-v3' => 
+    array (
+      'pretty_version' => '1.0.29',
+      'version' => '1.0.29.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4e25cc0582a36a786c31115e419c6e40498f6972',
+    ),
+    'league/flysystem-cached-adapter' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd1925efb2207ac4be3ad0c40b8277175f99ffaff',
     ),
     'league/mime-type-detection' => 
     array (
@@ -818,6 +863,15 @@ private static $installed = array (
       array (
         0 => '^1.0',
       ),
+    ),
+    'mtdowling/jmespath.php' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '42dae2cbd13154083ca6d70099692fef8ca84bfb',
     ),
     'myclabs/deep-copy' => 
     array (
@@ -1039,6 +1093,15 @@ private static $installed = array (
       ),
       'reference' => '27241ac75fc37ecf862b6e002bf713b6566cbe41',
     ),
+    'pimple/pimple' => 
+    array (
+      'pretty_version' => 'v3.4.0',
+      'version' => '3.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '86406047271859ffc13424a048541f4531f53601',
+    ),
     'pragmarx/google2fa' => 
     array (
       'pretty_version' => '8.0.0',
@@ -1047,6 +1110,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '26c4c5cf30a2844ba121760fd7301f8ad240100b',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
     ),
     'psr/container' => 
     array (
@@ -1342,6 +1414,24 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'spatie/dropbox-api' => 
+    array (
+      'pretty_version' => '1.18.0',
+      'version' => '1.18.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b0b5642a40552c225fca98718a73228cfcd7f2d6',
+    ),
+    'spatie/flysystem-dropbox' => 
+    array (
+      'pretty_version' => '1.2.3',
+      'version' => '1.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8b6b072f217343b875316ca6a4203dd59f04207a',
     ),
     'spatie/laravel-cookie-consent' => 
     array (

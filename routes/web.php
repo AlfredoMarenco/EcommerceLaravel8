@@ -251,3 +251,10 @@ route::get('/mis-ordenes', function () {
 route::get('/mi-direccion', function () {
     return view('bajce.user.my-adress');
 });
+
+
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
