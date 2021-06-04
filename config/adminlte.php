@@ -252,6 +252,11 @@ return [
             'icon'  => 'fab fa-fw fa-buffer',
             'can' => 'admin.categories.index'
         ],
+        [
+            'text' => 'Cupones',
+            'route' => 'admin.coupons.index',
+            'icon'  => 'fas fa-fw fa-percent',
+        ],
        /*  [
             'text' => 'Variantes de producto',
             'icon' => 'fas fa-fw fa-sitemap',

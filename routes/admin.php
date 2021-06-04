@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ConfigurationController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\CuponFController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
@@ -32,6 +33,7 @@ Route::resource('user', UserController::class)->only('index', 'edit', 'update')-
 Route::resource('roles', RolController::class)->names('admin.roles');
 Route::resource('products', ProductController::class)->except('show')->names('admin.products');
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
+Route::resource('coupons',CouponController::class)->except('show')->names('admin.coupons');
 Route::resource('colors', ColorController::class)->except('show')->names('admin.colors');
 Route::resource('sizes', SizeController::class)->except('show')->names('admin.sizes');
 Route::resource('orders', OrderController::class)->except('create','store')->names('admin.orders');

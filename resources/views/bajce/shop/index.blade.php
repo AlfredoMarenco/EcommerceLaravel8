@@ -168,8 +168,9 @@
                                             <span class="tag"> 2 años de garantía </span>
                                             <span class="tag"> PLAYCON </span>
                                         </p>
-                                        <form action="{{ route('cart.addItem', $product) }}" method="POST">
+                                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
                                             @csrf
+                                            <input type="hidden" readonly="true" class="form-control" name="qty" value="1">
                                             <button type="submit" class="btn btn-block btn-primary"><i
                                                     class="fas fa-cart-plus"></i> Añadir al carrito </button>
                                         </form>

@@ -114,6 +114,8 @@ Route::prefix('/cartshop')->group(function () {
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
+    Route::post('/applyCoupon', [ShopController::class, 'applyCoupon'])->name('cart.applyCoupon');
+    Route::get('/applyCoupon', [ShopController::class, 'deleteCoupon'])->name('cart.deleteCoupon');
 });
 
 //Rutas wishlist
@@ -253,8 +255,8 @@ route::get('/mi-direccion', function () {
 });
 
 
-Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+/* Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
     ->name('ckfinder_connector');
 
 Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
-    ->name('ckfinder_browser');
+    ->name('ckfinder_browser'); */

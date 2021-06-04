@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Configuration;
+use App\Models\Coupon;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Builder;
@@ -70,7 +71,7 @@ class ShopController extends Controller
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
         }
-        return back();
+        return redirect()->route('cart');
     }
 
     //Funcion para agregar n cantidad de productos en una sola peticion
@@ -166,6 +167,27 @@ class ShopController extends Controller
     public function removeItemToWishlist($rowId)
     {
         Cart::instance('wishlist')->remove($rowId);
+        return back();
+    }
+
+    //Funcion aplicacion de cupon de descuento
+    public function applyCoupon(Request $request)
+    {
+        $coupon = Coupon::where('code', $request->coupon)->first();
+        if ($coupon->type == 'fixed') {
+            $total = str_replace(',', '', Cart::instance('default')->total());
+            $code = ((float)$coupon->value * 100) / (float)$total;
+            Cart::setGlobalDiscount($code);
+        } else {
+            Cart::setGlobalDiscount($coupon->percent_off);
+        }
+        return back();
+    }
+
+    public function deleteCoupon()
+    {
+        Cart::setGlobalDiscount(0);
+
         return back();
     }
 }
