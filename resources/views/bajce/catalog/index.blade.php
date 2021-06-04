@@ -18,7 +18,7 @@
                 <div class="carousel-inner">
                     @foreach ($catalogues as $catalogue)
                         <div class="carousel-item  @if ($loop->first) active @endif">
-                            <img src="{{ Storage::url($catalogue->image->url) }}" alt="First slide">
+                            <img src="{{ Storage::url($catalogue->image->url) }}" alt="{{ $catalogue->name }}">
                             <div class="carousel-caption carousel-caption-3 d-md-block">
                                 <h1>Catálogo de <br>
                                     {{ $catalogue->name }}</h1>

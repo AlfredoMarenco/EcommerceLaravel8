@@ -42,8 +42,10 @@
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
     <script>
-        CKEDITOR.replace( 'extract' );
-        CKEDITOR.replace( 'body' );
+        extract = CKEDITOR.replace('extract');
+        CKFinder.setupCKEDITOR(extract, {!! asset('vendor/ckfinder/ckfinder.js') !!})
+        body = CKEDITOR.replace('body');
+
         //Cambiar imagen
         document.getElementById("file").addEventListener('change', cambiarImagen);
 

@@ -253,6 +253,11 @@ return [
             'can' => 'admin.categories.index'
         ],
         [
+            'text' => 'Cupones',
+            'route' => 'admin.coupons.index',
+            'icon'  => 'fas fa-fw fa-percent',
+        ],
+       /*  [
             'text' => 'Variantes de producto',
             'icon' => 'fas fa-fw fa-sitemap',
             'can' => 'admin.variants.index',
@@ -290,7 +295,7 @@ return [
                 ],
 
             ],
-        ],
+        ], */
         [
             'header' => 'Catalogo',
             'can' => 'admin.posts.index'
@@ -319,17 +324,37 @@ return [
 
         ['header' => 'Pagina web'],
         [
-            'text' => 'Inicio',
-            'route'  => 'admin.configurations.index',
-            'icon'  => 'fas fa-fw fa-cog',
+            'text' => 'Slider',
+            'route'  => 'admin.sliders.index',
+            'icon'  => 'far fa-images',
+        ],
+         [
+            'text' => 'Mosaico',
+            'route'  => 'admin.mosaics.index',
+            'icon'  => 'far fa-clone',
+        ],
+        [
+            'text' => 'Seccion Botones',
+            'route'  => 'admin.buttons.index',
+            'icon'  => 'fas fa-link',
+        ],
+         [
+            'text' => 'Codigo Cupon',
+            'route'  => 'admin.cuponfs.index',
+            'icon'  => 'fas fa-image',
+        ],
+        [
+            'text' => 'Marcas',
+            'route'  => 'admin.brands.index',
+            'icon'  => 'fab fa-bandcamp',
         ],
 
-        ['header' => 'GALERIA'],
+       /*  ['header' => 'GALERIA'],
         [
             'text' => 'Colecciones',
             'route'  => 'admin.collections.index',
             'icon'  => 'fas fa-fw fa-images ',
-        ],
+        ], */
         [
             'header' => 'ADMINISTRACION DE USUARIOS',
             'can' => 'admin.users.index'

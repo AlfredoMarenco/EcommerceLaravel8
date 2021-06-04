@@ -136,6 +136,7 @@
                                     <dd class="text-right h6"><strong>${{ Cart::subtotal() }} MXN</strong></dd>
                                 </dl>
                                 <hr>
+                                
                                 <dl class="dlist-align">
                                     <dt>Total:</dt>
                                     <dd class="text-right h5"><strong>${{ Cart::total() }} MXN</strong></dd>

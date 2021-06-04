@@ -11,12 +11,13 @@ class TableProducts extends Component
     use WithPagination;
     public $search;
     public $paginate = '10';
-
+    public $category_id;
     protected $paginationTheme = 'bootstrap';
 
     public function updatingSearch(){
         $this->resetPage();
     }
+
 
     public function render()
     {

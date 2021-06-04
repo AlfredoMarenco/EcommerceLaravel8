@@ -94,6 +94,27 @@ class ConfigurationController extends Controller
                     }
                 }
                 break;
+            case 'image':
+                
+                $files = $request->file('file');
+                foreach ($files as $file) {
+                    if ($file) {
+                        $url = Storage::put('configurations', $file);
+
+                        if ($configuration->image) {
+                            Storage::delete($configuration->image->url);
+
+                            $configuration->image->update([
+                                'url' => $url
+                            ]);
+                        } else {
+                            $configuration->image()->create([
+                                'url' => $url
+                            ]);
+                        }
+                    }
+                }
+                break;
             case 'video':
                 $files = $request->file('file');
                 foreach ($files as $file) {
@@ -137,11 +158,11 @@ class ConfigurationController extends Controller
      */
     public function destroy($id)
     {
-        
     }
 
 
-    public function deleteSlide($id){
+    public function deleteSlide($id)
+    {
         $resource = Image::find($id);
         /* dd($resource); */
         $resource->delete();

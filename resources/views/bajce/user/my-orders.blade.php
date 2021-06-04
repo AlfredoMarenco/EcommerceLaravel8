@@ -16,7 +16,22 @@
         <div class="container">
 
             <div class="row">
-                @include('bajce.user.nav-profile')
+                <aside class="col-md-3">
+                    <nav class="list-group">
+                        <a class="list-group-item" href="{{ route('user.profile') }}"> Mi cuenta </a>
+                        {{-- <a class="list-group-item" href="mi-direccion.html"> Mi dirección </a> --}}
+                        <a class="list-group-item active" href="{{ route('user.orders') }}"> Mis Órdenes </a>
+                        <a class="list-group-item" href="{{ route('user.settings') }}"> Configurar cuenta </a>
+                        {{-- <a class="list-group-item" href="#"> Ayuda </a> --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                                this.closest('form').submit();"> Cerrar
+                                sesión
+                            </a>
+                        </form>
+                    </nav>
+                </aside> <!-- col.// -->
                 <main class="col-md-9">
                     @foreach ($orders as $order)
                         <article class="card mb-4">
@@ -88,13 +103,20 @@
                                     </div>
                                     <div class="col-md-4">
                                         <h6 class="text-muted">Metodo de pago</h6>
-                                        <span class="text-success">
+                                        {{-- <span class="text-success">
                                             <i class="fab fa-lg fa-cc-visa"></i>
                                             Visa **** 4216
-                                        </span>
+                                        </span> --}}
                                         <p>Subtotal: ${{ number_format($order->amount, 2) }} <br>
                                             <span class="b">Total: ${{ number_format($order->amount, 2) }} </span>
                                         </p>
+                                        @if ($order->type == 'store')
+                                            <div>
+                                                <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
+                                                    target="_blank" class="btn btn-dark mt-2">Imprimir orden de
+                                                    pago</a>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div> <!-- row.// -->
                             </div> <!-- card-body .// -->
@@ -103,14 +125,18 @@
                                     <tbody>
                                         @foreach ($order->products as $product)
                                             <tr>
+
                                                 <td width="85">
-                                                    <img src="{{ Storage::url($product->image->url) }}"
-                                                        class="img-md border">
+                                                    <a href="{{ route('shop.product', $product) }}"> <img
+                                                            src="{{ Storage::url($product->image->url) }}"
+                                                            class="img-md border">
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <p class="title mb-0">{{ $product->name }} </p>
                                                     <p class="title mb-0">SKU: {{ $product->SKU }} </p>
-                                                    <p class="title mb-0">Cantidad: {{ $product->pivot->quanty }} </p>
+                                                    <p class="title mb-0">Cantidad: {{ $product->pivot->quanty }}
+                                                    </p>
                                                     <var class="price text-muted">${{ $product->pivot->price }}</var>
                                                 </td>
                                                 {{-- <td> Vendedor <br> Grupo Bajce </td> --}}
@@ -121,9 +147,9 @@
                             </div> <!-- table-responsive .end// -->
                         </article> <!-- card order-item .// -->
                     @endforeach
+                    {{ $orders->links() }}
                 </main> <!-- col.// -->
             </div>
-
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->

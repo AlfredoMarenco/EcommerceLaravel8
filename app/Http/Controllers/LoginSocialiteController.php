@@ -18,11 +18,13 @@ class LoginSocialiteController extends Controller
     {
         $userSocialite = Socialite::driver($drive)->user();
         $user = User::where('email', $userSocialite->getEmail())->first();
-
+        $name_complete = explode(' ', $userSocialite->getName());
+        $name = $name_complete[0];
+        $last_name = $name_complete[1];
         if (!$user) {
             $user = User::create([
-                'name' => $userSocialite->getName(),
-                'last_name' => $userSocialite->getName(),
+                'name' => $name,
+                'last_name' => $last_name,
                 'email' => $userSocialite->getEmail(),
             ]);
         }

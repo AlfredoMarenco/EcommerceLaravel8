@@ -1,12 +1,17 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ButtonController;
 use App\Http\Controllers\Admin\CatalogueController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ConfigurationController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\CuponFController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\MosaicController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
@@ -14,6 +19,7 @@ use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Admin\RolController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
@@ -27,6 +33,7 @@ Route::resource('user', UserController::class)->only('index', 'edit', 'update')-
 Route::resource('roles', RolController::class)->names('admin.roles');
 Route::resource('products', ProductController::class)->except('show')->names('admin.products');
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
+Route::resource('coupons',CouponController::class)->except('show')->names('admin.coupons');
 Route::resource('colors', ColorController::class)->except('show')->names('admin.colors');
 Route::resource('sizes', SizeController::class)->except('show')->names('admin.sizes');
 Route::resource('orders', OrderController::class)->except('create','store')->names('admin.orders');
@@ -35,4 +42,8 @@ Route::resource('tags', TagController::class)->except('show')->names('admin.tags
 Route::resource('collections', CollectionController::class)->except('show')->names('admin.collections');
 Route::resource('configurations', ConfigurationController::class)->except('show')->names('admin.configurations');
 Route::resource('catalogues', CatalogueController::class)->except('show')->names('admin.catalogues');
-
+Route::resource('sliders', SliderController::class)->except('show')->names('admin.sliders');
+Route::resource('mosaics', MosaicController::class)->except('show')->names('admin.mosaics');
+Route::resource('buttons', ButtonController::class)->except('show')->names('admin.buttons');
+Route::resource('cuponfs', CuponFController::class)->except('show')->names('admin.cuponfs');
+Route::resource('brands', BrandController::class)->except('show')->names('admin.brands');

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Coupon extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
     const DESACTIVADO = 0;
     const ACTIVO = 1;
     const AMOUNT = 'AMONUT';

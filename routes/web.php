@@ -84,8 +84,13 @@ Route::get('/mailable', function () {
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
-Route::get('/tienda', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+
+//Rutas Tienda
+Route::prefix('/shop')->group(function () {
+    Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+    Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+    Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+});
 
 //Rutas Catalogo
 Route::prefix('/catalogue')->group(function () {
@@ -109,6 +114,8 @@ Route::prefix('/cartshop')->group(function () {
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
+    Route::post('/applyCoupon', [ShopController::class, 'applyCoupon'])->name('cart.applyCoupon');
+    Route::get('/applyCoupon', [ShopController::class, 'deleteCoupon'])->name('cart.deleteCoupon');
 });
 
 //Rutas wishlist
@@ -237,16 +244,6 @@ route::get('/nosotros', function () {
     return view('bajce.about-us');
 });
 
-// Perfil
-route::get('/perfil', function () {
-    return view('bajce.user.profile');
-});
-
-// configuracion
-route::get('/configuracion', function () {
-    return view('bajce.user.settings');
-});
-
 // Mis órdenes
 route::get('/mis-ordenes', function () {
     return view('bajce.user.my-orders');
@@ -256,3 +253,10 @@ route::get('/mis-ordenes', function () {
 route::get('/mi-direccion', function () {
     return view('bajce.user.my-adress');
 });
+
+
+/* Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser'); */

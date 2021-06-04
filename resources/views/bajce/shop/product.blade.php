@@ -115,11 +115,7 @@
                             <div class="col-4">
                                 <h5 class="title-description">Description </h5>
                             </div>
-                            <div class="col-4">
-                                <a href="">
-                                    <h5>Ficha Técnica</h5>
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                     <p>
@@ -131,6 +127,11 @@
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.
                     </p>
+                    <div class="col-4">
+                        <a href="">
+                            <h5>Ficha Técnica</h5>
+                        </a>
+                    </div>
                     <ul class="list-check">
                         <li>Material: Stainless steel</li>
                         <li>Weight: 82kg</li>

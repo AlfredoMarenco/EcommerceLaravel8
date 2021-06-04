@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                                 {{-- End Adress Shipping --}}
-                                <button class="subscribe btn btn-primary btn-block" id="pay-button"> Crear orden de pago
+                                <button class="btn btn-primary btn-block"> Crear orden de pago
                                 </button>
                             </form>
                         </div> <!-- card.// -->

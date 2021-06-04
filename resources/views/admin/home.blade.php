@@ -35,6 +35,7 @@
 
 
 @section('js')
+    
     <script src="{{ LarapexChart::cdn() }}"></script>
     {{ $chart->script() }}
     {{ $chart2->script() }}

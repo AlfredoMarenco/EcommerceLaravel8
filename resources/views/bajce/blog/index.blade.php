@@ -7,42 +7,47 @@
         <div class="container">
             <h3>Más recientes</h3>
             <div class="row">
-                @foreach ($posts as $post)
-                @if ($post->status = 3)
-                    <div class="col-lg-8 col-md-8 col-sm-12 mb-5">
-                        <div class="imagen-destacada">
-                            <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
-                        </div>
-                        <p class="mt-3" style="color: gray;">{{ $carbon->diffForHumans($post->created_at) }}</p>
-                        <h3>{{ $post->title }}</h3>
-                        <p>{!! $post->extract !!}</p>
-                        <a href="{{ route('blog.show',$post) }}"> Ver más <i class="far fa-arrow-alt-circle-right"></i></a>
-                        {{-- <div class="boton-cargar">
-					<a href="" class="btn btn-success cargar">Cargar más</a>
-				</div> --}}
-                    </div>
-                    @endif
-                @endforeach
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <h3>Lo más destacado</h3>
+                <div class="col-9">
                     <div class="row">
-                        @foreach ($recents as $recent)
-                            <div class="col-5 my-3">
-                                <img src="{{ Storage::url($recent->image->url) }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-7 my-3">
-                                <p>
-                                    <b>{{ $recent->title }}
-                                    </b>
-                                    <span>{{ $carbon->diffForHumans($recent->created_at) }} </span>
-                                    <span> <br>
-                                        <a href="{{ route('blog.show',$recent) }}"> Ver más <i
-                                                class="far fa-arrow-alt-circle-right"></i></a>
-                                    </span>
-                                </p>
-                            </div>
-                            <!--Destacado 2-->
+                        @foreach ($posts as $post)
+                            @if ($post->status = 3)
+                                <div class="col-lg-12 col-md-9 col-sm-12 mb-5">
+                                    <div class="imagen-destacada">
+                                        <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
+                                    </div>
+                                    <p class="mt-3" style="color: gray;">{{ $carbon->diffForHumans($post->created_at) }}
+                                    </p>
+                                    <h3>{{ $post->title }}</h3>
+                                    <p>{!! $post->extract !!}</p>
+                                    <a href="{{ route('blog.show', $post) }}"> Ver más <i
+                                            class="far fa-arrow-alt-circle-right"></i></a>
+                                </div>
+                            @endif
                         @endforeach
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <h3>Lo más destacado</h3>
+                        <div class="row">
+                            @foreach ($recents as $recent)
+                                <div class="col-5 my-3">
+                                    <img src="{{ Storage::url($recent->image->url) }}" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-7 my-3">
+                                    <p>
+                                        <b>{{ $recent->title }}
+                                        </b>
+                                        <span>{{ $carbon->diffForHumans($recent->created_at) }} </span>
+                                        <span> <br>
+                                            <a href="{{ route('blog.show', $recent) }}"> Ver más <i
+                                                    class="far fa-arrow-alt-circle-right"></i></a>
+                                        </span>
+                                    </p>
+                                </div>
+                                <!--Destacado 2-->
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

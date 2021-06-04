@@ -12,12 +12,6 @@ class Catalogue extends Model
     protected $guarded = ['id'];
 
 
-    //Relaccion uno a uno
-    public function category()
-    {
-        return $this->hasOne(Category::class);
-    }
-
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');

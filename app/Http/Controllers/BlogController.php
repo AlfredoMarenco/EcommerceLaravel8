@@ -23,7 +23,7 @@ class BlogController extends Controller
         if ($post->status != 3) {
             $posts = Post::where('status', 'like', '3')->paginate(5);
             $recents = Post::inRandomOrder()->paginate(4);
-            return redirect()->route('bajce.blog.index');
+            return redirect()->route('blog.index');
         }
         $recents = Post::inRandomOrder()->paginate(5);
         return view('bajce.blog.article', compact('post', 'recents', 'carbon'));

@@ -20,4 +20,9 @@ class Category extends Model
     {
         return $this->belongsTo(Catalogue::class);
     }
+
+    public function buttons()
+    {
+        return $this->belongsTo(Button::class);
+    }
 }
