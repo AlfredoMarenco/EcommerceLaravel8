@@ -150,7 +150,7 @@
                                         <div class="rating-wrap my-3">
                                             <ul class="rating-stars">
 
-                                                <li style="width:{{ ($product->rating*100)/(5) }}%" class="stars-active">
+                                                <li style="width:{{ ($product->rating * 100) / 5 }}%" class="stars-active">
                                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -161,12 +161,14 @@
                                                     <i class="fa fa-star"></i>
                                                 </li>
                                             </ul>
-                                            <small class="label-rating text-muted">132 Opiniones</small>
+                                            <small class="label-rating text-muted">{{ $product->reviews_count }}
+                                                Opiniones</small>
                                         </div> <!-- rating-wrap.// -->
                                         <hr>
                                         <p class="mb-3">
                                             <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                            @if ($product->garantia_visible == 1)<span class="tag"> {{ $product->garantia }} garantía </span> @endif
+                                            @if ($product->garantia_visible == 1)<span
+                                                    class="tag"> {{ $product->garantia }} garantía </span> @endif
                                         </p>
                                         <form action="{{ route('cart.addItems', $product) }}" method="POST">
                                             @csrf
