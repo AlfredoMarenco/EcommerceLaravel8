@@ -22,11 +22,13 @@ class CatalogueController extends Controller
         $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
             $query->where('category_id', $category_id);
         })->where('type', 1)->latest('id')->paginate(10);
-        return view('bajce.catalog.catalog', compact('products'));
+        $catalogues = Catalogue::latest('id')->paginate(3);
+        return view('bajce.catalog.catalog', compact('products', 'catalogues'));
     }
 
     public function product(Product $product)
     {
-        return view('bajce.catalog.product', compact('product'));
+        $catalogues = Catalogue::latest('id')->paginate(3);
+        return view('bajce.catalog.product', compact('product', 'catalogues'));
     }
 }

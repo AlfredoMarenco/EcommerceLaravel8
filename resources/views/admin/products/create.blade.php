@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="car-body p-3">
-            {!! Form::open(['route' => 'admin.products.store', 'files' => true]) !!}
+            {!! Form::open(['route' => 'admin.products.store', 'name' => 'form', 'files' => true]) !!}
             @include('admin.products.partials.form')
             {!! Form::submit('Crear producto', ['class' => 'btn btn-success btn-block mt-4']) !!}
 
@@ -43,6 +43,11 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#extract'))
             .catch(error => {
                 console.error(error);
             });
