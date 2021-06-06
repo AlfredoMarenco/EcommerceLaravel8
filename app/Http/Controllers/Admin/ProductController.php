@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Detail;
 use App\Models\Image;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -45,7 +46,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        return view('admin.products.create', compact('categories'));
+        $details = Detail::all();
+        return view('admin.products.create', compact('categories','details'));
     }
 
     /**
@@ -56,7 +58,6 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-
         $product = Product::create($request->all());
 
         if ($request->file('file')) {

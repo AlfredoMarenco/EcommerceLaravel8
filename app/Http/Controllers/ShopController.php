@@ -26,7 +26,8 @@ class ShopController extends Controller
     public function showProduct(Product $product)
     {
         $products = Product::inRandomOrder()->paginate(4);
-        return view('bajce.shop.product', compact('product', 'products'));
+        $reviews = $product->reviews()->latest()->paginate(3);
+        return view('bajce.shop.product', compact('product', 'products','reviews'));
     }
 
     //Mostramos la vista de los productos filtrados por categorias nada mas
@@ -133,6 +134,7 @@ class ShopController extends Controller
         $qty = $request->qty;
         if ($qty > 0) {
             Cart::instance('default')->update($rowId, $qty);
+            Cart::setGlobalDiscount(0);
             return back();
         }
         return back();
@@ -174,14 +176,18 @@ class ShopController extends Controller
     public function applyCoupon(Request $request)
     {
         $coupon = Coupon::where('code', $request->coupon)->first();
-        if ($coupon->type == 'fixed') {
-            $total = str_replace(',', '', Cart::instance('default')->total());
-            $code = ((float)$coupon->value * 100) / (float)$total;
-            Cart::setGlobalDiscount($code);
+        if ($coupon) {
+            if ($coupon->type == 'fixed') {
+                $total = str_replace(',', '', Cart::instance('default')->total());
+                $code = ((float)$coupon->value * 100) / (float)$total;
+                Cart::setGlobalDiscount($code);
+            } else {
+                Cart::setGlobalDiscount($coupon->percent_off);
+            }
+            return back()->withSuccess('Cupón aplicado con éxito!');
         } else {
-            Cart::setGlobalDiscount($coupon->percent_off);
+            return back()->with('errors','Cupón no válido');
         }
-        return back();
     }
 
     public function deleteCoupon()

@@ -257,7 +257,12 @@ return [
             'route' => 'admin.coupons.index',
             'icon'  => 'fas fa-fw fa-percent',
         ],
-       /*  [
+/*         [
+            'text' => 'Detalles de productos',
+            'route' => 'admin.details.index',
+            'icon'  => 'fas fa-fw fa-align-justify',
+        ], */
+        /*  [
             'text' => 'Variantes de producto',
             'icon' => 'fas fa-fw fa-sitemap',
             'can' => 'admin.variants.index',
@@ -297,7 +302,7 @@ return [
             ],
         ], */
         [
-            'header' => 'Catalogo',
+            'header' => 'CATALOGO',
             'can' => 'admin.posts.index'
         ],
         [
@@ -328,7 +333,7 @@ return [
             'route'  => 'admin.sliders.index',
             'icon'  => 'far fa-images',
         ],
-         [
+        [
             'text' => 'Mosaico',
             'route'  => 'admin.mosaics.index',
             'icon'  => 'far fa-clone',
@@ -338,7 +343,7 @@ return [
             'route'  => 'admin.buttons.index',
             'icon'  => 'fas fa-link',
         ],
-         [
+        [
             'text' => 'Codigo Cupon',
             'route'  => 'admin.cuponfs.index',
             'icon'  => 'fas fa-image',
@@ -349,7 +354,7 @@ return [
             'icon'  => 'fab fa-bandcamp',
         ],
 
-       /*  ['header' => 'GALERIA'],
+        /*  ['header' => 'GALERIA'],
         [
             'text' => 'Colecciones',
             'route'  => 'admin.collections.index',

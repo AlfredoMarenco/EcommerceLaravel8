@@ -149,7 +149,8 @@
                                         </div> <!-- price-wrap.// -->
                                         <div class="rating-wrap my-3">
                                             <ul class="rating-stars">
-                                                <li style="width:80%" class="stars-active">
+
+                                                <li style="width:{{ ($product->rating*100)/(5) }}%" class="stars-active">
                                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -165,8 +166,7 @@
                                         <hr>
                                         <p class="mb-3">
                                             <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                            <span class="tag"> 2 años de garantía </span>
-                                            <span class="tag"> PLAYCON </span>
+                                            @if ($product->garantia_visible == 1)<span class="tag"> {{ $product->garantia }} garantía </span> @endif
                                         </p>
                                         <form action="{{ route('cart.addItems', $product) }}" method="POST">
                                             @csrf

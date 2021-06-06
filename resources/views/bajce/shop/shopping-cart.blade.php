@@ -237,7 +237,7 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <a href="/producto">
+                                <a href="{{ route('shop.product', $product) }}">
                                     <img src="{{ Storage::url($product->image->url) }}">
                                 </a>
                             </div> <!-- img-wrap.// -->
@@ -253,7 +253,7 @@
 
                                 <div class="rating-wrap my-3">
                                     <ul class="rating-stars">
-                                        <li style="width:80%" class="stars-active">
+                                        <li style="width:{{ ($product->rating * 100) / 5 }}%" class="stars-active">
                                             <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -264,7 +264,8 @@
                                             <i class="fa fa-star"></i>
                                         </li>
                                     </ul>
-                                    <small class="label-rating text-muted">132 Opiniones</small>
+                                    <small class="label-rating text-muted">{{ $product->reviews_count }}
+                                        Opiniones</small>
                                 </div> <!-- rating-wrap.// -->
                                 <hr>
                                 <form action="{{ route('cart.addItem', $product) }}" method="POST">
@@ -306,4 +307,8 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('js')
+    @include('sweetalert::alert')
 @endsection

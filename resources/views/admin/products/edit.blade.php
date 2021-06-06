@@ -10,7 +10,7 @@
     <div class="card">
         <div class="car-body p-3">
             {{-- @livewire('admin.form-new-product') --}}
-            {!! Form::model($product, ['route' => ['admin.products.update', $product], 'files' => true ,'method' => 'PUT']) !!}
+            {!! Form::model($product, ['route' => ['admin.products.update', $product], 'files' => true, 'method' => 'PUT']) !!}
 
             @include('admin.products.partials.form')
 
@@ -47,6 +47,11 @@
             .catch(error => {
                 console.error(error);
             });
+        ClassicEditor
+            .create(document.querySelector('#extract'))
+            .catch(error => {
+                console.error(error);
+            });
         //Cambiar imagen
         document.getElementById("file").addEventListener('change', cambiarImagen);
 
@@ -62,5 +67,5 @@
         }
 
     </script>
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
 @stop
