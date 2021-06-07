@@ -207,7 +207,7 @@
     </div>
 
 
-    <section id="tienda" style="margin-top: 100px;">
+    <section id="tienda" style="margin-top: 100px;" style="background-size: 100%;">
 
         <div class="contenido-tienda">
             <h3 style="text-align: center;" class="mt-5">

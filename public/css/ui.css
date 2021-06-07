@@ -1410,7 +1410,6 @@ body {
 #tienda {
   background-image: url(/images/banners/tienda-fondo.png);
   background-repeat: no-repeat;
-  background-size: 100%;
 }
 .botones-tienda {
   margin-top: 60px;
