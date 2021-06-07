@@ -151,7 +151,6 @@
                                                     @livewire('admin.reviews-aproved', ['review' => $review])
                                                 </div>
                                             </div> <!-- rating-wrap.// -->
-
                                         @endif
                                     @endforeach
                                 </td>

@@ -50,7 +50,7 @@ class ApiController extends Controller
                 if ($order) {
                     $order->update([
                         'status' => 'charge.succeeded',
-                        'tracker_status' => 'pending'
+                        'tracker_status' => 'standby'
                     ]);
                 }
                 Mail::to($order->user->email)->send(new OrderShipped($order));
