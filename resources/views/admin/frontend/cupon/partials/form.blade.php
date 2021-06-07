@@ -2,7 +2,21 @@
     <div class="form-group col-md-12">
         {!! Form::label('text', 'Texto') !!}
         {!! Form::text('text', null, ['class' => 'form-control', 'placeholder' => 'Texto del slider']) !!}
-        @error('name')
+        @error('text')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="form-group col-md-12">
+        {!! Form::label('button', 'Texto Boton') !!}
+        {!! Form::text('button', null, ['class' => 'form-control', 'placeholder' => 'Texto del slider']) !!}
+        @error('button')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="form-group col-md-12">
+        {!! Form::label('link', 'Link de redireccionamiento') !!}
+        {!! Form::text('link', null, ['class' => 'form-control', 'placeholder' => 'Texto del slider']) !!}
+        @error('text')
             <small class="text-danger">{{ $message }}</small>
         @enderror
     </div>

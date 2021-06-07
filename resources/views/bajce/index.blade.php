@@ -225,7 +225,8 @@
                     @foreach ($buttons as $button)
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="boton-ir">
-                                <a href="{{ route('shop.products.category',$button->category_id) }}" class="btn btn-primary btn-block">
+                                <a href="{{ route('shop.products.category', $button->category_id) }}"
+                                    class="btn btn-primary btn-block">
                                     {{ $button->text }}
                                 </a>
                             </div>
@@ -275,12 +276,13 @@
 
     <section id="codigo" class="p-0">
         @foreach ($cuponfs as $cuponf)
-            <div style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;  background-size: 100%; background-repeat: no-repeat; min-height:450px;">
+            <div
+                style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;  background-size: 100%; background-repeat: no-repeat; min-height:450px;">
                 <div class="contenido">
                     <h2>
                         {{ $cuponf->text }}
                     </h2>
-                    <a href="/tienda" class="btn btn-primary">Ir a la tienda</a>
+                    <a href="{{ $cuponf->link }}" class="btn btn-primary">{{ $cuponf->text }}</a>
                 </div>
             </div>
         @endforeach
