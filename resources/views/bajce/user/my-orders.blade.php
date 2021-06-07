@@ -50,7 +50,7 @@
                                             @case('bajce')
                                                 <a href="#" class="float-right text-warning mx-2">
                                                     <i class="fas fa-truck-moving"></i>
-                                                    En camino (No rastreable)
+                                                    En camino
                                                 </a>
                                             @break
                                             @case('dhl')

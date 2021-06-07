@@ -24,7 +24,7 @@ class CreateOrderProductTable extends Migration
             $table->text('size')->nullable();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('set null');
 
 
             $table->timestamps();
