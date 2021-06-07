@@ -14,6 +14,11 @@ class TrackerOptions extends Component
     public $formVisible = false;
     protected $listeners = ['capture' => '$refresh'];
 
+    public function mount(Order $order)
+    {
+        $this->tracker_status = $order->tracker_status;
+    }
+
     public function formCapture()
     {
         $this->formVisible = true;
@@ -43,7 +48,8 @@ class TrackerOptions extends Component
         ]);
         $order->save();
         $this->formVisible = false;
-        $this->render();
+        $this->tracker_status = 'sending';
+        return back();
     }
     public function update($order)
     {
@@ -64,6 +70,7 @@ class TrackerOptions extends Component
         ]);
         $order->save();
         $this->formVisible = false;
+        $this->tracker_status = 'complete';
     }
     public function render()
     {

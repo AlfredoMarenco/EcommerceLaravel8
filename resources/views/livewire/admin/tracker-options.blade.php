@@ -1,6 +1,6 @@
 <div>
     @if ($formVisible == 'visible')
-        @switch($order->tracker_status)
+        @switch($tracker_status)
             @case('standby')
                 <div class="form-group">
                     <label for="tracker_guide">Guia de rastreo</label>
@@ -41,7 +41,7 @@
             @break
         @endswitch
     @else
-        @switch($order->tracker_status)
+        @switch($tracker_status)
             @case('standby')
                 <h4 class="float-center text-danger">
                     <i class="fas fa-truck-moving"></i>
