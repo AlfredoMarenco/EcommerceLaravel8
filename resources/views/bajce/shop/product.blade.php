@@ -22,7 +22,7 @@
                         @foreach ($product->images as $image)
                             <li data-thumb="{{ Storage::url($image->url) }}">
                                 {{-- <img src="{{ Storage::url($image->url) }}"> --}}
-                                <img @if ($image) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <img  @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </li>
                         @endforeach
                     </ul>
@@ -211,7 +211,7 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <img  @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="#" class="title mb-2">{{ $product->name }}</a>
