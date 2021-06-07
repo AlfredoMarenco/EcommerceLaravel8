@@ -99,6 +99,7 @@ Route::prefix('/catalogue')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
     Route::get('/products/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
     Route::get('/product/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::post('/products/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
 // Rutas del blog

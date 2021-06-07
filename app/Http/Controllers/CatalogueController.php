@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Catalogue;
 use App\Models\Category;
 use App\Models\Product;
@@ -18,17 +19,69 @@ class CatalogueController extends Controller
 
     public function products($category_id)
     {
+        $categories = Category::all();
+        $brands = Brand::all();
         /* $products = Product::where('type', 1)->latest('id')->paginate(5); */
         $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
             $query->where('category_id', $category_id);
         })->where('type', 1)->latest('id')->paginate(10);
         $catalogues = Catalogue::latest('id')->paginate(3);
-        return view('bajce.catalog.catalog', compact('products', 'catalogues'));
+        return view('bajce.catalog.catalog', compact('products', 'catalogues', 'categories', 'brands'));
     }
 
     public function product(Product $product)
     {
         $catalogues = Catalogue::latest('id')->paginate(3);
         return view('bajce.catalog.product', compact('product', 'catalogues'));
+    }
+
+
+    public function filterProduct(Request $request)
+    {
+        $categories = Category::all();
+        $brands = Brand::all();
+        if ($request->condition == 0) {
+            if ($request->categories && !$request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('price', [$request->price_min, $request->price_max])->where('type', 1)->latest('id')->paginate(12);
+            }
+
+            if ($request->categories && $request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 1)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && $request->brands) {
+                $products = Product::whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 1)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && !$request->brands) {
+                $products =  Product::whereBetween('price', [$request->price_min, $request->price_max])->where('type', 1)->paginate(12);
+            }
+        } else {
+            if ($request->categories && !$request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 1)->latest('id')->paginate(12);
+            }
+
+            if ($request->categories && $request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('discount', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 1)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && $request->brands) {
+                $products = Product::whereBetween('discount', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 1)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && !$request->brands) {
+                $products =  Product::whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 1)->paginate(12);
+            }
+        }
+
+        return view('bajce.catalog.catalog', compact('products', 'categories', 'brands'));
     }
 }
