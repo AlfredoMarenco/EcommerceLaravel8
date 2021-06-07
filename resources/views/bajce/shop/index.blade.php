@@ -115,7 +115,7 @@
                 </aside> <!-- col.// -->
 
                 <main class="col-md-10">
-                    <header class="mb-3">
+                    {{-- <header class="mb-3">
                         <div class="form-inline">
                             <strong class="mr-md-auto">{{ $products->count() }} Productos encontrados </strong>
                             <select class="mr-2 form-control">
@@ -124,7 +124,7 @@
                                 <option>Más econónimos</option>
                             </select>
                         </div>
-                    </header><!-- sect-heading -->
+                    </header><!-- sect-heading --> --}}
 
                     <div class="row">
                         @foreach ($products as $product)
@@ -132,8 +132,7 @@
                                 <figure class="card card-product-grid">
                                     <div class="img-wrap">
                                         <span class="badge badge-danger"> Nuevo </span>
-                                        <a href="{{ route('shop.product', $product) }}"><img
-                                                src="{{ Storage::url($product->image->url) }}"></a>
+                                        <a href="{{ route('shop.product', $product) }}"><img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif></a>
                                     </div> <!-- img-wrap.// -->
                                     <figcaption class="info-wrap">
                                         <a href="{{ route('shop.product', $product) }}"

@@ -72,8 +72,7 @@
             @isset($product->image)
                 <img id="picture" class="img-fluid" src="{{ Storage::url($product->image->url) }}">
             @else
-                <img id="picture" class="img-fluid"
-                    src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg">
+                <img id="picture" class="img-fluid" src="{{ asset('images/banners/bajce-enviar.jpg') }}">
                 @endif
             </div>
         </div>

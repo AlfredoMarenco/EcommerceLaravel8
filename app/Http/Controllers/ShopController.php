@@ -16,7 +16,7 @@ class ShopController extends Controller
     //Funcion para mostrar la tienda
     public function index()
     {
-        $products = Product::where('type', 0)->paginate(12);
+        $products = Product::where('type', 0)->latest('id')->paginate(12);
         $categories = Category::all();
         $brands = Brand::all();
         return view('bajce.shop.index', compact('products', 'categories', 'brands'));
