@@ -268,7 +268,9 @@
                 </div>
             @endforeach
         </div>
-
+        <div class="boton-entradas">
+            <a href="{{ route('catalogue.index') }}" class="btn btn-primary boton-entradas-2">Ver más</a>
+        </div>
     </section>
 
 
