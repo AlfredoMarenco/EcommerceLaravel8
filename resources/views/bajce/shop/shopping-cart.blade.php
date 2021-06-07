@@ -24,9 +24,9 @@
                                         <tr>
                                             <td>
                                                 <figure class="itemside">
-                                                    <div class="aside"><img
-                                                            src="{{ Storage::url($product->model->image->url) }}"
-                                                            class="img-sm"></div>
+                                                    <div class="aside">
+                                                        <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
+                                                    </div>
                                                     <figcaption class="info">
                                                         <a href="#" class="title text-dark">{{ $product->name }}</a>
                                                         <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
