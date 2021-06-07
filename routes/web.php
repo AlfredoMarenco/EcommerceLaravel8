@@ -147,6 +147,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
     Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
     Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
+    Route::post('/updateInformationProfile', [UserController::class, 'updateInformationProfile'])->name('user.update.profile');
 });
 
 //Rutas de login con redes sociales
