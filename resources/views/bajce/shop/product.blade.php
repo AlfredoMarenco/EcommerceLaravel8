@@ -210,7 +210,7 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <img src="{{ Storage::url($product->image->url) }}">
+                                <img  @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="#" class="title mb-2">{{ $product->name }}</a>
