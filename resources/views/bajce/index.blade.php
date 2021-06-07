@@ -16,7 +16,8 @@
                     @foreach ($sliders as $slider)
                         <div class="carousel-item @if ($loop->first) active @endif">
                             <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}"
-                                style="width: 100%; max-height: 500px;">
+                                style="width: 100%; max-height: 500px;
+                                min-height:500px;">
                             <div class="carousel-caption carousel-caption-1 d-md-block">
                                 @if ($slider->text != '')
                                     <h1>{{ $slider->text }}</h1>
