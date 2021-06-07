@@ -54,7 +54,7 @@
                                 <a href="{{ $mosaic->link }}">
                                     <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio" alt="">
                                     <div class="carousel-caption carousel-caption-2">
-                                        <h5>Productos especiales</h5>
+                                        <h5>{{ $mosaic->text }}</h5>
                                         <p>{!! $mosaic->description !!}</p>
                                     </div>
                                 </a>
