@@ -238,7 +238,7 @@
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
                                 <a href="{{ route('shop.product', $product) }}">
-                                    <img src="{{ Storage::url($product->image->url) }}">
+                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                 </a>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
