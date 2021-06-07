@@ -275,7 +275,7 @@
 
     <section id="codigo" class="p-0">
         @foreach ($cuponfs as $cuponf)
-            <div style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;">
+            <div style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;  background-size: 100%; background-repeat: no-repeat;">
                 <div class="contenido">
                     <h2>
                         {{ $cuponf->text }}
