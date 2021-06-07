@@ -127,10 +127,9 @@ class ProductController extends Controller
     {
         try {
             $product->delete();
-            /* dd($response); */
-            return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
+            return redirect()->route('admin.products.index')->with('Success', 'Producto eliminado con éxito');
         } catch (\Throwable $th) {
-            return back();
+            return back()->withToastError('Este producto ya tiene ventas');
         }
     }
 
