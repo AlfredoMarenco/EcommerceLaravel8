@@ -282,7 +282,7 @@
                     <h2>
                         {{ $cuponf->text }}
                     </h2>
-                    <a href="{{ $cuponf->link }}" class="btn btn-primary">{{ $cuponf->text }}</a>
+                    <a href="{{ $cuponf->link }}" class="btn btn-primary">{{ $cuponf->button }}</a>
                 </div>
             </div>
         @endforeach
