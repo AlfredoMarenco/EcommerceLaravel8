@@ -132,8 +132,12 @@ class ProductController extends Controller
 
     public function deleteImage($id)
     {
-        $resource = Image::find($id);
-        $resource->delete();
-        return back();
+        try {
+            $resource = Image::find($id);
+            $resource->delete();
+            return back();
+        } catch (\Throwable $th) {
+            return back()->with('errors', 'Este producto no se puede eliminar por que ya tiene compras')->withInput();
+        }
     }
 }
