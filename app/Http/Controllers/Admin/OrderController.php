@@ -63,7 +63,7 @@ class OrderController extends Controller
                 return view('admin.orders.show', compact('order', 'card'));
                 break;
             case 'store':
-                $card=null;
+                $card = null;
                 return view('admin.orders.show', compact('order', 'card'));
                 break;
             default:
@@ -90,9 +90,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        return $request->all();
     }
 
     /**

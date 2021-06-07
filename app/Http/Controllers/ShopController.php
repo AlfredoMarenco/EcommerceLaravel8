@@ -16,7 +16,7 @@ class ShopController extends Controller
     //Funcion para mostrar la tienda
     public function index()
     {
-        $products = Product::where('type', 0)->paginate(20);
+        $products = Product::where('type', 0)->paginate(12);
         $categories = Category::all();
         $brands = Brand::all();
         return view('bajce.shop.index', compact('products', 'categories', 'brands'));
@@ -27,7 +27,7 @@ class ShopController extends Controller
     {
         $products = Product::inRandomOrder()->paginate(4);
         $reviews = $product->reviews()->latest()->paginate(3);
-        return view('bajce.shop.product', compact('product', 'products','reviews'));
+        return view('bajce.shop.product', compact('product', 'products', 'reviews'));
     }
 
     //Mostramos la vista de los productos filtrados por categorias nada mas
@@ -186,7 +186,7 @@ class ShopController extends Controller
             }
             return back()->withSuccess('Cupón aplicado con éxito!');
         } else {
-            return back()->with('errors','Cupón no válido');
+            return back()->with('errors', 'Cupón no válido');
         }
     }
 
@@ -195,5 +195,55 @@ class ShopController extends Controller
         Cart::setGlobalDiscount(0);
 
         return back();
+    }
+
+    public function filterProduct(Request $request)
+    {
+        $categories = Category::all();
+        $brands = Brand::all();
+
+        if ($request->condition == 0) {
+            if ($request->categories && !$request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('price', [$request->price_min, $request->price_max])->where('type', 0)->latest('id')->paginate(12);
+            }
+
+            if ($request->categories && $request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && $request->brands) {
+                $products = Product::whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && !$request->brands) {
+                $products =  Product::whereBetween('price', [$request->price_min, $request->price_max])->where('type', 0)->paginate(12);
+            }
+        } else {
+            if ($request->categories && !$request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 0)->latest('id')->paginate(12);
+            }
+
+            if ($request->categories && $request->brands) {
+                $products = Product::whereHas('categories', function (Builder $query) use ($request) {
+                    $query->where('category_id', $request->categories);
+                })->whereBetween('discount', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && $request->brands) {
+                $products = Product::whereBetween('discount', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
+            }
+
+            if (!$request->categories && !$request->brands) {
+                $products =  Product::whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 0)->paginate(12);
+            }
+        }
+
+        return view('bajce.shop.index', compact('products', 'categories', 'brands'));
     }
 }

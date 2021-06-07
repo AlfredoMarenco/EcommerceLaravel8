@@ -52,6 +52,13 @@
         @enderror
     </div>
     <div class="form-group col-md-4">
+        {!! Form::label('brand_id', 'Marca') !!}
+        {!! Form::select('brand_id', $brands, null, ['class' => 'form-control']) !!}
+        @error('brand_id')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="form-group col-md-4">
         {!! Form::label('type', 'Tipo de producto') !!}
         {!! Form::select('type', [0 => 'Tienda', 1 => 'Catalogo'], null, ['class' => 'form-control']) !!}
         @error('type')

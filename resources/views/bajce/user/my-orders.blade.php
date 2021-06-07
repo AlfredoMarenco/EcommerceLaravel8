@@ -25,8 +25,10 @@
                         {{-- <a class="list-group-item" href="#"> Ayuda </a> --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                                this.closest('form').submit();"> Cerrar
+                            <a class="list-group-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                                                                                                                                this.closest('form').submit();">
+                                Cerrar
                                 sesión
                             </a>
                         </form>
@@ -121,11 +123,10 @@
                                 </div> <!-- row.// -->
                             </div> <!-- card-body .// -->
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table">
                                     <tbody>
                                         @foreach ($order->products as $product)
                                             <tr>
-
                                                 <td width="85">
                                                     <a href="{{ route('shop.product', $product) }}"> <img
                                                             src="{{ Storage::url($product->image->url) }}"
@@ -138,6 +139,43 @@
                                                     <p class="title mb-0">Cantidad: {{ $product->pivot->quanty }}
                                                     </p>
                                                     <var class="price text-muted">${{ $product->pivot->price }}</var>
+                                                </td>
+                                                <td>
+                                                    @if ($order->tracker_status == 'complete')
+                                                        @if ($order->reviews->count() > 0)
+                                                            @foreach ($order->reviews as $review)
+                                                                @if ($review->product_id == $product->id)
+                                                                    <div class="opinion">
+                                                                        <h5 class="mt-4">{{ $review->user->name }}
+                                                                            {{ $review->user->last_name }}</h5>
+                                                                        <p>{{ $review->comment }}</p>
+                                                                        <div class="rating-wrap my-3">
+                                                                            <ul class="rating-stars">
+                                                                                <li style="width:{{ ($review->rating * 100) / 5 }}%"
+                                                                                    class="stars-active">
+                                                                                    <i class="fa fa-star"></i> <i
+                                                                                        class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i> <i
+                                                                                        class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i class="fa fa-star"></i> <i
+                                                                                        class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i> <i
+                                                                                        class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div> <!-- rating-wrap.// -->
+
+                                                                @endif
+                                                            @endforeach
+                                                        @else
+                                                            @livewire('products-reviews', ['product' => $product,'order' => $order])
+                                                        @endif
+                                                    @endif
                                                 </td>
                                                 {{-- <td> Vendedor <br> Grupo Bajce </td> --}}
                                             </tr>
@@ -156,3 +194,12 @@
 
 
 @endsection
+
+
+@section('css')
+@livewireStyles
+@stop
+
+@section('js')
+@livewireScripts
+@stop

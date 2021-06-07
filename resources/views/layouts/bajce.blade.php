@@ -105,7 +105,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/nosotros">Nosotros</a>
+                        <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>

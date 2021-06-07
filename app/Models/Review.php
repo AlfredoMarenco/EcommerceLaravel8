@@ -19,4 +19,8 @@ class Review extends Model
     {
         return $this->belongsTo(Product::class);
     }
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

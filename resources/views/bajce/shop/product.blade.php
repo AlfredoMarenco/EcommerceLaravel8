@@ -170,24 +170,26 @@
                     <h5 class="title-description">Valoraciones</h5>
                     @if ($product->reviews_count > 0)
                         @foreach ($reviews as $review)
-                            <div class="opinion">
-                                <h5 class="mt-4">{{ $review->user->name }} {{ $review->user->last_name }}</h5>
-                                <p>{{ $review->comment }}</p>
-                                <div class="rating-wrap my-3">
-                                    <ul class="rating-stars">
-                                        <li style="width:{{ ($review->rating * 100) / 5 }}%" class="stars-active">
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> <!-- rating-wrap.// -->
+                            @if ($review->status == 1)
+                                <div class="opinion">
+                                    <h5 class="mt-4">{{ $review->user->name }} {{ $review->user->last_name }}</h5>
+                                    <p>{{ $review->comment }}</p>
+                                    <div class="rating-wrap my-3">
+                                        <ul class="rating-stars">
+                                            <li style="width:{{ ($review->rating * 100) / 5 }}%" class="stars-active">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- rating-wrap.// -->
+                            @endif
                         @endforeach
                     @else
                         <div class="text-center">No hay valoraciones aun</div>

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Brand;
 use App\Models\Detail;
 use App\Models\Image;
 use Illuminate\Support\Facades\Cache;
@@ -46,8 +47,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        $details = Detail::all();
-        return view('admin.products.create', compact('categories','details'));
+        $brands = Brand::pluck('name', 'id');
+        return view('admin.products.create', compact('categories', 'brands'));
     }
 
     /**
@@ -86,7 +87,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        return view('admin.products.edit', compact('product', 'categories'));
+        $brands = Brand::pluck('name', 'id');
+        return view('admin.products.edit', compact('product', 'categories', 'brands'));
     }
 
     /**
@@ -128,7 +130,8 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
     }
 
-    public function deleteImage($id){
+    public function deleteImage($id)
+    {
         $resource = Image::find($id);
         $resource->delete();
         return back();

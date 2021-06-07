@@ -9,6 +9,14 @@ class Brand extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $withCount = ['products'];
+
+    //Relacion uno a muchos
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     //Relaccion uno a uno
     public function image()
     {

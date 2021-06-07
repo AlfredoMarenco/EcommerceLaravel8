@@ -10,6 +10,7 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $withCount = ['products'];
 
     public function products()
     {

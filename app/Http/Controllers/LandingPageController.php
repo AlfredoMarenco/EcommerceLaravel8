@@ -11,13 +11,14 @@ use App\Models\Mosaic;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
 {
     public function index()
     {
-        $categories = Category::pluck('name','id');
+        $categories = Category::pluck('name', 'id');
         $posts = Post::latest('id')->paginate(3);
         $catalogues = Catalogue::latest('id')->paginate(3);
         $sliders = Slider::all();
@@ -25,6 +26,14 @@ class LandingPageController extends Controller
         $cuponfs = Cuponf::all();
         $brands = Brand::all();
         $mosaics = Mosaic::all();
-        return view('bajce.index',compact('categories','posts','catalogues','sliders','buttons','cuponfs','brands','mosaics'));
+        return view('bajce.index', compact('categories', 'posts', 'catalogues', 'sliders', 'buttons', 'cuponfs', 'brands', 'mosaics'));
+    }
+
+
+    public function about()
+    {
+        $brands = Brand::all();
+        $videos = Video::all();
+        return view('bajce.about-us', compact('brands','videos'));
     }
 }
