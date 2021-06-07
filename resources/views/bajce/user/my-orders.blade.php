@@ -27,7 +27,7 @@
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                            this.closest('form').submit();">
+                                                                                                                                                                                                                                                                this.closest('form').submit();">
                                 Cerrar
                                 sesión
                             </a>
@@ -67,7 +67,7 @@
                                                     En camino (Guia #{{ $order->tracker_guide }})
                                                 </a>
                                             @break
-                                            @case('up')
+                                            @case('ups')
                                                 <a href="https://www.ups.com/track?loc=es_MX&requester=ST/" target="_blank"
                                                     class="float-right text-warning mx-2">
                                                     <i class="fas fa-truck-moving"></i>

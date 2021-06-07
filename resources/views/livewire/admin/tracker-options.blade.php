@@ -12,7 +12,7 @@
                         <option value="bajce">Bajce</option>
                         <option value="dhl">DHL</option>
                         <option value="estafeta">Estafeta</option>
-                        <option value="up">UP</option>
+                        <option value="ups">UPS</option>
                     </select>
                     <div class="mx-2 float-right mt-3">
                         <a class="btn btn-danger btn-sm mx-1 " wire:click="cancel">Cancelar</a>
