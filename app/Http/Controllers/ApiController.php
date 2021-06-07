@@ -53,7 +53,7 @@ class ApiController extends Controller
                         'tracker_status' => 'standby'
                     ]);
                 }
-                Mail::to($order->user->email)->send(new OrderShipped($order));
+                /* Mail::to($order->user->email)->send(new OrderShipped($order)); */
                 break;
             case 'charge.failed': //Estado para cargos fallidos
                 $order = Order::where('id_gateway', $id_gateway)->first();
@@ -62,7 +62,7 @@ class ApiController extends Controller
                         'status' => 'charge.failed'
                     ]);
                 }
-                Mail::to($order->user->email)->send(new OrderFailed($order));
+                /* Mail::to($order->user->email)->send(new OrderFailed($order)); */
                 break;
             case 'charge.created': //Estado para referencias de pago paynet
                 $order = Order::where('id_gateway', $id_gateway)->first();
