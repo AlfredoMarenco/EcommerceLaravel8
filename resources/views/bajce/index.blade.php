@@ -52,7 +52,7 @@
                         @if ($mosaic->id == 1)
                             <div class="d-1">
                                 <a href="{{ $mosaic->link }}">
-                                    <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio" alt="">
+                                    <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-1-2.png') }}" @endif class="img-fluid radio" alt="">
                                     <div class="carousel-caption carousel-caption-2">
                                         <h5>{{ $mosaic->text }}</h5>
                                         <p>{!! $mosaic->description !!}</p>
@@ -69,8 +69,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="d-2 mb-3">
                                         <a href="{{ $mosaic->link }}">
-                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                                alt="">
+                                            <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-2-2.png') }}" @endif class="img-fluid radio" alt="">
                                             <div class="carousel-caption carousel-caption-2">
                                                 <h5>{{ $mosaic->text }}</h5>
                                                 <p>{!! $mosaic->description !!}</p>
@@ -85,8 +84,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="d-2 mb-3">
                                         <a href="{{ $mosaic->link }}">
-                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                                alt="">
+                                            <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-3-2.png') }}" @endif class="img-fluid radio" alt="">
                                             <div class="carousel-caption carousel-caption-2">
                                                 <h5>{{ $mosaic->text }}</h5>
                                                 <p>{!! $mosaic->description !!}</p>
@@ -101,8 +99,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="d-2 mb-3">
                                         <a href="{{ $mosaic->link }}">
-                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                                alt="">
+                                            <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-4-2.png') }}" @endif class="img-fluid radio" alt="">
                                             <div class="carousel-caption carousel-caption-2">
                                                 <h5>{{ $mosaic->text }}</h5>
                                                 <p>{!! $mosaic->description !!}</p>
@@ -119,8 +116,7 @@
                                 @if ($mosaic->id == 5)
                                     <div class="col-8 radio">
                                         <a href="{{ $mosaic->link }}">
-                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                                alt="">
+                                            <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-6-2.png') }}" @endif class="img-fluid radio" alt="">
                                             <div class="carousel-caption carousel-caption-2">
                                                 <h5>{{ $mosaic->text }}</h5>
                                                 <p>{!! $mosaic->description !!}</p>
@@ -133,8 +129,7 @@
                                 @if ($mosaic->id == 6)
                                     <div class="col-4 no-cel">
                                         <a href="{{ $mosaic->link }}">
-                                            <img src="{{ Storage::url($mosaic->image->url) }}" class="img-fluid radio"
-                                                alt="">
+                                            <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-5-2.png') }}" @endif class="img-fluid radio" alt="">
                                             <div class="carousel-caption carousel-caption-2">
                                                 <h5>{{ $mosaic->text }}</h5>
                                                 <p>{!! $mosaic->description !!}</p>
@@ -341,7 +336,7 @@
                     <div class="card">
                         <div class="contenido-2">
                             <div class="imagen-producto">
-                                <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
+                                <img @if ($post->image) src="{{ Storage::url($post->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-fluid radio" alt="">
                             </div>
                             <div class="info-producto">
                                 <h5>{{ $post->title }}</h5>
@@ -377,6 +372,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="marcas-logo">
                         <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt="">
+                        <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/playmarket.png') }}" @endif class="img-fluid radio" alt="">
                     </div>
                 </div>
             @endforeach

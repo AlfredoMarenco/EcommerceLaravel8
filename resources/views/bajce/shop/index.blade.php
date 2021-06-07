@@ -131,8 +131,8 @@
                             <div class="col-md-3">
                                 <figure class="card card-product-grid">
                                     <div class="img-wrap">
-                                        <span class="badge badge-danger"> Nuevo </span>
-                                        <a href="{{ route('shop.product', $product) }}"><img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif></a>
+                                        <span class="badge badge-danger"> Nuevo </span><img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                        <a href="{{ route('shop.product', $product) }}"></a>
                                     </div> <!-- img-wrap.// -->
                                     <figcaption class="info-wrap">
                                         <a href="{{ route('shop.product', $product) }}"

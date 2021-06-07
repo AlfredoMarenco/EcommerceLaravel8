@@ -46,7 +46,7 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('success','Categoria agregada de forma exitosa');
+        return redirect()->route('admin.categories.edit', $category)->with('success', 'Categoria agregada de forma exitosa');
     }
 
     /**
@@ -57,7 +57,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -71,7 +71,7 @@ class CategoryController extends Controller
     {
         $category->update($request->all());
 
-        return redirect()->route('admin.categories.edit',$category)->with('updateSuccess' , 'Categoria actualizada con exito!!');
+        return redirect()->route('admin.categories.edit', $category)->with('updateSuccess', 'Categoria actualizada con exito!!');
     }
 
     /**
@@ -82,7 +82,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        return redirect()->route('admin.categories.index');
+        try {
+            $category->delete();
+            return redirect()->route('admin.categories.index');
+        } catch (\Throwable $th) {
+            return back()->withToastError('Categoria vinculada a uno o mas productos');
+        }
     }
 }
