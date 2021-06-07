@@ -175,9 +175,7 @@
                                         @foreach ($order->products as $product)
                                             <tr>
                                                 <td width="85">
-                                                    <a href="{{ route('shop.product', $product) }}"> <img
-                                                            src="{{ Storage::url($product->image->url) }}"
-                                                            class="img-md border">
+                                                    <a href="{{ route('shop.product', $product) }}"> <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-md border">
                                                     </a>
                                                 </td>
                                                 <td>{{--  --}}
