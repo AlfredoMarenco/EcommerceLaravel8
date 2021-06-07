@@ -25,7 +25,6 @@ class CuponFRequest extends FormRequest
     {
         return [
             'text' => 'required',
-            'file' => 'required',
         ];
     }
 }
