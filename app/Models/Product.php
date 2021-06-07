@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    protected $withCount = ['reviews', 'reviews'];
+    protected $withCount = ['reviews'];
 
     const ONLINE = 0;
     const STORE = 1;
@@ -44,6 +44,11 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+    //Relacion uno a muchos inversa la
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 
     //Relacion uno a muchos polimorfica

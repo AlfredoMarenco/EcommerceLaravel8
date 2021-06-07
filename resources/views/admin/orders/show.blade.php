@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Products')
+@section('title', 'Orders')
 
 @section('content_header')
     <h1>Detalles de la compra</h1>
@@ -63,54 +63,52 @@
                             <h5>Order: {{ $order->id }}</h5>
                             @switch($order->status)
                                 @case('charge_pending')
-                                <h4 class="float-center text-warning">
-                                    <i class="fa fa-receipt"></i>
-                                    Pendiente/Tarjeta
-                                </h4>
+                                    <h4 class="float-center text-warning">
+                                        <i class="fa fa-receipt"></i>
+                                        Pendiente/Tarjeta
+                                    </h4>
                                 @break
                                 @case('charge.created')
-                                <h4 class="float-center text-warning">
-                                    <i class="fa fa-receipt"></i>
-                                    Pendiente/Efectivo
-                                </h4>
+                                    <h4 class="float-center text-warning">
+                                        <i class="fa fa-receipt"></i>
+                                        Pendiente/Efectivo
+                                    </h4>
                                 @break
                                 @case('charge.succeeded')
-                                <h4 class="float-center text-success">
-                                    <i class="fa fa-receipt"></i>
-                                    Completada
-                                </h4>
+                                    <h4 class="float-center text-success">
+                                        <i class="fa fa-receipt"></i>
+                                        Completada
+                                    </h4>
+                                    @livewire('admin.tracker-options', ['order' => $order])
                                 @break
                                 @case('charge.refunded')
-                                <h4 class="float-center text-danger">
-                                    <i class="fa fa-receipt"></i>
-                                    Cancelada/Reembolsada
-                                </h4>
-                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                    <h4 class="float-center text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        Cancelada/Reembolsada
+                                    </h4>
+                                    <p>Orden cancelada: {{ $order->updated_at }}</p>
                                 @break
                                 @case('charge.failed')
-                                <h4 class="float-center text-danger">
-                                    <i class="fa fa-receipt"></i>
-                                    Cancelada/Rechazada
-                                </h4>
-                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                    <h4 class="float-center text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        Cancelada/Rechazada
+                                    </h4>
+                                    <p>Orden cancelada: {{ $order->updated_at }}</p>
                                 @break
                                 @case('charge.cancelled')
-                                <h4 class="float-center text-danger">
-                                    <i class="fa fa-receipt"></i>
-                                    Referencia expirada
-                                </h4>
-                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                    <h4 class="float-center text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        Referencia expirada
+                                    </h4>
+                                    <p>Orden cancelada: {{ $order->updated_at }}</p>
                                 @break
                                 @case('charge.expired')
-                                <h4 class="float-center text-danger">
-                                    <i class="fa fa-receipt"></i>
-                                    No autenticado
-                                </h4>
-                                <p>Orden cancelada: {{ $order->updated_at }}</p>
+                                    <h4 class="float-center text-danger">
+                                        <i class="fa fa-receipt"></i>
+                                        No autenticado
+                                    </h4>
+                                    <p>Orden cancelada: {{ $order->updated_at }}</p>
                                 @break
-
-                                @default
-
                             @endswitch
                         </td>
                     </tr>
@@ -140,6 +138,21 @@
                                 </td>
                                 <td clss="text-center">
                                     {{ $product->pivot->quanty }} X ${{ number_format($product->pivot->price, 2) }}
+                                </td>
+                                <td>
+                                    @foreach ($order->reviews as $review)
+                                        @if ($review->product_id == $product->id)
+                                            <div class="opinion">
+                                                <p>{{ $review->comment }}</p>
+                                                <div class="rating-wrap my-1">
+                                                    <i class="text-warning fa fa-star"></i>({{ $review->rating }})
+                                                </div>
+                                                <div>
+                                                    @livewire('admin.reviews-aproved', ['review' => $review])
+                                                </div>
+                                            </div> <!-- rating-wrap.// -->
+                                        @endif
+                                    @endforeach
                                 </td>
                             </tr>
                         @endforeach

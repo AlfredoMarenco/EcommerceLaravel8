@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Admin\RolController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\VideoController;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 Route::get('variants', [VariantController::class, 'index'])->name('admin.variants.index');
@@ -48,4 +49,4 @@ Route::resource('mosaics', MosaicController::class)->except('show')->names('admi
 Route::resource('buttons', ButtonController::class)->except('show')->names('admin.buttons');
 Route::resource('cuponfs', CuponFController::class)->except('show')->names('admin.cuponfs');
 Route::resource('brands', BrandController::class)->except('show')->names('admin.brands');
-Route::resource('details', DetailController::class)->except('show')->names('admin.details');
+Route::resource('videos', VideoController::class)->except('show')->names('admin.videos');

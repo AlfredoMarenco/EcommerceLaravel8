@@ -12,17 +12,19 @@
             <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @foreach ($catalogues as $catalogue)
-                    <li data-target="#carousel1_indicator" data-slide-to="{{ $loop->index }}" @if ($loop->first) class="active" @endif></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="{{ $loop->index }}" @if ($loop->first) class="active" @endif></li>
                     @endforeach
                 </ol>
                 <div class="carousel-inner">
                     @foreach ($catalogues as $catalogue)
                         <div class="carousel-item  @if ($loop->first) active @endif">
-                            <img src="{{ Storage::url($catalogue->image->url) }}" alt="{{ $catalogue->name }}">
+                            <img src="{{ Storage::url($catalogue->image->url) }}" alt="{{ $catalogue->name }}"
+                                style="width: 100%; max-height: 500px;">
                             <div class="carousel-caption carousel-caption-3 d-md-block">
                                 <h1>Catálogo de <br>
                                     {{ $catalogue->name }}</h1>
-                                <a href="{{ route('catalogue.products',$catalogue->category_id) }}" class="btn btn-primary">Ver catálogo</a>
+                                <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
+                                    class="btn btn-primary">Ver catálogo</a>
                             </div>
                         </div>
                     @endforeach

@@ -41,7 +41,7 @@ class ApiController extends Controller
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
-                        'status' => 'charge.refunded'
+                        'status' => 'charge.refunded',
                     ]);
                 }
                 break;
@@ -49,7 +49,8 @@ class ApiController extends Controller
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
-                        'status' => 'charge.succeeded'
+                        'status' => 'charge.succeeded',
+                        'tracker_status' => 'standby'
                     ]);
                 }
                 Mail::to($order->user->email)->send(new OrderShipped($order));

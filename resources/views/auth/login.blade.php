@@ -36,3 +36,7 @@
     <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
 
 @endsection
+
+@section('js')
+    @include('sweetalert::alert')
+@endsection

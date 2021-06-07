@@ -17,23 +17,8 @@
             <!-- ============================ FILTER TOP END.// ================================= -->
             <div class="row">
                 <aside class="col-md-2">
-                    <form action="">
-                        {{-- <article class="filter-group">
-                            <h6 class="title">
-                                <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1"> Tipo
-                                    de
-                                    producto </a>
-                            </h6>
-                            <div class="filter-content collapse show" id="collapse_1">
-                                <div class="inner">
-                                    <ul class="list-menu">
-                                        @foreach ($categories as $category)
-                                            <li><a href="#">{{ $category->name }} </a></li>
-                                        @endforeach
-                                    </ul>
-                                </div> <!-- inner.// -->
-                            </div>
-                        </article> --}}
+                    <form action="{{ route('shop.products.filter') }}" method="POST">
+                        @csrf
                         <article class="filter-group">
                             <h6 class="title">
                                 <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1">
@@ -43,12 +28,16 @@
                             <div class="filter-content collapse show" id="collapse_1">
                                 <div class="inner">
                                     @foreach ($categories as $category)
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="categories[]" class="custom-control-input">
-                                            <div class="custom-control-label">{{ $category->name }}
-                                                {{-- <b class="badge badge-pill badge-light float-right"></b> --}}
-                                            </div>
-                                        </label>
+                                        @if ($category->products_count > 0)
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="categories[]" class="custom-control-input"
+                                                    value="{{ $category->id }}">
+                                                <div class="custom-control-label">{{ $category->name }}
+                                                    <b
+                                                        class="badge badge-pill badge-light float-right">{{ $category->products_count }}</b>
+                                                </div>
+                                            </label>
+                                        @endif
                                     @endforeach
                                 </div> <!-- inner.// -->
                             </div>
@@ -61,12 +50,16 @@
                             <div class="filter-content collapse show" id="collapse_2">
                                 <div class="inner">
                                     @foreach ($brands as $brand)
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="brands[]" class="custom-control-input">
-                                            <div class="custom-control-label">{{ $brand->name }}
-                                                {{-- <b class="badge badge-pill badge-light float-right"></b> --}}
-                                            </div>
-                                        </label>
+                                        @if ($brand->products_count > 0)
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="brands[]" class="custom-control-input"
+                                                    value="{{ $brand->id }}">
+                                                <div class="custom-control-label">{{ $brand->name }}
+                                                    <b
+                                                        class="badge badge-pill badge-light float-right">{{ $brand->products_count }}</b>
+                                                </div>
+                                            </label>
+                                        @endif
                                     @endforeach
                                 </div> <!-- inner.// -->
                             </div>
@@ -83,11 +76,13 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Min</label>
-                                            <input class="form-control" placeholder="$0" type="number">
+                                            <input class="form-control" name="price_min" value="1" placeholder="$0"
+                                                type="number">
                                         </div>
                                         <div class="form-group text-right col-md-6">
                                             <label>Max</label>
-                                            <input class="form-control" placeholder="$1,000" type="number">
+                                            <input class="form-control" name="price_max" value="99999" placeholder="$1,000"
+                                                type="number">
                                         </div>
                                     </div> <!-- form-row.// -->
                                 </div> <!-- inner.// -->
@@ -103,25 +98,26 @@
                             <div class="filter-content collapse show" id="collapse_5">
                                 <div class="inner">
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                                        <input type="radio" name="condition" checked="true" value="0"
+                                            class="custom-control-input">
                                         <div class="custom-control-label">Todo</div>
                                     </label>
 
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                        <input type="radio" name="condition" value="1" class="custom-control-input">
                                         <div class="custom-control-label">Precio especial</div>
                                     </label>
                                 </div> <!-- inner.// -->
                             </div>
                         </article> <!-- filter-group .// -->
-                        <button class="btn btn-block btn-primary">Aplicar</button>
+                        <button type="submit" class="btn btn-block btn-primary">Aplicar</button>
                     </form>
                 </aside> <!-- col.// -->
 
                 <main class="col-md-10">
                     <header class="mb-3">
                         <div class="form-inline">
-                            <strong class="mr-md-auto">{{ $products->total() }} Productos encontrados </strong>
+                            <strong class="mr-md-auto">{{ $products->count() }} Productos encontrados </strong>
                             <select class="mr-2 form-control">
                                 <option>Más recientes</option>
                                 <option>Mejor Calificación</option>
@@ -150,7 +146,8 @@
                                         <div class="rating-wrap my-3">
                                             <ul class="rating-stars">
 
-                                                <li style="width:{{ ($product->rating*100)/(5) }}%" class="stars-active">
+                                                <li style="width:{{ ($product->rating * 100) / 5 }}%"
+                                                    class="stars-active">
                                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -161,12 +158,14 @@
                                                     <i class="fa fa-star"></i>
                                                 </li>
                                             </ul>
-                                            <small class="label-rating text-muted">132 Opiniones</small>
+                                            <small class="label-rating text-muted">{{ $product->reviews_count }}
+                                                Opiniones</small>
                                         </div> <!-- rating-wrap.// -->
                                         <hr>
                                         <p class="mb-3">
                                             <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                            @if ($product->garantia_visible == 1)<span class="tag"> {{ $product->garantia }} garantía </span> @endif
+                                            @if ($product->garantia_visible == 1)<span
+                                                    class="tag"> {{ $product->garantia }} garantía </span> @endif
                                         </p>
                                         <form action="{{ route('cart.addItems', $product) }}" method="POST">
                                             @csrf

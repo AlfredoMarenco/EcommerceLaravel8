@@ -359,7 +359,6 @@
 
 
     <section id="marcas">
-
         <div class="cabecera-marcas">
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                 Marcas con las que trabajamos

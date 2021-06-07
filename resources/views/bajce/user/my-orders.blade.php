@@ -25,8 +25,10 @@
                         {{-- <a class="list-group-item" href="#"> Ayuda </a> --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                                this.closest('form').submit();"> Cerrar
+                            <a class="list-group-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                                                                                                                                                                                                                this.closest('form').submit();">
+                                Cerrar
                                 sesión
                             </a>
                         </form>
@@ -36,6 +38,52 @@
                     @foreach ($orders as $order)
                         <article class="card mb-4">
                             <header class="card-header">
+                                @switch($order->tracker_status)
+                                    @case('standby')
+                                        <a href="#" class="float-right text-danger mx-2">
+                                            <i class="fas fa-truck-moving"></i>
+                                            No enviada
+                                        </a>
+                                    @break
+                                    @case('sending')
+                                        @switch($order->tracker_company)
+                                            @case('bajce')
+                                                <a href="#" class="float-right text-warning mx-2">
+                                                    <i class="fas fa-truck-moving"></i>
+                                                    En camino (No rastreable)
+                                                </a>
+                                            @break
+                                            @case('dhl')
+                                                <a href="https://www.dhl.com/mx-es/home/tracking/tracking-express.html?submit=1&tracking-id={{ $order->tracker_guide }}"
+                                                    target="_blank" class="float-right text-warning mx-2">
+                                                    <i class="fas fa-truck-moving"></i>
+                                                    En camino (Guia #{{ $order->tracker_guide }})
+                                                </a>
+                                            @break
+                                            @case('estafeta')
+                                                <a href="https://www.estafeta.com/Herramientas/Rastreo" target="_blank"
+                                                    class="float-right text-warning mx-2">
+                                                    <i class="fas fa-truck-moving"></i>
+                                                    En camino (Guia #{{ $order->tracker_guide }})
+                                                </a>
+                                            @break
+                                            @case('ups')
+                                                <a href="https://www.ups.com/track?loc=es_MX&requester=ST/" target="_blank"
+                                                    class="float-right text-warning mx-2">
+                                                    <i class="fas fa-truck-moving"></i>
+                                                    En camino (Guia #{{ $order->tracker_guide }})
+                                                </a>
+                                            @break
+                                        @endswitch
+                                    @break
+                                    @case('complete')
+                                        <a href="#" class="float-right text-success mx-2">
+                                            <i class="fas fa-truck-moving"></i>
+                                            Entregada
+                                        </a>
+                                    @break
+
+                                @endswitch
                                 @switch($order->status)
                                     @case('charge_pending')
                                         <a href="#" class="float-right text-warning">
@@ -82,6 +130,7 @@
                                     @default
 
                                 @endswitch
+
                                 <strong class="d-inline-block mr-3">Orden ID: {{ $order->id }}</strong>
                                 <span>{{ $order->created_at->toDayDateTimeString() }}</span>
                             </header>
@@ -121,23 +170,60 @@
                                 </div> <!-- row.// -->
                             </div> <!-- card-body .// -->
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table">
                                     <tbody>
                                         @foreach ($order->products as $product)
                                             <tr>
-
                                                 <td width="85">
                                                     <a href="{{ route('shop.product', $product) }}"> <img
                                                             src="{{ Storage::url($product->image->url) }}"
                                                             class="img-md border">
                                                     </a>
                                                 </td>
-                                                <td>
+                                                <td>{{--  --}}
                                                     <p class="title mb-0">{{ $product->name }} </p>
                                                     <p class="title mb-0">SKU: {{ $product->SKU }} </p>
                                                     <p class="title mb-0">Cantidad: {{ $product->pivot->quanty }}
                                                     </p>
                                                     <var class="price text-muted">${{ $product->pivot->price }}</var>
+                                                </td>
+                                                <td>
+                                                    @if ($order->tracker_status == 'complete')
+                                                        @if ($order->reviews->count() > 0)
+                                                            @foreach ($order->reviews as $review)
+                                                                @if ($review->product_id == $product->id)
+                                                                    <div class="opinion">
+                                                                        <h5 class="mt-4">{{ $review->user->name }}
+                                                                            {{ $review->user->last_name }}</h5>
+                                                                        <p>{{ $review->comment }}</p>
+                                                                        <div class="rating-wrap my-3">
+                                                                            <ul class="rating-stars">
+                                                                                <li style="width:{{ ($review->rating * 100) / 5 }}%"
+                                                                                    class="stars-active">
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                    <i class="fa fa-star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div> <!-- rating-wrap.// -->
+
+                                                                @endif
+                                                            @endforeach
+                                                        @else
+                                                            @livewire('products-reviews', ['product' => $product,'order' =>
+                                                            $order])
+                                                        @endif
+                                                    @endif
                                                 </td>
                                                 {{-- <td> Vendedor <br> Grupo Bajce </td> --}}
                                             </tr>
@@ -156,3 +242,12 @@
 
 
 @endsection
+
+
+@section('css')
+@livewireStyles
+@stop
+
+@section('js')
+@livewireScripts
+@stop

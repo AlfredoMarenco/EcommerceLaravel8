@@ -23,9 +23,9 @@ class TableOrders extends Component
     public function render()
     {
         return view('livewire.admin.table-orders', [
-            'orders' => Order::whereHas('user',function(Builder $query){
-                $query->where('name','like','%'.$this->search.'%');
-            })->orWhere('id',$this->search)->paginate($this->paginate),
+            'orders' => Order::whereHas('user', function (Builder $query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })->orWhere('id', $this->search)->latest('id')->paginate($this->paginate),
         ]);
     }
 }

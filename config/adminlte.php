@@ -257,7 +257,7 @@ return [
             'route' => 'admin.coupons.index',
             'icon'  => 'fas fa-fw fa-percent',
         ],
-/*         [
+        /*         [
             'text' => 'Detalles de productos',
             'route' => 'admin.details.index',
             'icon'  => 'fas fa-fw fa-align-justify',
@@ -352,6 +352,11 @@ return [
             'text' => 'Marcas',
             'route'  => 'admin.brands.index',
             'icon'  => 'fab fa-bandcamp',
+        ],
+        [
+            'text' => 'Videos',
+            'route'  => 'admin.videos.index',
+            'icon'  => 'fab fa-youtube',
         ],
 
         /*  ['header' => 'GALERIA'],

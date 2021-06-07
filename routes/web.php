@@ -84,12 +84,14 @@ Route::get('/mailable', function () {
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
+route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
 
 //Rutas Tienda
 Route::prefix('/shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
     Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+    Route::post('/products/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
 });
 
 //Rutas Catalogo
@@ -145,6 +147,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
     Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
     Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
+    Route::post('/updateInformationProfile', [UserController::class, 'updateInformationProfile'])->name('user.update.profile');
 });
 
 //Rutas de login con redes sociales
@@ -240,9 +243,7 @@ route::get('/detalle-producto', function () {
     return view('bajce.catalog.product');
 });
 // Nosotros
-route::get('/nosotros', function () {
-    return view('bajce.about-us');
-});
+
 
 // Mis órdenes
 route::get('/mis-ordenes', function () {
