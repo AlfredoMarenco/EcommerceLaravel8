@@ -39,6 +39,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="text-center">
+            <img src="{{ asset('images/icons/mosaico.png') }}" class="img-fluid">
+        </div>
         <div class="d-flex flex-row-reverse">
             {{ $mosaics->links() }}
         </div>
