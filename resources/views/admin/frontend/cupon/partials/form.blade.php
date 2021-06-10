@@ -16,7 +16,7 @@
     <div class="form-group col-md-12">
         {!! Form::label('link', 'Link de redireccionamiento') !!}
         {!! Form::text('link', null, ['class' => 'form-control', 'placeholder' => 'Url']) !!}
-        @error('text')
+        @error('link')
             <small class="text-danger">{{ $message }}</small>
         @enderror
     </div>

@@ -15,7 +15,7 @@ class CreateCuponfsTable extends Migration
     {
         Schema::create('cuponfs', function (Blueprint $table) {
             $table->id();
-            $table->string('text');
+            $table->string('text')->nullable();
             $table->timestamps();
         });
     }

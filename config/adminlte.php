@@ -45,9 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>.</b>',
-    'logo_img' => 'images/misc/logo-bajce-vrd.png',
-    'logo_img_class' => '',
+    'logo' => '<b></b>',
+    'logo_img' => 'images/misc/logo-bajce-bco.png',
+    'logo_img_class' => 'img-fluid w-75',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
