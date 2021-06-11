@@ -76,7 +76,7 @@ Route::get('/condiciones-de-uso', function(){
 
 
 Route::get('/mailable', function () {
-    $order = Order::find(405);
+    $order = Order::find(1002);
 
     return new OrderFailed($order);
 });
