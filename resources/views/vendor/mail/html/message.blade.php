@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            <img src="{{ asset('template/images/rene/logo-nav.png') }}">
+            <img src="{{ asset('images/misc/logo-bajce-vrd.png') }}">
         @endcomponent
     @endslot
 
@@ -27,11 +27,11 @@
             <strong style="color:black;">Visita nuestras redes sociales</strong><br>
             <div class="social-icons">
                 <a href="https://www.facebook.com/Bajcegrupo/"> <img width="30px"
-                        src="{{ asset('template/images/icons/facebook.png') }}" alt=""></a>
+                        src="{{ asset('images/icons/facebook.png') }}" alt=""></a>
                 <a href="https://twitter.com/grupobajce"> <img width="30px"
-                        src="{{ asset('template/images/icons/instagram.png') }}" alt=""></a>
+                        src="{{ asset('images/icons/instagram.png') }}" alt=""></a>
                 <a href="https://twitter.com/grupobajce"> <img width="30px"
-                        src="{{ asset('template/images/icons/signo-de-twitter.png') }}" alt=""></a>
+                        src="{{ asset('/images/icons/signo-de-twitter.png') }}" alt=""></a>
             </div>
         </center>
         @component('mail::footer')
