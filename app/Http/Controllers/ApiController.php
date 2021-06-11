@@ -51,11 +51,11 @@ class ApiController extends Controller
                     if ($order->tracker_status != 'standby') {
                         $order->update([
                             'status' => 'charge.succeeded',
-                            'tracker_status' => 'standby'
                         ]);
                     } else {
                         $order->update([
                             'status' => 'charge.succeeded',
+                            'tracker_status' => 'standby'
                         ]);
                     }
                 }

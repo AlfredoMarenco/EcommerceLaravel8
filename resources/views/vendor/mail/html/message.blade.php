@@ -33,8 +33,6 @@
                 <a href="https://twitter.com/FashionAlonso"> <img width="30px"
                         src="{{ asset('template/images/icons/signo-de-twitter.png') }}" alt=""></a>
             </div>
-
-
         </center>
         @component('mail::footer')
             © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
