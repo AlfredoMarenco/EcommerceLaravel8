@@ -72,7 +72,7 @@ Route::get('/condiciones-de-uso', function(){
     return view('politicas.condiciones');
     })->name('condiciones-de-uso');
 
-
+*/
 
 
 Route::get('/mailable', function () {
@@ -80,7 +80,7 @@ Route::get('/mailable', function () {
 
     return new OrderFailed($order);
 });
- */
+
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');

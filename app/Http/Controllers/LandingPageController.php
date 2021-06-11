@@ -19,7 +19,7 @@ class LandingPageController extends Controller
     public function index()
     {
         $categories = Category::pluck('name', 'id');
-        $posts = Post::latest('id')->paginate(3);
+        $posts = Post::where('status', 'like', '3')->latest('id')->paginate(3);
         $catalogues = Catalogue::latest('id')->paginate(3);
         $sliders = Slider::all();
         $buttons = Button::all();
