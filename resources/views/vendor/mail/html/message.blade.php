@@ -26,11 +26,11 @@
             <br>
             <strong style="color:black;">Visita nuestras redes sociales</strong><br>
             <div class="social-icons">
-                <a href="https://www.facebook.com/Rene-Alonsomx-103679577867663"> <img width="30px"
+                <a href="https://www.facebook.com/Bajcegrupo/"> <img width="30px"
                         src="{{ asset('template/images/icons/facebook.png') }}" alt=""></a>
-                <a href="https://www.instagram.com/renealonso.mx/"> <img width="30px"
+                <a href="https://twitter.com/grupobajce"> <img width="30px"
                         src="{{ asset('template/images/icons/instagram.png') }}" alt=""></a>
-                <a href="https://twitter.com/FashionAlonso"> <img width="30px"
+                <a href="https://twitter.com/grupobajce"> <img width="30px"
                         src="{{ asset('template/images/icons/signo-de-twitter.png') }}" alt=""></a>
             </div>
         </center>
