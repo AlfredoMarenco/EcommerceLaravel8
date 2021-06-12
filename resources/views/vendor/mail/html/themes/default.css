@@ -309,6 +309,7 @@ img {
 
 .social-icons img {
     margin: 0 2px 0 2px;
+    text-align: center;
     width: 20%;
 }
 
