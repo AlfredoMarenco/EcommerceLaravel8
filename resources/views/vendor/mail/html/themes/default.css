@@ -305,11 +305,11 @@ img {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    text-align: center;
 }
 
 .social-icons img {
     margin: 0 2px 0 2px;
-    text-align: center;
     width: 20%;
 }
 
