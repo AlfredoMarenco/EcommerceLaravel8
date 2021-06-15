@@ -1,6 +1,7 @@
 @component('mail::message')
 <div class="order">
 <h1>Confirmacion de orden</h1>
+<br>
 <p>Orden:<strong> {{ $order->id }}</strong></p>
 </div>
 ¡Hola {{ $order->user->name }}!

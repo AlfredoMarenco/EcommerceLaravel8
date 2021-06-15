@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('css')
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>

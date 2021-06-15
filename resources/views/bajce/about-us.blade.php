@@ -1,8 +1,6 @@
 @extends('layouts.bajce')
-
+@section('title', 'Nosotros')
 @section('content')
-
-
     <section id="header-nosotros">
         <div class="container">
             <div class="bg-nosotros">

@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Usuario')
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->

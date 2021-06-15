@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content bg-white padding-y">

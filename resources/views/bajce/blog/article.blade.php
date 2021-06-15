@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Blog')
 @section('content')
 
     <section id="interior-entrada">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endif
                 @endforeach
             </div>

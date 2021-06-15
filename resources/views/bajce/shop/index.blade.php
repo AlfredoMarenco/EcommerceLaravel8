@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
     {{-- @livewire('products',['category_id' => $category_id]) --}}
     <section class="section-content padding-y">
