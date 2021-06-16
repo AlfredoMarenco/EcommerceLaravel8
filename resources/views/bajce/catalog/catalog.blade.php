@@ -1,13 +1,9 @@
 @extends('layouts.bajce')
 @section('title', 'Catalogo')
 @section('content')
-
-
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content padding-y">
         <div class="container">
-
-
             <!-- ============================  FILTER TOP  ================================= -->
             <div class="card mb-3">
                 <div class="card-body">
@@ -19,8 +15,6 @@
                 </div> <!-- card-body .// -->
             </div> <!-- card.// -->
             <!-- ============================ FILTER TOP END.// ================================= -->
-
-
             <div class="row">
                 <aside class="col-md-2">
                     <form action="{{ route('catalogue.products.filter') }}" method="POST">
@@ -122,7 +116,7 @@
                 <main class="col-md-10">
 
 
-                    <header class="mb-3">
+                    {{-- <header class="mb-3">
                         <div class="form-inline">
                             <strong class="mr-md-auto">{{ $products->total() }} productos encontrados</strong>
                             <select class="mr-2 form-control">
@@ -130,7 +124,8 @@
                                 <option>Menos recientes</option>
                             </select>
                         </div>
-                    </header><!-- sect-heading -->
+                    </header> --}}
+                    <!-- sect-heading -->
                     @foreach ($products as $product)
                         <article class="card card-product-list">
                             <div class="row no-gutters">
@@ -148,14 +143,9 @@
 
                                         <p class="mb-3">
                                             <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                            <span class="tag"> Barniz </span>
-                                            <span class="tag"> Entrega a domicilio </span>
                                         </p>
 
-                                        <p> Take it as demo specs, ipsum dolor sit amet, consectetuer adipiscing elit, Lorem
-                                            ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim sint
-                                            occaecat cupidatat non
-                                            proident, sunt in culpa qui laborum.... </p>
+                                        <p>{!! $product->extract !!} </p>
 
                                     </div> <!-- info-main.// -->
                                 </div> <!-- col.// -->

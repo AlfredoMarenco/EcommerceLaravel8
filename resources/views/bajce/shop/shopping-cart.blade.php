@@ -16,7 +16,7 @@
                                         <th scope="col">Producto</th>
                                         <th scope="col" width="120">Cantidad</th>
                                         <th scope="col" width="120">Precio</th>
-                                        <th scope="col" class="text-right" width="200"> </th>
+                                        <th scope="col" class="text-right" width="200"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -24,12 +24,12 @@
                                         <tr>
                                             <td>
                                                 <figure class="itemside">
-                                                    <div class="aside">{{-- <img
-                                                            src="{{ Storage::url($product->model->image->url) }}"
-                                                            class="img-sm"> --}}
-                                                            <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm"></div>
+                                                    <div class="aside">
+                                                        <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
+                                                    </div>
                                                     <figcaption class="info">
-                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
+                                                        <a href="{{ route('shop.product',$product->id) }}"
+                                                            class="title text-dark">{{ $product->name }}</a>
                                                         <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
                                                             Garantía: 2 años</p>
                                                     </figcaption>

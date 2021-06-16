@@ -115,31 +115,31 @@
                 </aside> <!-- col.// -->
 
                 <main class="col-md-10">
-                    {{-- <header class="mb-3">
-                        <div class="form-inline">
-                            <strong class="mr-md-auto">{{ $products->count() }} Productos encontrados </strong>
-                            <select class="mr-2 form-control">
-                                <option>Más recientes</option>
-                                <option>Mejor Calificación</option>
-                                <option>Más econónimos</option>
-                            </select>
-                        </div>
-                    </header><!-- sect-heading --> --}}
-
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-md-3">
                                 <figure class="card card-product-grid">
                                     <div class="img-wrap">
-                                        <span class="badge badge-danger"> Nuevo </span><img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                        @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
+                                            <span class="badge badge-danger"> Nuevo </span>
+                                        @endif
+                                        <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                         <a href="{{ route('shop.product', $product) }}"></a>
                                     </div> <!-- img-wrap.// -->
                                     <figcaption class="info-wrap">
                                         <a href="{{ route('shop.product', $product) }}"
                                             class="title mb-2">{{ $product->name }}</a>
                                         <div class="price-wrap">
-                                            <span class="price">{{ $product->presentPrice() }}</span>
-                                            <small class="text-muted">/ pza</small>
+                                            @if ($product->discount)
+                                                <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                                <small class="text-muted">/</small>
+                                                <span
+                                                    class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                                <small class="text-muted">/ pza</small>
+                                            @else
+                                                <span class="price">{{ $product->presentPrice() }}</span>
+                                                <small class="text-muted">/ pza</small>
+                                            @endif
                                             <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                         </div> <!-- price-wrap.// -->
                                         <div class="rating-wrap my-3">
