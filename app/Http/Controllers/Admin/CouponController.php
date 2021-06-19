@@ -40,14 +40,14 @@ class CouponController extends Controller
             $coupon = Coupon::create([
                 'code' => $request->code,
                 'type' => $request->type,
-                'value' => $request->value,
+                'value' => $request->discount,
                 'status' => $request->status
             ]);
         } else {
             $coupon = Coupon::create([
                 'code' => $request->code,
                 'type' => $request->type,
-                'percent_off' => $request->value,
+                'percent_off' => $request->discount,
                 'status' => $request->status
             ]);
         }

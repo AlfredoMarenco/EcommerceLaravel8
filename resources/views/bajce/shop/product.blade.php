@@ -22,7 +22,7 @@
                         @foreach ($product->images as $image)
                             <li data-thumb="{{ Storage::url($image->url) }}">
                                 {{-- <img src="{{ Storage::url($image->url) }}"> --}}
-                                <img  @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <img @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </li>
                         @endforeach
                     </ul>
@@ -83,18 +83,23 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
                                     </button>
-                                    <a href="#" class="btn btn-success mx-3">
-                                        <i class="fas fa-shopping-basket"></i><span class="text">Comprar</span>
-                                    </a>
-                                </div>
-                                <!-- col.// -->
-                            </div> <!-- row.// -->
                         </form>
-                    </article> <!-- product-info-aside .// -->
-                </main> <!-- col.// -->
-            </div> <!-- row.// -->
+                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                            @csrf
+                            <input type="hidden" readonly="true" name="redirect" value="1">
+                            <input type="hidden" readonly="true" name="qty" value="1">
+                            <button class="btn btn-success mx-3">
+                                <i class="fas fa-shopping-basket"></i><span class="text">Comprar ahora</span>
+                            </button>
+                        </form>
+            </div>
+            <!-- col.// -->
+        </div> <!-- row.// -->
+        </article> <!-- product-info-aside .// -->
+        </main> <!-- col.// -->
+        </div> <!-- row.// -->
 
-            <!-- ================ ITEM DETAIL END .// ================= -->
+        <!-- ================ ITEM DETAIL END .// ================= -->
 
 
         </div> <!-- container .//  -->
@@ -211,7 +216,7 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <img  @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="#" class="title mb-2">{{ $product->name }}</a>

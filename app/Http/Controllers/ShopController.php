@@ -25,7 +25,7 @@ class ShopController extends Controller
     //Mostramos un producto en especifico
     public function showProduct(Product $product)
     {
-        $products = Product::inRandomOrder()->paginate(4);
+        $products = Product::where('type', 0)->inRandomOrder()->paginate(4);
         $reviews = $product->reviews()->latest()->paginate(3);
         return view('bajce.shop.product', compact('product', 'products', 'reviews'));
     }
@@ -45,7 +45,7 @@ class ShopController extends Controller
     //Mostrámos la vista del carrito
     public function cart()
     {
-        $products = Product::inRandomOrder()->paginate(4);
+        $products = Product::where('type', 0)->inRandomOrder()->paginate(4);
         return view('bajce.shop.shopping-cart', compact('products'));
     }
 
@@ -100,8 +100,13 @@ class ShopController extends Controller
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
         }
-        return back();
+        if ($request->redirect == '1') {
+            return redirect()->route('checkout.index');
+        } else {
+            return back();
+        }
     }
+
     //Funcion para agregar un productos a la wishlist
     public function addItemToWishlist($product)
     {
@@ -175,7 +180,7 @@ class ShopController extends Controller
     //Funcion aplicacion de cupon de descuento
     public function applyCoupon(Request $request)
     {
-        $coupon = Coupon::where('code', $request->coupon)->first();
+        $coupon = Coupon::where('code', $request->coupon)->where('status', 1)->first();
         if ($coupon) {
             if ($coupon->type == 'fixed') {
                 $total = str_replace(',', '', Cart::instance('default')->total());

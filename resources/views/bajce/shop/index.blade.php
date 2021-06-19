@@ -28,13 +28,13 @@
                             <div class="filter-content collapse show" id="collapse_1">
                                 <div class="inner">
                                     @foreach ($categories as $category)
-                                        @if ($category->products_count > 0)
+                                        @if ($category->products->where('type', 0)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="categories[]" class="custom-control-input"
                                                     value="{{ $category->id }}">
                                                 <div class="custom-control-label">{{ $category->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $category->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $category->products->where('type', 0)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -50,13 +50,13 @@
                             <div class="filter-content collapse show" id="collapse_2">
                                 <div class="inner">
                                     @foreach ($brands as $brand)
-                                        @if ($brand->products_count > 0)
+                                        @if ($brand->products->where('type', 0)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="brands[]" class="custom-control-input"
                                                     value="{{ $brand->id }}">
                                                 <div class="custom-control-label">{{ $brand->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $brand->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $brand->products->where('type', 0)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -123,15 +123,17 @@
                                         @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
                                             <span class="badge badge-danger"> Nuevo </span>
                                         @endif
-                                        <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
-                                        <a href="{{ route('shop.product', $product) }}"></a>
+                                        <a href="{{ route('shop.product', $product) }}">
+                                            <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                        </a>
                                     </div> <!-- img-wrap.// -->
                                     <figcaption class="info-wrap">
                                         <a href="{{ route('shop.product', $product) }}"
                                             class="title mb-2">{{ $product->name }}</a>
                                         <div class="price-wrap">
                                             @if ($product->discount)
-                                                <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                                <strike
+                                                    class="price text-warning">{{ $product->presentPrice() }}</strike>
                                                 <small class="text-muted">/</small>
                                                 <span
                                                     class="price text-success">{{ $product->presentPriceDiscount() }}</span>

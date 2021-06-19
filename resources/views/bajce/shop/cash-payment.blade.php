@@ -11,12 +11,13 @@
     <!-- ========================= SECTION CONTENT ========================= -->
     @if (Cart::count())
         <section class="section-content padding-y">
-            <div class="container mb-3 mt-5 py-3">
+            <div class="container mb-3 mt-5">
                 <div class="row">
                     <main class="col-md-8 mx-auto">
                         <div class="card p-5">
                             <h4>Dirección de envio</h4>
-                            <form action="{{ route('checkout.storeOpenpay') }}" method="POST" role="form" id="payment-form">
+                            <form action="{{ route('checkout.storeOpenpay') }}" method="POST" role="form"
+                                id="payment-form">
                                 @csrf
                                 {{-- Start Adress Shipping --}}
                                 <div class="row mb-3">
@@ -60,6 +61,85 @@
                             </form>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->
+                    <aside class="col-md-3">
+                        @if (Cart::discount() <= 0 && Cart::instance('default')->count() > 0)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <form action="{{ route('cart.applyCoupon') }}" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label>¿Tienes un cupón?</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="coupon"
+                                                    placeholder="Código de cupón">
+                                                <span class="input-group-append">
+                                                    <button type="submit" class="btn btn-primary">Aplicar</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div> <!-- card-body.// -->
+                            </div> <!-- card .// -->
+                        @endif
+                        <div class="card">
+                            <div class="card-body">
+                                @if (Cart::instance('default')->count() > 0)
+                                    <dl class="dlist-align">
+                                        <h6>Total a pagar en linea</h6>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Precio total:</dt>
+                                        @if (Cart::discount() < 0)
+                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                        @else
+                                            @php
+                                                $subtotal = str_replace(',', '', Cart::instance('default')->subtotal());
+                                                $discount = str_replace(',', '', Cart::discount());
+                                                $subtotal = $subtotal + $discount;
+                                            @endphp
+                                            <dd class="text-right">${{ number_format($subtotal, 2) }} MXN</dd>
+                                        @endif
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Descuento:</dt>
+                                        @if (Cart::discount() > 0)
+                                            <dd class="text-right">
+                                                $-{{ Cart::discount(2, '.', ',') }} MXN
+                                                <small><a href="{{ route('cart.deleteCoupon') }}">Eliminar</a></small>
+                                            </dd>
+                                        @else
+                                            <dd class="text-right">${{ Cart::discount(2, '.', ',') }} MXN</dd>
+                                        @endif
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Total:</dt>
+                                        <dd class="text-right  h5"><strong>${{ Cart::instance('default')->total() }}
+                                                MXN</strong></dd>
+                                    </dl>
+                                    <hr>
+                                @endif
+                                @if (Cart::instance('wishlist')->count() > 0)
+                                    <dl class="dlist-align">
+                                        <h6>Cotizacion de productos del catálogo</h6>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Precio total:</dt>
+                                        <dd class="text-right">${{ Cart::instance('wishlist')->subtotal() }} MXN</dd>
+                                    </dl>
+                                    {{-- <dl class="dlist-align">
+                                <dt>Descuento:</dt>
+                                <dd class="text-right">MXN 120</dd>
+                            </dl> --}}
+                                    <dl class="dlist-align">
+                                        <dt>Total:</dt>
+                                        <dd class="text-right  h5"><strong>${{ Cart::instance('wishlist')->total() }}
+                                                MXN</strong></dd>
+                                    </dl>
+                                    <hr>
+                                @endif
+                            </div> <!-- card-body.// -->
+                        </div> <!-- card .// -->
+                    </aside> <!-- col.// -->
                 </div>
             </div> <!-- container .//  -->
         </section>

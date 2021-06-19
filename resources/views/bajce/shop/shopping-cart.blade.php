@@ -28,7 +28,7 @@
                                                         <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
                                                     </div>
                                                     <figcaption class="info">
-                                                        <a href="{{ route('shop.product',$product->id) }}"
+                                                        <a href="{{ route('shop.product', $product->id) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
                                                             Garantía: 2 años</p>
@@ -101,7 +101,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
                             <div class="card-body border-top">
                                 @if (Cart::instance('default')->count() > 0)
                                     <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
@@ -115,10 +114,10 @@
                                 </a>
                             </div>
                         </div> <!-- card.// -->
-
                     </main> <!-- col.// -->
+
                     <aside class="col-md-3">
-                        @if (Cart::discount() <= 0)
+                        @if (Cart::discount() <= 0 && Cart::instance('default')->count() > 0)
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <form action="{{ route('cart.applyCoupon') }}" method="post">
@@ -134,7 +133,6 @@
                                             </div>
                                         </div>
                                     </form>
-
                                 </div> <!-- card-body.// -->
                             </div> <!-- card .// -->
                         @endif

@@ -28,13 +28,13 @@
                             <div class="filter-content collapse show" id="collapse_1">
                                 <div class="inner">
                                     @foreach ($categories as $category)
-                                        @if ($category->products_count > 0)
+                                        @if ($category->products->where('type', 1)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="categories[]" class="custom-control-input"
                                                     value="{{ $category->id }}">
                                                 <div class="custom-control-label">{{ $category->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $category->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $category->products->where('type', 1)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -50,13 +50,13 @@
                             <div class="filter-content collapse show" id="collapse_2">
                                 <div class="inner">
                                     @foreach ($brands as $brand)
-                                        @if ($brand->products_count > 0)
+                                        @if ($brand->products->where('type', 1)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="brands[]" class="custom-control-input"
                                                     value="{{ $brand->id }}">
                                                 <div class="custom-control-label">{{ $brand->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $brand->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $brand->products->where('type', 1)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -114,18 +114,6 @@
                     </form>
                 </aside> <!-- col.// -->
                 <main class="col-md-10">
-
-
-                    {{-- <header class="mb-3">
-                        <div class="form-inline">
-                            <strong class="mr-md-auto">{{ $products->total() }} productos encontrados</strong>
-                            <select class="mr-2 form-control">
-                                <option>Más Recientes</option>
-                                <option>Menos recientes</option>
-                            </select>
-                        </div>
-                    </header> --}}
-                    <!-- sect-heading -->
                     @foreach ($products as $product)
                         <article class="card card-product-list">
                             <div class="row no-gutters">
@@ -139,14 +127,10 @@
                                     <div class="info-main">
                                         <a href="{{ route('catalogue.product', $product) }}" class="h5 title">
                                             {{ $product->name }}</a>
-
-
                                         <p class="mb-3">
                                             <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
                                         </p>
-
                                         <p>{!! $product->extract !!} </p>
-
                                     </div> <!-- info-main.// -->
                                 </div> <!-- col.// -->
                                 <aside class="col-sm-3">
@@ -160,24 +144,17 @@
                                             </a>
                                         </div>
                                         </p>
-
-
                                     </div> <!-- info-aside.// -->
                                 </aside> <!-- col.// -->
                             </div> <!-- row.// -->
                         </article> <!-- card-product .// -->
                     @endforeach
-
                     {{ $products->links() }}
                 </main> <!-- col.// -->
-
             </div>
-
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
-
-
     <!--========== NEWSLETTER =============-->
     <section id="newsletter">
         <div class="container">

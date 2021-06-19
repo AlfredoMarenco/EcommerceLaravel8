@@ -9,9 +9,9 @@
             <section class="py-3 bg-light">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="#">Catálogo</a></li>
-                        <li class="breadcrumb-item"><a href="#">Productos</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('index') }}">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogo</a></li>
+                        <li class="breadcrumb-item"><a href="">Productos</a></li>
 
                         <li class="breadcrumb-item active" aria-current="page">Tablones de madera</li>
                     </ol>

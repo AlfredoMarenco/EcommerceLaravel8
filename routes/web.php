@@ -84,7 +84,9 @@ Route::get('/mailable/{order}', function ($order) {
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
-route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::post('/search', [LandingPageController::class, 'search'])->name('search');
+
 
 //Rutas Tienda
 Route::prefix('/shop')->group(function () {
@@ -106,6 +108,7 @@ Route::prefix('/catalogue')->group(function () {
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/storeComment', [BlogController::class, 'storeComment'])->name('blog.store.comment');
 });
 
 
@@ -114,6 +117,7 @@ Route::prefix('/cartshop')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
     Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
     Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::post('/addToCartCheckout/{id}', [ShopController::class, 'addItemToCartCheckout'])->name('cart.addItemToCheckout');
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
