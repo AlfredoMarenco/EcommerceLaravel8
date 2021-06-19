@@ -6,10 +6,12 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Configuration;
 use App\Models\Coupon;
+use App\Models\Order;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ShopController extends Controller
 {
@@ -140,6 +142,7 @@ class ShopController extends Controller
         if ($qty > 0) {
             Cart::instance('default')->update($rowId, $qty);
             Cart::setGlobalDiscount(0);
+            $request->session()->pull('coupon');
             return back();
         }
         return back();
@@ -182,23 +185,31 @@ class ShopController extends Controller
     {
         $coupon = Coupon::where('code', $request->coupon)->where('status', 1)->first();
         if ($coupon) {
-            if ($coupon->type == 'fixed') {
-                $total = str_replace(',', '', Cart::instance('default')->total());
-                $code = ((float)$coupon->value * 100) / (float)$total;
-                Cart::setGlobalDiscount($code);
+            $orderValidation = Order::where('coupon_id', $coupon->id)->where('user_id', auth()->user()->id)->get();
+            /* return $orderValidation->count(); */
+            if ($orderValidation->count() == 0) {
+                if ($coupon->type == 'fixed') {
+                    $total = str_replace(',', '', Cart::instance('default')->total());
+                    $code = ((float)$coupon->value * 100) / (float)$total;
+                    $request->session()->put('coupon', $coupon->id);
+                    Cart::setGlobalDiscount($code);
+                } else {
+                    Cart::setGlobalDiscount($coupon->percent_off);
+                    $request->session()->put('coupon', $coupon->id);
+                }
+                return back()->withSuccess('Cupón aplicado con éxito!');
             } else {
-                Cart::setGlobalDiscount($coupon->percent_off);
+                return back()->with('errors', 'Este cupón solo puede ser usado una vez');
             }
-            return back()->withSuccess('Cupón aplicado con éxito!');
         } else {
             return back()->with('errors', 'Cupón no válido');
         }
     }
 
-    public function deleteCoupon()
+    public function deleteCoupon(Request $request)
     {
         Cart::setGlobalDiscount(0);
-
+        $request->session()->pull('coupon');
         return back();
     }
 
