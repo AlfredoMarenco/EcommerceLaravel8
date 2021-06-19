@@ -499,7 +499,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <div class="marcas-logo">
                             {{-- <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt=""> --}}
-                            <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/playmarket.png') }}" @endif class="img-fluid radio" alt="">
+                            <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif class="img-fluid radio" alt="">
                         </div>
                     </div>
                 @endforeach

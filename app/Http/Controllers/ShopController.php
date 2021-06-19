@@ -185,21 +185,25 @@ class ShopController extends Controller
     {
         $coupon = Coupon::where('code', $request->coupon)->where('status', 1)->first();
         if ($coupon) {
-            $orderValidation = Order::where('coupon_id', $coupon->id)->where('user_id', auth()->user()->id)->get();
-            /* return $orderValidation->count(); */
-            if ($orderValidation->count() == 0) {
-                if ($coupon->type == 'fixed') {
-                    $total = str_replace(',', '', Cart::instance('default')->total());
-                    $code = ((float)$coupon->value * 100) / (float)$total;
-                    $request->session()->put('coupon', $coupon->id);
-                    Cart::setGlobalDiscount($code);
+            if ($coupon->min_amount <= Cart::instance('default')->total()) {
+                $orderValidation = Order::where('coupon_id', $coupon->id)->where('user_id', auth()->user()->id)->get();
+                if ($orderValidation->count() == 0) {
+                    if ($coupon->type == 'fixed') {
+                        $total = str_replace(',', '', Cart::instance('default')->total());
+                        $code = ((float)$coupon->value * 100) / (float)$total;
+                        $request->session()->put('coupon', $coupon->id);
+                        Cart::setGlobalDiscount($code);
+                    } else {
+                        Cart::setGlobalDiscount($coupon->percent_off);
+                        $request->session()->put('coupon', $coupon->id);
+                    }
+                    return back()->withSuccess('Cupón aplicado con éxito!');
                 } else {
-                    Cart::setGlobalDiscount($coupon->percent_off);
-                    $request->session()->put('coupon', $coupon->id);
+                    return back()->with('errors', 'Este cupón solo puede ser usado una vez');
                 }
-                return back()->withSuccess('Cupón aplicado con éxito!');
             } else {
-                return back()->with('errors', 'Este cupón solo puede ser usado una vez');
+
+                return back()->with('errors', 'El minimo de compra debe ser: $' . number_format($coupon->min_amount, 2));
             }
         } else {
             return back()->with('errors', 'Cupón no válido');

@@ -30,8 +30,10 @@
                                                     <figcaption class="info">
                                                         <a href="{{ route('shop.product', $product->id) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                            Garantía: 2 años</p>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                            <br>
+                                                            Marca: {{ $product->model->brand->name }}
+                                                        </p>
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -73,8 +75,10 @@
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
                                                         <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                            Garantía: 2 años</p>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                            <br>
+                                                            Marca: {{ $product->model->brand->name }}
+                                                        </p>
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -168,8 +172,7 @@
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right  h5"><strong>${{ Cart::instance('default')->total() }}
-                                                MXN</strong></dd>
+                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }} MXN</strong></dd>
                                     </dl>
                                     <hr>
                                 @endif
@@ -242,11 +245,17 @@
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="/producto" class="title mb-2">{{ $product->name }}</a>
-                                <p>{!! $product->description !!}</p>
+                                <p>{!! $product->extract !!}</p>
                                 <div class="price-wrap">
-                                    <span class="price">{{ $product->presentPrice() }}</span>
-                                    <small class="text-muted">/ pza</small>
-
+                                    @if ($product->discount)
+                                        <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                        <small class="text-muted">/</small>
+                                        <span class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @else
+                                        <span class="price">{{ $product->presentPrice() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @endif
                                     <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                 </div> <!-- price-wrap.// -->
 

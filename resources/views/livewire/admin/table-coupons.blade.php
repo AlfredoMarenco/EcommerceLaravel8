@@ -16,6 +16,7 @@
                         <th scope="col">Codigo</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Descuento</th>
+                        <th scope="col">Valor minimo</th>
                         <th scope="col">Activo</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -32,6 +33,7 @@
                                 <td>Porcentage</td>
                                 <td>{{ $coupon->percent_off }}%</td>
                             @endif
+                            <td>{{ number_format($coupon->min_amount, 2) }}</td>
                             @if ($coupon->status == 0)
                                 <td>No</td>
                             @else
