@@ -31,12 +31,12 @@
             </div>
         </div>
     </div> --}}
-        <h1 class="text-success">Ecommerce - Grupo Bajce v.1.0.1</h1>
-        <img class="w-50" src="{{ asset('images/posts/2.jpg') }}">
+        <h1 class="text-success text-bold">Ecommerce - Grupo Bajce v.1.0.1</h1>
+        <img class="w-50 rounded-lg" src="{{ asset('images/posts/2.jpg') }}">
 
         <div>
             <small>
-                Sistema desarrollado por Agencia Vandu ©<script>
+                Sistema desarrollado por <a class="text-info" href="https://agenciavandu.com">Agencia Vandu</a> ©<script>
                     document.write(new Date().getFullYear());
 
                 </script>

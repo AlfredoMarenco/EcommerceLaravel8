@@ -231,7 +231,7 @@ return [
             'can' => 'admin.home'
         ],
         [
-            'text' => 'Orden',
+            'text' => 'Ordenes',
             'route' => 'admin.orders.index',
             'icon' => 'fas fa-fw fa-receipt',
             'can' => 'admin.orders.index'
@@ -328,7 +328,34 @@ return [
                     'icon'  => 'fab fa-youtube',
                 ],
             ],
-        ],        [
+        ],
+        [
+            'text' => 'Reportes',
+            'icon' => 'fas fa-fw fa-chart-bar',
+            'route' => 'admin.reports.index',
+            /* 'can' => 'admin.reports.index', */
+            'submenu' => [
+                [
+                    'text' => 'Graficas',
+                    'route'  => 'admin.reports.index',
+                    'icon'  => 'fas fa-fw fa-chart-pie',
+                    /* 'can' => 'admin.reports.inventary' */
+                ],
+                [
+                    'text' => 'Inventario',
+                    'route'  => 'admin.reports.inventary',
+                    'icon'  => 'fas fa-fw fa-boxes',
+                    /* 'can' => 'admin.reports.inventary' */
+                ],
+                [
+                    'text' => 'Ventas',
+                    'route'  => 'admin.reports.sales',
+                    'icon'  => 'fas fa-fw fa-file-invoice-dollar',
+                    /* 'can' => 'admin.roles.sales' */
+                ],
+            ],
+        ],
+        [
             'text' => 'Usuarios',
             'icon' => 'fas fa-fw fa-users',
             'can' => 'admin.users.index',
