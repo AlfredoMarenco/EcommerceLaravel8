@@ -32,7 +32,42 @@ class UserSeeder extends Seeder
 
         ])->assignRole('admin');
 
-        User::factory(30)->create();
+        User::create([
+            'name' => 'Editor',
+            'last_name' => 'User',
+            'phone' => '9999999999',
+            'email' => 'editor@bajce.com',
+            'password' => bcrypt('password'),
 
+        ])->assignRole('editor');
+
+        User::create([
+            'name' => 'Tesorero',
+            'last_name' => 'User',
+            'phone' => '9999999999',
+            'email' => 'tesorero@bajce.com',
+            'password' => bcrypt('password'),
+
+        ])->assignRole('tesorero');
+
+        User::create([
+            'name' => 'Logistica',
+            'last_name' => 'User',
+            'phone' => '9999999999',
+            'email' => 'logistica@bajce.com',
+            'password' => bcrypt('password'),
+
+        ])->assignRole('logistica');
+
+        User::create([
+            'name' => 'Compras',
+            'last_name' => 'User',
+            'phone' => '9999999999',
+            'email' => 'compras@bajce.com',
+            'password' => bcrypt('password'),
+
+        ])->assignRole('compras');
+
+        User::factory(2)->create();
     }
 }

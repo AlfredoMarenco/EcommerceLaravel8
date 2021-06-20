@@ -41,16 +41,23 @@ class ApiController extends Controller
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
                     $order->update([
-                        'status' => 'charge.refunded'
+                        'status' => 'charge.refunded',
                     ]);
                 }
                 break;
             case 'charge.succeeded': //Estados para cargos exitosos
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
-                    $order->update([
-                        'status' => 'charge.succeeded'
-                    ]);
+                    if ($order->tracker_status != 'standby') {
+                        $order->update([
+                            'status' => 'charge.succeeded',
+                        ]);
+                    } else {
+                        $order->update([
+                            'status' => 'charge.succeeded',
+                            'tracker_status' => 'standby'
+                        ]);
+                    }
                 }
                 Mail::to($order->user->email)->send(new OrderShipped($order));
                 break;

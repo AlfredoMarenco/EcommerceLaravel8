@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.bajce')
 
 @section('content')
 <x-jet-form-section submit="updatePassword">

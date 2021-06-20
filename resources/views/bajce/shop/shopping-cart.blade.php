@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
 
     <!-- ========================= SECTION CONTENT ========================= -->
@@ -16,7 +16,7 @@
                                         <th scope="col">Producto</th>
                                         <th scope="col" width="120">Cantidad</th>
                                         <th scope="col" width="120">Precio</th>
-                                        <th scope="col" class="text-right" width="200"> </th>
+                                        <th scope="col" class="text-right" width="200"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -24,13 +24,16 @@
                                         <tr>
                                             <td>
                                                 <figure class="itemside">
-                                                    <div class="aside"><img
-                                                            src="{{ Storage::url($product->model->image->url) }}"
-                                                            class="img-sm"></div>
+                                                    <div class="aside">
+                                                        <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
+                                                    </div>
                                                     <figcaption class="info">
-                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                            Garantía: 2 años</p>
+                                                        <a href="{{ route('shop.product', $product->id) }}"
+                                                            class="title text-dark">{{ $product->name }}</a>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                            <br>
+                                                            Marca: {{ $product->model->brand->name }}
+                                                        </p>
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -72,8 +75,10 @@
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
                                                         <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                            Garantía: 2 años</p>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                            <br>
+                                                            Marca: {{ $product->model->brand->name }}
+                                                        </p>
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -100,7 +105,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
                             <div class="card-body border-top">
                                 @if (Cart::instance('default')->count() > 0)
                                     <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
@@ -114,24 +118,28 @@
                                 </a>
                             </div>
                         </div> <!-- card.// -->
-
                     </main> <!-- col.// -->
+
                     <aside class="col-md-3">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label>¿Tienes un cupón?</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="" placeholder="Código de cupón">
-                                            <span class="input-group-append">
-                                                <button class="btn btn-primary">Aplicar</button>
-                                            </span>
+                        @if (Cart::discount() <= 0 && Cart::instance('default')->count() > 0)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <form action="{{ route('cart.applyCoupon') }}" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label>¿Tienes un cupón?</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="coupon"
+                                                    placeholder="Código de cupón">
+                                                <span class="input-group-append">
+                                                    <button type="submit" class="btn btn-primary">Aplicar</button>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
-                            </div> <!-- card-body.// -->
-                        </div> <!-- card .// -->
+                                    </form>
+                                </div> <!-- card-body.// -->
+                            </div> <!-- card .// -->
+                        @endif
                         <div class="card">
                             <div class="card-body">
                                 @if (Cart::instance('default')->count() > 0)
@@ -140,16 +148,31 @@
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Precio total:</dt>
-                                        <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                        @if (Cart::discount() < 0)
+                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                        @else
+                                            @php
+                                                $subtotal = str_replace(',', '', Cart::instance('default')->subtotal());
+                                                $discount = str_replace(',', '', Cart::discount());
+                                                $subtotal = $subtotal + $discount;
+                                            @endphp
+                                            <dd class="text-right">${{ number_format($subtotal, 2) }} MXN</dd>
+                                        @endif
                                     </dl>
-                                    {{-- <dl class="dlist-align">
-                                    <dt>Descuento:</dt>
-                                    <dd class="text-right">MXN 120</dd>
-                                     </dl> --}}
+                                    <dl class="dlist-align">
+                                        <dt>Descuento:</dt>
+                                        @if (Cart::discount() > 0)
+                                            <dd class="text-right">
+                                                $-{{ Cart::discount(2, '.', ',') }} MXN
+                                                <small><a href="{{ route('cart.deleteCoupon') }}">Eliminar</a></small>
+                                            </dd>
+                                        @else
+                                            <dd class="text-right">${{ Cart::discount(2, '.', ',') }} MXN</dd>
+                                        @endif
+                                    </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right  h5"><strong>${{ Cart::instance('default')->total() }}
-                                                MXN</strong></dd>
+                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }} MXN</strong></dd>
                                     </dl>
                                     <hr>
                                 @endif
@@ -216,23 +239,29 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <a href="/producto">
-                                    <img src="{{ Storage::url($product->image->url) }}">
+                                <a href="{{ route('shop.product', $product) }}">
+                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                 </a>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="/producto" class="title mb-2">{{ $product->name }}</a>
-                                <p>{!! $product->description !!}</p>
+                                <p>{!! $product->extract !!}</p>
                                 <div class="price-wrap">
-                                    <span class="price">{{ $product->presentPrice() }}</span>
-                                    <small class="text-muted">/ pza</small>
-
+                                    @if ($product->discount)
+                                        <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                        <small class="text-muted">/</small>
+                                        <span class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @else
+                                        <span class="price">{{ $product->presentPrice() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @endif
                                     <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                 </div> <!-- price-wrap.// -->
 
                                 <div class="rating-wrap my-3">
                                     <ul class="rating-stars">
-                                        <li style="width:80%" class="stars-active">
+                                        <li style="width:{{ ($product->rating * 100) / 5 }}%" class="stars-active">
                                             <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -243,7 +272,8 @@
                                             <i class="fa fa-star"></i>
                                         </li>
                                     </ul>
-                                    <small class="label-rating text-muted">132 Opiniones</small>
+                                    <small class="label-rating text-muted">{{ $product->reviews_count }}
+                                        Opiniones</small>
                                 </div> <!-- rating-wrap.// -->
                                 <hr>
                                 <form action="{{ route('cart.addItem', $product) }}" method="POST">
@@ -285,4 +315,8 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('js')
+    @include('sweetalert::alert')
 @endsection

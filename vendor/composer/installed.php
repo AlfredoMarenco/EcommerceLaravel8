@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'fd7228a8054bdcc51536337f8f9250a33b94c983',
+    'reference' => '011764a603734eb9695ece1a20307948ddecb31a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -37,6 +37,15 @@
       array (
       ),
       'reference' => '9cb795bf30988e8c96dd3c40623c48a877bc6714',
+    ),
+    'aws/aws-sdk-php' => 
+    array (
+      'pretty_version' => '3.183.9',
+      'version' => '3.183.9.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3b3aafdceac4cb820e2ae65a8785e4d07db471a7',
     ),
     'bacon/bacon-qr-code' => 
     array (
@@ -73,6 +82,15 @@
       array (
       ),
       'reference' => '786477b54f637a57a80b3de387fb3dcdba5dd940',
+    ),
+    'ckfinder/ckfinder-laravel-package' => 
+    array (
+      'pretty_version' => 'v3.5.1.7',
+      'version' => '3.5.1.7',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '714afc01c36a17ad46fca43c288353b66cd3d1e1',
     ),
     'conekta/conekta-php' => 
     array (
@@ -241,6 +259,15 @@
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
     ),
+    'ezyang/htmlpurifier' => 
+    array (
+      'pretty_version' => 'v4.13.0',
+      'version' => '4.13.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '08e27c97e4c6ed02f37c5b2b20488046c8d90d75',
+    ),
     'facade/flare-client-php' => 
     array (
       'pretty_version' => '1.4.0',
@@ -303,6 +330,15 @@
       array (
       ),
       'reference' => '01de0fe5f71c70d1930ee9a80385f9cc28e0f63a',
+    ),
+    'graham-campbell/guzzle-factory' => 
+    array (
+      'pretty_version' => 'v5.0.0',
+      'version' => '5.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5f6eae0dba2f2a02d72d42f11f3ff9f9f61e1cc8',
     ),
     'graham-campbell/result-type' => 
     array (
@@ -643,7 +679,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'fd7228a8054bdcc51536337f8f9250a33b94c983',
+      'reference' => '011764a603734eb9695ece1a20307948ddecb31a',
     ),
     'laravel/sail' => 
     array (
@@ -708,6 +744,24 @@
       ),
       'reference' => '9be3b16c877d477357c015cec057548cf9b2a14a',
     ),
+    'league/flysystem-aws-s3-v3' => 
+    array (
+      'pretty_version' => '1.0.29',
+      'version' => '1.0.29.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4e25cc0582a36a786c31115e419c6e40498f6972',
+    ),
+    'league/flysystem-cached-adapter' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd1925efb2207ac4be3ad0c40b8277175f99ffaff',
+    ),
     'league/mime-type-detection' => 
     array (
       'pretty_version' => '1.7.0',
@@ -734,6 +788,42 @@
       array (
       ),
       'reference' => 'b0cb782674673a67ddfd5910d2fcb5308bb32857',
+    ),
+    'maatwebsite/excel' => 
+    array (
+      'pretty_version' => '3.1.31',
+      'version' => '3.1.31.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cbe6370af70f93bd017f77ef92d32bd492a47fcb',
+    ),
+    'maennchen/zipstream-php' => 
+    array (
+      'pretty_version' => '2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c4c5803cc1f93df3d2448478ef79394a5981cc58',
+    ),
+    'markbaker/complex' => 
+    array (
+      'pretty_version' => '2.0.3',
+      'version' => '2.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6f724d7e04606fd8adaa4e3bb381c3e9db09c946',
+    ),
+    'markbaker/matrix' => 
+    array (
+      'pretty_version' => '2.1.3',
+      'version' => '2.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '174395a901b5ba0925f1d790fa91bab531074b61',
     ),
     'maximebf/debugbar' => 
     array (
@@ -796,6 +886,15 @@
         0 => '^1.0',
       ),
     ),
+    'mtdowling/jmespath.php' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '42dae2cbd13154083ca6d70099692fef8ca84bfb',
+    ),
     'myclabs/deep-copy' => 
     array (
       'pretty_version' => '1.10.2',
@@ -808,6 +907,15 @@
       array (
         0 => '1.10.2',
       ),
+    ),
+    'myclabs/php-enum' => 
+    array (
+      'pretty_version' => '1.8.0',
+      'version' => '1.8.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '46cf3d8498b095bd33727b13fd5707263af99421',
     ),
     'nesbot/carbon' => 
     array (
@@ -944,6 +1052,15 @@
       ),
       'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
     ),
+    'phpoffice/phpspreadsheet' => 
+    array (
+      'pretty_version' => '1.18.0',
+      'version' => '1.18.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '418cd304e8e6b417ea79c3b29126a25dc4b1170c',
+    ),
     'phpoption/phpoption' => 
     array (
       'pretty_version' => '1.7.5',
@@ -1016,6 +1133,15 @@
       ),
       'reference' => '27241ac75fc37ecf862b6e002bf713b6566cbe41',
     ),
+    'pimple/pimple' => 
+    array (
+      'pretty_version' => 'v3.4.0',
+      'version' => '3.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '86406047271859ffc13424a048541f4531f53601',
+    ),
     'pragmarx/google2fa' => 
     array (
       'pretty_version' => '8.0.0',
@@ -1024,6 +1150,15 @@
       array (
       ),
       'reference' => '26c4c5cf30a2844ba121760fd7301f8ad240100b',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
     ),
     'psr/container' => 
     array (
@@ -1072,6 +1207,15 @@
       array (
         0 => '1.0',
       ),
+    ),
+    'psr/http-factory' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
     ),
     'psr/http-message' => 
     array (
@@ -1319,6 +1463,33 @@
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'spatie/dropbox-api' => 
+    array (
+      'pretty_version' => '1.18.0',
+      'version' => '1.18.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b0b5642a40552c225fca98718a73228cfcd7f2d6',
+    ),
+    'spatie/flysystem-dropbox' => 
+    array (
+      'pretty_version' => '1.2.3',
+      'version' => '1.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8b6b072f217343b875316ca6a4203dd59f04207a',
+    ),
+    'spatie/laravel-cookie-consent' => 
+    array (
+      'pretty_version' => '2.12.13',
+      'version' => '2.12.13.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e93b9efee3a68960e5c832f937170c2fc0b2f37',
     ),
     'spatie/laravel-permission' => 
     array (

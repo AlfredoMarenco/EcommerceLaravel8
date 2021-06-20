@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Landing</h1>
+    <h1>Administracion del mosaico</h1>
 @stop
 @section('css')
     <style>
@@ -36,10 +36,10 @@
 
 @section('content')
     <div class="row">
-        <div id="wrap" class="col-md-4 wrap">
-            <iframe id="frame" class="frame" src="{{ route('shop.home') }}" allow="fullscreen"></iframe>
-        </div>
-        <div class="col-md-8">
+        {{-- <div id="wrap" class="col-md-4 wrap">
+            <iframe id="frame" class="frame" src="{{ route('index') }}" allow="fullscreen"></iframe>
+        </div> --}}
+        <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-sm table-striped text-center">
                     <thead class="thead-dark">

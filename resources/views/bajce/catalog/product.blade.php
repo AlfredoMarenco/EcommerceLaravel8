@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Catalogo')
 @section('content')
 
 
@@ -9,9 +9,9 @@
             <section class="py-3 bg-light">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="#">Catálogo</a></li>
-                        <li class="breadcrumb-item"><a href="#">Productos</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('index') }}">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogo</a></li>
+                        <li class="breadcrumb-item"><a href="">Productos</a></li>
 
                         <li class="breadcrumb-item active" aria-current="page">Tablones de madera</li>
                     </ol>
@@ -35,7 +35,7 @@
 
                         <h2 class="title mt-3">{{ $product->name }}</h2>
 
-                        <p>{!! $product->description !!}</p>
+                        <p>{!! $product->extract !!}</p>
 
 
                         <dl class="row">
@@ -94,26 +94,48 @@
                 <div class="col-md-12">
                     <h5 class="title-description">Description</h5>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mi in at arcu sed. Netus elementum,
-                        purus dui vitae curabitur nibh. Posuere ullamcorper quis libero nibh pellentesque in venenatis duis
-                        consectetur. Amet faucibus lectus tortor gravida. A est lacinia id non, pellentesque aliquam
-                        convallis. Risus, nisi euismod eu libero, vel dictum egestas ut pellentesque. Sagittis, tincidunt
-                        duis elit, nisi, sit habitasse in commodo. Enim, tellus et vulputate ut consectetur. <br><br>
-
-                        Mauris sapien, mi in dui eget fermentum parturient bibendum. Suspendisse vitae enim fermentum eget
-                        amet, arcu, non. Id nec nec porta vitae nec laoreet in tellus pharetra. Sodales lacinia dignissim a
-                        nibh. Consectetur libero arcu urna amet. Eget et odio urna, amet enim auctor tellus et. Ullamcorper
-                        risus dignissim phasellus rhoncus quis ut imperdiet diam adipiscing. Amet duis etiam sit eu ultrices
-                        tristique senectus. Facilisis nec duis augue diam mi. Felis pellentesque faucibus consequat nibh
-                        commodo amet, aliquet ipsum. Adipiscing sed sed arcu sed. Est vulputate faucibus nunc nunc dolor.
-                        Sem diam turpis nisl ac sit. Nulla in tellus est dictumst at dictumst.
+                        {!! $product->description !!}
                     </p>
                     <ul class="list-check">
-                        <li>Material: Stainless steel</li>
-                        <li>Weight: 82kg</li>
-                        <li>built-in drip tray</li>
-                        <li>Open base for pots and pans</li>
-                        <li>On request available in propane execution</li>
+                        @if ($product->folio_visible == 1)
+                            <li>Folio: {{ $product->folio }}</li>
+                        @endif
+                        @if ($product->categoria_visible == 1)
+                            <li>Categoria: {{ $product->categoria }}</li>
+                        @endif
+                        @if ($product->ficha_visible == 1)
+                            <li>Ficha: {{ $product->ficha }}</li>
+                        @endif
+                        @if ($product->garantia_visible == 1)
+                            <li>Garantía: {{ $product->garantia }}</li>
+                        @endif
+                        @if ($product->usos_visible == 1)
+                            <li>Usos: {{ $product->usos }}</li>
+                        @endif
+                        @if ($product->contenido_visible == 1)
+                            <li>Contenido: {{ $product->contenido }}</li>
+                        @endif
+                        @if ($product->montaje_visible == 1)
+                            <li>Montaje: {{ $product->montaje }}</li>
+                        @endif
+                        @if ($product->capacidad_visible == 1)
+                            <li>Capacidad: {{ $product->capacidad }}</li>
+                        @endif
+                        @if ($product->marca_visible == 1)
+                            <li>Marca: {{ $product->marca }}</li>
+                        @endif
+                        @if ($product->material_visible == 1)
+                            <li>Material: {{ $product->material }}</li>
+                        @endif
+                        @if ($product->medidas_visible == 1)
+                            <li>Medidas del Herraje: {{ $product->medidas }}</li>
+                        @endif
+                        @if ($product->medidasmodulo_visible == 1)
+                            <li>Medidas del Modulo: {{ $product->medidasmodulo }}</li>
+                        @endif
+                        @if ($product->acabado_visible == 1)
+                            <li>Acabado: {{ $product->acabado }}</li>
+                        @endif
                     </ul>
 
                 </div> <!-- col.// -->
@@ -136,51 +158,25 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="card">
-                    <div class="contenido-2">
-                        <div class="imagen-producto">
-                            <img src="/images/items/tablones-de-madera.png" class="img-fluid" alt="">
-                        </div>
-                        <div class="info-producto">
-                            <h5>Tablones de madera</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit nisi
-                                quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
-                            <a href="/productos-catalogo" class="btn btn-primary btn-block">Ver catálogo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="card">
-                    <div class="contenido-2">
-                        <div class="imagen-producto">
-                            <img src="/images/items/tablones-de-madera.png" class="img-fluid" alt="">
-                        </div>
-                        <div class="info-producto">
-                            <h5>Tablones de madera</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit nisi
-                                quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
-                            <a href="/productos-catalogo" class="btn btn-primary btn-block">Ver catálogo</a>
+            @foreach ($catalogues as $catalogue)
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="card">
+                        <div class="contenido-2">
+                            <div class="imagen-producto">
+                                <img src="{{ Storage::url($catalogue->image->url) }}" class="img-fluid"
+                                    alt="{{ $catalogue->name }}">
+                            </div>
+                            <div class="info-producto">
+                                <h5>{{ $catalogue->name }}</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit
+                                    nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
+                                <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
+                                    class="btn btn-primary btn-block">Ver catálogo</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="card">
-                    <div class="contenido-2">
-                        <div class="imagen-producto">
-                            <img src="/images/items/tablones-de-madera.png" class="img-fluid" alt="">
-                        </div>
-                        <div class="info-producto">
-                            <h5>Tablones de madera</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit nisi
-                                quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
-                            <a href="/productos-catalogo" class="btn btn-primary btn-block">Ver catálogo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </section>

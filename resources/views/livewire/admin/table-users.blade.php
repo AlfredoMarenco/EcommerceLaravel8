@@ -1,6 +1,9 @@
 <div>
     <div class="d-flex flex-row justify-content-between">
         <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de usuarios">
+        <a class="btn btn-success float-right" href="{{ route('admin.users.create') }}"><i
+                class="fas fa-fw fa-user-plus"> </i> Nuevo
+            usuario</a>
     </div>
     @if ($users->count())
         <div class="d-flex flex-row-reverse my-3">
@@ -13,6 +16,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Rol</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -20,8 +24,13 @@
                     @foreach ($users as $user)
                         <tr>
                             <th scope="row">{{ $user->id }}</th>
-                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->name }} {{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>
+                                @foreach ($user->roles as $role)
+                                    {{ $role->name }}
+                                @endforeach
+                            </td>
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('admin.users.edit', $user) }}"
                                     class="btn btn-info btn-md mx-1">Editar</a>

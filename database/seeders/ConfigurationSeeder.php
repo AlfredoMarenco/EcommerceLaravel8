@@ -15,39 +15,39 @@ class ConfigurationSeeder extends Seeder
     public function run()
     {
         Configuration::create([
-            'name' => 'Video',
-            'resources' => 'video'
-        ]);
-        Configuration::create([
-            'name' => 'Slider',
-            'resources' => 'images'
-        ]);
-        Configuration::create([
-            'name' => 'MenRight',
+            'name' => 'Vertical',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
         Configuration::create([
-            'name' => 'MenLeft',
+            'name' => 'Horizontal',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
         Configuration::create([
-            'name' => 'Collection',
+            'name' => 'Cuadricula 1',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
         Configuration::create([
-            'name' => 'WomenRight',
+            'name' => 'Cuadricula 2',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
         Configuration::create([
-            'name' => 'WomenLeft',
+            'name' => 'Cuadricula 3',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
         Configuration::create([
-            'name' => 'PublicRight',
-            'resources' => 'image'
-        ]);
-        Configuration::create([
-            'name' => 'PublicLeft',
+            'name' => 'Cuadricula 4',
+            'text' => '',
+            'link' => '',
             'resources' => 'image'
         ]);
     }

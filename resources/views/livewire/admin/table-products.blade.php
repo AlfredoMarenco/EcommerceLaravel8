@@ -37,7 +37,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <th scope="row">{{ $product->id }}</th>
-                            <td><img width="80px" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" @endif>
+                            <td><img width="80px" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </td>
                             <td>{{ $product->name }}</td>
                             <td>${{ number_format($product->price, 2) }} </td>

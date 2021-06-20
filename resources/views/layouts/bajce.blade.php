@@ -7,7 +7,7 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Grupo Bajce</title>
+    <title>Grupo Bajce | @yield('title')</title>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
@@ -33,8 +33,6 @@
 </head>
 
 <body>
-
-
     <header class="section-header fixed-top">
 
         <nav class="navbar d-none d-md-flex p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
@@ -52,7 +50,8 @@
                         </li>
                         <span class="nav-link">|</span>
                         <li>
-                            <a href="tel:9992211629" class="nav-link"> <i class="fa fa-phone-square"></i> 999 221 1629</a>
+                            <a href="tel:9992211629" class="nav-link"> <i class="fa fa-phone-square"></i> 999 221
+                                1629</a>
                         </li>
                     </ul> <!-- list-inline //  -->
                 </div> <!-- navbar-collapse .// -->
@@ -70,17 +69,17 @@
                     <div class="col-6 col-sm col-md col-lg flex-md-grow-0">
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-                        {!! Form::open(['class' => 'search-header']) !!}
+                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
-                            {!! Form::select('category', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
+                            {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
                         <a href="{{ route('cart') }}" class="nav-link"><span
-                                class="notify">{{ Cart::instance('default')->count() + Cart::instance('wishlist')->count() }}</span> <i
-                                class="fa fa-shopping-cart"></i></a>
+                                class="notify">{{ Cart::instance('default')->count() + Cart::instance('wishlist')->count() }}</span>
+                            <i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="col col-lg col-md flex-grow-0">
                         <a href="{{ route('user.profile') }}" class="nav-link"> <i class="fa fa-user"></i> </a>
@@ -106,7 +105,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/nosotros">Nosotros</a>
+                        <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>
@@ -127,67 +126,67 @@
     </header> <!-- section-header.// -->
 
 
-        <!--Form-->
-        <main role="main" class="container">
+    <!--Form-->
+    <main role="main" class="container">
 
-            <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
-                aria-hidden="true">
+        <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
+            aria-hidden="true">
 
-                <div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document">
 
-                    <div class="modal-content">
+                <div class="modal-content">
 
-                        <div class="modal-header">
-                            <h5 id="tituloVentana">Solicita más información </h5>
-                            <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                    <div class="modal-header">
+                        <h5 id="tituloVentana">Solicita más información </h5>
+                        <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="alert alert-succes">
+
+                            <form class="contact" name="contact-form" method="post" action="enviar.php">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Nombre</label>
+                                    <input type="name" name="nombre" class="form-control" id="exampleFormControlInput1"
+                                        required="required" placeholder="Escribe tu nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Email</label>
+                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                                        required="required" placeholder="Escribe tu correo electrónico">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Teléfono</label>
+                                    <input type="tel" name="telefono" class="form-control" id="phone"
+                                        pattern="[0-9]{10}" required="required" placeholder="Escribe tu teléfono">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Mensaje</label>
+                                    <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1"
+                                        required="required" rows="3"
+                                        placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
+                                </div>
+                                <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
+                                    style="margin-bottom: 10px;"></div>
+
+                                <button type="submit" class="btn btn-secondary">Enviar</button>
+                            </form>
                         </div>
+                    </div>
 
-                        <div class="modal-body">
-                            <div class="alert alert-succes">
-
-                                <form class="contact" name="contact-form" method="post" action="enviar.php">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Nombre</label>
-                                        <input type="name" name="nombre" class="form-control" id="exampleFormControlInput1"
-                                            required="required" placeholder="Escribe tu nombre">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Email</label>
-                                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-                                            required="required" placeholder="Escribe tu correo electrónico">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Teléfono</label>
-                                        <input type="tel" name="telefono" class="form-control" id="phone" pattern="[0-9]{10}"
-                                            required="required" placeholder="Escribe tu teléfono">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Mensaje</label>
-                                        <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1"
-                                            required="required" rows="3"
-                                            placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
-                                    </div>
-                                    <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
-                                        style="margin-bottom: 10px;"></div>
-
-                                    <button type="submit" class="btn btn-secondary">Enviar</button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
-                        </div>
-
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                     </div>
 
                 </div>
 
-
             </div>
-        </main>
+
+
+        </div>
+    </main>
 
     @yield('content')
 
@@ -266,6 +265,7 @@
     </footer>
     <!-- ========================= FOOTER END // ========================= -->
     @livewireScripts
+    <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
     @yield('js')
 </body>
 

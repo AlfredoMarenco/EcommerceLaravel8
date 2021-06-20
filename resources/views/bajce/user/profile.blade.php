@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Usuario')
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->
@@ -25,7 +25,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            this.closest('form').submit();"> Cerrar sesión </a>
+                                                    this.closest('form').submit();"> Cerrar sesión </a>
                         </form>
                     </nav>
                 </aside> <!-- col.// -->
@@ -35,7 +35,8 @@
 
                             <figure class="icontext">
                                 <div class="icon">
-                                    <img class="rounded-circle img-sm border" src="{{ Auth::user()->profile_photo_url }}">
+                                    <img class="img-fluid"
+                                        src="{{ asset('images/misc/logo-bajce-vrd.png') }}">
                                 </div>
                                 <div class="text">
                                     <strong> {{ auth()->user()->name }} {{ auth()->user()->last_name }}</strong> <br>

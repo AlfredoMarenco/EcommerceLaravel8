@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Brand;
+use App\Models\Detail;
 use App\Models\Image;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -45,7 +47,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        return view('admin.products.create', compact('categories'));
+        $brands = Brand::pluck('name', 'id');
+        return view('admin.products.create', compact('categories', 'brands'));
     }
 
     /**
@@ -56,7 +59,6 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-
         $product = Product::create($request->all());
 
         if ($request->file('file')) {
@@ -85,7 +87,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        return view('admin.products.edit', compact('product', 'categories'));
+        $brands = Brand::pluck('name', 'id');
+        return view('admin.products.edit', compact('product', 'categories', 'brands'));
     }
 
     /**
@@ -122,12 +125,16 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete();
-        /* dd($response); */
-        return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
+        try {
+            $product->delete();
+            return redirect()->route('admin.products.index')->with('Success', 'Producto eliminado con éxito');
+        } catch (\Throwable $th) {
+            return back()->withToastError('Este producto ya tiene ventas');
+        }
     }
 
-    public function deleteImage($id){
+    public function deleteImage($id)
+    {
         $resource = Image::find($id);
         $resource->delete();
         return back();

@@ -22,13 +22,14 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Product'.$this->faker->randomNumber(),
+            'name' => 'Product' . $this->faker->randomNumber(),
             'SKU' => $this->faker->ean13(),
-            'price' => $this->faker->randomFloat(2,50,1000),
-            'discount' => $this->faker->randomFloat(2,50,1000),
+            'price' => $this->faker->randomFloat(2, 50, 1000),
+            'discount' => $this->faker->randomFloat(2, 50, 1000),
             'stock' => $this->faker->randomNumber(),
             'description' => $this->faker->paragraph(),
-            'type' => $this->faker->randomElement([Product::ONLINE,Product::STORE])
+            'type' => $this->faker->randomElement([Product::ONLINE, Product::STORE]),
+            'brand_id' => rand(1, 2)
         ];
     }
 }

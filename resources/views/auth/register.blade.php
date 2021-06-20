@@ -4,7 +4,7 @@
     <div class="card mx-auto" style="max-width:520px; margin-top:180px;">
         <article class="card-body">
             <header class="mb-4">
-                <h4 class="card-title">Sign up</h4>
+                <h4 class="card-title">Registrarse</h4>
             </header>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
@@ -14,9 +14,10 @@
                         <input name="name" type="text" class="form-control" placeholder="" value="{{ old('name') }}">
                     </div>
                     <div class="col form-group">
-						<label>Last name</label>
-					  	<input name="last_name" type="text" class="form-control" placeholder="" value="{{ old('last_name') }}">
-					</div>
+                        <label>Last name</label>
+                        <input name="last_name" type="text" class="form-control" placeholder=""
+                            value="{{ old('last_name') }}">
+                    </div>
                     <!-- form-group end.// -->
                 </div>
                 <div class="form-group">
@@ -49,9 +50,9 @@
                 <!-- form-group// -->
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input"
-                            checked="">
-                        <div class="custom-control-label text-dark"> I am agree with <a href="{{ route('login') }}">terms and
+                        <input type="checkbox" class="custom-control-input" checked="">
+                        <div class="custom-control-label text-dark"> I am agree with <a href="{{ route('login') }}">terms
+                                and
                                 contitions</a> </div>
                     </label>
                 </div>

@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            <img src="{{ asset('template/images/rene/logo-nav.png') }}">
+            <img src="{{ asset('images/misc/logo-bajce-vrd.png') }}">
         @endcomponent
     @endslot
 
@@ -26,15 +26,13 @@
             <br>
             <strong style="color:black;">Visita nuestras redes sociales</strong><br>
             <div class="social-icons">
-                <a href="https://www.facebook.com/Rene-Alonsomx-103679577867663"> <img width="30px"
-                        src="{{ asset('template/images/icons/facebook.png') }}" alt=""></a>
-                <a href="https://www.instagram.com/renealonso.mx/"> <img width="30px"
-                        src="{{ asset('template/images/icons/instagram.png') }}" alt=""></a>
-                <a href="https://twitter.com/FashionAlonso"> <img width="30px"
-                        src="{{ asset('template/images/icons/signo-de-twitter.png') }}" alt=""></a>
+                <a href="https://www.facebook.com/Bajcegrupo/"> <img
+                        src="{{ asset('images/icons/facebook.png') }}" alt=""></a>
+                <a href="https://twitter.com/grupobajce"> <img
+                        src="{{ asset('images/icons/instagram.png') }}" alt=""></a>
+                <a href="https://twitter.com/grupobajce"> <img
+                        src="{{ asset('/images/icons/signo-de-twitter.png') }}" alt=""></a>
             </div>
-
-
         </center>
         @component('mail::footer')
             © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')

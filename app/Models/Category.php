@@ -10,6 +10,7 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $withCount = ['products'];
 
     public function products()
     {
@@ -19,5 +20,10 @@ class Category extends Model
     public function catalogue()
     {
         return $this->belongsTo(Catalogue::class);
+    }
+
+    public function buttons()
+    {
+        return $this->belongsTo(Button::class);
     }
 }

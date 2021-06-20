@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -31,6 +33,15 @@ class UserController extends Controller
     {
         $user = auth()->user();
         return view('bajce.user.settings', compact('user'));
+    }
+
+    public function updateInformationProfile(Request $request)
+    {
+        $user = auth()->user()->id;
+        $user = User::find($user);
+        $user->update($request->all());
+
+        return back()->withToastSuccess('Informacion actualizada con éxito');;
     }
 
     public function updatePassword(Request $request)

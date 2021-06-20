@@ -1,5 +1,7 @@
 @extends('layouts.bajce')
 
+@section('title', 'Usuario')
+
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->
@@ -9,8 +11,6 @@
         </div> <!-- container //  -->
     </section>
     <!-- ========================= SECTION PAGETOP END// ========================= -->
-
-
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content padding-y">
         <div class="container">
@@ -25,8 +25,11 @@
                         {{-- <a class="list-group-item" href="#"> Ayuda </a> --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a class="list-group-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    this.closest('form').submit();"> Cerrar sesión </a>
+                            <a class="list-group-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                Cerrar
+                                sesión
+                            </a>
                         </form>
                     </nav>
                 </aside> <!-- col.// -->
@@ -34,50 +37,75 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form class="row">
+
+                            <form action="{{ route('user.update.profile') }}" method="POST" class="row">
+                                @csrf
                                 <div class="col-md-9">
                                     <div class="form-row">
                                         <div class="col form-group">
                                             <label>Nombre</label>
-                                            <input type="text" class="form-control" value="{{ $user->name }}">
+                                            <input type="text" name="name" class="form-control" value="{{ $user->name }}">
                                         </div> <!-- form-group end.// -->
                                         <div class="col form-group">
                                             <label>Apellido</label>
-                                            <input type="text" class="form-control" value="{{ $user->last_name }}">
+                                            <input type="text" name="last_name" class="form-control"
+                                                value="{{ $user->last_name }}">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->
 
                                     <div class="form-row">
                                         <div class="col form-group">
                                             <label>Email</label>
-                                            <input type="email" class="form-control" value="{{ $user->email }}">
+                                            <input type="email" name="email" class="form-control"
+                                                value="{{ $user->email }}">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
                                             <label>Teléfono</label>
-                                            <input type="text" class="form-control" value="{{ $user->phone }}">
+                                            <input type="text" name="phone" class="form-control"
+                                                value="{{ $user->phone }}">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->
 
-                                    <button class="btn btn-primary">Guardar</button>
-                                    <button class="btn btn-light">Cambiar contraseña</button>
-
-                                    <br><br><br><br><br><br>
-
-                                </div> <!-- col.// -->
-                                <div class="col-md">
-                                    <img src="images/avatars/avatar2.jpg" class="img-md rounded-circle border">
-                                </div> <!-- col.// -->
+                                    <button type="submit" class="btn btn-primary float-right">Guardar</button>
                             </form>
-                        </div> <!-- card-body.// -->
-                    </div> <!-- card .// -->
+
+                            <form method="POST" action="{{ route('user.update.password') }}">
+                                @csrf
+                                <div class="col-md-12 mt-5">
+                                    <div class="form-row">
+                                        <div class="col form-group col-12">
+                                            <label>Current Password</label>
+                                            <input type="password" name="current_password" class="form-control">
+                                        </div> <!-- form-group end.// -->
+                                        <div class="form-group col-md-6">
+                                            <label>New Password</label>
+                                            <input type="password" name="password" class="form-control">
+                                        </div> <!-- form-group end.// -->
+                                        <div class="form-group col-md-6">
+                                            <label>Confirm Password</label>
+                                            <input type="password" name="password_confirmation" class="form-control">
+                                        </div> <!-- form-group end.// -->
+                                    </div> <!-- form-row.// -->
+                                    <button class="btn btn-dark btn-block">Cambiar contraseña</button>
+                                </div>
+                            </form>
+
+                        </div> <!-- col.// -->
+
+                    </div> <!-- card-body.// -->
+            </div> <!-- card .// -->
 
 
 
-                </main> <!-- col.// -->
-            </div>
+            </main> <!-- col.// -->
+        </div>
 
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
 
+@endsection
+
+@section('js')
+    @include('sweetalert::alert')
 @endsection

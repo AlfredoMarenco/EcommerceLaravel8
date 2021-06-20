@@ -72,32 +72,43 @@ Route::get('/condiciones-de-uso', function(){
     return view('politicas.condiciones');
     })->name('condiciones-de-uso');
 
+*/
 
 
+Route::get('/mailable/{order}', function ($order) {
+    $order = Order::find($order);
 
-Route::get('/mailable', function () {
-    $order = Order::find(405);
-
-    return new OrderFailed($order);
+    return new OrderShipped($order);
 });
- */
+
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
-Route::get('/tienda', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::post('/search', [LandingPageController::class, 'search'])->name('search');
+
+
+//Rutas Tienda
+Route::prefix('/shop')->group(function () {
+    Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+    Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+    Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+    Route::post('/products/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
+});
 
 //Rutas Catalogo
 Route::prefix('/catalogue')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
     Route::get('/products/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
     Route::get('/product/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::post('/products/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
 // Rutas del blog
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/storeComment', [BlogController::class, 'storeComment'])->name('blog.store.comment');
 });
 
 
@@ -106,9 +117,12 @@ Route::prefix('/cartshop')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
     Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
     Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::post('/addToCartCheckout/{id}', [ShopController::class, 'addItemToCartCheckout'])->name('cart.addItemToCheckout');
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
+    Route::post('/applyCoupon', [ShopController::class, 'applyCoupon'])->name('cart.applyCoupon');
+    Route::get('/applyCoupon', [ShopController::class, 'deleteCoupon'])->name('cart.deleteCoupon');
 });
 
 //Rutas wishlist
@@ -138,6 +152,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
     Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
     Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
+    Route::post('/updateInformationProfile', [UserController::class, 'updateInformationProfile'])->name('user.update.profile');
 });
 
 //Rutas de login con redes sociales
@@ -233,9 +248,7 @@ route::get('/detalle-producto', function () {
     return view('bajce.catalog.product');
 });
 // Nosotros
-route::get('/nosotros', function () {
-    return view('bajce.about-us');
-});
+
 
 // Mis órdenes
 route::get('/mis-ordenes', function () {
@@ -246,3 +259,10 @@ route::get('/mis-ordenes', function () {
 route::get('/mi-direccion', function () {
     return view('bajce.user.my-adress');
 });
+
+
+/* Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser'); */

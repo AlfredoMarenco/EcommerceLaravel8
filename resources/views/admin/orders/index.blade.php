@@ -12,7 +12,6 @@
 
 @section('css')
     @livewireStyles
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 @stop
 
 @section('js')
