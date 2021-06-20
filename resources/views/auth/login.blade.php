@@ -1,4 +1,5 @@
 @extends('layouts.bajce')
+@section('title', 'Login')
 @section('content')
     <!-- ============================ COMPONENT LOGIN   ================================= -->
     <div class="card mx-auto" style="max-width: 380px; margin-top:180px;">

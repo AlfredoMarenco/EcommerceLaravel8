@@ -130,4 +130,10 @@ class ReportController extends Controller
     {
         return view('admin.reports.inventary');
     }
+
+
+    public function getReport(Request $request)
+    {
+        return $request->all();
+    }
 }
