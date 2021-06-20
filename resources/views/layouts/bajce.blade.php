@@ -117,7 +117,7 @@
                         <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
                 </ul>
             </nav> <!-- navbar-main  .// -->
