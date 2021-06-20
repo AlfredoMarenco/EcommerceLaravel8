@@ -7,7 +7,7 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Grupo Bajce</title>
+    <title>Grupo Bajce | @yield('title')</title>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
@@ -69,10 +69,10 @@
                     <div class="col-6 col-sm col-md col-lg flex-md-grow-0">
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-                        {!! Form::open(['class' => 'search-header']) !!}
+                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
-                            {!! Form::select('category', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
+                            {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div> <!-- col.// -->

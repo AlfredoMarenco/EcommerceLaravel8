@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Usuario')
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->
@@ -50,7 +50,7 @@
                                             @case('bajce')
                                                 <a href="#" class="float-right text-warning mx-2">
                                                     <i class="fas fa-truck-moving"></i>
-                                                    En camino (No rastreable)
+                                                    En camino
                                                 </a>
                                             @break
                                             @case('dhl')
@@ -175,9 +175,7 @@
                                         @foreach ($order->products as $product)
                                             <tr>
                                                 <td width="85">
-                                                    <a href="{{ route('shop.product', $product) }}"> <img
-                                                            src="{{ Storage::url($product->image->url) }}"
-                                                            class="img-md border">
+                                                    <a href="{{ route('shop.product', $product) }}"> <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-md border">
                                                     </a>
                                                 </td>
                                                 <td>{{--  --}}

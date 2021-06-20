@@ -1,5 +1,7 @@
 @extends('layouts.bajce')
 
+@section('title', 'Usuario')
+
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->
@@ -9,8 +11,6 @@
         </div> <!-- container //  -->
     </section>
     <!-- ========================= SECTION PAGETOP END// ========================= -->
-
-
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content padding-y">
         <div class="container">
@@ -26,8 +26,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                                                                                this.closest('form').submit();">
+                                onclick="event.preventDefault(); this.closest('form').submit();">
                                 Cerrar
                                 sesión
                             </a>

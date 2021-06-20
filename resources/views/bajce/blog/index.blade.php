@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Blog')
 @section('content')
 
 
@@ -15,7 +15,8 @@
                                     <div class="imagen-destacada">
                                         <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
                                     </div>
-                                    <p class="mt-3" style="color: gray;">{{ $carbon->diffForHumans($post->created_at) }}
+                                    <p class="mt-3" style="color: gray;">
+                                        {{ $post->created_at->diffForHumans(['options' => 0]) }}
                                     </p>
                                     <h3>{{ $post->title }}</h3>
                                     <p>{!! $post->extract !!}</p>
@@ -38,7 +39,8 @@
                                     <p>
                                         <b>{{ $recent->title }}
                                         </b>
-                                        <span>{{ $carbon->diffForHumans($recent->created_at) }} </span>
+                                        <br>
+                                        <span>{{ $recent->created_at->diffForHumans(['options' => 0]) }} </span>
                                         <span> <br>
                                             <a href="{{ route('blog.show', $recent) }}"> Ver más <i
                                                     class="far fa-arrow-alt-circle-right"></i></a>

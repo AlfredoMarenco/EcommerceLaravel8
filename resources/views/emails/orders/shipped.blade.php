@@ -1,6 +1,7 @@
 @component('mail::message')
 <div class="order">
 <h1>Confirmacion de orden</h1>
+<br>
 <p>Orden:<strong> {{ $order->id }}</strong></p>
 </div>
 ¡Hola {{ $order->user->name }}!
@@ -17,7 +18,7 @@
 |                                     |                           |                                            |
 |                                     |<strong>TOTAL:</strong>     | <strong>${{ number_format($order->amount,2) }}<strong>|
 @endcomponent
-@component('mail::button', ['url' => '{{ env('APP_URL') }}/user/orders','color' => 'success'])
+@component('mail::button', ['url' => 'https://bajce.testvandu.com/user/orders','color' => 'success'])
 Ver orden
 @endcomponent
 

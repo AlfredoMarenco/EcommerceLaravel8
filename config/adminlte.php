@@ -45,9 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>.</b>',
-    'logo_img' => 'images/misc/logo-bajce-vrd.png',
-    'logo_img_class' => '',
+    'logo' => '<b></b>',
+    'logo_img' => 'images/misc/logo-bajce-bco.png',
+    'logo_img_class' => 'img-fluid w-75',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -231,156 +231,150 @@ return [
             'can' => 'admin.home'
         ],
         [
-            'text' => 'Orden',
+            'text' => 'Ordenes',
             'route' => 'admin.orders.index',
             'icon' => 'fas fa-fw fa-receipt',
             'can' => 'admin.orders.index'
         ],
         [
-            'header' => 'PRODUCTOS',
-            'can' => 'admin.products.index'
-        ],
-        [
-            'text' => 'Productos',
-            'route'  => 'admin.products.index',
-            'icon' => 'fas fa-fw fa-tshirt',
-            'can' => 'admin.products.index'
-        ],
-        [
-            'text' => 'Categorias',
-            'route' => 'admin.categories.index',
-            'icon'  => 'fab fa-fw fa-buffer',
-            'can' => 'admin.categories.index'
-        ],
-        [
-            'text' => 'Cupones',
-            'route' => 'admin.coupons.index',
-            'icon'  => 'fas fa-fw fa-percent',
-        ],
-        /*         [
-            'text' => 'Detalles de productos',
-            'route' => 'admin.details.index',
-            'icon'  => 'fas fa-fw fa-align-justify',
-        ], */
-        /*  [
-            'text' => 'Variantes de producto',
-            'icon' => 'fas fa-fw fa-sitemap',
-            'can' => 'admin.variants.index',
+            'text' => 'Tienda',
+            'icon' => 'fas fa-fw fa-store',
+            'can' => 'admin.products.index',
             'submenu' => [
                 [
-                    'text' => 'Tipos de variantes',
-                    'icon' => 'fas fa-fw fa-grip-lines',
-                    'url'  => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Color',
-                            'icon' => 'fas fa-fw fa-swatchbook',
-                            'route' => 'admin.colors.index',
-                            'can' => 'admin.colors.index'
-                        ],
-                        [
-                            'text'    => 'Talla',
-                            'icon'    => 'fas fa-fw fa-ruler-vertical',
-                            'route'   => 'admin.sizes.index',
-                            'can' => 'admin.sizes.index'
-                        ],
-                        [
-                            'text'    => 'Asignacion de variantes',
-                            'icon'    => 'fas fa-fw fa-code-branch',
-                            'route'   => 'admin.variants.index',
-                            'can' => 'admin.sizes.index'
-                        ],
-                    ],
+                    'text' => 'Productos',
+                    'route'  => 'admin.products.index',
+                    'icon' => 'fas fa-fw fa-tshirt',
+                    'can' => 'admin.products.index'
                 ],
                 [
-                    'text' => 'Asignar variantes a producto',
-                    'icon' => 'fas fa-fw fa-arrows-alt-h',
-                    'route' => 'admin.variants.index',
-                    'can' => 'admin.variants.index'
+                    'text' => 'Categorias',
+                    'route' => 'admin.categories.index',
+                    'icon'  => 'fab fa-fw fa-buffer',
+                    'can' => 'admin.categories.index'
                 ],
-
+                [
+                    'text' => 'Cupones',
+                    'route' => 'admin.coupons.index',
+                    'icon'  => 'fas fa-fw fa-percent',
+                    'can' => 'admin.coupons.index'
+                ],
             ],
-        ], */
-        [
-            'header' => 'CATALOGO',
-            'can' => 'admin.posts.index'
         ],
         [
-            'text' => 'Catalogos',
-            'route' => 'admin.catalogues.index',
-            'icon'  => 'fab fa-fw fa-buffer',
+            'text' => 'Catálogos',
+            'icon' => 'fab fa-fw fa-buffer',
+            'can' => 'admin.catalogues.index',
+            'submenu' => [
+                [
+                    'text' => 'Crear',
+                    'route' => 'admin.catalogues.index',
+                    'icon'  => 'fas fa-folder-plus',
+                ],
+            ],
         ],
         [
-            'header' => 'BLOG',
-            'can' => 'admin.posts.index'
-        ],
-        [
-            'text' => 'Post',
-            'route'  => 'admin.posts.index',
+            'text' => 'Blog',
             'icon' => 'fab fa-fw fa-blogger-b',
-            'can' => 'admin.posts.index'
+            'can' => 'admin.posts.index',
+            'submenu' => [
+                [
+                    'text' => 'Post',
+                    'route'  => 'admin.posts.index',
+                    'icon' => 'far fa-fw fa-newspaper',
+                    'can' => 'admin.posts.index'
+                ],
+                [
+                    'text' => 'Tags',
+                    'route'  => 'admin.tags.index',
+                    'icon' => 'fas fa-fw fa-tags',
+                    'can' => 'admin.tags.index'
+                ],
+            ],
         ],
         [
-            'text' => 'Tags',
-            'route'  => 'admin.tags.index',
-            'icon' => 'fas fa-fw fa-tags',
-            'can' => 'admin.tags.index'
+            'text' => 'Web administrable',
+            'icon' => 'fas fa-fw fa-solar-panel',
+            'can' => 'admin.web.index',
+            'submenu' => [
+                [
+                    'text' => 'Slider',
+                    'route'  => 'admin.sliders.index',
+                    'icon'  => 'far fa-images',
+                ],
+                [
+                    'text' => 'Mosaico',
+                    'route'  => 'admin.mosaics.index',
+                    'icon'  => 'far fa-clone',
+                ],
+                [
+                    'text' => 'Seccion Botones',
+                    'route'  => 'admin.buttons.index',
+                    'icon'  => 'fas fa-link',
+                ],
+                [
+                    'text' => 'Codigo Cupon',
+                    'route'  => 'admin.cuponfs.index',
+                    'icon'  => 'fas fa-image',
+                ],
+                [
+                    'text' => 'Marcas',
+                    'route'  => 'admin.brands.index',
+                    'icon'  => 'fab fa-bandcamp',
+                ],
+                [
+                    'text' => 'Videos',
+                    'route'  => 'admin.videos.index',
+                    'icon'  => 'fab fa-youtube',
+                ],
+            ],
         ],
-
-        ['header' => 'Pagina web'],
         [
-            'text' => 'Slider',
-            'route'  => 'admin.sliders.index',
-            'icon'  => 'far fa-images',
-        ],
-        [
-            'text' => 'Mosaico',
-            'route'  => 'admin.mosaics.index',
-            'icon'  => 'far fa-clone',
-        ],
-        [
-            'text' => 'Seccion Botones',
-            'route'  => 'admin.buttons.index',
-            'icon'  => 'fas fa-link',
-        ],
-        [
-            'text' => 'Codigo Cupon',
-            'route'  => 'admin.cuponfs.index',
-            'icon'  => 'fas fa-image',
-        ],
-        [
-            'text' => 'Marcas',
-            'route'  => 'admin.brands.index',
-            'icon'  => 'fab fa-bandcamp',
-        ],
-        [
-            'text' => 'Videos',
-            'route'  => 'admin.videos.index',
-            'icon'  => 'fab fa-youtube',
-        ],
-
-        /*  ['header' => 'GALERIA'],
-        [
-            'text' => 'Colecciones',
-            'route'  => 'admin.collections.index',
-            'icon'  => 'fas fa-fw fa-images ',
-        ], */
-        [
-            'header' => 'ADMINISTRACION DE USUARIOS',
-            'can' => 'admin.users.index'
+            'text' => 'Reportes',
+            'icon' => 'fas fa-fw fa-chart-bar',
+            'route' => 'admin.reports.index',
+            /* 'can' => 'admin.reports.index', */
+            'submenu' => [
+                [
+                    'text' => 'Graficas',
+                    'route'  => 'admin.reports.index',
+                    'icon'  => 'fas fa-fw fa-chart-pie',
+                    /* 'can' => 'admin.reports.inventary' */
+                ],
+                [
+                    'text' => 'Inventario',
+                    'route'  => 'admin.reports.inventary',
+                    'icon'  => 'fas fa-fw fa-boxes',
+                    /* 'can' => 'admin.reports.inventary' */
+                ],
+                [
+                    'text' => 'Ventas',
+                    'route'  => 'admin.reports.sales',
+                    'icon'  => 'fas fa-fw fa-file-invoice-dollar',
+                    /* 'can' => 'admin.roles.sales' */
+                ],
+            ],
         ],
         [
             'text' => 'Usuarios',
-            'route'  => 'admin.users.index',
-            'icon'  => 'fas fa-fw fa-users',
-            'can' => 'admin.users.index'
+            'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin.users.index',
+            'submenu' => [
+                [
+                    'text' => 'Usuario',
+                    'route'  => 'admin.users.index',
+                    'icon'  => 'fas fa-fw fa-user',
+                    'can' => 'admin.users.index'
+                ],
+                [
+                    'text' => 'Roles',
+                    'route'  => 'admin.roles.index',
+                    'icon'  => 'fas fa-fw fa-users-cog',
+                    'can' => 'admin.roles.index'
+                ],
+            ],
         ],
-        [
-            'text' => 'Roles',
-            'route'  => 'admin.roles.index',
-            'icon'  => 'fas fa-fw fa-users-cog',
-            'can' => 'admin.roles.index'
-        ],
+
     ],
 
     /*

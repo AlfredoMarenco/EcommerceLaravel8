@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Products')
+@section('title', 'Cupones')
 
 @section('content_header')
     <h1>Crear nuevo cupon</h1>

@@ -19,13 +19,22 @@ class RolSeeder extends Seeder
             'name' => 'admin'
         ]);
         $role2 = Role::create([
-            'name' => 'user'
+            'name' => 'editor'
+        ]);
+        $role3 = Role::create([
+            'name' => 'tesorero'
+        ]);
+        $role4 = Role::create([
+            'name' => 'logistica'
+        ]);
+        $role5 = Role::create([
+            'name' => 'compras'
         ]);
 
         Permission::create([
             'name' => 'admin.home',
             'description' => 'Ver Panel'
-        ])->syncRoles([$role1]);;
+        ])->syncRoles([$role1, $role2, $role3, $role4, $role5]);;
 
         Permission::create([
             'name' => 'admin.users.index',
@@ -33,92 +42,54 @@ class RolSeeder extends Seeder
         ])->syncRoles([$role1]);
 
         Permission::create([
+            'name' => 'admin.users.create',
+            'description' => 'Editar usuarios'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
             'name' => 'admin.users.edit',
             'description' => 'Editar usuarios'
         ])->syncRoles([$role1]);
 
-
         Permission::create([
             'name' => 'admin.categories.index',
             'description' => 'Ver categorias'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.categories.create',
             'description' => 'Crear categorias'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.categories.edit',
             'description' => 'Editar categorias'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.categories.destroy',
             'description' => 'Eliminar categorias'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.products.index',
             'description' => 'Ver productos'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.products.create',
             'description' => 'Crear productos'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.products.edit',
             'description' => 'Editar productos'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.products.destroy',
             'description' => 'Eliminar productos'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.colors.index',
-            'description' => 'Ver colores'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.colors.create',
-            'description' => 'Crear colores'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.colors.edit',
-            'description' => 'Editar colores'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.colors.destroy',
-            'description' => 'Eliminar colores'
-        ])->syncRoles([$role1]);
-
-
-        Permission::create([
-            'name' => 'admin.sizes.index',
-            'description' => 'Ver tallas'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.sizes.create',
-            'description' => 'Crear tallas'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.sizes.edit',
-            'description' => 'Editar tallas'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.sizes.destroy',
-            'description' => 'Eliminar tallas'
-        ])->syncRoles([$role1]);
-
+        ])->syncRoles([$role1, $role5]);
 
         Permission::create([
             'name' => 'admin.roles.index',
@@ -144,74 +115,103 @@ class RolSeeder extends Seeder
         Permission::create([
             'name' => 'admin.tags.index',
             'description' => 'Ver etiqueta'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
         Permission::create([
             'name' => 'admin.tags.create',
             'description' => 'Crear etiquetas'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
         Permission::create([
             'name' => 'admin.tags.edit',
             'description' => 'Editar etiquetas'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
         Permission::create([
             'name' => 'admin.tags.destroy',
             'description' => 'Eliminar etiquetas'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
 
         Permission::create([
             'name' => 'admin.posts.index',
             'description' => 'Ver post'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
         Permission::create([
             'name' => 'admin.posts.create',
             'description' => 'Crear posts'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
         Permission::create([
             'name' => 'admin.posts.edit',
             'description' => 'Editar posts'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role2]);
 
         Permission::create([
             'name' => 'admin.posts.destroy',
             'description' => 'Eliminar posts'
+        ])->syncRoles([$role1, $role2]);
+
+        Permission::create([
+            'name' => 'admin.catalogues.index',
+            'description' => 'Ver Catalogos'
+        ])->syncRoles([$role1, $role5]);
+
+        Permission::create([
+            'name' => 'admin.catalogues.create',
+            'description' => 'Crear Catalogos'
+        ])->syncRoles([$role1, $role5]);
+
+        Permission::create([
+            'name' => 'admin.catalogues.edit',
+            'description' => 'Editar Catalogos'
+        ])->syncRoles([$role1, $role5]);
+
+        Permission::create([
+            'name' => 'admin.catalogues.destroy',
+            'description' => 'Eliminar Catalogos'
+        ])->syncRoles([$role1, $role5]);
+
+
+        Permission::create([
+            'name' => 'admin.coupons.index',
+            'description' => 'Ver Cupones'
         ])->syncRoles([$role1]);
 
+        Permission::create([
+            'name' => 'admin.coupons.create',
+            'description' => 'Crear Cupones'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.coupons.edit',
+            'description' => 'Editar Cupones'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.coupons.destroy',
+            'description' => 'Eliminar Cupones'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.web.index',
+            'description' => 'Administracion de sitio'
+        ])->syncRoles([$role1]);
 
         Permission::create([
             'name' => 'admin.orders.index',
             'description' => 'Ver ordenes'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role4]);
 
         Permission::create([
             'name' => 'admin.orders.edit',
             'description' => 'Editar ordenes'
-        ])->syncRoles([$role1]);
+        ])->syncRoles([$role1, $role4]);
 
         Permission::create([
             'name' => 'admin.orders.destroy',
             'description' => 'Eliminar ordenes'
-        ])->syncRoles([$role1]);
-
-
-        Permission::create([
-            'name' => 'admin.variants.index',
-            'description' => 'Ver variantes'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.variants.edit',
-            'description' => 'Editar variantes'
-        ])->syncRoles([$role1]);
-
-        Permission::create([
-            'name' => 'admin.variants.destroy',
-            'description' => 'Eliminar variantes'
         ])->syncRoles([$role1]);
     }
 }

@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Storage;
 
 class CatalogueController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.catalogues.index')->only('index');
+        $this->middleware('can:admin.catalogues.create')->only('create', 'store');
+        $this->middleware('can:admin.catalogues.edit')->only('edit', 'update');
+        $this->middleware('can:admin.catalogues.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -125,9 +125,12 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete();
-        /* dd($response); */
-        return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
+        try {
+            $product->delete();
+            return redirect()->route('admin.products.index')->with('Success', 'Producto eliminado con éxito');
+        } catch (\Throwable $th) {
+            return back()->withToastError('Este producto ya tiene ventas');
+        }
     }
 
     public function deleteImage($id)

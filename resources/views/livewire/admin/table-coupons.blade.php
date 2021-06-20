@@ -13,7 +13,11 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Descuento</th>
+                        <th scope="col">Valor minimo</th>
+                        <th scope="col">Activo</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -22,6 +26,19 @@
                         <tr>
                             <th scope="row">{{ $coupon->id }}</th>
                             <td>{{ $coupon->code }}</td>
+                            @if ($coupon->type == 'fixed')
+                                <td>Cantidad</td>
+                                <td>${{ number_format($coupon->value, 2) }}</td>
+                            @else
+                                <td>Porcentage</td>
+                                <td>{{ $coupon->percent_off }}%</td>
+                            @endif
+                            <td>{{ number_format($coupon->min_amount, 2) }}</td>
+                            @if ($coupon->status == 0)
+                                <td>No</td>
+                            @else
+                                <td>Sí</td>
+                            @endif
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('admin.coupons.edit', $coupon) }}"
                                     class="btn btn-success btn-md mx-1">Editar</a>

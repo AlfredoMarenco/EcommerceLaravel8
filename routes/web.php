@@ -72,19 +72,21 @@ Route::get('/condiciones-de-uso', function(){
     return view('politicas.condiciones');
     })->name('condiciones-de-uso');
 
+*/
 
 
+Route::get('/mailable/{order}', function ($order) {
+    $order = Order::find($order);
 
-Route::get('/mailable', function () {
-    $order = Order::find(405);
-
-    return new OrderFailed($order);
+    return new OrderShipped($order);
 });
- */
+
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
-route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::post('/search', [LandingPageController::class, 'search'])->name('search');
+
 
 //Rutas Tienda
 Route::prefix('/shop')->group(function () {
@@ -99,12 +101,14 @@ Route::prefix('/catalogue')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
     Route::get('/products/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
     Route::get('/product/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::post('/products/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
 // Rutas del blog
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/storeComment', [BlogController::class, 'storeComment'])->name('blog.store.comment');
 });
 
 
@@ -113,6 +117,7 @@ Route::prefix('/cartshop')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
     Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
     Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::post('/addToCartCheckout/{id}', [ShopController::class, 'addItemToCartCheckout'])->name('cart.addItemToCheckout');
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');

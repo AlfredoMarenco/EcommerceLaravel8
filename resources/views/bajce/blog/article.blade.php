@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Blog')
 @section('content')
 
     <section id="interior-entrada">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endif
                 @endforeach
             </div>
@@ -70,27 +70,23 @@
     </section>
 
     <section id="comentarios">
-        <div class="container">
+        <div class="container card">
+            <form action="{{ route('blog.store.comment') }}" method="POST">
+                @csrf
+                <div class="form-group col-md-8">
+                    <input type="hidden" name="post" value="{{ $post->id }}">
+                    <label for="body">Ingresa tu comentario</label>
+                    <textarea name="body" rows="5" class="form-control"></textarea>
+                    <button class="btn btn-primary float-right mt-2" type="submit">Comentar</button>
+                </div>
+            </form>
             <h4>Comentarios</h4>
-            <div class="comentarios-escr mt-3">
-                <h5>ARMANDO CARBALLO</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, reiciendis! Eius numquam officia
-                    blanditiis dignissimos maiores, molestiae nisi praesentium rerum tenetur ex accusantium ea assumenda qui
-                    similique quisquam dolore pariatur.</p>
-            </div>
-            <div class="comentarios-escr mt-3">
-                <h5>ARMANDO CARBALLO</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, reiciendis! Eius numquam officia
-                    blanditiis dignissimos maiores, molestiae nisi praesentium rerum tenetur ex accusantium ea assumenda qui
-                    similique quisquam dolore pariatur.</p>
-            </div>
-            <div class="comentarios-escr mt-3">
-                <h5>ARMANDO CARBALLO</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, reiciendis! Eius numquam officia
-                    blanditiis dignissimos maiores, molestiae nisi praesentium rerum tenetur ex accusantium ea assumenda qui
-                    similique quisquam dolore pariatur.</p>
-            </div>
-
+            @foreach ($post->comments as $comment)
+                <div class="comentarios-escr mt-3 px-4 card">
+                    <h5>{{ $comment->user->name }} {{ $comment->user->last_name }}</h5>
+                    <p>{{ $comment->body }}</p>
+                </div>
+            @endforeach
         </div>
     </section>
 

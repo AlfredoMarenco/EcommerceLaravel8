@@ -1319,7 +1319,7 @@ body {
 .titulo-servicio {
   margin-top: 15px;
   font-size: 18px;
-} 
+}
 
 .p-servicio {
   font-size: 13px;
@@ -1636,7 +1636,7 @@ body {
 .cargar {
   padding-left: 40px;
   padding-right: 40px;
-} 
+}
 
 
 /*======= DETALLE ENTRADA =========*/
@@ -1648,7 +1648,7 @@ body {
   #interior-entrada {
     margin-top: 300px;
   }
-} 
+}
 
 .imagen-interior {
   text-align: center;
@@ -1674,7 +1674,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   margin-right: 10px;
-} 
+}
 
 .facebook-btn:hover {
   background-color: #314f92;

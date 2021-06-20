@@ -1,8 +1,6 @@
 @extends('layouts.bajce')
-
+@section('title', 'Nosotros')
 @section('content')
-
-
     <section id="header-nosotros">
         <div class="container">
             <div class="bg-nosotros">
@@ -159,45 +157,6 @@
         </div>
     </section>
 
-    {{-- <section id="marcas-nosotros">
-        <div class="container">
-            <div class="cabecera-marcas-nosotros mb-5">
-                <h3>MARCAS CON LAS QUE TRABAJAMOS</h3>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="logos-nosotros">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <img src="/images/misc/marcas.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section> --}}
     <section id="marcas">
         <div class="cabecera-marcas">
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
@@ -210,18 +169,12 @@
             @foreach ($brands as $brand)
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="marcas-logo">
-                        <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt="">
+                        <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif class="img-fluid" alt="">
                     </div>
                 </div>
             @endforeach
         </div>
     </section>
-
-
-
-
-
-
 
     <!--========== NEWSLETTER =============-->
     <section id="newsletter">

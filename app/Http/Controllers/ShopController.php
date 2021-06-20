@@ -6,17 +6,19 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Configuration;
 use App\Models\Coupon;
+use App\Models\Order;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ShopController extends Controller
 {
     //Funcion para mostrar la tienda
     public function index()
     {
-        $products = Product::where('type', 0)->paginate(12);
+        $products = Product::where('type', 0)->latest('id')->paginate(12);
         $categories = Category::all();
         $brands = Brand::all();
         return view('bajce.shop.index', compact('products', 'categories', 'brands'));
@@ -25,7 +27,7 @@ class ShopController extends Controller
     //Mostramos un producto en especifico
     public function showProduct(Product $product)
     {
-        $products = Product::inRandomOrder()->paginate(4);
+        $products = Product::where('type', 0)->inRandomOrder()->paginate(4);
         $reviews = $product->reviews()->latest()->paginate(3);
         return view('bajce.shop.product', compact('product', 'products', 'reviews'));
     }
@@ -45,7 +47,7 @@ class ShopController extends Controller
     //Mostrámos la vista del carrito
     public function cart()
     {
-        $products = Product::inRandomOrder()->paginate(4);
+        $products = Product::where('type', 0)->inRandomOrder()->paginate(4);
         return view('bajce.shop.shopping-cart', compact('products'));
     }
 
@@ -100,8 +102,13 @@ class ShopController extends Controller
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
         }
-        return back();
+        if ($request->redirect == '1') {
+            return redirect()->route('checkout.index');
+        } else {
+            return back();
+        }
     }
+
     //Funcion para agregar un productos a la wishlist
     public function addItemToWishlist($product)
     {
@@ -135,6 +142,7 @@ class ShopController extends Controller
         if ($qty > 0) {
             Cart::instance('default')->update($rowId, $qty);
             Cart::setGlobalDiscount(0);
+            $request->session()->pull('coupon');
             return back();
         }
         return back();
@@ -175,25 +183,37 @@ class ShopController extends Controller
     //Funcion aplicacion de cupon de descuento
     public function applyCoupon(Request $request)
     {
-        $coupon = Coupon::where('code', $request->coupon)->first();
+        $coupon = Coupon::where('code', $request->coupon)->where('status', 1)->first();
         if ($coupon) {
-            if ($coupon->type == 'fixed') {
-                $total = str_replace(',', '', Cart::instance('default')->total());
-                $code = ((float)$coupon->value * 100) / (float)$total;
-                Cart::setGlobalDiscount($code);
+            if ($coupon->min_amount <= Cart::instance('default')->total()) {
+                $orderValidation = Order::where('coupon_id', $coupon->id)->where('user_id', auth()->user()->id)->get();
+                if ($orderValidation->count() == 0) {
+                    if ($coupon->type == 'fixed') {
+                        $total = str_replace(',', '', Cart::instance('default')->total());
+                        $code = ((float)$coupon->value * 100) / (float)$total;
+                        $request->session()->put('coupon', $coupon->id);
+                        Cart::setGlobalDiscount($code);
+                    } else {
+                        Cart::setGlobalDiscount($coupon->percent_off);
+                        $request->session()->put('coupon', $coupon->id);
+                    }
+                    return back()->withSuccess('Cupón aplicado con éxito!');
+                } else {
+                    return back()->with('errors', 'Este cupón solo puede ser usado una vez');
+                }
             } else {
-                Cart::setGlobalDiscount($coupon->percent_off);
+
+                return back()->with('errors', 'El minimo de compra debe ser: $' . number_format($coupon->min_amount, 2));
             }
-            return back()->withSuccess('Cupón aplicado con éxito!');
         } else {
             return back()->with('errors', 'Cupón no válido');
         }
     }
 
-    public function deleteCoupon()
+    public function deleteCoupon(Request $request)
     {
         Cart::setGlobalDiscount(0);
-
+        $request->session()->pull('coupon');
         return back();
     }
 

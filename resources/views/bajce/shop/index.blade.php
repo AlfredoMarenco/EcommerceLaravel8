@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
     {{-- @livewire('products',['category_id' => $category_id]) --}}
     <section class="section-content padding-y">
@@ -28,13 +28,13 @@
                             <div class="filter-content collapse show" id="collapse_1">
                                 <div class="inner">
                                     @foreach ($categories as $category)
-                                        @if ($category->products_count > 0)
+                                        @if ($category->products->where('type', 0)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="categories[]" class="custom-control-input"
                                                     value="{{ $category->id }}">
                                                 <div class="custom-control-label">{{ $category->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $category->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $category->products->where('type', 0)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -50,13 +50,13 @@
                             <div class="filter-content collapse show" id="collapse_2">
                                 <div class="inner">
                                     @foreach ($brands as $brand)
-                                        @if ($brand->products_count > 0)
+                                        @if ($brand->products->where('type', 0)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="brands[]" class="custom-control-input"
                                                     value="{{ $brand->id }}">
                                                 <div class="custom-control-label">{{ $brand->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $brand->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $brand->products->where('type', 0)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -115,32 +115,33 @@
                 </aside> <!-- col.// -->
 
                 <main class="col-md-10">
-                    <header class="mb-3">
-                        <div class="form-inline">
-                            <strong class="mr-md-auto">{{ $products->count() }} Productos encontrados </strong>
-                            <select class="mr-2 form-control">
-                                <option>Más recientes</option>
-                                <option>Mejor Calificación</option>
-                                <option>Más econónimos</option>
-                            </select>
-                        </div>
-                    </header><!-- sect-heading -->
-
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-md-3">
                                 <figure class="card card-product-grid">
                                     <div class="img-wrap">
-                                        <span class="badge badge-danger"> Nuevo </span>
-                                        <a href="{{ route('shop.product', $product) }}"><img
-                                                src="{{ Storage::url($product->image->url) }}"></a>
+                                        @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
+                                            <span class="badge badge-danger"> Nuevo </span>
+                                        @endif
+                                        <a href="{{ route('shop.product', $product) }}">
+                                            <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                        </a>
                                     </div> <!-- img-wrap.// -->
                                     <figcaption class="info-wrap">
                                         <a href="{{ route('shop.product', $product) }}"
                                             class="title mb-2">{{ $product->name }}</a>
                                         <div class="price-wrap">
-                                            <span class="price">{{ $product->presentPrice() }}</span>
-                                            <small class="text-muted">/ pza</small>
+                                            @if ($product->discount)
+                                                <strike
+                                                    class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                                <small class="text-muted">/</small>
+                                                <span
+                                                    class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                                <small class="text-muted">/ pza</small>
+                                            @else
+                                                <span class="price">{{ $product->presentPrice() }}</span>
+                                                <small class="text-muted">/ pza</small>
+                                            @endif
                                             <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                         </div> <!-- price-wrap.// -->
                                         <div class="rating-wrap my-3">

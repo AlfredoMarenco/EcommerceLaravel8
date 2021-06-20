@@ -48,10 +48,16 @@ class ApiController extends Controller
             case 'charge.succeeded': //Estados para cargos exitosos
                 $order = Order::where('id_gateway', $id_gateway)->first();
                 if ($order) {
-                    $order->update([
-                        'status' => 'charge.succeeded',
-                        'tracker_status' => 'standby'
-                    ]);
+                    if ($order->tracker_status != 'standby') {
+                        $order->update([
+                            'status' => 'charge.succeeded',
+                        ]);
+                    } else {
+                        $order->update([
+                            'status' => 'charge.succeeded',
+                            'tracker_status' => 'standby'
+                        ]);
+                    }
                 }
                 Mail::to($order->user->email)->send(new OrderShipped($order));
                 break;

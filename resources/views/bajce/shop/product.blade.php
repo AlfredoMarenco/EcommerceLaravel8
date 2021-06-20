@@ -1,13 +1,12 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content bg-white padding-y">
         <div class="container mt-5 mb-3">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="#">Tienda</a></li>
-                <li class="breadcrumb-item"><a href="#">Productos</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('shop.index') }}">Tienda</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
             </ol>
         </div>
@@ -15,22 +14,18 @@
 
             <!-- ============================ ITEM DETAIL ======================== -->
             <div class="row">
-                <aside class="col-md-6 flexslider">
-                    <!-- Place somewhere in the <body> of your page -->
-                    <!-- Place somewhere in the <body> of your page -->
+                <aside class="col-md-6 flexslider p-5">
                     <ul class="slides">
                         @foreach ($product->images as $image)
                             <li data-thumb="{{ Storage::url($image->url) }}">
-                                <img src="{{ Storage::url($image->url) }}">
+                                <img style="max-height: 400px;" @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </li>
                         @endforeach
                     </ul>
                 </aside>
                 <main class="col-md-6">
                     <article class="product-info-aside">
-
                         <h2 class="title mt-3">{{ $product->name }}</h2>
-
                         <div class="rating-wrap my-3">
                             <ul class="rating-stars">
                                 <li style="width:{{ ($product->rating * 100) / 5 }}%" class="stars-active">
@@ -48,11 +43,18 @@
                             <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
                                 zona Mérida </small>
                         </div> <!-- rating-wrap.// -->
-
-                        <div class="mb-3">
-                            <var class="price h4">{{ $product->presentPrice() }} MXN</var>
-                        </div> <!-- price-detail-wrap .// -->
-
+                        @if ($product->discount)
+                            <div class="mb-3">
+                                <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
+                                        MXN</var></strike>
+                                <span class="h4">/</span>
+                                <var class="price h4">{{ $product->presentPriceDiscount() }} MXN</var>
+                            </div>
+                        @else
+                            <div class="mb-3">
+                                <var class="price h4">{{ $product->presentPrice() }} MXN</var>
+                            </div>
+                        @endif
                         <p>{!! $product->extract !!} </p>
 
 
@@ -74,7 +76,7 @@
                         </dl>
                         <form action="{{ route('cart.addItems', $product) }}" method="POST" class="mt-5">
                             @csrf
-                            <div class="form-row mt-4">
+                            <div class="form-row">
                                 <div class="form-group col-md flex-grow-0">
                                     @livewire('count-items-to-cart')
                                 </div> <!-- col.// -->
@@ -82,18 +84,23 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
                                     </button>
-                                    <a href="#" class="btn btn-success mx-3">
-                                        <i class="fas fa-shopping-basket"></i><span class="text">Comprar</span>
-                                    </a>
-                                </div>
-                                <!-- col.// -->
-                            </div> <!-- row.// -->
                         </form>
-                    </article> <!-- product-info-aside .// -->
-                </main> <!-- col.// -->
-            </div> <!-- row.// -->
+                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                            @csrf
+                            <input type="hidden" readonly="true" name="redirect" value="1">
+                            <input type="hidden" readonly="true" name="qty" value="1">
+                            <button class="btn btn-success mx-3">
+                                <i class="fas fa-shopping-basket"></i><span class="text">Comprar ahora</span>
+                            </button>
+                        </form>
+            </div>
+            <!-- col.// -->
+        </div> <!-- row.// -->
+        </article> <!-- product-info-aside .// -->
+        </main> <!-- col.// -->
+        </div> <!-- row.// -->
 
-            <!-- ================ ITEM DETAIL END .// ================= -->
+        <!-- ================ ITEM DETAIL END .// ================= -->
 
 
         </div> <!-- container .//  -->
@@ -210,14 +217,21 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <img src="{{ Storage::url($product->image->url) }}">
+                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="#" class="title mb-2">{{ $product->name }}</a>
-                                <p>{!! $product->description !!}</p>
+                                <p>{!! $product->extract !!}</p>
                                 <div class="price-wrap">
-                                    <span class="price">{{ $product->presentPrice() }}</span>
-                                    <small class="text-muted">/ pza</small>
+                                    @if ($product->discount)
+                                        <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                        <small class="text-muted">/</small>
+                                        <span class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @else
+                                        <span class="price">{{ $product->presentPrice() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @endif
                                     <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                 </div> <!-- price-wrap.// -->
                                 <div class="rating-wrap my-3">

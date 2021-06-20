@@ -15,11 +15,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Hombre'
-        ]);
-
-        Category::create([
-            'name' => 'Mujer'
+            'name' => 'Bajce'
         ]);
     }
 }
