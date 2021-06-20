@@ -1327,6 +1327,9 @@ body {
 
 .bg-codigo {
   background-image: url(/images/banners/mueble1-lg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .contenido {
@@ -1410,6 +1413,8 @@ body {
 #tienda {
   background-image: url(/images/banners/tienda-fondo.png);
   background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 .botones-tienda {
   margin-top: 60px;

@@ -50,8 +50,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item-1 active">
-                            <img src="{{ asset('images/banners/cabecera.png') }}" alt="img"
-                                style="width: 100%; max-height:550px; min-height:550px;">
+                            <img src="{{ asset('images/banners/cabecera.png') }}" alt="img" class="img-fluid" style="width: 100%">
                             <div class="carousel-caption carousel-caption-1 d-md-block">
                                 <h1>La mejor madera del Sureste</h1>
                                 <a href="{{ route('shop.index') }}" class="btn btn-primary">Ir a la Tienda</a>
@@ -312,17 +311,17 @@
             </div>
         </section>
     </div>
-    <section id="tienda" style="margin-top: 100px; background-size: 100%;">
+    <section id="tienda" style="margin-top: 100px; ">
         <div class="contenido-tienda">
             <h3 style="text-align: center;" class="mt-5">
-                Tienda en linea
+                Conoce nuestros artículos disponibles
             </h3>
-            <p class="descripcion-tienda" style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Laboriosam magni itaque atque explicabo at dicta hic voluptatum repellendus quas reiciendis.</p>
+            
             <div class="boton-ir">
                 <a href="{{ route('shop.index') }}" class="btn btn-secondary">
                     Ir a la tienda
                 </a>
+                
             </div>
             <div class="botones-tienda">
                 <div class="row">
@@ -403,7 +402,7 @@
     @else
         <section id="codigo" class="p-0">
             <div
-                style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); background-position: center;  background-size: 100%; background-repeat: no-repeat; min-height:450px;">
+                style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); ">
                 <div class="contenido">
                     <h2>
                         Usa nuestro cupon de descuento: BAJCESHOP
