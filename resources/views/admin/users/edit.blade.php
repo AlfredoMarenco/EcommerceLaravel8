@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Products')
+@section('title', 'Usuarios')
 
 @section('content_header')
     <h1>Asignar un rol</h1>
@@ -17,7 +17,7 @@
             @foreach ($roles as $role)
                 <div>
                     <label>
-                        {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                        {!! Form::radio('role', $role->id, ['class' => 'mr-1']) !!}
                         {{ $role->name }}
                     </label>
                 </div>

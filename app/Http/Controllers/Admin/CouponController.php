@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.coupons.index')->only('index');
+        $this->middleware('can:admin.coupons.create')->only('create', 'store');
+        $this->middleware('can:admin.coupons.edit')->only('edit', 'update');
+        $this->middleware('can:admin.coupons.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
