@@ -62,7 +62,7 @@
                         </div> <!-- row.// -->
 
                         <div class="form-group col-md">
-                            <a href="#" class="btn btn-block  btn-success">
+                            <a href="http://wa.me/5219992211629" class="btn btn-block  btn-success">
                                 <i class="fab fa-whatsapp"></i> <span class="text">CONSULTAR EN SUCURSAL</span>
                             </a>
                             <div class="agregar-a mt-4">
@@ -188,8 +188,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
+                    <p>Suscríbete para recibir noticias y promociones exclusivas de nuestra tienda en linea.</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="formulario-newsletter">
@@ -198,7 +197,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12">
                     <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
+                        <button class="btn btn-success btn-md btn-block">Suscribirme</button>
                     </div>
                 </div>
             </div>

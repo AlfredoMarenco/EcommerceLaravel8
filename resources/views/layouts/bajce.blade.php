@@ -2,6 +2,16 @@
 <html lang="es">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181054511-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-181054511-1');
+</script>
+
     <meta charset="utf-8">
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="cache-control" content="max-age=604800" />
@@ -30,6 +40,25 @@
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
     @yield('css')
+
+    <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2877616512502507');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+  
 </head>
 
 <body>
@@ -45,13 +74,12 @@
 
                     <ul class="navbar-nav m-auto">
                         <li>
-                            <a href="mailto:contacto@bajce.com" class="nav-link"> <i
-                                    class="fas fa-envelope-open-text"></i> contacto@bajce.com</a>
+                            <a href="mailto:info@bajce.com" class="nav-link"> <i
+                                    class="fas fa-envelope-open-text"></i> info@bajce.com</a>
                         </li>
                         <span class="nav-link">|</span>
                         <li>
-                            <a href="tel:9992211629" class="nav-link"> <i class="fa fa-phone-square"></i> 999 221
-                                1629</a>
+                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 944 6707</a>
                         </li>
                     </ul> <!-- list-inline //  -->
                 </div> <!-- navbar-collapse .// -->

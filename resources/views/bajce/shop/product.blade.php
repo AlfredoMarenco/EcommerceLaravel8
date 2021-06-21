@@ -40,7 +40,7 @@
                                 </li>
                             </ul>
                             <small class="label-rating text-muted">{{ $product->reviews_count }} Opiniones</small>
-                            <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
+                            <!--<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
                                 zona Mérida </small>
                         </div> <!-- rating-wrap.// -->
                         @if ($product->discount)
@@ -116,7 +116,7 @@
                     <div class="cabecera-opciones">
                         <div class="row">
                             <div class="col-4">
-                                <h5 class="title-description">Description </h5>
+                                <h5 class="title-description">Descripción </h5>
                             </div>
 
                         </div>
@@ -274,8 +274,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
+                    <p>Suscríbete para recibir noticias y promociones exclusivas de nuestra tienda en linea.</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="formulario-newsletter">
@@ -284,7 +283,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12">
                     <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
+                        <button class="btn btn-success btn-md btn-block">Suscribirme</button>
                     </div>
                 </div>
             </div>
