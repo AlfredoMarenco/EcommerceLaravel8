@@ -40,7 +40,6 @@
 
                         <dl class="row">
                             <dt class="col-1"><i class="fas fa-box" style="color: orange;"></i></dt>
-                            <dd class="col-11"><a href="#">Entrega en 3 días hábiles</a></dd>
                             <dt class="col-1"><i class="fas fa-truck-loading" style="color: orange;"></i></dt>
                             <dd class="col-11"><a href="#">Envío gratis dentro de Mérida</a></dd>
 
