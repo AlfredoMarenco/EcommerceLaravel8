@@ -1261,7 +1261,7 @@ body {
   padding-bottom: 230px;
 } @media (max-width: 500px) {
   .carousel-caption-1 {
-   padding-bottom: 50px;
+   padding-bottom: 20px;
   } .carousel-caption-1 h1 {
     font-size: 20px;
   }
@@ -1411,7 +1411,7 @@ body {
 }
 
 #tienda {
-  background-image: url(/images/banners/tienda-fondo.png);
+  background-image: url(/images/banners/compras.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   
@@ -1433,7 +1433,8 @@ body {
 }
 
 #sucursales {
-  padding: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
 } @media (max-width: 500px) {
   #sucursales {
     padding: 30px;
@@ -1458,7 +1459,6 @@ body {
 }
 
 .logos-sucursales {
-  padding-top: 50px;
   text-align: center;
 } @media (max-width: 500px) {
   .logos-sucursales{
@@ -1504,7 +1504,8 @@ body {
 }
 
 #marcas {
-  padding: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
 
 }
 .cabecera-marcas {
@@ -1515,7 +1516,9 @@ body {
 }
 
 #newsletter {
-  padding: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 80px;
 } @media (max-width: 500px) {
   #newsletter {
     padding: 30px;

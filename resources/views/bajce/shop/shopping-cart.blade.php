@@ -213,18 +213,10 @@
     <section id="productos-sugeridos-2" class="section-name border-top padding-y">
         <div class="container">
             <h6>Política de privacidad</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a href="https://www.bajce.com.">www.bajce.com.</a>
+
+            </p>
+            
 
         </div><!-- container // -->
     </section>
@@ -299,8 +291,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
+                    <p>Suscríbete para recibir noticias y promociones exclusivas de nuestra tienda en linea.</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="formulario-newsletter">
@@ -309,7 +300,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12">
                     <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
+                        <button class="btn btn-success btn-md btn-block">Suscribirme</button>
                     </div>
                 </div>
             </div>

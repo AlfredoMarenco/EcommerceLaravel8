@@ -105,12 +105,8 @@
                                     </div>
                                 </div> <!-- row.// -->
 
-                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Some secureity information Lorem
-                                    ipsum
-                                    dolor
-                                    sit
-                                    amet, consectetur adipisicing elit, sed do eiusmod</p>
-                                <button class="subscribe btn btn-primary btn-block" id="pay-button"> Confirmar
+                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Su transacción está protegida por nuestros protocolos de seguridad SSL, al presionar "Comprar" será redireccionado al portal de confirmación de su banco para confirmar la compra.</p>
+                                <button class="subscribe btn btn-primary btn-block" id="pay-button"> Comprar
                                 </button>
                             </form>
                         </div> <!-- card.// -->
