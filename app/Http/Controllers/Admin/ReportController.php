@@ -14,6 +14,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.reports.index')->only('index');
+    }
     /**
      * Display a listing of the resource.
      *

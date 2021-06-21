@@ -200,6 +200,12 @@ class RolSeeder extends Seeder
         ])->syncRoles([$role1]);
 
         Permission::create([
+            'name' => 'admin.reports.index',
+            'description' => 'Reportes'
+        ])->syncRoles([$role1, $role3]);
+
+
+        Permission::create([
             'name' => 'admin.orders.index',
             'description' => 'Ver ordenes'
         ])->syncRoles([$role1, $role4]);

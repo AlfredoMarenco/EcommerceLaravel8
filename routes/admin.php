@@ -58,4 +58,4 @@ Route::resource('buttons', ButtonController::class)->except('show')->names('admi
 Route::resource('cuponfs', CuponFController::class)->except('show')->names('admin.cuponfs');
 Route::resource('brands', BrandController::class)->except('show')->names('admin.brands');
 Route::resource('videos', VideoController::class)->except('show')->names('admin.videos');
-/* Route::resource('reports', ReportController::class)->names('admin.reports'); */
+Route::resource('reports', ReportController::class)->names('admin.reports');
