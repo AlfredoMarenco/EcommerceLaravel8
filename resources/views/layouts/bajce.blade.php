@@ -255,10 +255,10 @@
 
                         <p class="text-white-50 mb-2">Síguenos en redes sociales</p>
                         <div>
-                            <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a>
 
-                            <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a>
                         </div>
 
                     </aside>
@@ -266,13 +266,15 @@
                     <aside class="col-md-4 col-12">
                         <article class="mr-md-4">
                             <h5 class="title">Contáctanos</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in feugiat lorem. </p>
+                            <p>MADERAS BAJCE, S.A. DE C.V</p>
                             <ul class="list-icon">
-                                <li> <i class="icon fa fa-map-marker"> </i>542 Fake Street, Cityname 10021 Netheerlends
+                                <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente C.P. 97137
                                 </li>
-                                <li> <i class="icon fa fa-envelope"> </i> info@example.com</li>
-                                <li> <i class="icon fa fa-phone"> </i> (800) 060-0730, (800) 060-0730</li>
-                                <li> <i class="icon fa fa-clock"> </i>Mon-Sat 10:00pm - 7:00pm</li>
+                                <li> <i class="icon fa fa-envelope"> </i> info@bajce.com</li>
+                                <li> <i class="icon fa fa-phone"> </i> (999) 944 6707, (999) 944 6841, (999) 948 3086</li>
+                                <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm
+                                    Sábado 9:00 am a 2:00 pm
+                                    </li>
                             </ul>
                         </article>
                     </aside>

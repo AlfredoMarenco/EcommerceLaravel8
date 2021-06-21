@@ -89,19 +89,19 @@ Route::post('/search', [LandingPageController::class, 'search'])->name('search')
 
 
 //Rutas Tienda
-Route::prefix('/shop')->group(function () {
+Route::prefix('/tienda')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-    Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
-    Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
-    Route::post('/products/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
+    Route::get('/producto/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+    Route::get('/productos/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+    Route::post('/productos/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
 });
 
 //Rutas Catalogo
-Route::prefix('/catalogue')->group(function () {
+Route::prefix('/catalogos')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
-    Route::get('/products/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
-    Route::get('/product/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
-    Route::post('/products/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
+    Route::get('/productos/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
+    Route::get('/producto/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::post('/productos/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
 // Rutas del blog
@@ -113,7 +113,7 @@ Route::prefix('blog')->group(function () {
 
 
 //Rutas del carrito de compras
-Route::prefix('/cartshop')->group(function () {
+Route::prefix('/carrito')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
     Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
     Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
@@ -147,10 +147,10 @@ Route::prefix('checkout')->group(function () {
 });
 
 //Rutas de panel del cliente de
-Route::prefix('/user')->group(function () {
-    Route::get('/profile', [UserController::class, 'index'])->name('user.profile');
-    Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
-    Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
+Route::prefix('/usuario')->group(function () {
+    Route::get('/perfil', [UserController::class, 'index'])->name('user.profile');
+    Route::get('/ordenes', [UserController::class, 'showOrders'])->name('user.orders');
+    Route::get('/configuracion', [UserController::class, 'edit'])->name('user.settings');
     Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
     Route::post('/updateInformationProfile', [UserController::class, 'updateInformationProfile'])->name('user.update.profile');
 });
@@ -224,7 +224,7 @@ Route::post('/reset-password', function (Request $request) {
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
-
+/*
 // Artículo
 Route::get('/articulo', function () {
     return view('bajce.blog.article');
@@ -259,7 +259,7 @@ route::get('/mis-ordenes', function () {
 route::get('/mi-direccion', function () {
     return view('bajce.user.my-adress');
 });
-
+*/
 
 /* Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
     ->name('ckfinder_connector');
