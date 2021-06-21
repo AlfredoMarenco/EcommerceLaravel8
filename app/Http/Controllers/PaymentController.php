@@ -81,6 +81,7 @@ class PaymentController extends Controller
                 'id_gateway' => null,
                 'status' => 'charge_pending',
                 'type' => 'card',
+                'tracker_status' => 'standby',
                 'user_id' => $user->id,
                 'coupon_id' => $request->session()->get('coupon'),
                 'shipping_address_id' => $shipping_address->id,
@@ -91,6 +92,7 @@ class PaymentController extends Controller
                 'id_gateway' => null,
                 'status' => 'charge_pending',
                 'type' => 'card',
+                'tracker_status' => 'standby',
                 'user_id' => $user->id,
                 'shipping_address_id' => $shipping_address->id,
             ]);
@@ -201,6 +203,7 @@ class PaymentController extends Controller
                 'id_gateway' => null,
                 'status' => 'charge_pending',
                 'type' => 'store',
+                'tracker_status' => 'standby',
                 'user_id' => $user->id,
                 'coupon_id' => $request->session()->get('coupon'),
                 'shipping_address_id' => $shipping_address->id,
@@ -211,6 +214,7 @@ class PaymentController extends Controller
                 'id_gateway' => null,
                 'status' => 'charge_pending',
                 'type' => 'store',
+                'tracker_status' => 'standby',
                 'user_id' => $user->id,
                 'shipping_address_id' => $shipping_address->id,
             ]);
