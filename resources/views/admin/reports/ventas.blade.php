@@ -10,7 +10,7 @@
 @section('content')
     <p>Establece los filtros con los que deseas realizar tu busqueda</p>
     <div class="p-2">
-        {!! Form::open(['route' => 'admin.reports.getReport']) !!}
+        {!! Form::open(['route' => 'admin.reports.sales.getTableReport']) !!}
         <div class="form-row">
             <div class="form-group col-md-3">
                 {!! Form::label('date_start', 'Fecha inicio', ['class' => 'px-1']) !!}
@@ -29,7 +29,7 @@
         </div> --}}
         <div class="form-row">
             <div class="form-group col-md-6">
-                {!! Form::submit('Obtener reporte', ['class' => 'btn btn-info float-right']) !!}<i class="fas fa-search"></i>
+                {!! Form::submit('Obtener reporte', ['class' => 'btn btn-info float-right']) !!}
             </div>
         </div>
         {!! Form::close() !!}

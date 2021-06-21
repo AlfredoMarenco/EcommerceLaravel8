@@ -1,6 +1,5 @@
 <?php
 
-use App\Exports\OrdersExport;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ButtonController;
 use App\Http\Controllers\Admin\CatalogueController;
@@ -33,12 +32,10 @@ Route::get('configurations/slider/delete/{id}', [ConfigurationController::class,
 Route::get('products/image/delete/{id}', [ProductController::class, 'deleteImage'])->name('admin.product.image.delete');
 Route::get('reports', [ReportController::class, 'index'])->name('admin.reports.index');
 Route::get('reports/inventary', [ReportController::class, 'inventary'])->name('admin.reports.inventary');
+Route::get('reports/inventary/export', [ReportController::class, 'exportInventary'])->name('admin.reports.inventary.export');
 Route::get('reports/sales', [ReportController::class, 'sales'])->name('admin.reports.sales');
-Route::post('reports/sales/getReport', [ReportController::class, 'getReport'])->name('admin.reports.sales.getReport');
-
-Route::get('/export', function () {
-    return Excel::download(new OrdersExport, 'invoices.xlsx');
-});
+Route::post('reports/sales/getTableReport', [ReportController::class, 'getTableReport'])->name('admin.reports.sales.getTableReport');
+Route::get('reports/sales/exportReportSales', [ReportController::class, 'exportReportSales'])->name('admin.reports.sales.exportReportSales');
 
 
 Route::resource('user', UserController::class)->except('show')->names('admin.users');

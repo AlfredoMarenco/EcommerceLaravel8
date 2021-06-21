@@ -3,15 +3,22 @@
 namespace App\Exports;
 
 use App\Models\Order;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class OrdersExport implements FromCollection
+class OrdersExport implements FromView
 {
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function collection()
+
+    public function __construct($date_start, $date_end)
     {
-        return Order::all();
+        $this->date_start = $date_start;
+        $this->date_end = $date_end;
+    }
+
+    public function view(): View
+    {
+        return view('admin.exports.orders', [
+            'orders' => Order::whereBetween('created_at', [$this->date_start, $this->date_end])->get()
+        ]);
     }
 }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\OrdersExport;
+use App\Exports\ProductExport;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
@@ -131,9 +134,18 @@ class ReportController extends Controller
         return view('admin.reports.inventary');
     }
 
-
-    public function getReport(Request $request)
+    public function exportInventary()
     {
-        return $request->all();
+        return Excel::download(new ProductExport, 'Inventario_Productos_Bajce.xlsx');
+    }
+
+    public function getTableReport(Request $request)
+    {
+        return Excel::download(new OrdersExport($request->date_start, $request->date_end), 'Reporte_Ordenes ' . Carbon::now() . '.xlsx');
+    }
+
+    public function exportReportSales()
+    {
+        return Excel::download(new OrdersExport('2021-12-10', ''), 'Reporte_Ordenes.xlsx');
     }
 }

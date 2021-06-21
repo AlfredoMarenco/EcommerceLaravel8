@@ -1,6 +1,7 @@
 <div>
     <div class="d-flex flex-row justify-content-between">
         <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de productos">
+        <a href="{{ route('admin.reports.inventary.export') }}" class="btn btn-success">Exportar en Excel</a>
     </div>
     @if ($products->count())
 
@@ -25,8 +26,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Preview</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Precio descuento</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Existencia</th>
                     </tr>
@@ -38,12 +37,6 @@
                             <td><img width="80px" @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </td>
                             <td>{{ $product->name }}</td>
-                            <td>${{ number_format($product->price, 2) }} </td>
-                            @if ($product->discount)
-                                <td>${{ number_format($product->discount, 2) }} </td>
-                            @else
-                                <td>Sin descuento</td>
-                            @endif
                             <td>{{ $product->type = ($product->type = 1) ? 'Tienda' : 'Catalogo' }}</td>
                             <td>{{ number_format($product->stock) }}</td>
                         </tr>
