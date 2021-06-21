@@ -1,5 +1,14 @@
 @extends('layouts.bajce')
 @section('title', 'Inicio')
+
+@section ('css')
+    <style>
+    .carousel li {
+        display: none;
+    }
+    </style>
+@endsection
+
 @section('content')
     <!-- ========================= SECTION MAIN  ========================= -->
     @if ($sliders->count() > 0)
@@ -263,36 +272,28 @@
             </h3>
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <i class="fas fa-table iconos"></i>
-                    <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                    <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit
-                        saepe
-                        eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                    <i class="fas fa-desktop iconos"></i>
+                    <h5 class="titulo-servicio">Optimizador de corte</h5>
+                    <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros de madera, calculando la cantidad de piezas necesarias según el diseño, reduciendo costos y tiempo.
+                    </p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <i class="fas fa-table iconos"></i>
-                    <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                    <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit
-                        saepe
-                        eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                    <i class="fas fa-layer-group iconos"></i>
+                    <h5 class="titulo-servicio">Aplicación de Tapacanto</h5>
+                    <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes) con nuestra máquina de enchapado automático.</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <i class="fas fa-table iconos"></i>
-                    <h5 class="titulo-servicio">DIMENSIONADO DE TABLERO</h5>
-                    <p class="p-servicio mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit
-                        saepe
-                        eaque delectus necessitatibus impedit sequi ipsa repellendus atque cum!</p>
+                    <i class="fas fa-tools iconos"></i>
+                    <h5 class="titulo-servicio">Perforación de bisagras</h5>
+                    <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en la fabricación de puertas para muebles de baños, closet y armarios.</p>
                 </div>
             </div>
             <div id="servicios-2" class="mt-5">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <i class="fas fa-table iconos"></i>
-                        <h5 class="titulo-servicio">Optimizador de corte</h5>
-                        <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros
-                            de
-                            madera, calculando la cantidad de piezas necesarias según el diseño, reduciendo costos y
-                            tiempo.
+                        <i class="fas fa-toolbox iconos"></i>
+                        <h5 class="titulo-servicio">Cortes de madera</h5>
+                        <p class="p-servicio mb-3">A través de nuestras herramientas especializadas se realizan cortes lineales a la medida del largo y ancho que se requiera y así lograr ensambles exactos de los productos adquiridos en nuestras tiendas.
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -303,38 +304,10 @@
                             nuestra máquina de enchapado automático.</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <i class="fas fa-table iconos"></i>
-                        <h5 class="titulo-servicio">Perforación de bisagras</h5>
-                        <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en
-                            la
-                            fabricación de puertas para muebles de baños, closet y armarios.</p>
-                    </div>
-                </div>
-                <div id="servicios-2" class="mt-5">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <i class="fas fa-table iconos"></i>
-                            <h5 class="titulo-servicio">Cortes de madera</h5>
-                            <p class="p-servicio mb-3">A través de nuestras herramientas especializadas se realizan
-                                cortes
-                                lineales a la medida del largo y ancho que se requiera y así lograr ensambles exactos de
-                                los
-                                productos adquiridos en nuestras tiendas.
-                            </p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <i class="fas fa-table iconos"></i>
-                            <h5 class="titulo-servicio">Cepillado de la madera</h5>
-                            <p class="p-servicio mb-3">Alisa y nivela el grosor de la madera, hasta obtener el espesor
-                                deseado.</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <i class="fas fa-table iconos"></i>
-                            <h5 class="titulo-servicio">Servicio a domicilio
-                            </h5>
-                            <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de
-                                nuestra tienda en línea en tu domicilio.</p>
-                        </div>
+                        <i class="fas fa-truck iconos"></i>
+                        <h5 class="titulo-servicio">Servicio a domicilio
+                        </h5>
+                        <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de nuestra tienda en línea en tu domicilio.</p>
                     </div>
                 </div>
             </div>
