@@ -45,8 +45,13 @@
         @enderror
     </div>
     <div class="form-group col-md-4">
-        {!! Form::label('category_id', 'Categoria') !!}
-        {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+        @isset($product->categories)
+            {!! Form::label('category_id', 'Categoria') !!}
+            {!! Form::select('category_id', $categories, $product->categories, ['class' => 'form-control']) !!}
+        @else
+            {!! Form::label('category_id', 'Categoria') !!}
+            {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+        @endisset
         @error('category_id')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -127,7 +132,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('folio_visible', 'Visible') !!}
-            {!! Form::select('folio_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('folio_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('folio_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -141,7 +146,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('categoria_visible', 'Visible') !!}
-            {!! Form::select('categoria_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('categoria_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('categoria_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -155,7 +160,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('ficha_visible', 'Visible') !!}
-            {!! Form::select('ficha_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('ficha_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('ficha')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -169,7 +174,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('garantia_visible', 'Visible') !!}
-            {!! Form::select('garantia_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('garantia_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('garantia_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -183,7 +188,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('usos_visible', 'Visible') !!}
-            {!! Form::select('usos_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('usos_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('usos_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -197,7 +202,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('contenido_visible', 'Visible') !!}
-            {!! Form::select('contenido_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('contenido_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('contenido_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -211,7 +216,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('montaje_visible', 'Visible') !!}
-            {!! Form::select('montaje_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('montaje_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('montaje_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -225,7 +230,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('capacidad_visible', 'Visible') !!}
-            {!! Form::select('capacidad_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('capacidad_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('capacidad_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -239,7 +244,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('marca_visible', 'Visible') !!}
-            {!! Form::select('marca_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('marca_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('marca_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -253,7 +258,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('material_visible', 'Visible') !!}
-            {!! Form::select('material_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('material_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('material_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -267,7 +272,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('medidas_visible', 'Visible') !!}
-            {!! Form::select('medidas_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('medidas_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('medidas_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -281,7 +286,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('medidasmodulo_visible', 'Visible') !!}
-            {!! Form::select('medidasmodulo_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('medidasmodulo_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('medidasmodulo_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -295,7 +300,7 @@
         </div>
         <div class="form-group col-md-4">
             {!! Form::label('acabado_visible', 'Visible') !!}
-            {!! Form::select('acabado_visible', [1 => 'Si', 0 => 'No'], 0, ['class' => 'form-control']) !!}
+            {!! Form::select('acabado_visible', [ 0 => 'No',1 => 'Si'], null, ['class' => 'form-control']) !!}
             @error('acabado_visible')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
