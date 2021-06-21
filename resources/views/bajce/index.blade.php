@@ -719,9 +719,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="boton-entradas">
-                <a href="/blog" class="btn btn-primary boton-entradas-2">Ver más</a>
-            </div>
         </section>
     @else
         <section id="blog">
@@ -730,33 +727,6 @@
                     Noticias más relevantes
                 </h3>
                 <p style="text-align: center;">Proximamente daremos a conocer noticias importantes</p>
-            </div>
-        </section>
-    @endif
-    @if ($brands->count() > 0)
-        <section id="marcas">
-            <div class="cabecera-marcas">
-                <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
-                    Marcas con las que trabajamos
-                </h3>
-                <!-- Place somewhere in the <body> of your page -->
-                <div class="flexslider carousel">
-                    <ul class="slides">
-                        @foreach ($brands as $brand)
-                            <li class="p-4">
-                                <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </section>
-    @else
-        <section id="marcas">
-            <div class="cabecera-marcas">
-                <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
-                    Marcas con las que trabajamos
-                </h3>
             </div>
         </section>
     @endif
