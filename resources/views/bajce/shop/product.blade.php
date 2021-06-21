@@ -10,7 +10,7 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
             </ol>
         </div>
-        <div class="container">
+        <div class="container-fluid">
 
             <!-- ============================ ITEM DETAIL ======================== -->
             <div class="row">
@@ -41,8 +41,8 @@
                             </ul>
                             <small class="label-rating text-muted">{{ $product->reviews_count }} Opiniones</small>
                             <!--<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
-                                        zona Mérida </small>
-                                </div> <!-- rating-wrap.// -->
+                                            zona Mérida </small>
+                                    </div> <!-- rating-wrap.// -->
                             @if ($product->discount)
                                 <div class="mb-3">
                                     <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
