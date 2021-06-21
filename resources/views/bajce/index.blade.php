@@ -367,9 +367,6 @@
                                 </div>
                                 <div class="info-producto">
                                     <h5>{{ $catalogue->name }}</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad
-                                        suscipit
-                                        nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
                                     <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
                                         class="btn btn-primary btn-block">Ver catálogo</a>
                                 </div>
