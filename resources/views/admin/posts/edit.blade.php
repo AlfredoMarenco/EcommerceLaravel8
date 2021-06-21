@@ -56,25 +56,18 @@
     @livewireScripts
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+
     <script>
-        CKEDITOR.replace('extract');
-        CKEDITOR.replace('body');
-        //Cambiar imagen
-        document.getElementById("file").addEventListener('change', cambiarImagen);
-
-        function cambiarImagen(event) {
-            var file = event.target.files[0];
-
-            var reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("picture").setAttribute('src', event.target.result);
-            };
-
-            reader.readAsDataURL(file);
-        }
+        CKEDITOR.replace('extract', {
+            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form',
+        });
+        CKEDITOR.replace('body', {
+            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form',
+        });
 
     </script>
-
     <script>
         $(document).ready(function() {
             $("#title").stringToSlug({

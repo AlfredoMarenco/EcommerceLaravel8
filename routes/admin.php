@@ -36,6 +36,7 @@ Route::get('reports/inventary/export', [ReportController::class, 'exportInventar
 Route::get('reports/sales', [ReportController::class, 'sales'])->name('admin.reports.sales');
 Route::post('reports/sales/getTableReport', [ReportController::class, 'getTableReport'])->name('admin.reports.sales.getTableReport');
 Route::get('reports/sales/exportReportSales', [ReportController::class, 'exportReportSales'])->name('admin.reports.sales.exportReportSales');
+Route::post('images/upload', [PostController::class, 'uploadImages'])->name('ckeditor.upload');
 
 
 Route::resource('user', UserController::class)->except('show')->names('admin.users');
