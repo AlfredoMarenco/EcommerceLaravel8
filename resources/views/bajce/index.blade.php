@@ -409,7 +409,7 @@
             @endforeach
         </section>
     @else
-        <section id="codigo" class="p-0">
+        <section id="codigo" class="p-0 pb-3">
             <div style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); ">
                 <div class="contenido">
                     <h2>
@@ -421,7 +421,7 @@
         </section>
     @endif
     <section id="sucursales">
-        <div class="cabecera-sucursales">
+        <div class="cabecera-sucursales mt-5">
             <h3 style="text-align: center; text-transform: uppercase;">
                 Nuestras sucursales
             </h3>
@@ -730,28 +730,9 @@
             </div>
         </section>
     @endif
-    <!--========== NEWSLETTER =============-->
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2>Recibe ofertas especialedades</h2>
-                    <p>Suscríbete para recibir noticias y promociones exclusivas de nuestra tienda en linea.</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
-                    <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Suscribirme</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
+    
+
+    
 
 @endsection
 
