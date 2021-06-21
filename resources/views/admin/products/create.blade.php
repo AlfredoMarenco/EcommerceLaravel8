@@ -46,10 +46,12 @@
         CKEDITOR.replace('extract', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
+            extraPlugins: 'imagetoolbar',
         });
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
+            extraPlugins: 'imagetoolbar',
         });
 
     </script>
