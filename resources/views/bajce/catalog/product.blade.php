@@ -34,6 +34,18 @@
                     <article class="product-info-aside">
 
                         <h2 class="title mt-3">{{ $product->name }}</h2>
+                        @if ($product->discount)
+                            <div class="mb-3">
+                                <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
+                                        MXN</var></strike>
+                                <span class="h4">/</span>
+                                <var class="price h4">{{ $product->presentPriceDiscount() }} MXN</var>
+                            </div>
+                        @else
+                            <div class="mb-3">
+                                <var class="price h4">{{ $product->presentPrice() }} MXN</var>
+                            </div>
+                        @endif
 
                         <p>{!! $product->extract !!}</p>
 
