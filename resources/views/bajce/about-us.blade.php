@@ -162,17 +162,16 @@
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                 Marcas con las que trabajamos
             </h3>
-
-        </div>
-
-        <div class="row">
-            @foreach ($brands as $brand)
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="marcas-logo">
-                        <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif class="img-fluid" alt="">
-                    </div>
-                </div>
-            @endforeach
+            <!-- Place somewhere in the <body> of your page -->
+            <div class="flexslider carousel">
+                <ul class="slides">
+                    @foreach ($brands as $brand)
+                        <li class="p-4">
+                            <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -199,4 +198,20 @@
         </div>
     </section>
 
+@endsection
+
+@section('js')
+    <script>
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                animationLoop: true,
+                itemWidth: 150,
+                itemMargin: 25,
+                minItems: 2,
+                maxItems: 4
+            });
+        });
+
+    </script>
 @endsection

@@ -15,7 +15,7 @@
     <script src="{{ asset('js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
     <!-- Bootstrap4 files-->
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font awesome 5 -->
@@ -25,7 +25,7 @@
     <link href="{{ asset('css/ui.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('vendor/flexslider/flexslider.css') }}" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css">
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
@@ -154,11 +154,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Email</label>
-                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput2"
                                         required="required" placeholder="Escribe tu correo electrónico">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Teléfono</label>
+                                    <label for="exampleFormControlInput2">Teléfono</label>
                                     <input type="tel" name="telefono" class="form-control" id="phone"
                                         pattern="[0-9]{10}" required="required" placeholder="Escribe tu teléfono">
                                 </div>
@@ -266,6 +266,24 @@
     <!-- ========================= FOOTER END // ========================= -->
     @livewireScripts
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
+        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.addEventListener('load', function() {
+            new Glider(document.querySelector('.glider'), {
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                draggable: true,
+                dots: '.dots',
+                arrows: {
+                    prev: '.glider-prev',
+                    next: '.glider-next'
+                }
+            });
+        });
+
+    </script>
     @yield('js')
 </body>
 

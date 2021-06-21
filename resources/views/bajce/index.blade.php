@@ -50,7 +50,8 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item-1 active">
-                            <img src="{{ asset('images/banners/cabecera.png') }}" alt="img" class="img-fluid" style="width: 100%">
+                            <img src="{{ asset('images/banners/cabecera.png') }}" alt="img" class="img-fluid"
+                                style="width: 100%">
                             <div class="carousel-caption carousel-caption-1 d-md-block">
                                 <h1>La mejor madera del Sureste</h1>
                                 <a href="{{ route('shop.index') }}" class="btn btn-primary">Ir a la Tienda</a>
@@ -316,12 +317,12 @@
             <h3 style="text-align: center;" class="mt-5">
                 Conoce nuestros artículos disponibles
             </h3>
-            
+
             <div class="boton-ir">
                 <a href="{{ route('shop.index') }}" class="btn btn-secondary">
                     Ir a la tienda
                 </a>
-                
+
             </div>
             <div class="botones-tienda">
                 <div class="row">
@@ -401,8 +402,7 @@
         </section>
     @else
         <section id="codigo" class="p-0">
-            <div
-                style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); ">
+            <div style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); ">
                 <div class="contenido">
                     <h2>
                         Usa nuestro cupon de descuento: BAJCESHOP
@@ -492,16 +492,16 @@
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                     Marcas con las que trabajamos
                 </h3>
-            </div>
-            <div class="row">
-                @foreach ($brands as $brand)
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <div class="marcas-logo">
-                            {{-- <img src="{{ Storage::url($brand->image->url) }}" class="img-fluid mx-2 px-4" alt=""> --}}
-                            <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif class="img-fluid radio" alt="">
-                        </div>
-                    </div>
-                @endforeach
+                <!-- Place somewhere in the <body> of your page -->
+                <div class="flexslider carousel">
+                    <ul class="slides">
+                        @foreach ($brands as $brand)
+                            <li class="p-4">
+                                <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif class="img-fluid radio" alt="">
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </section>
     @else
@@ -510,7 +510,6 @@
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                     Marcas con las que trabajamos
                 </h3>
-
             </div>
         </section>
     @endif
@@ -538,4 +537,20 @@
         </div>
     </section>
 
+@endsection
+
+@section('js')
+    <script>
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                animationLoop: true,
+                itemWidth: 150,
+                itemMargin: 25,
+                minItems: 2,
+                maxItems: 4
+            });
+        });
+
+    </script>
 @endsection
