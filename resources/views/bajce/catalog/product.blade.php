@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-@section('title', 'Catalogo')
+@section('title', 'Cátalogo')
 @section('content')
 
 
