@@ -505,7 +505,7 @@
 
     </section>
 
-    
+
 
 
 
@@ -567,7 +567,7 @@
                     <ul class="slides">
                         @foreach ($brands as $brand)
                             <li class="p-4">
-                                <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif class="img-fluid radio" alt="">
+                                <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
                             </li>
                         @endforeach
                     </ul>
