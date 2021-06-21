@@ -164,7 +164,7 @@
                                 <img src="{{ Storage::url($catalogue->image->url) }}" class="img-fluid"
                                     alt="{{ $catalogue->name }}">
                             </div>
-                            <div class="info-producto">
+                            <div class="info-producto text-center pb-2">
                                 <h5>{{ $catalogue->name }}</h5>
                                 <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
                                     class="btn btn-primary btn-block">Ver catálogo</a>
