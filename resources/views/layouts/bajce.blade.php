@@ -7,7 +7,7 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Grupo Bajce | @yield('title')</title>
+    <title>@yield('title') | Grupo Bajce</title>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
