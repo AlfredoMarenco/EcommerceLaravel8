@@ -3,7 +3,7 @@
 @section('content')
     <!-- ========================= SECTION MAIN  ========================= -->
     @if ($sliders->count() > 0)
-        <section class="section-intro ">
+        <section class="section-intro">
             <div class="container-fluid p-0">
                 <!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
                 <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
@@ -16,7 +16,7 @@
                         @foreach ($sliders as $slider)
                             <div class="carousel-item @if ($loop->first) active @endif">
                                 <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}"
-                                    style="width: 100%; max-height:550px; min-height:550px;">
+                                    ">
                                 <div class="carousel-caption carousel-caption-1 d-md-block">
                                     @if ($slider->text != '')
                                         <h1>{{ $slider->text }}</h1>
@@ -418,27 +418,97 @@
                 Nuestras sucursales
             </h3>
         </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="logos-sucursales">
-                    <img src="/images/icons/logo-maderas.png" alt="" class="img-fluid">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="logos-sucursales">
+                            <img src="/images/icons/logo-maderas.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="detalles-sucursal">
+                            <h4>MADERAS ORIENTE</h4>
+                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
+                                C.P.
+                                97179, Mérida, Yucatán, México <br>
+                                <span>
+                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                </span>
+                            </p>
+                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="detalles-sucursal">
-                    <h4>MADERAS ORIENTE</h4>
-                    <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
-                        C.P.
-                        97179, Mérida, Yucatán, México <br>
-                        <span>
-                            (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                        </span>
-                    </p>
-                    <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="logos-sucursales">
+                            <img src="/images/icons/logo-maderas.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="detalles-sucursal">
+                            <h4>MADERAS ORIENTE</h4>
+                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
+                                C.P.
+                                97179, Mérida, Yucatán, México <br>
+                                <span>
+                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                </span>
+                            </p>
+                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
                 </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="logos-sucursales">
+                            <img src="/images/icons/logo-maderas.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="detalles-sucursal">
+                            <h4>MADERAS ORIENTE</h4>
+                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
+                                C.P.
+                                97179, Mérida, Yucatán, México <br>
+                                <span>
+                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                </span>
+                            </p>
+                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+              </div>
             </div>
-        </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
     </section>
+
+    
+
+
+
     @if ($posts->count() > 0)
         <section id="blog">
             <div class="cabecera">
