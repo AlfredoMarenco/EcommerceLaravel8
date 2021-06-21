@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <ol class="breadcrumb float-left">
                         <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="/catalogo">Catálogo</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogo</a></li>
                         <li class="breadcrumb-item active">Productos</li>
                     </ol>
                 </div> <!-- card-body .// -->
@@ -136,7 +136,8 @@
                                 <aside class="col-sm-3">
                                     <div class="info-aside">
                                         <p class="mt-5">
-                                            <a href="http://wa.me/5219992211629" class="btn btn-block btn-success"> <i class="fab fa-whatsapp"></i>
+                                            <a href="http://wa.me/5219992211629" class="btn btn-block btn-success"> <i
+                                                    class="fab fa-whatsapp"></i>
                                                 CONSULTAR EN TIENDA </a>
                                         <div class="boton-ver-producto mt-3">
                                             <a href="{{ route('catalogue.product', $product) }}"
