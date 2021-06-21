@@ -14,7 +14,7 @@
 
             <!-- ============================ ITEM DETAIL ======================== -->
             <div class="row">
-                <aside class="col-md-6 flexslider p-5">
+                <aside class="col-md-6 flexslider">
                     <ul class="slides">
                         @foreach ($product->images as $image)
                             <li data-thumb="{{ Storage::url($image->url) }}">
