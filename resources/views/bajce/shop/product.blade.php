@@ -18,7 +18,7 @@
                     <ul class="slides">
                         @foreach ($product->images as $image)
                             <li data-thumb="{{ Storage::url($image->url) }}">
-                                <img style="max-height: 400px; width: auto;" @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <img  @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </li>
                         @endforeach
                     </ul>
@@ -69,7 +69,6 @@
                                 @endif
 
                                 <dt class="col-sm-3">Envío</dt>
-                                <dd class="col-sm-9">3 - 4 días hábiles</dd>
 
                                 <dt class="col-sm-3">Disponibilidad</dt>
                                 <dd class="col-sm-9">En Stock</dd>
