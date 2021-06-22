@@ -34,7 +34,7 @@ class CatalogueController extends Controller
         $category_id = $product->categories->pluck('id');
         $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
             $query->whereIn('category_id', $category_id);
-        })->where('type', 1)->inRandomOrder()->paginate(10);
+        })->where('type', 1)->inRandomOrder()->paginate(3);
         return view('bajce.catalog.product', compact('product', 'products'));
     }
 
