@@ -6,8 +6,8 @@ Telefono: {{ $phone }}<br>
 Commentario: {{ $comment }}
 @component('mail::table')
 | Nombre | Cantidad | SKU |
-@foreach (Cart::instance('wishlist')->content() as $product)
 | ------------- | --------:| ------------:|
+@foreach (Cart::instance('wishlist')->content() as $product)
 | {{ $product->model->name }} | {{ $product->qty }} | {{ $product->model->SKU }}  |
 @endforeach
 @endcomponent
