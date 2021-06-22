@@ -91,8 +91,8 @@
             </div>
         </section>
     @else
-        <section>
-            <div class="container card">
+        <section id="comentarios">
+            <div class="container card col-3">
                 <a class="btn btn-primary btn-md" href="">Inicia sesion</a>
             </div>
         </section>
