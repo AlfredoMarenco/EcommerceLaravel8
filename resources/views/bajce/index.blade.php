@@ -354,7 +354,6 @@
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                     Consulta nuestro catálogo en linea
                 </h3>
-                <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             </div>
             <div class="row mt-5">
                 @foreach ($catalogues as $catalogue)
@@ -365,11 +364,8 @@
                                     <img src="{{ Storage::url($catalogue->image->url) }}" class="img-fluid"
                                         alt="{{ $catalogue->name }}">
                                 </div>
-                                <div class="info-producto">
+                                <div class="info-producto pb-3 text-center">
                                     <h5>{{ $catalogue->name }}</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad
-                                        suscipit
-                                        nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
                                     <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
                                         class="btn btn-primary btn-block">Ver catálogo</a>
                                 </div>

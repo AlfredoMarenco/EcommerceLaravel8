@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-@section('title', 'Catalogo')
+@section('title', 'Cátalogo')
 @section('content')
 
 
@@ -34,14 +34,24 @@
                     <article class="product-info-aside">
 
                         <h2 class="title mt-3">{{ $product->name }}</h2>
+                        @if ($product->discount)
+                            <div class="mb-3">
+                                <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
+                                        MXN</var></strike>
+                                <span class="h4">/</span>
+                                <var class="price h4">{{ $product->presentPriceDiscount() }} MXN</var>
+                            </div>
+                        @else
+                            <div class="mb-3">
+                                <var class="price h4">{{ $product->presentPrice() }} MXN</var>
+                            </div>
+                        @endif
 
                         <p>{!! $product->extract !!}</p>
 
 
                         <dl class="row">
                             <dt class="col-1"><i class="fas fa-box" style="color: orange;"></i></dt>
-                            <dd class="col-11"><a href="#">Entrega en 3 días hábiles</a></dd>
-                            <dt class="col-1"><i class="fas fa-truck-loading" style="color: orange;"></i></dt>
                             <dd class="col-11"><a href="#">Envío gratis dentro de Mérida</a></dd>
 
 
@@ -166,10 +176,8 @@
                                 <img src="{{ Storage::url($catalogue->image->url) }}" class="img-fluid"
                                     alt="{{ $catalogue->name }}">
                             </div>
-                            <div class="info-producto">
+                            <div class="info-producto text-center py-2">
                                 <h5>{{ $catalogue->name }}</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae ad suscipit
-                                    nisi quis aperiam reiciendis voluptate repellat! Eum, quisquam.</p>
                                 <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
                                     class="btn btn-primary btn-block">Ver catálogo</a>
                             </div>
@@ -215,6 +223,5 @@
                 controlNav: "thumbnails"
             });
         });
-
     </script>
 @endsection
