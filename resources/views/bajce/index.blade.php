@@ -25,7 +25,7 @@
                     <div class="carousel-inner">
                         @foreach ($sliders as $slider)
                             <div class="carousel-item @if ($loop->first) active @endif">
-                                <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}">
+                                <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}" class="img-fluid" style="width: 100%">
                                 <div class=" carousel-caption carousel-caption-1 d-md-block">
                                     @if ($slider->text != '')
                                         <h1>{{ $slider->text }}</h1>
@@ -90,7 +90,7 @@
                             @if ($mosaic->id == 1)
                                 <div class="d-1">
                                     <a href="{{ $mosaic->link }}">
-                                        <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-1-2.png') }}" @endif class="img-fluid radio" alt="">
+                                        <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-1-2.png') }}" @endif class="img-fluid radio" alt="" width="289" height="537">
                                         <div class="carousel-caption carousel-caption-2">
                                             <h5>{{ $mosaic->text }}</h5>
                                             <p>{!! $mosaic->description !!}</p>
@@ -152,9 +152,9 @@
                             <div class="row">
                                 @foreach ($mosaics as $mosaic)
                                     @if ($mosaic->id == 5)
-                                        <div class="col-8 radio">
+                                        <div class="col-8 radio bloque">
                                             <a href="{{ $mosaic->link }}">
-                                                <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-6-2.png') }}" @endif class="img-fluid radio" alt="">
+                                                <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-6-2.png') }}" @endif class="img-fluid radio" alt="" width="605" height="252">
                                                 <div class="carousel-caption carousel-caption-2">
                                                     <h5>{{ $mosaic->text }}</h5>
                                                     <p>{!! $mosaic->description !!}</p>
@@ -272,6 +272,31 @@
                 CONOCE NUESTROS SERVICIOS
             </h3>
             <div class="row">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <i class="fas fa-truck iconos"></i>
+                        <h5 class="titulo-servicio">Servicio a domicilio
+                        </h5>
+                        <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de
+                            nuestra tienda en línea en tu domicilio.</p>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <i class="fas fa-toolbox iconos"></i>
+                        <h5 class="titulo-servicio">Cortes de madera</h5>
+                        <p class="p-servicio mb-3">A través de nuestras herramientas especializadas se realizan cortes
+                            lineales a la medida del largo y ancho que se requiera y así lograr ensambles exactos de los
+                            productos adquiridos en nuestras tiendas.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <i class="fas fa-layer-group iconos"></i>
+                        <h5 class="titulo-servicio">Cepillado</h5>
+                        <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes) con
+                            nuestra máquina de enchapado automático.</p>
+                    </div>
+                    
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <i class="fas fa-desktop iconos"></i>
                     <h5 class="titulo-servicio">Optimizador de corte</h5>
@@ -292,31 +317,7 @@
                         fabricación de puertas para muebles de baños, closet y armarios.</p>
                 </div>
             </div>
-            <div id="servicios-2" class="mt-5">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <i class="fas fa-toolbox iconos"></i>
-                        <h5 class="titulo-servicio">Cortes de madera</h5>
-                        <p class="p-servicio mb-3">A través de nuestras herramientas especializadas se realizan cortes
-                            lineales a la medida del largo y ancho que se requiera y así lograr ensambles exactos de los
-                            productos adquiridos en nuestras tiendas.
-                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <i class="fas fa-table iconos"></i>
-                        <h5 class="titulo-servicio">Aplicación de Tapacanto</h5>
-                        <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes)
-                            con
-                            nuestra máquina de enchapado automático.</p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <i class="fas fa-truck iconos"></i>
-                        <h5 class="titulo-servicio">Servicio a domicilio
-                        </h5>
-                        <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de
-                            nuestra tienda en línea en tu domicilio.</p>
-                    </div>
-                </div>
+            
             </div>
         </section>
     </div>
@@ -351,7 +352,7 @@
     @if ($catalogues->count() > 0)
         <section id="catalogo">
             <div class="cabecera">
-                <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
+                <h3 style="text-align: center; text-transform: uppercase;" class="mt-2">
                     Consulta nuestro catálogo en linea
                 </h3>
             </div>
@@ -392,8 +393,8 @@
         <section id="codigo" class="p-0">
             @foreach ($cuponfs as $cuponf)
                 <div
-                    style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;  background-size: 100%; background-repeat: no-repeat; min-height:450px;">
-                    <div class="contenido">
+                    style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;   background-repeat: no-repeat; min-height: 100%; background-size: 100%;" class="img-fluid">
+                    <div class="contenido-ok">
                         <h2>
                             {{ $cuponf->text }}
                         </h2>
@@ -405,9 +406,9 @@
             @endforeach
         </section>
     @else
-        <section id="codigo" class="p-0 pb-3">
+        <section id="codigo" class="p-0">
             <div style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); ">
-                <div class="contenido">
+                <div class="contenido-ok">
                     <h2>
                         Usa nuestro cupon de descuento: BAJCESHOP
                     </h2>
@@ -417,7 +418,7 @@
         </section>
     @endif
     <section id="sucursales">
-        <div class="cabecera-sucursales mt-5">
+        <div class="cabecera-sucursales">
             <h3 style="text-align: center; text-transform: uppercase;">
                 Nuestras sucursales
             </h3>
