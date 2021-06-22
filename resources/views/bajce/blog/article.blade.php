@@ -93,7 +93,7 @@
     @else
         <section id="comentarios">
             <div class="container card">
-                <a class="btn btn-primary" href="">Inicia sesion</a>
+                <a class="btn btn-primary btn-md" href="">Inicia sesion</a>
             </div>
         </section>
     @endauth
