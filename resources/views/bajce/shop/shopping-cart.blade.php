@@ -59,7 +59,7 @@
 
                                         </tr>
                                     @endforeach
-                                    <div class="card-body border-top">
+                                    <tr class="card-body border-top">
                                         @if (Cart::instance('default')->count() > 0)
                                             <a href="{{ route('checkout.index') }}"
                                                 class="btn btn-primary float-md-right mx-1">
@@ -73,12 +73,14 @@
                                         <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir
                                             comprando
                                         </a>
-                                    </div>
+                                    </tr>
                                     @if (Cart::instance('wishlist')->count() > 0)
-                                        <td class="text-center">
-                                            <h6 class="text-warning">Productos de la lista (no se pueden comprar en
-                                                linea)</h6>
-                                        </td>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h6 class="text-warning">Productos de la lista (no se pueden comprar en
+                                                    linea)</h6>
+                                            </td>
+                                        </tr>
                                     @endif
                                     @foreach (Cart::instance('wishlist')->content() as $product)
                                         <tr>
