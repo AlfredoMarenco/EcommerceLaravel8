@@ -75,12 +75,10 @@
                                         </a>
                                     </div>
                                     @if (Cart::instance('wishlist')->count() > 0)
-                                        <tr>
-                                            <td class="text-center">
-                                                <h6 class="text-warning">Productos de la lista (no se pueden comprar en
-                                                    linea)</h6>
-                                            </td>
-                                        </tr>
+                                        <td class="text-center">
+                                            <h6 class="text-warning">Productos de la lista (no se pueden comprar en
+                                                linea)</h6>
+                                        </td>
                                     @endif
                                     @foreach (Cart::instance('wishlist')->content() as $product)
                                         <tr>
