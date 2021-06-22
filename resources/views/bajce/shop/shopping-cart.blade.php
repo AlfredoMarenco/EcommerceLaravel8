@@ -56,23 +56,24 @@
                                                 <a href="{{ route('shop.product', $product->model->id) }}"
                                                     class="btn btn-block btn-light">Detalles</a>
                                             </td>
-                                            <div class="card-body border-top">
-                                                @if (Cart::instance('default')->count() > 0)
-                                                    <a href="{{ route('checkout.index') }}"
-                                                        class="btn btn-primary float-md-right mx-1">
-                                                        Pagar con tarjeta
-                                                        <i class="far fa-credit-card"></i> </a>
-                                                    <a href="{{ route('checkout.cash') }}"
-                                                        class="btn btn-primary float-md-right mx-1">
-                                                        Pagar en efectivo
-                                                        <i class="far fa-money-bill-alt"></i> </a>
-                                                @endif
-                                                <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i>
-                                                    Seguir comprando
-                                                </a>
-                                            </div>
+
                                         </tr>
                                     @endforeach
+                                    <div class="card-body border-top">
+                                        @if (Cart::instance('default')->count() > 0)
+                                            <a href="{{ route('checkout.index') }}"
+                                                class="btn btn-primary float-md-right mx-1">
+                                                Pagar con tarjeta
+                                                <i class="far fa-credit-card"></i> </a>
+                                            <a href="{{ route('checkout.cash') }}"
+                                                class="btn btn-primary float-md-right mx-1">
+                                                Pagar en efectivo
+                                                <i class="far fa-money-bill-alt"></i> </a>
+                                        @endif
+                                        <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir
+                                            comprando
+                                        </a>
+                                    </div>
                                     @if (Cart::instance('wishlist')->count() > 0)
                                         <tr>
                                             <td class="text-center">
