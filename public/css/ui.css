@@ -1298,12 +1298,14 @@ body {
 
 .radio {
   border-radius: 20px;
+  display: block;
 }
 
 .info-destacada-inner {
   margin-top: 7px;
-
 }
+
+
 
 #servicios {
   padding-left: 100px;
@@ -1344,6 +1346,20 @@ body {
     text-align: center;
   }
 }
+.contenido-ok {
+  margin-top: 120px;
+  margin-bottom: 80px;
+  padding: 150px;
+  text-align: center;
+} @media (max-width:500px) {
+  .contenido-ok {
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+}
 
 .contenido h2 {
   color: #f2f2f2;
@@ -1351,7 +1367,7 @@ body {
 
 .imagen-producto {
   text-align: center;
-}
+} 
 
 #catalogo {
   padding-top: 20px;
@@ -1361,6 +1377,7 @@ body {
   padding-bottom: 80px;
 } @media (max-width: 500px) {
   #catalogo {
+    padding-top: 0;
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 0px;
@@ -1369,8 +1386,18 @@ body {
 }
 
 .carousel-caption-3 {
-  padding-bottom: 138px;
+  padding-bottom: 198px;
+}@media (max-width:500px){
+  .carousel-caption-3 {
+    padding-bottom: 10px;
+  }
+  .carousel-caption-3 h1 {
+  font-size: 20px;
+  } 
+  
 }
+
+
 
 .contenido-2 {
   padding: 35px;
@@ -1414,6 +1441,7 @@ body {
   background-image: url(/images/banners/compras.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   
 }
 .botones-tienda {
@@ -1433,11 +1461,13 @@ body {
 }
 
 #sucursales {
+  padding-top: 30px;
   padding-left: 100px;
   padding-right: 100px;
 } @media (max-width: 500px) {
   #sucursales {
-    padding: 30px;
+    padding-top: 0px;
+    padding: 10px;
     text-align: center;
   }
 }
@@ -1453,7 +1483,7 @@ body {
 } @media (max-width: 500px) {
   .cabecera-sucursales h3{
     padding-bottom: 10px;
-    padding-top: 10px;
+    padding-top: 0px;
     text-align: center;
   }
 }
@@ -1510,6 +1540,10 @@ body {
 }
 .cabecera-marcas {
   padding-bottom: 40px;
+}@media (max-width:500px){
+  .cabecera-marcas {
+    padding-bottom: 5px;
+  }
 }
 .marcas-logo {
   text-align: center;
@@ -1714,6 +1748,12 @@ body {
 #section-name-cat {
   padding-left: 80px;
   padding-right: 80px;
+} @media (max-width:500px){
+  #section-name-cat {
+    padding-left: 20px;
+    padding-right: 20px;
+   
+  }
 }
 
 /*====interno productos =======*/

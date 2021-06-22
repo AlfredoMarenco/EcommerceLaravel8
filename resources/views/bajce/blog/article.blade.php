@@ -69,54 +69,32 @@
         </div>
     </section>
 
-    @auth
-        <section id="comentarios">
-            <div class="container card">
-                <form action="{{ route('blog.store.comment') }}" method="POST">
-                    @csrf
-                    <div class="form-group col-md-8">
-                        <input type="hidden" name="post" value="{{ $post->id }}">
-                        <label for="body">Ingresa tu comentario</label>
-                        <textarea name="body" rows="5" class="form-control"></textarea>
-                        <button class="btn btn-primary float-right mt-2" type="submit">Comentar</button>
-                    </div>
-                </form>
-                <h4>Comentarios</h4>
-                @foreach ($post->comments as $comment)
-                    <div class="comentarios-escr mt-3 px-4 card">
-                        <h5>{{ $comment->user->name }} {{ $comment->user->last_name }}</h5>
-                        <p>{{ $comment->body }}</p>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-    @else
-        <section id="comentarios">
-            <div class="container card col-3">
-                <a class="btn btn-primary btn-md" href="">Inicia sesion</a>
-            </div>
-        </section>
-    @endauth
-    <!--========== NEWSLETTER =============-->
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
+    <section id="comentarios">
+        <div class="container card">
+            <form action="{{ route('blog.store.comment') }}" method="POST">
+                @csrf
+                <div class="form-group col-md-8">
+                    <input type="hidden" name="post" value="{{ $post->id }}">
+                    <label for="body">Ingresa tu comentario</label>
+                    <textarea name="body" rows="5" class="form-control"></textarea>
+                    <button class="btn btn-primary float-right mt-2" type="submit">Comentar</button>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
-                    </div>
+            </form>
+            <h4>Comentarios</h4>
+            @foreach ($post->comments as $comment)
+                <div class="comentarios-escr mt-3 px-4 card">
+                    <h5>{{ $comment->user->name }} {{ $comment->user->last_name }}</h5>
+                    <p>{{ $comment->body }}</p>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
-                    <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
+
+
+
+
+
+
+
+
 @endsection
