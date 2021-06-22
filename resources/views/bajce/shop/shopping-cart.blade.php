@@ -56,24 +56,8 @@
                                                 <a href="{{ route('shop.product', $product->model->id) }}"
                                                     class="btn btn-block btn-light">Detalles</a>
                                             </td>
-
                                         </tr>
                                     @endforeach
-                                    <tr class="card-body border-top">
-                                        @if (Cart::instance('default')->count() > 0)
-                                            <a href="{{ route('checkout.index') }}"
-                                                class="btn btn-primary float-md-right mx-1">
-                                                Pagar con tarjeta
-                                                <i class="far fa-credit-card"></i> </a>
-                                            <a href="{{ route('checkout.cash') }}"
-                                                class="btn btn-primary float-md-right mx-1">
-                                                Pagar en efectivo
-                                                <i class="far fa-money-bill-alt"></i> </a>
-                                        @endif
-                                        <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir
-                                            comprando
-                                        </a>
-                                    </tr>
                                     @if (Cart::instance('wishlist')->count() > 0)
                                         <tr>
                                             <td class="text-center">
@@ -121,6 +105,18 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="card-body border-top">
+                                @if (Cart::instance('default')->count() > 0)
+                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
+                                        Pagar con tarjeta
+                                        <i class="far fa-credit-card"></i> </a>
+                                    <a href="{{ route('checkout.cash') }}" class="btn btn-primary float-md-right mx-1">
+                                        Pagar en efectivo
+                                        <i class="far fa-money-bill-alt"></i> </a>
+                                @endif
+                                <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
+                                </a>
+                            </div>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->
 
@@ -176,8 +172,7 @@
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }}
-                                                MXN</strong></dd>
+                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }} MXN</strong></dd>
                                     </dl>
                                     <hr>
                                 @endif
@@ -218,10 +213,7 @@
     <section id="productos-sugeridos-2" class="section-name border-top padding-y">
         <div class="container">
             <h6>Política de privacidad</h6>
-            <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento
-                podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que
-                para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a
-                    href="https://www.bajce.com.">www.bajce.com.</a>
+            <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a href="https://www.bajce.com.">www.bajce.com.</a>
 
             </p>
 
