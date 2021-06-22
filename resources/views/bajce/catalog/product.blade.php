@@ -46,17 +46,11 @@
                                 <var class="price h4">{{ $product->presentPrice() }} MXN</var>
                             </div>
                         @endif
-
                         <p>{!! $product->extract !!}</p>
-
-
                         <dl class="row">
                             <dt class="col-1"><i class="fas fa-box" style="color: orange;"></i></dt>
                             <dd class="col-11"><a href="#">Envío gratis dentro de Mérida</a></dd>
-
-
                         </dl>
-
                         <div class="form-row  mt-4">
                             <div class="form-group col-md flex-grow-0">
                                 <div class="input-group mb-3 input-spinner">
@@ -70,7 +64,6 @@
                                 </div>
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->
-
                         <div class="form-group col-md">
                             <a href="http://wa.me/5219992211629" class="btn btn-block  btn-success">
                                 <i class="fab fa-whatsapp"></i> <span class="text">CONSULTAR EN SUCURSAL</span>
@@ -84,22 +77,16 @@
                             </div>
                             <p class="mt-3">* Solicita cotizaciones en linea</p>
                         </div> <!-- col.// -->
-
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->
             </div> <!-- row.// -->
-
             <!-- ================ ITEM DETAIL END .// ================= -->
-
-
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
-
     <!-- ========================= SECTION  ========================= -->
     <section id="section-name-cat" class="section-name padding-y bg">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-12">
                     <h5 class="title-description">Description</h5>
@@ -156,8 +143,6 @@
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
-
-
     <section id="catalogo">
         <div class="cabecera">
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
@@ -166,7 +151,6 @@
             <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae deserunt
                 quos similique natus quaerat omnis!</p>
         </div>
-
         <div class="row mt-5">
             @foreach ($catalogues as $catalogue)
                 <div class="col-lg-4 col-md-4 col-sm-12">

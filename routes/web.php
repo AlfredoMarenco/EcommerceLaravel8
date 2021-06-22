@@ -9,9 +9,8 @@ use App\Http\Controllers\LoginSocialiteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
-use App\Mail\OrderFailed;
-use App\Mail\OrderShipped;
-use App\Models\Order;
+use App\Mail\RequestQuotes;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -74,13 +73,11 @@ Route::get('/condiciones-de-uso', function(){
 
 */
 
-
-Route::get('/mailable/{order}', function ($order) {
-    $order = Order::find($order);
-
-    return new OrderShipped($order);
-});
-
+/*
+Route::get('/mailable', function (Request $request) {
+    return new RequestQuotes($request->all());
+})->name('sendQuote');
+ */
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
@@ -132,6 +129,7 @@ Route::prefix('/wishlist')->group(function () {
     Route::any('/update/{rowId}', [ShopController::class, 'updateWishlist'])->name('wishlist.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('wishlist.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToWishlist'])->name('wishlist.remove');
+    Route::post('/sendCotizacion', [ShopController::class, 'sendCotizacion'])->name('wishlist.sendCotizacion');
 });
 
 //Rutas del checkout y los metodos de pago

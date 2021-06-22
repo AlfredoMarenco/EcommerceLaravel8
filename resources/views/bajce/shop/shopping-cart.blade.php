@@ -60,7 +60,8 @@
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
                                         <tr>
-                                            <td class="text-center">
+                                            <td colspan="4" class="text-center">
+                                                <hr>
                                                 <h6 class="text-warning">Productos de la lista (no se pueden comprar en
                                                     linea)</h6>
                                             </td>
@@ -92,7 +93,7 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <var class="price">${{ number_format($product->price, 2) }}</var>
+                                                    <var class="price">{{-- ${{ number_format($product->price, 2) }} --}}<br></var>
                                                     <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
                                                             class="text-muted">Eliminar </small></a>
                                                 </div> <!-- price-wrap .// -->
@@ -106,16 +107,54 @@
                                 </tbody>
                             </table>
                             <div class="card-body border-top">
-                                @if (Cart::instance('default')->count() > 0)
-                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
-                                        Pagar con tarjeta
-                                        <i class="far fa-credit-card"></i> </a>
-                                    <a href="{{ route('checkout.cash') }}" class="btn btn-primary float-md-right mx-1">
-                                        Pagar en efectivo
-                                        <i class="far fa-money-bill-alt"></i> </a>
-                                @endif
                                 <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
                                 </a>
+
+                                @if (Cart::instance('wishlist')->count() > 0)
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        Solicitar cotización
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Informacion de contacto
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('wishlist.sendCotizacion') }} " method="POST">
+                                                        @csrf
+                                                        <div class="form-group">
+                                                            <label for="name">Nombre completo</label>
+                                                            <input type="text" name="name" class="form-control">
+                                                            <label for="">Correo</label>
+                                                            <input type="text" name="email" class="form-control">
+                                                            <label for="">Telefono</label>
+                                                            <input type="text" name="phone" class="form-control">
+                                                            <label for="comment">Comentario(Opcional)</label>
+                                                            <textarea class="form-control" name="comment"
+                                                                rows="5"></textarea>
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    {{-- <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button> --}}
+                                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->
@@ -172,11 +211,12 @@
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }} MXN</strong></dd>
+                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }}
+                                                MXN</strong></dd>
                                     </dl>
                                     <hr>
                                 @endif
-                                @if (Cart::instance('wishlist')->count() > 0)
+                                {{-- @if (Cart::instance('wishlist')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Cotizacion de productos del catálogo</h6>
                                     </dl>
@@ -184,19 +224,23 @@
                                         <dt>Precio total:</dt>
                                         <dd class="text-right">${{ Cart::instance('wishlist')->subtotal() }} MXN</dd>
                                     </dl>
-                                    {{-- <dl class="dlist-align">
-                                <dt>Descuento:</dt>
-                                <dd class="text-right">MXN 120</dd>
-                            </dl> --}}
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
                                         <dd class="text-right  h5"><strong>${{ Cart::instance('wishlist')->total() }}
                                                 MXN</strong></dd>
                                     </dl>
                                     <hr>
-                                @endif
+                                @endif --}}
                                 <p class="text-center mb-3">
-                                    <img src="images/misc/payments.png" height="26">
+                                    @if (Cart::instance('default')->count() > 0)
+                                        <a href="{{ route('checkout.index') }}" class="btn btn-primary my-1 btn-block">
+                                            Pagar con tarjeta
+                                            <i class="far fa-credit-card"></i> </a>
+                                        <a href="{{ route('checkout.cash') }}" class="btn btn-primary my-2 btn-block">
+                                            Pagar en efectivo
+                                            <i class="far fa-money-bill-alt"></i> </a>
+                                    @endif
+                                    <img class="mt-2" src="images/misc/payments.png" height="26">
                                 </p>
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
@@ -213,7 +257,10 @@
     <section id="productos-sugeridos-2" class="section-name border-top padding-y">
         <div class="container">
             <h6>Política de privacidad</h6>
-            <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a href="https://www.bajce.com.">www.bajce.com.</a>
+            <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento
+                podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que
+                para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a
+                    href="https://www.bajce.com.">www.bajce.com.</a>
 
             </p>
 

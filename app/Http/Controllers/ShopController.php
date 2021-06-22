@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestQuotes;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Configuration;
@@ -12,6 +13,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 
 class ShopController extends Controller
 {
@@ -118,7 +120,7 @@ class ShopController extends Controller
                 'id' => $product->id,
                 'name' => $product->name,
                 'qty' => 1,
-                'price' => $product->discount,
+                'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
@@ -127,7 +129,7 @@ class ShopController extends Controller
                 'id' => $product->id,
                 'name' => $product->name,
                 'qty' => 1,
-                'price' => $product->price,
+                'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
@@ -265,5 +267,14 @@ class ShopController extends Controller
         }
 
         return view('bajce.shop.index', compact('products', 'categories', 'brands'));
+    }
+
+    public function sendCotizacion(Request $request)
+    {
+        /* return $request->all(); */
+        Mail::to('alfredomarenco@boletea.com')->send(new RequestQuotes($request->name, $request->email, $request->phone, $request->comment));
+
+        Cart::instance('wishlist')->destroy();
+        return back();
     }
 }
