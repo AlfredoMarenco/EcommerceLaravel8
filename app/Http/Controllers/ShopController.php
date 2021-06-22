@@ -227,13 +227,13 @@ class ShopController extends Controller
         if ($request->condition == 0) {
             if ($request->categories && !$request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('price', [$request->price_min, $request->price_max])->where('type', 0)->latest('id')->paginate(12);
             }
 
             if ($request->categories && $request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
             }
 
@@ -247,13 +247,13 @@ class ShopController extends Controller
         } else {
             if ($request->categories && !$request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 0)->latest('id')->paginate(12);
             }
 
             if ($request->categories && $request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('discount', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
             }
 

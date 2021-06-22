@@ -152,18 +152,20 @@
                 quos similique natus quaerat omnis!</p>
         </div>
         <div class="row mt-5">
-            @foreach ($catalogues as $catalogue)
+            @foreach ($products as $product)
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
                         <div class="contenido-2">
                             <div class="imagen-producto">
-                                <img src="{{ Storage::url($catalogue->image->url) }}" class="img-fluid"
-                                    alt="{{ $catalogue->name }}">
+                                <img src="{{ Storage::url($product->image->url) }}" class="img-fluid"
+                                    alt="{{ $product->name }}">
                             </div>
-                            <div class="info-producto text-center py-2">
-                                <h5>{{ $catalogue->name }}</h5>
-                                <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
-                                    class="btn btn-primary btn-block">Ver catálogo</a>
+                            <div class="info-producto py-2">
+                                <h5>{{ $product->name }}</h5>
+                                <p>{!! $product->extract !!}</p>
+                                <a href="{{ route('catalogue.product', $product) }}"
+                                                class="btn btn-block btn-primary"></i> VER PRODUCTO
+                                            </a>
                             </div>
                         </div>
                     </div>
