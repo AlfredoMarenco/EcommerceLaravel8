@@ -84,8 +84,8 @@
         </div>
         <div class="col">
             <div class="form-group">
-                {!! Form::label('file', 'Imagen del producto') !!}
-                {!! Form::file('file[]', ['class' => 'form-control-file', 'accept' => 'image/*', 'multiple' => true]) !!}
+                {!! Form::label('file', 'Imagenes/Videos del producto') !!}
+                {!! Form::file('file[]', ['class' => 'form-control-file', 'accept' => 'image/*,.mp4', 'multiple' => true]) !!}
             </div>
             <p>Selecciona una imagen</p>
         </div>
@@ -97,11 +97,16 @@
         <h4 class="mt-5">Imagenes del producto</h4>
         <div class="row mt-2">
             @foreach ($product->images as $image)
-                <div class="col-md-3">
-                    <img src="{{ Storage::url($image->url) }}" class="img-fluid w-100" alt="">
-                    <a href="{{ route('admin.product.image.delete', $image->id) }}"
-                        class="btn btn-sm btn-danger my-2 float-right">Eliminar</a>
-                </div>
+                @php
+                    $extension = new SplFileInfo($product->image->url);
+                @endphp
+                @if ($extension->getExtension() != 'mp4')
+                    <div class="col-md-3 p-3">
+                        <img src="{{ Storage::url($image->url) }}" class="img-fluid w-100" alt="">
+                        <a href="{{ route('admin.product.image.delete', $image->id) }}"
+                            class="btn btn-sm btn-danger my-2 float-right">Eliminar</a>
+                    </div>
+                @endif
             @endforeach
         @endisset
     </div>

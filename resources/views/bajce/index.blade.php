@@ -25,7 +25,8 @@
                     <div class="carousel-inner">
                         @foreach ($sliders as $slider)
                             <div class="carousel-item @if ($loop->first) active @endif">
-                                <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}" class="img-fluid" style="width: 100%">
+                                <img src="{{ Storage::url($slider->image->url) }}" alt="{{ $slider->text }}"
+                                    class="img-fluid" style="width: 100%">
                                 <div class=" carousel-caption carousel-caption-1 d-md-block">
                                     @if ($slider->text != '')
                                         <h1>{{ $slider->text }}</h1>
@@ -154,7 +155,8 @@
                                     @if ($mosaic->id == 5)
                                         <div class="col-8 radio bloque">
                                             <a href="{{ $mosaic->link }}">
-                                                <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-6-2.png') }}" @endif class="img-fluid radio" alt="" width="605" height="252">
+                                                <img @if ($mosaic->image) src="{{ Storage::url($mosaic->image->url) }}" @else src="{{ asset('images/banners/d-6-2.png') }}" @endif class="img-fluid radio" alt="" width="605"
+                                                    height="252">
                                                 <div class="carousel-caption carousel-caption-2">
                                                     <h5>{{ $mosaic->text }}</h5>
                                                     <p>{!! $mosaic->description !!}</p>
@@ -293,31 +295,35 @@
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <i class="fas fa-layer-group iconos"></i>
                         <h5 class="titulo-servicio">Cepillado</h5>
-                        <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes) con
+                        <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes)
+                            con
                             nuestra máquina de enchapado automático.</p>
                     </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <i class="fas fa-desktop iconos"></i>
-                    <h5 class="titulo-servicio">Optimizador de corte</h5>
-                    <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros de
-                        madera, calculando la cantidad de piezas necesarias según el diseño, reduciendo costos y tiempo.
-                    </p>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <i class="fas fa-desktop iconos"></i>
+                        <h5 class="titulo-servicio">Optimizador de corte</h5>
+                        <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros
+                            de
+                            madera, calculando la cantidad de piezas necesarias según el diseño, reduciendo costos y
+                            tiempo.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <i class="fas fa-layer-group iconos"></i>
+                        <h5 class="titulo-servicio">Aplicación de Tapacanto</h5>
+                        <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes)
+                            con
+                            nuestra máquina de enchapado automático.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <i class="fas fa-tools iconos"></i>
+                        <h5 class="titulo-servicio">Perforación de bisagras</h5>
+                        <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en
+                            la
+                            fabricación de puertas para muebles de baños, closet y armarios.</p>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <i class="fas fa-layer-group iconos"></i>
-                    <h5 class="titulo-servicio">Aplicación de Tapacanto</h5>
-                    <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes) con
-                        nuestra máquina de enchapado automático.</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <i class="fas fa-tools iconos"></i>
-                    <h5 class="titulo-servicio">Perforación de bisagras</h5>
-                    <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en la
-                        fabricación de puertas para muebles de baños, closet y armarios.</p>
-                </div>
-            </div>
-
             </div>
         </section>
     </div>
@@ -326,25 +332,34 @@
             <h3 style="text-align: center;" class="mt-5">
                 Conoce nuestros artículos disponibles
             </h3>
-
             <div class="boton-ir">
                 <a href="{{ route('shop.index') }}" class="btn btn-secondary">
                     Ir a la tienda
                 </a>
-
             </div>
             <div class="botones-tienda">
                 <div class="row">
                     @foreach ($buttons as $button)
-                        <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="col-lg-2 col-md-2 col-sm-2 d-sm-none d-none d-md-block">
                             <div class="boton-ir">
                                 <a href="{{ route('shop.products.category', $button->category_id) }}"
-                                    class="btn btn-primary btn-block">
+                                    class="btn btn-primary btn-block mb-2">
                                     {{ $button->text }}
                                 </a>
                             </div>
                         </div>
                     @endforeach
+                    <div class="dropdown d-lg-none d-md-none d-sm-block w-100">
+                        <a class="btn btn-primary dropdown-toggle mx-auto mx-md-auto w-100" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Departamentos
+                        </a>
+                        <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
+                            @foreach ($buttons as $button)
+                                <a class="dropdown-item text-center" href="#">{{ $button->text }}</a>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -392,10 +407,10 @@
     @if ($cuponfs->count() > 0)
         <section id="codigo" class="p-0">
             @foreach ($cuponfs as $cuponf)
-                <div
-                    style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;   background-repeat: no-repeat; min-height: 100%; background-size: 100%;" class="img-fluid">
+                <div style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;   background-repeat: no-repeat; min-height: 100%; background-size: 100%;"
+                    class="img-fluid">
                     <div class="contenido-ok">
-                        <h2 class="text-primary" >
+                        <h2 class="text-primary">
                             {{ $cuponf->text }}
                         </h2>
                         @if ($cuponf->button != '')
