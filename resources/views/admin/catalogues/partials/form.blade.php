@@ -30,8 +30,7 @@
                 {!! Form::label('file', 'Imagen del producto') !!}
                 {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita praesentium iusto quas ipsa
-                repellat laboriosam veniam ullam sed repellendus eos.</p>
+            <p>Selecciona una imagen la extension de la imagen debe ser .png , .jpg, .jpeg.</p>
         </div>
     </div>
     @error('file')
