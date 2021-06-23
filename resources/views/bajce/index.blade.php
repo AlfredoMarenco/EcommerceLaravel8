@@ -280,7 +280,7 @@
                         <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de
                             nuestra tienda en línea en tu domicilio.</p>
                     </div>
-                    
+
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <i class="fas fa-toolbox iconos"></i>
                         <h5 class="titulo-servicio">Cortes de madera</h5>
@@ -296,7 +296,7 @@
                         <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes) con
                             nuestra máquina de enchapado automático.</p>
                     </div>
-                    
+
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <i class="fas fa-desktop iconos"></i>
                     <h5 class="titulo-servicio">Optimizador de corte</h5>
@@ -317,7 +317,7 @@
                         fabricación de puertas para muebles de baños, closet y armarios.</p>
                 </div>
             </div>
-            
+
             </div>
         </section>
     </div>
@@ -395,7 +395,7 @@
                 <div
                     style="background-image: url({{ Storage::url($cuponf->image->url) }}); background-position: center;   background-repeat: no-repeat; min-height: 100%; background-size: 100%;" class="img-fluid">
                     <div class="contenido-ok">
-                        <h2>
+                        <h2 class="text-primary" >
                             {{ $cuponf->text }}
                         </h2>
                         @if ($cuponf->button != '')
@@ -727,9 +727,9 @@
             </div>
         </section>
     @endif
-    
 
-    
+
+
 
 @endsection
 
