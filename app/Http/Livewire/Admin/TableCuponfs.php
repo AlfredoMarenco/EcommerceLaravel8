@@ -21,7 +21,7 @@ class TableCuponfs extends Component
     public function render()
     {
         return view('livewire.admin.table-cuponfs', [
-            'cuponfs' => Cuponf::all(),
+            'cuponfs' => Cuponf::all()->paginate(1),
         ]);
     }
 }
