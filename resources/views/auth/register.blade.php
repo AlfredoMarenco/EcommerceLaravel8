@@ -62,7 +62,7 @@
         <!-- card-body.// -->
     </div>
     <!-- card .// -->
-    <p class="text-center mt-4">Have an account? <a href="">Log In</a></p>
+    <p class="text-center mt-4">Ya tienes cuenta? <a href="{{ route('login') }}">Iniciar sesion</a></p>
     <br><br>
     <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
 
