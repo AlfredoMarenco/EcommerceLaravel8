@@ -340,7 +340,7 @@
             <div class="botones-tienda">
                 <div class="row">
                     @foreach ($buttons as $button)
-                        <div class="col-lg-2 col-md-2 col-sm-2 d-sm-none d-none d-md-block">
+                        <div class="col-lg-2 col-md-2 col-sm-2 d-sm-none d-none d-md-block mx-auto">
                             <div class="boton-ir">
                                 <a href="{{ route('shop.products.category', $button->category_id) }}"
                                     class="btn btn-primary btn-block mb-2">
@@ -350,9 +350,9 @@
                         </div>
                     @endforeach
                     <div class="dropdown d-lg-none d-md-none d-sm-block w-100">
-                        <a class="btn btn-primary dropdown-toggle mx-auto mx-md-auto w-100" href="#" role="button" id="dropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   Departamentos
+                        <a class="btn btn-primary dropdown-toggle mx-auto mx-md-auto w-100" href="#" role="button"
+                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Departamentos
                         </a>
                         <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
                             @foreach ($buttons as $button)
