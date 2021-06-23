@@ -3,14 +3,17 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181054511-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181054511-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-181054511-1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-181054511-1');
+    </script>
 
     <meta charset="utf-8">
     <meta http-equiv="pragma" content="no-cache" />
@@ -42,22 +45,31 @@
     @yield('css')
 
     <!-- Facebook Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2877616512502507');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2877616512502507');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
 
 </head>
 
@@ -74,12 +86,13 @@
 
                     <ul class="navbar-nav m-auto">
                         <li>
-                            <a href="mailto:info@bajce.com" class="nav-link"> <i
-                                    class="fas fa-envelope-open-text"></i> info@bajce.com</a>
+                            <a href="mailto:info@bajce.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+                                info@bajce.com</a>
                         </li>
                         <span class="nav-link">|</span>
                         <li>
-                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 944 6707</a>
+                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 944
+                                6707</a>
                         </li>
                     </ul> <!-- list-inline //  -->
                 </div> <!-- navbar-collapse .// -->
@@ -98,6 +111,7 @@
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
                         {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
+                        @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
                             {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
@@ -279,10 +293,13 @@
 
                         <p class="text-white-50 mb-2">Síguenos en redes sociales</p>
                         <div>
-                            <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i
+                                    class="fab fa-facebook-f"></i></a>
 
-                            <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i
+                                    class="fab fa-youtube"></i></a>
                         </div>
 
                     </aside>
@@ -292,13 +309,15 @@
                             <h5 class="title">Contáctanos</h5>
                             <p>MADERAS BAJCE, S.A. DE C.V</p>
                             <ul class="list-icon">
-                                <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente C.P. 97137
+                                <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente
+                                    C.P. 97137
                                 </li>
                                 <li> <i class="icon fa fa-envelope"> </i> info@bajce.com</li>
-                                <li> <i class="icon fa fa-phone"> </i> (999) 944 6707, (999) 944 6841, (999) 948 3086</li>
+                                <li> <i class="icon fa fa-phone"> </i> (999) 944 6707, (999) 944 6841, (999) 948 3086
+                                </li>
                                 <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm
                                     Sábado 9:00 am a 2:00 pm
-                                    </li>
+                                </li>
                             </ul>
                         </article>
                     </aside>
@@ -336,7 +355,6 @@
                 }
             });
         });
-
     </script>
     @yield('js')
 </body>

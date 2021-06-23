@@ -338,7 +338,7 @@
                 </a>
             </div>
             <div class="botones-tienda">
-                <div class="row">
+                <div class="row align-items-center">
                     @foreach ($buttons as $button)
                         <div class="col-lg-2 col-md-2 col-sm-2 d-sm-none d-none d-md-block">
                             <div class="boton-ir">
