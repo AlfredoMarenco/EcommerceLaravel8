@@ -14,6 +14,6 @@ class NewsletterController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect();
+        return back();
     }
 }
