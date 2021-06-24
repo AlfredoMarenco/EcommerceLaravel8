@@ -37,6 +37,8 @@ Route::get('reports/sales', [ReportController::class, 'sales'])->name('admin.rep
 Route::post('reports/sales/getTableReport', [ReportController::class, 'getTableReport'])->name('admin.reports.sales.getTableReport');
 Route::get('reports/sales/exportReportSales', [ReportController::class, 'exportReportSales'])->name('admin.reports.sales.exportReportSales');
 Route::post('images/upload', [PostController::class, 'uploadImages'])->name('ckeditor.upload');
+Route::get('newsletter',[ReportController::class,'newsletter'])->name('admin.reports.newsletter');
+Route::get('/exportnewsletter',[ReportController::class,'exportNewsletter'])->name('reports.newsletter.export');
 
 
 Route::resource('user', UserController::class)->except('show')->names('admin.users');

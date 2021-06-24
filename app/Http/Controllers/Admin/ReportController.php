@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\NewslettersExport;
 use App\Exports\OrdersExport;
 use App\Exports\ProductExport;
 use App\Http\Controllers\Controller;
+use App\Models\Newsletter;
 use App\Models\Order;
 use App\Models\User;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -151,5 +153,20 @@ class ReportController extends Controller
     public function exportReportSales()
     {
         return Excel::download(new OrdersExport('2021-12-10', ''), 'Reporte_Ordenes.xlsx');
+    }
+
+
+
+    public function newsletter()
+    {
+        $newsletters = Newsletter::latest('id')->paginate(10);
+        return view('admin.reports.newsletter', compact('newsletters'));
+    }
+
+
+    public function exportNewsletter()
+    {
+        return Excel::download(new NewslettersExport, 'Newsletter' . Carbon::now() . '.xlsx');
+        (new Newsletter)->newQuery()->delete();
     }
 }

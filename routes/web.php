@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginSocialiteController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
@@ -83,6 +84,7 @@ Route::get('/mailable', function (Request $request) {
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
 Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
 Route::post('/search', [LandingPageController::class, 'search'])->name('search');
+Route::post('/newsletter', [NewsletterController::class, 'newsletter'])->name('newsletter');
 
 
 //Rutas Tienda

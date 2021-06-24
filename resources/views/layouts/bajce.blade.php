@@ -242,12 +242,18 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
+                        <form action="{{ route('newsletter') }}" method="post">
+                            @csrf
+                            <input type="email" name="email" class="form-control" placeholder="Correo electrónico">
+                            @error('email')
+                                <small class="text-danger">Este correo ya esta registrado</small>
+                            @enderror
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12">
                     <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Suscribirme</button>
+                        <button type="submit" class="btn btn-success btn-md btn-block">Suscribirme</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -338,6 +344,7 @@
     </footer>
     <!-- ========================= FOOTER END // ========================= -->
     @livewireScripts
+    @include('sweetalert::alert')
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
         integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="

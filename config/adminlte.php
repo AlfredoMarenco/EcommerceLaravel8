@@ -374,7 +374,12 @@ return [
                 ],
             ],
         ],
-
+        [
+            'text' => 'Newsletter',
+            'route' => 'admin.reports.newsletter',
+            'icon' => 'fas fa-fw fa-newspaper',
+            'can' => 'admin.reports.index'
+        ],
     ],
 
     /*
