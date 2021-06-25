@@ -295,9 +295,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <i class="fas fa-layer-group iconos"></i>
                         <h5 class="titulo-servicio">Cepillado</h5>
-                        <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes)
-                            con
-                            nuestra máquina de enchapado automático.</p>
+                        <p class="p-servicio mb-3">Alisa y nivela el grosor de la madera, hasta obtener el espesor deseado.</p>
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -382,6 +380,7 @@
                                 </div>
                                 <div class="info-producto pb-3 text-center">
                                     <h5>{{ $catalogue->name }}</h5>
+                                    <p>{!! $catalogue->description !!}</p>
                                     <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
                                         class="btn btn-primary btn-block">Ver catálogo</a>
                                 </div>

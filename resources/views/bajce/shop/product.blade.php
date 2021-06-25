@@ -41,8 +41,8 @@
                             </ul>
                             <small class="label-rating text-muted">{{ $product->reviews_count }} Opiniones</small>
                             <!--<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
-                                            zona Mérida </small>
-                                    </div> <!-- rating-wrap.// -->
+                                                zona Mérida </small>
+                                        </div> <!-- rating-wrap.// -->
                             @if ($product->discount)
                                 <div class="mb-3">
                                     <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
@@ -213,10 +213,13 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <a href="{{ route('shop.product', $product) }}">
+                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                </a>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
-                                <a href="#" class="title mb-2">{{ $product->name }}</a>
+                                <a href="{{ route('shop.product', $product->id) }}"
+                                    class="title mb-2">{{ $product->name }}</a>
                                 <div class="price-wrap">
                                     @if ($product->discount)
                                         <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
@@ -251,7 +254,9 @@
                                     <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
                                         Añadir al carrito </button>
                                 </form>
-
+                                <a class="btn btn-success mt-2 btn-block" href="{{ route('shop.product', $product) }}">
+                                    Ver producto
+                                </a>
                             </figcaption>
                         </figure>
                     </div> <!-- col.// -->

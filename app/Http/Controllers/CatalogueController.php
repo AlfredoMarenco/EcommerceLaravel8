@@ -25,17 +25,19 @@ class CatalogueController extends Controller
         $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
             $query->where('category_id', $category_id);
         })->where('type', 1)->latest('id')->paginate(10);
+        $catalogue = Catalogue::where('category_id', $category_id)->first();
         $catalogues = Catalogue::latest('id')->paginate(3);
-        return view('bajce.catalog.catalog', compact('products', 'catalogues', 'categories', 'brands'));
+        return view('bajce.catalog.catalog', compact('products', 'catalogues', 'categories', 'brands', 'catalogue'));
     }
 
-    public function product(Product $product)
+    public function product(Product $product, $catalogue_id)
     {
         $category_id = $product->categories->pluck('id');
         $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
             $query->whereIn('category_id', $category_id);
         })->where('type', 1)->inRandomOrder()->paginate(3);
-        return view('bajce.catalog.product', compact('product', 'products'));
+        $catalogue = Catalogue::find($catalogue_id);
+        return view('bajce.catalog.product', compact('product', 'products', 'catalogue'));
     }
 
 

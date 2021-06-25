@@ -7,6 +7,13 @@
         @enderror
     </div>
     <div class="form-group col-md-12">
+        {!! Form::label('description', 'Descripcion') !!}
+        {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Descripcion del catalogo']) !!}
+        @error('description')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="form-group col-md-12">
         {!! Form::label('category_id', 'Categoria') !!}
         {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
         @error('category_id')
@@ -20,8 +27,7 @@
             @isset($catalogue->image)
                 <img id="picture" class="img-fluid" src="{{ Storage::url($catalogue->image->url) }}">
             @else
-                <img id="picture" class="img-fluid"
-                    src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg">
+                <img id="picture" class="img-fluid" src="{{ asset('images/banners/bajce-enviar.jpg') }}">
                 @endif
             </div>
         </div>

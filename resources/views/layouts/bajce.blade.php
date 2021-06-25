@@ -91,8 +91,8 @@
                         </li>
                         <span class="nav-link">|</span>
                         <li>
-                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 944
-                                6707</a>
+                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 221
+                                1629</a>
                         </li>
                     </ul> <!-- list-inline //  -->
                 </div> <!-- navbar-collapse .// -->
@@ -114,7 +114,13 @@
                         @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
-                            {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
+                            <select name="category_id" class="custom-select border-left">
+                                <option value="0" class="text-xs">Todos los productos</option>
+                                @foreach (App\Models\Category::all() as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            {{-- {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!} --}}
                         </div>
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
@@ -315,11 +321,11 @@
                             <h5 class="title">Contáctanos</h5>
                             <p>MADERAS BAJCE, S.A. DE C.V</p>
                             <ul class="list-icon">
-                                <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente
+                                {{-- <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente
                                     C.P. 97137
-                                </li>
+                                </li> --}}
                                 <li> <i class="icon fa fa-envelope"> </i> info@bajce.com</li>
-                                <li> <i class="icon fa fa-phone"> </i> (999) 944 6707, (999) 944 6841, (999) 948 3086
+                                <li> <i class="icon fa fa-phone"> </i> (999) 221 1629
                                 </li>
                                 <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm
                                     Sábado 9:00 am a 2:00 pm

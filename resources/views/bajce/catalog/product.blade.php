@@ -11,8 +11,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Inicio</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogo</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('catalogue.products') }}">Productos</a></li>
-
+                        <li class="breadcrumb-item"><a href="{{ route('catalogue.products',$catalogue->id) }}">{{ $catalogue->name }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
                     </ol>
                 </div>
@@ -34,7 +33,7 @@
                     <article class="product-info-aside">
 
                         <h2 class="title mt-3">{{ $product->name }}</h2>
-                        @if ($product->discount)
+                       {{--  @if ($product->discount)
                             <div class="mb-3">
                                 <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
                                         MXN</var></strike>
@@ -45,7 +44,7 @@
                             <div class="mb-3">
                                 <var class="price h4">{{ $product->presentPrice() }} MXN</var>
                             </div>
-                        @endif
+                        @endif --}}
                         <p>{!! $product->extract !!}</p>
                         <dl class="row">
                             <dt class="col-1"><i class="fas fa-box" style="color: orange;"></i></dt>
@@ -148,10 +147,10 @@
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                 MÁS PRODUCTOS EN EL CATÁLOGO
             </h3>
-            <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae deserunt
-                quos similique natus quaerat omnis!</p>
+            {{-- <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae deserunt
+                quos similique natus quaerat omnis!</p> --}}
         </div>
-        <div class="row mt-5">
+        <div class="row mt-4">
             @foreach ($products as $product)
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="card">
@@ -163,7 +162,7 @@
                             <div class="info-producto py-2">
                                 <h5>{{ $product->name }}</h5>
                                 <p>{!! $product->extract !!}</p>
-                                <a href="{{ route('catalogue.product', $product) }}"
+                                <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
                                                 class="btn btn-block btn-primary"></i> VER PRODUCTO
                                             </a>
                             </div>
