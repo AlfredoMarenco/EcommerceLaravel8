@@ -285,17 +285,17 @@
                         <div class="row">
                             <div class="col-6">
                                 <ul class="list-unstyled">
-                                    <li> <a href="/nosotros">Nosotros</a></li>
-                                    <li> <a href="/catalogo">Catálogos</a></li>
-                                    <li> <a href="/tienda">Tienda</a></li>
+                                    <li> <a href="{{ route('about') }}">Nosotros</a></li>
+                                    <li> <a href="{{ route('catalogue.index') }}">Catálogos</a></li>
+                                    <li> <a href="{{ route('shop.index') }}">Tienda</a></li>
 
                                 </ul>
                             </div>
                             <div class="col-6">
                                 <ul class="list-unstyled">
 
-                                    <li> <a href="/blog">Blog</a></li>
-                                    <li> <a href="#">Contacto</a></li>
+                                    <li> <a href="{{ route('blog.index') }}">Blog</a></li>
+                                    <li> <a data-dismiss="modal" href="">Contacto</a></li>
 
                                 </ul>
                             </div>
