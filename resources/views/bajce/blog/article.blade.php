@@ -19,8 +19,9 @@
                     <span>|</span>
                     <span>{{ $post->user->name }} {{ $post->user->last_name }}</span>
                 </p>
+                {!! $post->body !!}
             </div>
-            {!! $post->body !!}
+
     </article>
 
     <div class="botones-redes">
