@@ -28,11 +28,12 @@
         <div class="container">
             <div class="row">
                 <div class="facebook mt-4">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url() }}"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}"
                         class="facebook-btn">Compartir en Facebook</a>
                 </div>
                 <div class="twitter mt-4">
-                    <a href="https://twitter.com/intent/tweet?url={{ url() }}2&text=" class="twitter-btn">Compartir
+                    <a href="https://twitter.com/intent/tweet?url={{ url()->full() }}2&text="
+                        class="twitter-btn">Compartir
                         en twitter</a>
                 </div>
             </div>
