@@ -276,7 +276,8 @@
             <div class="row">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/servicioadomicilio.svg') }}" width="50" alt="">
+                        <img class="text-primary" src="{{ asset('images/icons/servicioadomicilio.svg') }}" width="50"
+                            alt="">
                         <h5 class="titulo-servicio">Servicio a domicilio
                         </h5>
                         <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de
@@ -300,7 +301,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/cortes.svg') }}" width="50" alt="">
+                        <i class="fas fa-desktop iconos"></i>
                         <h5 class="titulo-servicio">Optimizador de corte</h5>
                         <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros
                             de
@@ -316,7 +317,8 @@
                             nuestra máquina de enchapado automático.</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/perforaciondebisagras.svg') }}" width="45" alt="">
+                        <img class="text-primary" src="{{ asset('images/icons/perforaciondebisagras.svg') }}"
+                            width="45" alt="">
                         <h5 class="titulo-servicio">Perforación de bisagras</h5>
                         <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en
                             la

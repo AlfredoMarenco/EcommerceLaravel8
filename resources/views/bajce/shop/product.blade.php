@@ -18,7 +18,7 @@
                     <ul class="slides">
                         @foreach ($product->images as $image)
                             <li data-thumb="{{ Storage::url($image->url) }}">
-                                <img style="max-height: 400px; width: auto;" @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                <img style="max-height: 400px; width: 100%;" @if ($product->images) src="{{ Storage::url($image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                             </li>
                         @endforeach
                     </ul>
