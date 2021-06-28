@@ -76,28 +76,20 @@
                             </div>
                             <p class="mt-3">* Solicita cotizaciones en linea</p>
                         </div> <!-- col.// -->
-
-{{--
-                        <div class="form-row  mt-4">
-                            <form action="{{ route('wishlist.addItem', $product) }}" method="POST">
+                        {{-- <form action="{{ route('wishlist.addItem', $product) }}" method="POST" class="mt-5">
+                            @csrf
+                            <div class="form-row">
                                 <div class="form-group col-md flex-grow-0">
                                     @livewire('count-items-to-cart')
                                 </div> <!-- col.// -->
-                        </div> <!-- row.// -->
-                        <div class="form-group row">
-                            <div class="agregar-a mt-6">
-                                @csrf
-                                <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
-                                    <span class="text">AÑADIR A LA LISTA</span></button>
-                                </form>
-                            </div>
-                            <div class="agregar-a mt-6 ml-2">
-                                <a href="http://wa.me/5219992211629" class="btn btn-block  btn-success">
-                                    <i class="fab fa-whatsapp"></i> <span class="text">CONSULTAR EN SUCURSAL</span>
-                                </a>
-                            </div>
-                        </div> <!-- col.// -->
-                        <p class="mt-3">* Solicita cotizaciones en linea</p> --}}
+                                <div class="form-group form-inline">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-shopping-cart"></i><span class="text">AÑADIR A LA LISTA</span>
+                                    </button>
+                        </form>
+                        <a href="http://wa.me/5219992211629" class="btn btn-success ml-1">
+                            <i class="fab fa-whatsapp"></i> <span class="text">CONSULTAR EN SUCURSAL</span>
+                        </a> --}}
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->
             </div> <!-- row.// -->

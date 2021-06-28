@@ -112,14 +112,14 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar un productos a la wishlist
-    public function addItemToWishlist($product)
+    public function addItemToWishlist(Request $request,$product)
     {
         $product = Product::find($product);
         if ($product->discount) {
             Cart::instance('wishlist')->add([
                 'id' => $product->id,
                 'name' => $product->name,
-                'qty' => 1,
+                'qty' => $request->qty,
                 'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
@@ -128,11 +128,11 @@ class ShopController extends Controller
             Cart::instance('wishlist')->add([
                 'id' => $product->id,
                 'name' => $product->name,
-                'qty' => 1,
+                'qty' => $request->qty,
                 'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            toast('Agregado a la lista', 'success');
         }
         return back();
     }
