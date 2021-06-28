@@ -51,16 +51,9 @@
                             <dd class="col-11"><a href="#">Envío gratis dentro de Mérida</a></dd>
                         </dl>
                         <div class="form-row  mt-4">
+                            <form action="{{ route('wishlist.addItem', $product) }}" method="POST">
                             <div class="form-group col-md flex-grow-0">
-                                <div class="input-group mb-3 input-spinner">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
-                                    </div>
-                                    <input type="text" class="form-control" value="1">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-light" type="button" id="button-plus"> + </button>
-                                    </div>
-                                </div>
+                                @livewire('count-items-to-cart')
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->
                         <div class="form-group col-md">
@@ -68,7 +61,7 @@
                                 <i class="fab fa-whatsapp"></i> <span class="text">CONSULTAR EN SUCURSAL</span>
                             </a>
                             <div class="agregar-a mt-4">
-                                <form action="{{ route('wishlist.addItem', $product) }}" method="POST">
+
                                     @csrf
                                     <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
                                         <span class="text">AÑADIR A LA LISTA</span></button>
