@@ -333,7 +333,7 @@ return [
             'text' => 'Reportes',
             'icon' => 'fas fa-fw fa-chart-bar',
             'route' => 'admin.reports.index',
-            /* 'can' => 'admin.reports.index', */
+            'can' => 'admin.reports.index',
             'submenu' => [
                 [
                     'text' => 'Graficas',
@@ -374,7 +374,12 @@ return [
                 ],
             ],
         ],
-
+        [
+            'text' => 'Newsletter',
+            'route' => 'admin.reports.newsletter',
+            'icon' => 'fas fa-fw fa-newspaper',
+            'can' => 'admin.reports.index'
+        ],
     ],
 
     /*

@@ -1,6 +1,5 @@
 <?php
 
-use App\Exports\OrdersExport;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ButtonController;
 use App\Http\Controllers\Admin\CatalogueController;
@@ -33,11 +32,13 @@ Route::get('configurations/slider/delete/{id}', [ConfigurationController::class,
 Route::get('products/image/delete/{id}', [ProductController::class, 'deleteImage'])->name('admin.product.image.delete');
 Route::get('reports', [ReportController::class, 'index'])->name('admin.reports.index');
 Route::get('reports/inventary', [ReportController::class, 'inventary'])->name('admin.reports.inventary');
+Route::get('reports/inventary/export', [ReportController::class, 'exportInventary'])->name('admin.reports.inventary.export');
 Route::get('reports/sales', [ReportController::class, 'sales'])->name('admin.reports.sales');
-
-Route::get('/export', function () {
-    return Excel::download(new OrdersExport, 'invoices.xlsx');
-});
+Route::post('reports/sales/getTableReport', [ReportController::class, 'getTableReport'])->name('admin.reports.sales.getTableReport');
+Route::get('reports/sales/exportReportSales', [ReportController::class, 'exportReportSales'])->name('admin.reports.sales.exportReportSales');
+Route::post('images/upload', [PostController::class, 'uploadImages'])->name('ckeditor.upload');
+Route::get('newsletter',[ReportController::class,'newsletter'])->name('admin.reports.newsletter');
+Route::get('/exportnewsletter',[ReportController::class,'exportNewsletter'])->name('reports.newsletter.export');
 
 
 Route::resource('user', UserController::class)->except('show')->names('admin.users');
@@ -59,4 +60,4 @@ Route::resource('buttons', ButtonController::class)->except('show')->names('admi
 Route::resource('cuponfs', CuponFController::class)->except('show')->names('admin.cuponfs');
 Route::resource('brands', BrandController::class)->except('show')->names('admin.brands');
 Route::resource('videos', VideoController::class)->except('show')->names('admin.videos');
-/* Route::resource('reports', ReportController::class)->names('admin.reports'); */
+Route::resource('reports', ReportController::class)->names('admin.reports');

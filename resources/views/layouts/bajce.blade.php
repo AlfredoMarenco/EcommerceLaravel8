@@ -2,12 +2,25 @@
 <html lang="es">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181054511-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-181054511-1');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Grupo Bajce | @yield('title')</title>
+    <title>@yield('title') | Grupo Bajce</title>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
@@ -15,7 +28,7 @@
     <script src="{{ asset('js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
     <!-- Bootstrap4 files-->
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font awesome 5 -->
@@ -25,11 +38,39 @@
     <link href="{{ asset('css/ui.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('vendor/flexslider/flexslider.css') }}" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css">
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
     @yield('css')
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2877616512502507');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
 </head>
 
 <body>
@@ -45,12 +86,12 @@
 
                     <ul class="navbar-nav m-auto">
                         <li>
-                            <a href="mailto:contacto@bajce.com" class="nav-link"> <i
-                                    class="fas fa-envelope-open-text"></i> contacto@bajce.com</a>
+                            <a href="mailto:info@bajce.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+                                info@bajce.com</a>
                         </li>
                         <span class="nav-link">|</span>
                         <li>
-                            <a href="tel:9992211629" class="nav-link"> <i class="fa fa-phone-square"></i> 999 221
+                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 221
                                 1629</a>
                         </li>
                     </ul> <!-- list-inline //  -->
@@ -70,9 +111,16 @@
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
                         {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
+                        @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
-                            {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!}
+                            <select name="category_id" class="custom-select border-left">
+                                <option value="0" class="text-xs">Todos los productos</option>
+                                @foreach (App\Models\Category::all() as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            {{-- {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!} --}}
                         </div>
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
@@ -117,7 +165,7 @@
                         <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
                 </ul>
             </nav> <!-- navbar-main  .// -->
@@ -154,11 +202,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Email</label>
-                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput2"
                                         required="required" placeholder="Escribe tu correo electrónico">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Teléfono</label>
+                                    <label for="exampleFormControlInput2">Teléfono</label>
                                     <input type="tel" name="telefono" class="form-control" id="phone"
                                         pattern="[0-9]{10}" required="required" placeholder="Escribe tu teléfono">
                                 </div>
@@ -190,6 +238,36 @@
 
     @yield('content')
 
+    <!--========== NEWSLETTER =============-->
+    <section id="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h2>Recibe ofertas especiales</h2>
+                    <p>Suscríbete para recibir noticias y promociones exclusivas de nuestra tienda en linea.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="formulario-newsletter">
+                        <form action="{{ route('newsletter') }}" method="post">
+                            @csrf
+                            <input type="email" name="email" class="form-control" placeholder="Correo electrónico">
+                            @error('email')
+                                <small class="text-danger">Este correo ya esta registrado</small>
+                            @enderror
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12">
+                    <div class="boton-newsletter">
+                        <button type="submit" class="btn btn-success btn-md btn-block">Suscribirme</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
 
     <!-- ========================= FOOTER ========================= -->
     <footer class="section-footer bg-secondary text-white">
@@ -207,17 +285,17 @@
                         <div class="row">
                             <div class="col-6">
                                 <ul class="list-unstyled">
-                                    <li> <a href="/nosotros">Nosotros</a></li>
-                                    <li> <a href="/catalogo">Catálogos</a></li>
-                                    <li> <a href="/tienda">Tienda</a></li>
+                                    <li> <a href="{{ route('about') }}">Nosotros</a></li>
+                                    <li> <a href="{{ route('catalogue.index') }}">Catálogos</a></li>
+                                    <li> <a href="{{ route('shop.index') }}">Tienda</a></li>
 
                                 </ul>
                             </div>
                             <div class="col-6">
                                 <ul class="list-unstyled">
 
-                                    <li> <a href="/blog">Blog</a></li>
-                                    <li> <a href="#">Contacto</a></li>
+                                    <li> <a href="{{ route('blog.index') }}">Blog</a></li>
+                                    <li> <a data-dismiss="modal" href="">Contacto</a></li>
 
                                 </ul>
                             </div>
@@ -227,10 +305,13 @@
 
                         <p class="text-white-50 mb-2">Síguenos en redes sociales</p>
                         <div>
-                            <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i
+                                    class="fab fa-facebook-f"></i></a>
 
-                            <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i
+                                    class="fab fa-youtube"></i></a>
                         </div>
 
                     </aside>
@@ -238,13 +319,17 @@
                     <aside class="col-md-4 col-12">
                         <article class="mr-md-4">
                             <h5 class="title">Contáctanos</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in feugiat lorem. </p>
+                            <p>MADERAS BAJCE, S.A. DE C.V</p>
                             <ul class="list-icon">
-                                <li> <i class="icon fa fa-map-marker"> </i>542 Fake Street, Cityname 10021 Netheerlends
+                                {{-- <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente
+                                    C.P. 97137
+                                </li> --}}
+                                <li> <i class="icon fa fa-envelope"> </i> info@bajce.com</li>
+                                <li> <i class="icon fa fa-phone"> </i> (999) 221 1629
                                 </li>
-                                <li> <i class="icon fa fa-envelope"> </i> info@example.com</li>
-                                <li> <i class="icon fa fa-phone"> </i> (800) 060-0730, (800) 060-0730</li>
-                                <li> <i class="icon fa fa-clock"> </i>Mon-Sat 10:00pm - 7:00pm</li>
+                                <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm
+                                    Sábado 9:00 am a 2:00 pm
+                                </li>
                             </ul>
                         </article>
                     </aside>
@@ -265,7 +350,25 @@
     </footer>
     <!-- ========================= FOOTER END // ========================= -->
     @livewireScripts
+    @include('sweetalert::alert')
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
+        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.addEventListener('load', function() {
+            new Glider(document.querySelector('.glider'), {
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                draggable: true,
+                dots: '.dots',
+                arrows: {
+                    prev: '.glider-prev',
+                    next: '.glider-next'
+                }
+            });
+        });
+    </script>
     @yield('js')
 </body>
 

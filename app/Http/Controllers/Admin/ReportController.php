@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\NewslettersExport;
+use App\Exports\OrdersExport;
+use App\Exports\ProductExport;
 use App\Http\Controllers\Controller;
+use App\Models\Newsletter;
 use App\Models\Order;
 use App\Models\User;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.reports.index')->only('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -129,5 +138,35 @@ class ReportController extends Controller
     public function inventary()
     {
         return view('admin.reports.inventary');
+    }
+
+    public function exportInventary()
+    {
+        return Excel::download(new ProductExport, 'Inventario_Productos_Bajce.xlsx');
+    }
+
+    public function getTableReport(Request $request)
+    {
+        return Excel::download(new OrdersExport($request->date_start, $request->date_end), 'Reporte_Ordenes ' . Carbon::now() . '.xlsx');
+    }
+
+    public function exportReportSales()
+    {
+        return Excel::download(new OrdersExport('2021-12-10', ''), 'Reporte_Ordenes.xlsx');
+    }
+
+
+
+    public function newsletter()
+    {
+        $newsletters = Newsletter::latest('id')->paginate(10);
+        return view('admin.reports.newsletter', compact('newsletters'));
+    }
+
+
+    public function exportNewsletter()
+    {
+        return Excel::download(new NewslettersExport, 'Newsletter' . Carbon::now() . '.xlsx');
+        (new Newsletter)->newQuery()->delete();
     }
 }

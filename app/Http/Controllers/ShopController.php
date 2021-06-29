@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestQuotes;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Configuration;
@@ -12,6 +13,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 
 class ShopController extends Controller
 {
@@ -110,15 +112,15 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar un productos a la wishlist
-    public function addItemToWishlist($product)
+    public function addItemToWishlist(Request $request,$product)
     {
         $product = Product::find($product);
         if ($product->discount) {
             Cart::instance('wishlist')->add([
                 'id' => $product->id,
                 'name' => $product->name,
-                'qty' => 1,
-                'price' => $product->discount,
+                'qty' => $request->qty,
+                'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
             toast('Agregado al carrito', 'success');
@@ -126,11 +128,11 @@ class ShopController extends Controller
             Cart::instance('wishlist')->add([
                 'id' => $product->id,
                 'name' => $product->name,
-                'qty' => 1,
-                'price' => $product->price,
+                'qty' => $request->qty,
+                'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            toast('Agregado a la lista', 'success');
         }
         return back();
     }
@@ -225,13 +227,13 @@ class ShopController extends Controller
         if ($request->condition == 0) {
             if ($request->categories && !$request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('price', [$request->price_min, $request->price_max])->where('type', 0)->latest('id')->paginate(12);
             }
 
             if ($request->categories && $request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
             }
 
@@ -245,13 +247,13 @@ class ShopController extends Controller
         } else {
             if ($request->categories && !$request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 0)->latest('id')->paginate(12);
             }
 
             if ($request->categories && $request->brands) {
                 $products = Product::whereHas('categories', function (Builder $query) use ($request) {
-                    $query->where('category_id', $request->categories);
+                    $query->whereIn('category_id', $request->categories);
                 })->whereBetween('discount', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 0)->latest('id')->paginate(12);
             }
 
@@ -265,5 +267,15 @@ class ShopController extends Controller
         }
 
         return view('bajce.shop.index', compact('products', 'categories', 'brands'));
+    }
+
+    public function sendCotizacion(Request $request)
+    {
+        /* return $request->all(); */
+        Mail::to('dev@agenciavandu.com')->send(new RequestQuotes($request->name, $request->email, $request->phone, $request->comment));
+        Mail::to('ab@agenciavandu.com')->send(new RequestQuotes($request->name, $request->email, $request->phone, $request->comment));
+
+        Cart::instance('wishlist')->destroy();
+        return back();
     }
 }

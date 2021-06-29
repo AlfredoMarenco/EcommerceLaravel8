@@ -1,7 +1,7 @@
 <div>
     <div class="d-flex flex-row justify-content-between">
         <input class="form-control col-3" wire:model="search" type="text" placeholder="Busqueda de imagen">
-        @if ($cuponfs->count() < 1)
+        @if ($cuponfs->count() < 0)
             <a class="btn btn-info" href="{{ route('admin.cuponfs.create') }}"><i class="fas fa-fw fa-boxes"> </i>
                 Agregar imagen</a>
         @endif

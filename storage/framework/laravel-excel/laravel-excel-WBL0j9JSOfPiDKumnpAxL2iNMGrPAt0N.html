@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="mDYs5GVEE8JqEv6D2OklINNbuA6K9BrOM0JTtbLn">
+
+    
+    
+    
+    <title>
+        Bajce |         Ventas            </title>
+
+    
+    
+    
+            <link rel="stylesheet" href="https://laravel8ecommerce.test/vendor/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="https://laravel8ecommerce.test/vendor/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+        
+        
+        <link rel="stylesheet" href="https://laravel8ecommerce.test/vendor/adminlte/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    
+    
+    
+    
+            
+    
+    
+</head>
+
+<body class="sidebar-mini" >
+
+    
+        <div class="wrapper">
+
+        
+                    <nav class="main-header navbar
+    navbar-expand
+    navbar-white navbar-light">
+
+    
+    <ul class="navbar-nav">
+        
+        <li class="nav-item">
+    <a class="nav-link" data-widget="pushmenu" href="#"
+                        >
+        <i class="fas fa-bars"></i>
+        <span class="sr-only">Alternar barra de navegación</span>
+    </a>
+</li>
+        
+        
+        
+            </ul>
+
+    
+    <ul class="navbar-nav ml-auto">
+        
+        
+        
+        
+        
+                                    <li class="nav-item dropdown user-menu">
+
+    
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <span >
+            Alfredo
+        </span>
+    </a>
+
+    
+    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+        
+                            
+        
+        
+        
+        
+        
+        <li class="user-footer">
+                        <a class="btn btn-default btn-flat float-right  btn-block "
+               href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-fw fa-power-off"></i>
+                Salir
+            </a>
+            <form id="logout-form" action="https://laravel8ecommerce.test/logout" method="POST" style="display: none;">
+                                <input type="hidden" name="_token" value="mDYs5GVEE8JqEv6D2OklINNbuA6K9BrOM0JTtbLn">
+            </form>
+        </li>
+
+    </ul>
+
+</li>
+                    
+        
+            </ul>
+
+</nav>
+        
+        
+                    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    
+            <a href="https://laravel8ecommerce.test/admin"
+            class="brand-link "
+    >
+
+    
+    <img src="https://laravel8ecommerce.test/images/misc/logo-bajce-bco.png"
+         alt="AdminLTE"
+         class="img-fluid w-75"
+         style="opacity:.8">
+
+    
+    <span class="brand-text font-weight-light ">
+        <b></b>
+    </span>
+
+</a>
+    
+    
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column "
+                data-widget="treeview" role="menu"
+                                >
+                
+                <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin"        >
+
+        <i class="fas fa-fw fa-home "></i>
+
+        <p>
+            Dashboard
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/orders"        >
+
+        <i class="fas fa-fw fa-receipt "></i>
+
+        <p>
+            Ordenes
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item has-treeview ">
+
+    
+    <a class="nav-link  "
+       href="" >
+
+        <i class="fas fa-fw fa-store "></i>
+
+        <p>
+            Tienda
+            <i class="fas fa-angle-left right"></i>
+
+                    </p>
+
+    </a>
+
+    
+    <ul class="nav nav-treeview">
+        <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/products"        >
+
+        <i class="fas fa-fw fa-tshirt "></i>
+
+        <p>
+            Productos
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/categories"        >
+
+        <i class="fab fa-fw fa-buffer "></i>
+
+        <p>
+            Categorias
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/coupons"        >
+
+        <i class="fas fa-fw fa-percent "></i>
+
+        <p>
+            Cupones
+
+                    </p>
+
+    </a>
+
+</li>
+    </ul>
+
+</li>
+<li  class="nav-item has-treeview ">
+
+    
+    <a class="nav-link  "
+       href="" >
+
+        <i class="fab fa-fw fa-buffer "></i>
+
+        <p>
+            Catálogos
+            <i class="fas fa-angle-left right"></i>
+
+                    </p>
+
+    </a>
+
+    
+    <ul class="nav nav-treeview">
+        <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/catalogues"        >
+
+        <i class="fas fa-folder-plus "></i>
+
+        <p>
+            Crear
+
+                    </p>
+
+    </a>
+
+</li>
+    </ul>
+
+</li>
+<li  class="nav-item has-treeview ">
+
+    
+    <a class="nav-link  "
+       href="" >
+
+        <i class="fab fa-fw fa-blogger-b "></i>
+
+        <p>
+            Blog
+            <i class="fas fa-angle-left right"></i>
+
+                    </p>
+
+    </a>
+
+    
+    <ul class="nav nav-treeview">
+        <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/post"        >
+
+        <i class="far fa-fw fa-newspaper "></i>
+
+        <p>
+            Post
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/tags"        >
+
+        <i class="fas fa-fw fa-tags "></i>
+
+        <p>
+            Tags
+
+                    </p>
+
+    </a>
+
+</li>
+    </ul>
+
+</li>
+<li  class="nav-item has-treeview ">
+
+    
+    <a class="nav-link  "
+       href="" >
+
+        <i class="fas fa-fw fa-solar-panel "></i>
+
+        <p>
+            Web administrable
+            <i class="fas fa-angle-left right"></i>
+
+                    </p>
+
+    </a>
+
+    
+    <ul class="nav nav-treeview">
+        <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/sliders"        >
+
+        <i class="far fa-images "></i>
+
+        <p>
+            Slider
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/mosaics"        >
+
+        <i class="far fa-clone "></i>
+
+        <p>
+            Mosaico
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/buttons"        >
+
+        <i class="fas fa-link "></i>
+
+        <p>
+            Seccion Botones
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/cuponfs"        >
+
+        <i class="fas fa-image "></i>
+
+        <p>
+            Codigo Cupon
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/brands"        >
+
+        <i class="fab fa-bandcamp "></i>
+
+        <p>
+            Marcas
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/videos"        >
+
+        <i class="fab fa-youtube "></i>
+
+        <p>
+            Videos
+
+                    </p>
+
+    </a>
+
+</li>
+    </ul>
+
+</li>
+<li  class="nav-item has-treeview ">
+
+    
+    <a class="nav-link  "
+       href="" >
+
+        <i class="fas fa-fw fa-chart-bar "></i>
+
+        <p>
+            Reportes
+            <i class="fas fa-angle-left right"></i>
+
+                    </p>
+
+    </a>
+
+    
+    <ul class="nav nav-treeview">
+        <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/reports"        >
+
+        <i class="fas fa-fw fa-chart-pie "></i>
+
+        <p>
+            Graficas
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/reports/inventary"        >
+
+        <i class="fas fa-fw fa-boxes "></i>
+
+        <p>
+            Inventario
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/reports/sales"        >
+
+        <i class="fas fa-fw fa-file-invoice-dollar "></i>
+
+        <p>
+            Ventas
+
+                    </p>
+
+    </a>
+
+</li>
+    </ul>
+
+</li>
+<li  class="nav-item has-treeview ">
+
+    
+    <a class="nav-link  "
+       href="" >
+
+        <i class="fas fa-fw fa-users "></i>
+
+        <p>
+            Usuarios
+            <i class="fas fa-angle-left right"></i>
+
+                    </p>
+
+    </a>
+
+    
+    <ul class="nav nav-treeview">
+        <li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/user"        >
+
+        <i class="fas fa-fw fa-user "></i>
+
+        <p>
+            Usuario
+
+                    </p>
+
+    </a>
+
+</li>
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="https://laravel8ecommerce.test/admin/roles"        >
+
+        <i class="fas fa-fw fa-users-cog "></i>
+
+        <p>
+            Roles
+
+                    </p>
+
+    </a>
+
+</li>
+    </ul>
+
+</li>
+            </ul>
+        </nav>
+    </div>
+
+</aside>
+        
+        
+        <div class="content-wrapper ">
+
+            
+            <div class="content-header">
+                <div class="container-fluid">
+                        <h1>Resultado de la busqueda</h1>
+                </div>
+            </div>
+
+            
+            <div class="content">
+                <div class="container-fluid">
+                        
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>#Orden</th>
+                <th>Total</th>
+                <th>Cliente</th>
+                <th>Forma de pago</th>
+                <th>Productos</th>
+                <th>Fecha de la orden</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>1</td>
+                    <td>$250.00</td>
+                    <td>Alfredo Gonzalez Marenco</td>
+                    <td>card</td>
+                    <td>
+                        
+                        <ul>
+                                                            <li>Reloj RGB ($250)
+                                    (1) </li>
+                                                    </ul>
+                    </td>
+                    <td>2021-06-20 01:27:03</td>
+                </tr>
+                            <tr>
+                    <td>4000</td>
+                    <td>$7,500.00</td>
+                    <td>Alfredo Gonzalez Marenco</td>
+                    <td>card</td>
+                    <td>
+                        
+                        <ul>
+                                                            <li>Reloj RGB ($250)
+                                    (30) </li>
+                                                    </ul>
+                    </td>
+                    <td>2021-06-20 01:27:38</td>
+                </tr>
+                    </tbody>
+    </table>
+                </div>
+            </div>
+
+        </div>
+
+        
+        
+        
+        
+    </div>
+
+    
+            <script src="https://laravel8ecommerce.test/vendor/jquery/jquery.min.js"></script>
+        <script src="https://laravel8ecommerce.test/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://laravel8ecommerce.test/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+        
+        
+        <script src="https://laravel8ecommerce.test/vendor/adminlte/dist/js/adminlte.min.js"></script>
+    
+    
+    
+    
+            
+</body>
+
+</html>

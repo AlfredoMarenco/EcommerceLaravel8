@@ -27,7 +27,7 @@
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                this.closest('form').submit();">
+                                                                                                                                                                                                                                                                    this.closest('form').submit();">
                                 Cerrar
                                 sesión
                             </a>
@@ -160,11 +160,13 @@
                                             <span class="b">Total: ${{ number_format($order->amount, 2) }} </span>
                                         </p>
                                         @if ($order->type == 'store')
-                                            <div>
-                                                <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
-                                                    target="_blank" class="btn btn-dark mt-2">Imprimir orden de
-                                                    pago</a>
-                                            </div>
+                                            @if ($order->status == 'charge_pending')
+                                                <div>
+                                                    <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
+                                                        target="_blank" class="btn btn-dark mt-2">Imprimir orden de
+                                                        pago</a>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
                                 </div> <!-- row.// -->

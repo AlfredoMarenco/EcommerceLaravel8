@@ -116,68 +116,76 @@
 
                 <main class="col-md-10">
                     <div class="row">
-                        @foreach ($products as $product)
-                            <div class="col-md-3">
-                                <figure class="card card-product-grid">
-                                    <div class="img-wrap">
-                                        @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
-                                            <span class="badge badge-danger"> Nuevo </span>
-                                        @endif
-                                        <a href="{{ route('shop.product', $product) }}">
-                                            <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
-                                        </a>
-                                    </div> <!-- img-wrap.// -->
-                                    <figcaption class="info-wrap">
-                                        <a href="{{ route('shop.product', $product) }}"
-                                            class="title mb-2">{{ $product->name }}</a>
-                                        <div class="price-wrap">
-                                            @if ($product->discount)
-                                                <strike
-                                                    class="price text-warning">{{ $product->presentPrice() }}</strike>
-                                                <small class="text-muted">/</small>
-                                                <span
-                                                    class="price text-success">{{ $product->presentPriceDiscount() }}</span>
-                                                <small class="text-muted">/ pza</small>
-                                            @else
-                                                <span class="price">{{ $product->presentPrice() }}</span>
-                                                <small class="text-muted">/ pza</small>
+                        @if ($products->count() > 0)
+                            @foreach ($products as $product)
+                                <div class="col-md-3">
+                                    <figure class="card card-product-grid">
+                                        <div class="img-wrap">
+                                            @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
+                                                <span class="badge badge-danger"> Nuevo </span>
                                             @endif
-                                            <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
-                                        </div> <!-- price-wrap.// -->
-                                        <div class="rating-wrap my-3">
-                                            <ul class="rating-stars">
+                                            <a href="{{ route('shop.product', $product) }}">
+                                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                            </a>
+                                        </div> <!-- img-wrap.// -->
+                                        <figcaption class="info-wrap">
+                                            <a href="{{ route('shop.product', $product) }}"
+                                                class="title mb-2">{{ $product->name }}</a>
+                                            <div class="price-wrap">
+                                                @if ($product->discount)
+                                                    <strike
+                                                        class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                                    <small class="text-muted">/</small>
+                                                    <span
+                                                        class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                                    <small class="text-muted">/ pza</small>
+                                                @else
+                                                    <span class="price">{{ $product->presentPrice() }}</span>
+                                                    <small class="text-muted">/ pza</small>
+                                                @endif
+                                                <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
+                                            </div> <!-- price-wrap.// -->
+                                            <div class="rating-wrap my-3">
+                                                <ul class="rating-stars">
 
-                                                <li style="width:{{ ($product->rating * 100) / 5 }}%"
-                                                    class="stars-active">
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                            </ul>
-                                            <small class="label-rating text-muted">{{ $product->reviews_count }}
-                                                Opiniones</small>
-                                        </div> <!-- rating-wrap.// -->
-                                        <hr>
-                                        <p class="mb-3">
-                                            <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                            @if ($product->garantia_visible == 1)<span
-                                                    class="tag"> {{ $product->garantia }} garantía </span> @endif
-                                        </p>
-                                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" readonly="true" class="form-control" name="qty" value="1">
-                                            <button type="submit" class="btn btn-block btn-primary"><i
-                                                    class="fas fa-cart-plus"></i> Añadir al carrito </button>
-                                        </form>
-                                    </figcaption>
-                                </figure>
+                                                    <li style="width:{{ ($product->rating * 100) / 5 }}%"
+                                                        class="stars-active">
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <small class="label-rating text-muted">{{ $product->reviews_count }}
+                                                    Opiniones</small>
+                                            </div> <!-- rating-wrap.// -->
+                                            <hr>
+                                            <p class="mb-3">
+                                                <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
+                                                @if ($product->garantia_visible == 1)<span
+                                                        class="tag"> {{ $product->garantia }} garantía </span>
+                                                @endif
+                                            </p>
+                                            <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" readonly="true" class="form-control" name="qty"
+                                                    value="1">
+                                                <button type="submit" class="btn btn-block btn-primary"><i
+                                                        class="fas fa-cart-plus"></i> Añadir al carrito </button>
+                                            </form>
+                                        </figcaption>
+                                    </figure>
+                                </div> <!-- col.// -->
+                            @endforeach
+                        @else
+                            <div class="col-md-12 text-center p-5 mt-5">
+                                <h3>Sin resultados de busqueda</h3>
                             </div> <!-- col.// -->
-                        @endforeach
+                        @endif
                     </div>
                     {{ $products->links() }}
                 </main> <!-- col.// -->

@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('SKU')->nullable();
-            $table->float('price');
+            $table->float('price')->nullable();
             $table->float('discount')->nullable();
             $table->double('stock');
             $table->longText('description')->nullable();

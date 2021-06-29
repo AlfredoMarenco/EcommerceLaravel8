@@ -6,12 +6,12 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginSocialiteController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
-use App\Mail\OrderFailed;
-use App\Mail\OrderShipped;
-use App\Models\Order;
+use App\Mail\RequestQuotes;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -74,34 +74,33 @@ Route::get('/condiciones-de-uso', function(){
 
 */
 
-
-Route::get('/mailable/{order}', function ($order) {
-    $order = Order::find($order);
-
-    return new OrderShipped($order);
-});
-
+/*
+Route::get('/mailable', function (Request $request) {
+    return new RequestQuotes($request->all());
+})->name('sendQuote');
+ */
 
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
 Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
 Route::post('/search', [LandingPageController::class, 'search'])->name('search');
+Route::post('/newsletter', [NewsletterController::class, 'newsletter'])->name('newsletter');
 
 
 //Rutas Tienda
-Route::prefix('/shop')->group(function () {
+Route::prefix('/tienda')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-    Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
-    Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
-    Route::post('/products/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
+    Route::get('/producto/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+    Route::get('/productos/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+    Route::post('/productos/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
 });
 
 //Rutas Catalogo
-Route::prefix('/catalogue')->group(function () {
+Route::prefix('/catalogos')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
-    Route::get('/products/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
-    Route::get('/product/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
-    Route::post('/products/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
+    Route::get('/productos/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
+    Route::get('/producto/{product}/{catalogue?}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::post('/productos/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
 // Rutas del blog
@@ -113,7 +112,7 @@ Route::prefix('blog')->group(function () {
 
 
 //Rutas del carrito de compras
-Route::prefix('/cartshop')->group(function () {
+Route::prefix('/carrito')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
     Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
     Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
@@ -132,6 +131,7 @@ Route::prefix('/wishlist')->group(function () {
     Route::any('/update/{rowId}', [ShopController::class, 'updateWishlist'])->name('wishlist.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('wishlist.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToWishlist'])->name('wishlist.remove');
+    Route::post('/sendCotizacion', [ShopController::class, 'sendCotizacion'])->name('wishlist.sendCotizacion');
 });
 
 //Rutas del checkout y los metodos de pago
@@ -147,10 +147,10 @@ Route::prefix('checkout')->group(function () {
 });
 
 //Rutas de panel del cliente de
-Route::prefix('/user')->group(function () {
-    Route::get('/profile', [UserController::class, 'index'])->name('user.profile');
-    Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
-    Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
+Route::prefix('/usuario')->group(function () {
+    Route::get('/perfil', [UserController::class, 'index'])->name('user.profile');
+    Route::get('/ordenes', [UserController::class, 'showOrders'])->name('user.orders');
+    Route::get('/configuracion', [UserController::class, 'edit'])->name('user.settings');
     Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
     Route::post('/updateInformationProfile', [UserController::class, 'updateInformationProfile'])->name('user.update.profile');
 });
@@ -224,7 +224,7 @@ Route::post('/reset-password', function (Request $request) {
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
-
+/*
 // Artículo
 Route::get('/articulo', function () {
     return view('bajce.blog.article');
@@ -259,7 +259,7 @@ route::get('/mis-ordenes', function () {
 route::get('/mi-direccion', function () {
     return view('bajce.user.my-adress');
 });
-
+*/
 
 /* Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
     ->name('ckfinder_connector');

@@ -35,11 +35,15 @@ class LandingPageController extends Controller
         $category_id = $request->category_id;
         $categories = Category::all();
         $brands = Brand::all();
-        $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
-            $query->where('category_id', $category_id);
-        })->where('name', 'like', '%' . $request->search . '%')->where('type', 0)->latest('id')->paginate(10);
-
-        return view('bajce.shop.index', compact('products', 'categories', 'brands'));
+        if ($category_id == 0) {
+            $products = Product::where('name', 'like', '%' . $request->search . '%')->where('type', 0)->latest('id')->paginate(10);
+            return view('bajce.shop.index', compact('products', 'categories', 'brands'));
+        } else {
+            $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
+                $query->where('category_id', $category_id);
+            })->where('name', 'like', '%' . $request->search . '%')->where('type', 0)->latest('id')->paginate(10);
+            return view('bajce.shop.index', compact('products', 'categories', 'brands'));
+        }
     }
 
     public function about()

@@ -9,8 +9,8 @@
                 <div class="card-body">
                     <ol class="breadcrumb float-left">
                         <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="/catalogo">Catálogo</a></li>
-                        <li class="breadcrumb-item active">Productos</li>
+                        <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogos</a></li>
+                        <li class="breadcrumb-item active">{{ $catalogue->name }}</li>
                     </ol>
                 </div> <!-- card-body .// -->
             </div> <!-- card.// -->
@@ -118,14 +118,16 @@
                         <article class="card card-product-list">
                             <div class="row no-gutters">
                                 <aside class="col-md-3">
-                                    <a href="{{ route('catalogue.product', $product) }}" class="img-wrap">
+                                    <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
+                                        class="img-wrap">
                                         <span class="badge badge-danger"> Consulta en sucursal </span>
                                         <img src="{{ Storage::url($product->image->url) }}">
                                     </a>
                                 </aside> <!-- col.// -->
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="{{ route('catalogue.product', $product) }}" class="h5 title">
+                                        <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
+                                            class="h5 title">
                                             {{ $product->name }}</a>
                                         <p class="mb-3">
                                             <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
@@ -136,10 +138,11 @@
                                 <aside class="col-sm-3">
                                     <div class="info-aside">
                                         <p class="mt-5">
-                                            <a href="#" class="btn btn-block btn-success"> <i class="fab fa-whatsapp"></i>
+                                            <a href="http://wa.me/5219992211629" class="btn btn-block btn-success"> <i
+                                                    class="fab fa-whatsapp"></i>
                                                 CONSULTAR EN TIENDA </a>
                                         <div class="boton-ver-producto mt-3">
-                                            <a href="{{ route('catalogue.product', $product) }}"
+                                            <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
                                                 class="btn btn-block btn-primary"></i> VER PRODUCTO
                                             </a>
                                         </div>
@@ -155,28 +158,5 @@
         </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
-    <!--========== NEWSLETTER =============-->
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
-                    <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
 @endsection
