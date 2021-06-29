@@ -114,14 +114,16 @@
                         @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
-                            <select name="category_id" class="custom-select border-left">
+                            {{-- <select name="category_id" class="custom-select border-left">
                                 <option value="0" class="text-xs">Todos los productos</option>
                                 @foreach (App\Models\Category::all() as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
-                            </select>
+                            </select> --}}
                             {{-- {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!} --}}
+                            <button class="btn btn-primary rounded-right" type="submit"><i class="fas fa-search"></i></button>
                         </div>
+
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
