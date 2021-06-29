@@ -83,6 +83,9 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
+                                <div>
+                                    <img class="img-fluid" src="{{ asset('images/openpay/paynet.png') }}">
+                                </div>
                                 @if (Cart::instance('default')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Total a pagar en linea</h6>

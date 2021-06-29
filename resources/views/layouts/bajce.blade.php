@@ -121,7 +121,8 @@
                                 @endforeach
                             </select> --}}
                             {{-- {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!} --}}
-                            <button class="btn btn-primary rounded-right" type="submit"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-primary rounded-right" type="submit"><i
+                                    class="fas fa-search"></i></button>
                         </div>
 
                         {!! Form::close() !!}
@@ -253,9 +254,6 @@
                         <form action="{{ route('newsletter') }}" method="post">
                             @csrf
                             <input type="email" name="email" class="form-control" placeholder="Correo electrónico">
-                            @error('email')
-                                <small class="text-danger">Este correo ya esta registrado</small>
-                            @enderror
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12">

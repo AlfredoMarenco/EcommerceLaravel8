@@ -133,6 +133,9 @@
                         @endif
                         <div class="card h-100">
                             <div class="card-body">
+                                <p class="text-center mb-3">
+                                    <img  class="img-fluid" src="{{ asset('images/openpay/openpay_color.png') }}" >
+                                </p>
                                 @if (Cart::instance('default')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Total a pagar en linea</h6>
@@ -183,9 +186,7 @@
                                     </dl>
                                     <hr>
                                 @endif
-                                <p class="text-center mb-3">
-                                    <img src="{{ asset('images/misc/payments.png') }}" height="26">
-                                </p>
+
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
                     </aside> <!-- col.// -->
