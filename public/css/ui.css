@@ -1807,15 +1807,14 @@ body {
 
 .contenido-ok {
     margin-bottom: 80px;
-    padding: 80px;
+    padding: 200px;
     text-align: center;
 }
 
 @media (max-width:500px) {
     .contenido-ok {
         margin-top: 10px;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding: 80px;
         margin-bottom: 0px;
         text-align: center;
     }
