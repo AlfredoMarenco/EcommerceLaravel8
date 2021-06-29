@@ -43,56 +43,58 @@
                             <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
                                 Mérida </small>
                         </div>
-                        <!-- rating-wrap.//
-                                    @if ($product->discount) <div class="mb-3">
-                                            <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
-                                                    MXN</var></strike>
-                                            <span class="h4">/</span>
-                                            <var class="price h4">{{ $product->presentPriceDiscount() }} MXN</var>
-                                        </div>
-                            @else
-                                        <div class="mb-3">
-                                            <var class="price h4">{{ $product->presentPrice() }} MXN</var>
-                                        </div> @endif
-                                    <p>{!! $product->extract !!} </p>
+
+                        @if ($product->discount)
+                            <div class="mb-3">
+                                <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
+                                        MXN</var></strike>
+                                <span class="h4">/</span>
+                                <var class="price h4">{{ $product->presentPriceDiscount() }} MXN</var>
+                            </div>
+                        @else
+                            <div class="mb-3">
+                                <var class="price h4">{{ $product->presentPrice() }} MXN</var>
+                            </div>
+                        @endif
+                        <p>{!! $product->extract !!} </p>
 
 
-                                    <dl class="row">
+                        <dl class="row">
 
-                                        <dt class="col-sm-3">SKU</dt>
-                                        <dd class="col-sm-9">{{ $product->SKU }}</dd>
+                            <dt class="col-sm-3">SKU</dt>
+                            <dd class="col-sm-9">{{ $product->SKU }}</dd>
 
-                                        @if ($product->garantia_visible == 1)
-                                            <dt class="col-sm-3">Garantía</dt>
-                                            <dd class="col-sm-9">{{ $product->garantia }}</dd>
-                                        @endif
+                            @if ($product->garantia_visible == 1)
+                                <dt class="col-sm-3">Garantía</dt>
+                                <dd class="col-sm-9">{{ $product->garantia }}</dd>
+                            @endif
 
-                                        <dt class="col-sm-3">En stock</dt>
-                                    </dl>
-                                    <form action="{{ route('cart.addItems', $product) }}" method="POST" class="mt-5">
-                                        @csrf
-                                        <div class="form-row">
-                                            <div class="form-group col-md flex-grow-0">
-                                                @livewire('count-items-to-cart')
-                                            </div> <!-- col.// -->
-                        <div class="form-group form-inline">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
+                            <dt class="col-sm-3">En stock</dt>
+                        </dl>
+                        <form action="{{ route('cart.addItems', $product) }}" method="POST" class="mt-5">
+                            @csrf
+                            <div class="form-row">
+                                <div class="form-group col-md flex-grow-0">
+                                    @livewire('count-items-to-cart')
+                                </div>
+                                <div class="form-group form-inline">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
+                                    </button>
+                        </form>
+                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                            @csrf
+                            <input type="hidden" readonly="true" name="redirect" value="1">
+                            <input type="hidden" readonly="true" name="qty" value="1">
+                            <button class="btn btn-success mx-3">
+                                <i class="fas fa-shopping-basket"></i><span class="text">Comprar ahora</span>
                             </button>
-                            </form>
-                            <form action="{{ route('cart.addItems', $product) }}" method="POST">
-                                @csrf
-                                <input type="hidden" readonly="true" name="redirect" value="1">
-                                <input type="hidden" readonly="true" name="qty" value="1">
-                                <button class="btn btn-success mx-3">
-                                    <i class="fas fa-shopping-basket"></i><span class="text">Comprar ahora</span>
-                                </button>
-                            </form>
-                        </div>
-                        <!-- col.// -->
-            </div> <!-- row.// -->
-            </article> <!-- product-info-aside .// -->
-            </main> <!-- col.// -->
+                        </form>
+            </div>
+            <!-- col.// -->
+        </div> <!-- row.// -->
+        </article> <!-- product-info-aside .// -->
+        </main> <!-- col.// -->
         </div> <!-- row.// -->
 
         <!-- ================ ITEM DETAIL END .// ================= -->
