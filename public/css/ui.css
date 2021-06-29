@@ -1820,6 +1820,10 @@ body {
     }
 }
 
+.contenido-ok h2 {
+    color: #f2f2f2 !important;
+}
+
 .contenido h2 {
     color: #f2f2f2;
 }
