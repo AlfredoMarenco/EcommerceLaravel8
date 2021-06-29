@@ -11,7 +11,8 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Inicio</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogo</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('catalogue.products',$catalogue->id) }}">{{ $catalogue->name }}</a></li>
+                        <li class="breadcrumb-item"><a
+                                href="{{ route('catalogue.products', $catalogue->id) }}">{{ $catalogue->name }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
                     </ol>
                 </div>
@@ -33,7 +34,7 @@
                     <article class="product-info-aside">
 
                         <h2 class="title mt-3">{{ $product->name }}</h2>
-                       {{--  @if ($product->discount)
+                        {{-- @if ($product->discount)
                             <div class="mb-3">
                                 <strike><var class="price h4 text-warning">{{ $product->presentPrice() }}
                                         MXN</var></strike>
@@ -50,7 +51,7 @@
                             <dt class="col-1"><i class="fas fa-box" style="color: orange;"></i></dt>
                             <dd class="col-11"><a href="#">Envío gratis dentro de Mérida</a></dd>
                         </dl>
-                        <div class="form-row  mt-4">
+                        {{-- <div class="form-row  mt-4">
                             <form action="{{ route('wishlist.addItem', $product) }}" method="POST">
                             <div class="form-group col-md flex-grow-0">
                                 @livewire('count-items-to-cart')
@@ -68,8 +69,8 @@
                                 </form>
                             </div>
                             <p class="mt-3">* Solicita cotizaciones en linea</p>
-                        </div> <!-- col.// -->
-                        {{-- <form action="{{ route('wishlist.addItem', $product) }}" method="POST" class="mt-5">
+                        </div> <!-- col.// --> --}}
+                        <form action="{{ route('wishlist.addItem', $product) }}" method="POST" class="mt-5">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md flex-grow-0">
@@ -77,12 +78,12 @@
                                 </div> <!-- col.// -->
                                 <div class="form-group form-inline">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-shopping-cart"></i><span class="text">AÑADIR A LA LISTA</span>
+                                        <i class="fas fa-shopping-cart"></i><span class="text">Añadir a lista</span>
                                     </button>
                         </form>
-                        <a href="http://wa.me/5219992211629" class="btn btn-success ml-1">
-                            <i class="fab fa-whatsapp"></i> <span class="text">CONSULTAR EN SUCURSAL</span>
-                        </a> --}}
+                        <a href="http://wa.me/5219992211629" class="btn btn-success ml-2">
+                            <i class="fab fa-whatsapp"></i> <span class="text">Consultar en sucursal</span>
+                        </a>
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->
             </div> <!-- row.// -->
@@ -170,8 +171,8 @@
                                 <h5>{{ $product->name }}</h5>
                                 <p>{!! $product->extract !!}</p>
                                 <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
-                                                class="btn btn-block btn-primary"></i> VER PRODUCTO
-                                            </a>
+                                    class="btn btn-block btn-primary"></i> VER PRODUCTO
+                                </a>
                             </div>
                         </div>
                     </div>
