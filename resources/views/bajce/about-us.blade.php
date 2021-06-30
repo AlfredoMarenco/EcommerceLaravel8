@@ -444,7 +444,7 @@
                 },
                 responsive: [{
                     // screens greater than >= 775px
-                    breakpoint: 460,
+                    breakpoint: 360,
                     settings: {
                         // Set to `auto` and provide item width to adjust to viewport
                         slidesToShow: 1,
