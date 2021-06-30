@@ -73,26 +73,28 @@
         </div>
     </section>
 
-    <section id="comentarios">
-        <div class="container card">
-            <form action="{{ route('blog.store.comment') }}" method="POST">
-                @csrf
-                <div class="form-group col-md-8">
-                    <input type="hidden" name="post" value="{{ $post->id }}">
-                    <label for="body">Ingresa tu comentario</label>
-                    <textarea name="body" rows="5" class="form-control"></textarea>
-                    <button class="btn btn-primary float-right mt-2" type="submit">Comentar</button>
-                </div>
-            </form>
-            <h4>Comentarios</h4>
-            @foreach ($post->comments as $comment)
-                <div class="comentarios-escr mt-3 px-4 card">
-                    <h5>{{ $comment->user->name }} {{ $comment->user->last_name }}</h5>
-                    <p>{{ $comment->body }}</p>
-                </div>
-            @endforeach
-        </div>
-    </section>
+    @auth
+        <section id="comentarios">
+            <div class="container card">
+                <form action="{{ route('blog.store.comment') }}" method="POST">
+                    @csrf
+                    <div class="form-group col-md-8">
+                        <input type="hidden" name="post" value="{{ $post->id }}">
+                        <label for="body">Ingresa tu comentario</label>
+                        <textarea name="body" rows="5" class="form-control"></textarea>
+                        <button class="btn btn-primary float-right mt-2" type="submit">Comentar</button>
+                    </div>
+                </form>
+                <h4>Comentarios</h4>
+                @foreach ($post->comments as $comment)
+                    <div class="comentarios-escr mt-3 px-4 card">
+                        <h5>{{ $comment->user->name }} {{ $comment->user->last_name }}</h5>
+                        <p>{{ $comment->body }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+    @endauth
 
 
 
