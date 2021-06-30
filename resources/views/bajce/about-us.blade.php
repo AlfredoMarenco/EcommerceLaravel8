@@ -425,7 +425,7 @@
                 animationLoop: true,
                 itemWidth: 150,
                 itemMargin: 0,
-                minItems: 2,
+                minItems: 4,
                 maxItems: 4
             });
         });
