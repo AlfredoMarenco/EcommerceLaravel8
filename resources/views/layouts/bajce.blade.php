@@ -41,7 +41,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css">
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
+
     @yield('css')
 
     <!-- Facebook Pixel Code -->
@@ -349,12 +349,14 @@
             </section>
     </footer>
     <!-- ========================= FOOTER END // ========================= -->
+
     @livewireScripts
     @include('sweetalert::alert')
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
         integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
     <script>
         window.addEventListener('load', function() {
             new Glider(document.querySelector('.glider'), {
