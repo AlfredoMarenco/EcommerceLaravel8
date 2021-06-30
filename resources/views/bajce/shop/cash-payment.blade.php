@@ -121,7 +121,7 @@
                                     </dl>
                                     <hr>
                                 @endif
-                                @if (Cart::instance('wishlist')->count() > 0)
+                               {{--  @if (Cart::instance('wishlist')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Cotizacion de productos del catálogo</h6>
                                     </dl>
@@ -132,14 +132,14 @@
                                     {{-- <dl class="dlist-align">
                                 <dt>Descuento:</dt>
                                 <dd class="text-right">MXN 120</dd>
-                            </dl> --}}
+                            </dl> --
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
                                         <dd class="text-right  h5"><strong>${{ Cart::instance('wishlist')->total() }}
                                                 MXN</strong></dd>
                                     </dl>
                                     <hr>
-                                @endif
+                                @endif --}}
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
                     </aside> <!-- col.// -->
