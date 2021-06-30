@@ -423,7 +423,7 @@
             $('.flexslider').flexslider({
                 animation: "slide",
                 animationLoop: true,
-                itemWidth: 150,
+                itemWidth: 200,
                 itemMargin: 0,
                 minItems: 4,
                 maxItems: 4
