@@ -1,5 +1,14 @@
 @extends('layouts.bajce')
 @section('title', 'Nosotros')
+
+@section('css')
+    <style>
+        .carousel li {
+            display: none;
+        }
+
+    </style>
+@endsection
 @section('content')
     <section id="header-nosotros">
         <div class="container">
