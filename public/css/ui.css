@@ -2236,13 +2236,25 @@ body {
 }
 
 #info-entrada {
-    padding-left: 50px;
-    padding-right: 35px;
-    text-align: justify;
+    padding-left: 220px;
+    padding-right: 229px;
+} @media (max-width: 900px) {
+    #info-entrada {
+        padding-left: 30px;
+        padding-right: 39px;
+    }
 }
 
 .botones-redes {
     padding: 38px;
+    padding-left: 230px;
+    
+} @media (max-width: 900px) {
+    .botones-redes {
+        padding: 38px;
+      
+        
+    } 
 }
 
 .facebook-btn {
