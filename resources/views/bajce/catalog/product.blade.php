@@ -82,7 +82,7 @@
                                     </button>
                         </form>
                         <a href="http://wa.me/5219992211629" class="btn btn-success ml-2">
-                            <i class="fab fa-whatsapp"></i> <span class="text">Consultar en sucursal</span>
+                            <i class="fab fa-whatsapp"></i> <span class="text">Contactar sucursal</span>
                         </a>
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->

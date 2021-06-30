@@ -2042,6 +2042,15 @@ body {
     text-align: center;
 }
 
+.pad {
+    padding-bottom: 50px;
+} @media (max-width: 500px) {
+    .pad {
+        padding-bottom: 10px;
+    }
+}
+
+
 #newsletter {
     padding-left: 80px;
     padding-right: 80px;
@@ -2294,6 +2303,11 @@ body {
 #productos-sugeridos {
     padding-left: 80px;
     padding-right: 80px;
+} @media (max-width: 500px) {
+    #productos-sugeridos {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 

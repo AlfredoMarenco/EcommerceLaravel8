@@ -4,7 +4,7 @@
 
 
 
-    <section class="section-intro pb-5">
+    <section class="section-intro pad">
         <div class="container-fluid p-0">
             <!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
             <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
