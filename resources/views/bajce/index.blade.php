@@ -328,7 +328,7 @@
             </div>
         </section>
     </div>
-    <section id="tienda" style="margin-top: 100px; ">
+    <section id="tienda" style="margin-top: 50px; margin-bottom: 50px;">
         <div class="contenido-tienda">
             <h3 style="text-align: center;" class="mt-5">
                 Conoce nuestros artículos disponibles
@@ -674,7 +674,7 @@
     @if ($posts->count() > 0)
         <section id="blog">
             <div class="cabecera">
-                <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
+                <h3 style="text-align: center; text-transform: uppercase;" class="mt-1">
                     Noticias más relevantes
                 </h3>
                 <p style="text-align: center;">Encuentra información relevante sobre la industria y novedades sobre

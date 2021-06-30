@@ -1952,6 +1952,18 @@ body {
 
 .cabecera-sucursales {
     padding-bottom: 40px;
+} @media (max-width: 500px) {
+    .cabecera-sucursales {
+        margin-bottom: 10px;
+    }
+}
+
+.cabecera {
+    margin-top: 20px;
+} @media (max-width: 500px) {
+    .cabecera {
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -1969,7 +1981,7 @@ body {
 @media (max-width: 500px) {
     .logos-sucursales {
         padding-bottom: 27px;
-        padding-top: 20px;
+        padding-top: 00px;
         text-align: center;
     }
 }
@@ -2066,6 +2078,7 @@ body {
     background-image: url(/images/banners/cabecera2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100%;
 }
 
 @media (max-width:500px) {
@@ -2079,6 +2092,15 @@ body {
     text-align: center;
 }
 
+.bg-nosotros p {
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+.imagen-nosotros {
+    padding-top: 45px;
+}
+
 @media (max-width:500px) {
     .bg-nosotros {
         text-align: justify;
@@ -2090,18 +2112,19 @@ body {
     .bg-nosotros p {
         text-align: justify;
         padding-top: 25px;
-        padding-bottom: 30px;
+        padding-bottom: 80px;
     }
 }
 
 @media (max-width:500px) {
     .imagen-nosotros {
-        padding-top: 50px;
+        padding-top: 100px;
     }
 }
 
 .cont-nosotros {
     color: #fff;
+    
 }
 
 #videos {
