@@ -760,7 +760,7 @@
                 animationLoop: true,
                 itemWidth: 250,
                 itemMargin: 0,
-                minItems: 4,
+                minItems: 1,
                 maxItems: 4
             });
         });
