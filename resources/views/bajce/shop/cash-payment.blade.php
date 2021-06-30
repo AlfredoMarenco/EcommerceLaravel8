@@ -121,7 +121,7 @@
                                     </dl>
                                     <hr>
                                 @endif
-                               {{--  @if (Cart::instance('wishlist')->count() > 0)
+                                {{-- @if (Cart::instance('wishlist')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Cotizacion de productos del catálogo</h6>
                                     </dl>

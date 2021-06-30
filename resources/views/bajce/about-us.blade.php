@@ -290,134 +290,138 @@
 
 
     <!--
-        <section id="sucursales-nosotros">
-            <div class="container">
-                <div class="sucursales-change" style="text-align: center;">
-                    <h2>SUCURSALES</h2>
-                    <p> MÉRIDA
-                        <span>-</span>
-                        <span>CANCÚN</span>
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                        <div class="detalles-sucursal">
-
-                            <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
-                            <h4 class="mt-4">MADERAS ORIENTE</h4>
-                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
-                                C.P. 97179, Mérida, Yucatán, México <br>
-                                <span>
-                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                                </span>
-                            </p>
-                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                        <div class="detalles-sucursal">
-
-                            <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
-                            <h4 class="mt-4">MADERAS ORIENTE</h4>
-                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
-                                C.P. 97179, Mérida, Yucatán, México <br>
-                                <span>
-                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                                </span>
-                            </p>
-                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                        <div class="detalles-sucursal">
-
-                            <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
-                            <h4 class="mt-4">MADERAS ORIENTE</h4>
-                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
-                                C.P. 97179, Mérida, Yucatán, México <br>
-                                <span>
-                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                                </span>
-                            </p>
-                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="sucursales-2 mt-5">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                            <div class="detalles-sucursal">
-
-                                <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
-                                <h4 class="mt-4">MADERAS ORIENTE</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores
-                                    <br> C.P. 97179, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                                    </span>
+                    <section id="sucursales-nosotros">
+                        <div class="container">
+                            <div class="sucursales-change" style="text-align: center;">
+                                <h2>SUCURSALES</h2>
+                                <p> MÉRIDA
+                                    <span>-</span>
+                                    <span>CANCÚN</span>
                                 </p>
-                                <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                                    <div class="detalles-sucursal">
+
+                                        <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
+                                        <h4 class="mt-4">MADERAS ORIENTE</h4>
+                                        <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
+                                            C.P. 97179, Mérida, Yucatán, México <br>
+                                            <span>
+                                                (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                            </span>
+                                        </p>
+                                        <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
 
 
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                                    <div class="detalles-sucursal">
+
+                                        <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
+                                        <h4 class="mt-4">MADERAS ORIENTE</h4>
+                                        <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
+                                            C.P. 97179, Mérida, Yucatán, México <br>
+                                            <span>
+                                                (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                            </span>
+                                        </p>
+                                        <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                                    <div class="detalles-sucursal">
+
+                                        <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
+                                        <h4 class="mt-4">MADERAS ORIENTE</h4>
+                                        <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores <br>
+                                            C.P. 97179, Mérida, Yucatán, México <br>
+                                            <span>
+                                                (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                            </span>
+                                        </p>
+                                        <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sucursales-2 mt-5">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                                        <div class="detalles-sucursal">
+
+                                            <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
+                                            <h4 class="mt-4">MADERAS ORIENTE</h4>
+                                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores
+                                                <br> C.P. 97179, Mérida, Yucatán, México <br>
+                                                <span>
+                                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                                </span>
+                                            </p>
+                                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                                        <div class="detalles-sucursal">
+
+                                            <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
+                                            <h4 class="mt-4">MADERAS ORIENTE</h4>
+                                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores
+                                                <br> C.P. 97179, Mérida, Yucatán, México <br>
+                                                <span>
+                                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                                </span>
+                                            </p>
+                                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                                        <div class="detalles-sucursal">
+
+                                            <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
+                                            <h4 class="mt-4">MADERAS ORIENTE</h4>
+                                            <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores
+                                                <br> C.P. 97179, Mérida, Yucatán, México <br>
+                                                <span>
+                                                    (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
+                                                </span>
+                                            </p>
+                                            <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
+
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                            <div class="detalles-sucursal">
-
-                                <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
-                                <h4 class="mt-4">MADERAS ORIENTE</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores
-                                    <br> C.P. 97179, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                                    </span>
-                                </p>
-                                <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
-
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                            <div class="detalles-sucursal">
-
-                                <img src="/images/misc/logo-bajce-vrd-2.png" alt="" class="img-fluid">
-                                <h4 class="mt-4">MADERAS ORIENTE</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col. Miraflores
-                                    <br> C.P. 97179, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 983 0353 / (999) 983 1026 <br>(999) 983 0592 / (999) 983 0376
-                                    </span>
-                                </p>
-                                <img src="/images/icons/google-maps.png" class="img-fluid" alt="">
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+                    </section> -->
 
     <section id="marcas">
         <div class="cabecera-marcas">
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                 Marcas con las que trabajamos
             </h3>
-            <!-- Place somewhere in the <body> of your page -->
-            <div class="flexslider carousel">
-                <ul class="slides">
+        </div>
+        <div>
+            <div class="glider-contain">
+                <div class="glider">
                     @foreach ($brands as $brand)
-                        <li class="p-4">
-                            <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif>
-                        </li>
+                        <div class="px-2 text-center">
+                            <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
+                        </div>
                     @endforeach
-                </ul>
+                </div>
+                <button aria-label="Previous" class="glider-prev">«</button>
+                <button aria-label="Next" class="glider-next">»</button>
+                <div role="tablist" class="dots"></div>
             </div>
         </div>
     </section>
@@ -426,17 +430,39 @@
 
 @endsection
 
-@section('js')
+@push('script')
     <script>
-        $(window).load(function() {
-            $('.flexslider').flexslider({
-                animation: "slide",
-                animationLoop: true,
-                itemWidth: 250,
-                itemMargin: 0,
-                minItems: 1,
-                maxItems: 4
-            });
-        });
+        window.addEventListener('load', function() {
+            new Glider(document.querySelector('.glider'), {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                draggable: true,
+                dots: '.dots',
+                arrows: {
+                    prev: '.glider-prev',
+                    next: '.glider-next'
+                },
+                responsive: [{
+                    // screens greater than >= 775px
+                    breakpoint: 460,
+                    settings: {
+                        // Set to `auto` and provide item width to adjust to viewport
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                }, {
+                    // screens greater than >= 1024px
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                }]
+            })
+        })
     </script>
-@endsection
+@endpush
