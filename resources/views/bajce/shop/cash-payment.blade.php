@@ -62,7 +62,7 @@
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->
                     <aside class="col-md-3">
-                        @if (Cart::discount() <= 0 && Cart::instance('default')->count() > 0)
+                        @if (!session('coupon'))
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <form action="{{ route('cart.applyCoupon') }}" method="post">
