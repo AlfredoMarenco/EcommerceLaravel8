@@ -1672,7 +1672,8 @@ body {
 /* icons bajce */
 
 .iconos {
-    font-size: 28px;
+    padding-top: 7px;
+    font-size: 40px;
     color: orange;
 }
 
