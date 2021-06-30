@@ -413,7 +413,7 @@
             <div class="flexslider carousel">
                 <ul class="slides">
                     @foreach ($brands as $brand)
-                        <li class="p-4">
+                        <li >
                             <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif>
                         </li>
                     @endforeach
