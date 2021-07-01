@@ -14,6 +14,6 @@ class NewsletterController extends Controller
             'email' => $request->email,
         ]);
 
-        return back()->withSuccess('Subscripción completada');
+        return back()->withSuccess('Suscripción completada');
     }
 }
