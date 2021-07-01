@@ -297,7 +297,7 @@
                                 <ul class="list-unstyled">
 
                                     <li> <a href="{{ route('blog.index') }}">Blog</a></li>
-                                    <li> <a data-dismiss="modal" href="">Contacto</a></li>
+                                    <li> <a data-dismiss="modal" data-toggle="modal" data-target="#ventanaModal" href="">Contacto</a></li>
 
                                 </ul>
                             </div>

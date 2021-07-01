@@ -276,17 +276,17 @@
             <div class="row">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/servicioadomicilio.svg') }}" width="50"
-                            alt="">
-                        <h5 class="titulo-servicio">Servicio a domicilio
+                        <img class="text-primary" src="{{ asset('images/icons/domicilio.svg') }}" 
+                            width="85" alt="">
+                        <h5 class="titulo-servicio pt-2">Servicio a domicilio
                         </h5>
                         <p class="p-servicio mb-3">Recibe los productos de cualquiera de nuestras sucursales o de
                             nuestra tienda en línea en tu domicilio.</p>
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/cortes.svg') }}" width="50" alt="">
-                        <h5 class="titulo-servicio">Cortes de madera</h5>
+                        <img class="text-primary" src="{{ asset('images/icons/c-madera.svg') }}" width="85"  alt="">
+                        <h5 class="titulo-servicio pt-1">Cortes de madera</h5>
                         <p class="p-servicio mb-3">A través de nuestras herramientas especializadas se realizan cortes
                             lineales a la medida del largo y ancho que se requiera y así lograr ensambles exactos de los
                             productos adquiridos en nuestras tiendas.
@@ -294,14 +294,14 @@
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/cepillado.svg') }}" width="45" alt="">
+                        <img class="text-primary" src="{{ asset('images/icons/cepillado.svg') }}" width="85"  alt="">
                         <h5 class="titulo-servicio">Cepillado</h5>
                         <p class="p-servicio mb-3">Alisa y nivela el grosor de la madera, hasta obtener el espesor
                             deseado.</p>
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <i class="fas fa-desktop iconos"></i>
+                        <img class="text-primary" src="{{ asset('images/icons/optimizador.svg') }}"  width="85" alt="">
                         <h5 class="titulo-servicio">Optimizador de corte</h5>
                         <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros
                             de
@@ -310,15 +310,15 @@
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/tapacanto.svg') }}" width="35" alt="">
+                        <img class="text-primary" src="{{ asset('images/icons/tapacanto.svg') }}"  width="85" alt="">
                         <h5 class="titulo-servicio">Aplicación de Tapacanto</h5>
                         <p class="p-servicio mb-3">Una vez cortado el tablero podrás sellar los cantos (o los bordes)
                             con
                             nuestra máquina de enchapado automático.</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="text-primary" src="{{ asset('images/icons/perforaciondebisagras.svg') }}"
-                            width="45" alt="">
+                        <img class="text-primary" src="{{ asset('images/icons/perforacion.svg') }}"
+                           width="85"  alt="">
                         <h5 class="titulo-servicio">Perforación de bisagras</h5>
                         <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en
                             la
