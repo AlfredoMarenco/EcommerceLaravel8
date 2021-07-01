@@ -20,5 +20,6 @@
 @stop
 
 @section('js')
+    @include('sweetalert::alert')
     @livewireScripts
 @stop
