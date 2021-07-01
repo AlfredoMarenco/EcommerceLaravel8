@@ -21,7 +21,7 @@ class TableSliders extends Component
     public function render()
     {
         return view('livewire.admin.table-sliders',[
-            'sliders' => Slider::where('text','like','%'.$this->search.'%')->latest('id')->paginate($this->paginate),
+            'sliders' => Slider::latest('id')->paginate($this->paginate),
         ]);
     }
 }
