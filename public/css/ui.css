@@ -2299,8 +2299,24 @@ body {
 
 .section-content {
     margin-top: 120px;
+    
+} @media (max-width: 500px) {
+    .section-content {
+        padding-right: 30px;
+        padding-left: 30px;
+        
+    }
 }
 
+/* MARGEN DE BOTONES EN TIENDA*/
+.margen-btn {
+    margin-left: 10px;
+} @media (max-width: 500px) {
+    .margen-btn {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
 
 /*======DETALLE DE PRODUCTOS CATALOGO=======*/
 
