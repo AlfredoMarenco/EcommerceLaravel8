@@ -38,7 +38,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
+                    <a class="carousel-control-prev " href="#carousel1_indicator" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
@@ -331,7 +331,7 @@
     <section id="tienda" style="margin-top: 50px; margin-bottom: 50px;">
         <div class="contenido-tienda">
             <h3 style="text-align: center;" class="mt-5">
-                Conoce nuestros artículos disponibles
+                Espera nustra tienda en linea
             </h3>
             <div class="boton-ir">
                 <a href="{{ route('shop.index') }}" class="btn btn-secondary">
@@ -444,7 +444,7 @@
         </div>
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" > 
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -520,7 +520,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Placacentro Chuburná</h4>
+                                <h4 style="text-transform: uppercase">TABLERED Chuburná</h4>
                                 <p class="lead" style="text-transform: uppercase;">Calle 20 x 23 #107 Chuburná Hidalgo
                                     <br>
                                     C.P.

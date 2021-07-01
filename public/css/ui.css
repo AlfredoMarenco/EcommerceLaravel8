@@ -1681,6 +1681,12 @@ body {
 /* end icons bajce */
 
 
+
+
+
+
+
+
 /*BTN AMARILLO*/
 
 .btn-primary {
@@ -2328,6 +2334,10 @@ body {
 
 #section-content-cart {
     margin-top: 150px;
+} @media (max-width: 500px) {
+    #section-content-cart {
+        margin-top: 290px;
+    }
 }
 
 #productos-sugeridos-2 {
