@@ -331,7 +331,7 @@
     <section id="tienda" style="margin-top: 50px; margin-bottom: 50px;">
         <div class="contenido-tienda">
             <h3 style="text-align: center;" class="mt-5">
-                Espera nustra tienda en linea
+                Espera nuestra tienda en linea
             </h3>
             <div class="boton-ir">
                 <a href="{{ route('shop.index') }}" class="btn btn-secondary">

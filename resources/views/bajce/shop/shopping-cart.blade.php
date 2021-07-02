@@ -14,15 +14,16 @@
                                 <thead class="text-muted">
                                     <tr class="small text-uppercase">
                                         <th scope="col">Producto</th>
-                                        <th scope="col" width="120">Cantidad</th>
-                                        <th scope="col" width="120">Precio</th>
-                                        <th scope="col" class="text-right" width="200"></th>
+                                        <th scope="col" width="20">Cantidad</th>
+                                        <th scope="col" width="0" class="text-center" >Precio</th>
+                                       
+                                        <!--<th scope="col"  width="-20">en blanco</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (Cart::instance('default')->content() as $product)
                                         <tr>
-                                            <td>
+                                            <td scope="row">
                                                 <figure class="itemside">
                                                     <div class="aside">
                                                         <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
@@ -35,7 +36,9 @@
                                                             @if ($product->model->brand)
                                                                 Marca: {{ $product->model->brand->name }}
                                                             @endif
+                                                            
                                                         </p>
+                                                        
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -49,15 +52,32 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <var class="price">${{ number_format($product->price, 2) }}</var>
-                                                    <a href="{{ route('cart.remove', $product->rowId) }}"><small
-                                                            class="text-muted">Eliminar </small></a>
+                                                    
+                                                       <div class="row text-center">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <var class="price">${{ number_format($product->price, 2) }}</var>
+                                                            <a href="{{ route('cart.remove', $product->rowId) }}"><small
+                                                                    class="text-muted">Eliminar </small></a>
+                                                            
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            
+                                                            <a href="{{ route('shop.product', $product->model->id) }}"
+                                                                class="btn btn-md btn-light mt-2">Detalles</a>
+                                                        </div>
+                                                       </div>
+                                                    
+
+                                                    
+                                                           
+                                                            
                                                 </div> <!-- price-wrap .// -->
+                                            
                                             </td>
-                                            <td class="text-right">
+                                         <!--   <td class="text-right">
                                                 <a href="{{ route('shop.product', $product->model->id) }}"
                                                     class="btn btn-block btn-light">Detalles</a>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -95,30 +115,43 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <var class="price">{{-- ${{ number_format($product->price, 2) }} --}}<br></var>
-                                                    <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
+                                                    <div class="row text-center">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <var class="price">{{-- ${{ number_format($product->price, 2) }} --}}<br></var>
+                                                            <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
                                                             class="text-muted">Eliminar </small></a>
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <a href="{{ route('shop.product', $product->model->id) }}"
+                                                                class="btn btn-md btn-light">Detalles</a>
+                                                        </div>
+                                                    </div>
                                                 </div> <!-- price-wrap .// -->
                                             </td>
-                                            <td class="text-right">
-                                                <a href="{{ route('shop.product', $product->model->id) }}"
-                                                    class="btn btn-block btn-light">Detalles</a>
-                                            </td>
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                             <div class="card-body border-top">
-                                <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
-                                </a>
-
-                                @if (Cart::instance('wishlist')->count() > 0)
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="boton-1">
+                                            <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 boton-2">
+                                        @if (Cart::instance('wishlist')->count() > 0)
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                    <div class="boton-2">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#exampleModal">
                                         Solicitar cotización
                                     </button>
 
+                                    </div>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -135,7 +168,7 @@
                                                 <div class="modal-body">
                                                     <form action="{{ route('wishlist.sendCotizacion') }} " method="POST">
                                                         @csrf
-                                                        <div class="form-group">
+                                                        <div class="form-group text-left">
                                                             <label for="name">Nombre completo</label>
                                                             <input type="text" name="name" class="form-control">
                                                             <label for="">Correo</label>
@@ -157,6 +190,11 @@
                                         </div>
                                     </div>
                                 @endif
+                                    </div>
+                                </div>
+                                
+
+                                
                             </div>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->

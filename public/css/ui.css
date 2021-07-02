@@ -2030,6 +2030,24 @@ body {
     padding-right: 80px;
 }
 
+/* BOTONES DE TIENDA */
+
+.boton-1 {
+    text-align: left;
+} @media (max-width: 500px) {
+    .boton-1 {
+        text-align: center;
+    }
+}
+.boton-2 {
+    text-align: right;
+} @media (max-width: 500px) {
+    .boton-2 {
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
 #marcas {
     padding-left: 80px;
     padding-right: 80px;
