@@ -110,12 +110,12 @@
                             </table>
                             <div class="card-body border-top">
                                 <div class="d-flex justify-content-between">
-                                    <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir
+                                    <a href="/tienda" class="btn btn-light btn-sm"> <i class="fa fa-chevron-left"></i> Seguir
                                         comprando
                                     </a>
                                     @if (Cart::instance('wishlist')->count() > 0)
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary ml-5" data-toggle="modal"
+                                        <button type="button" class="btn btn-primary ml-5 btn-sm" data-toggle="modal"
                                             data-target="#exampleModal">
                                             Solicitar cotización
                                         </button>
