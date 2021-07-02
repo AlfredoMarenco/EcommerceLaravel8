@@ -34,12 +34,11 @@
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('admin.users.edit', $user) }}"
                                     class="btn btn-info btn-md mx-1">Editar</a>
-
-                                {{-- <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
+                                <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
                                     @csrf
                                     @method('Delete')
                                     <button class="btn btn-danger mx-1" type="submit">Eliminar</button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                     @endforeach

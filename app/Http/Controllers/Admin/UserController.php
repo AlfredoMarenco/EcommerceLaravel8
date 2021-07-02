@@ -74,4 +74,11 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.edit', $user)->withToastSuccess('Se asignó los roles con éxito');
     }
+
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->back()->withToastSuccess('Se desactivo usuario con éxito');
+    }
 }

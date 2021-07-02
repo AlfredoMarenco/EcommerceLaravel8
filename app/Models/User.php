@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -26,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasRoles;
     use Notifiable;
     use CanResetPassword;
+    use SoftDeletes;
 
 
     /**
@@ -84,7 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Comment::class);
     }
-    
+
     public function reviews()
     {
         return $this->hasMany(Review::class);

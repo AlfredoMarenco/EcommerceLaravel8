@@ -1012,6 +1012,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Requests\\CategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CategoryRequest.php',
         'App\\Http\\Requests\\CollectionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CollectionRequest.php',
         'App\\Http\\Requests\\ColorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ColorRequest.php',
+        'App\\Http\\Requests\\CouponRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CouponRequest.php',
         'App\\Http\\Requests\\CuponFRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CuponFRequest.php',
         'App\\Http\\Requests\\ProductRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProductRequest.php',
         'App\\Http\\Requests\\RequestNewsletter' => __DIR__ . '/../..' . '/app/Http/Requests/RequestNewsletter.php',

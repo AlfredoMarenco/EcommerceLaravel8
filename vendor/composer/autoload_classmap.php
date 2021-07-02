@@ -103,6 +103,7 @@ return array(
     'App\\Http\\Requests\\CategoryRequest' => $baseDir . '/app/Http/Requests/CategoryRequest.php',
     'App\\Http\\Requests\\CollectionRequest' => $baseDir . '/app/Http/Requests/CollectionRequest.php',
     'App\\Http\\Requests\\ColorRequest' => $baseDir . '/app/Http/Requests/ColorRequest.php',
+    'App\\Http\\Requests\\CouponRequest' => $baseDir . '/app/Http/Requests/CouponRequest.php',
     'App\\Http\\Requests\\CuponFRequest' => $baseDir . '/app/Http/Requests/CuponFRequest.php',
     'App\\Http\\Requests\\ProductRequest' => $baseDir . '/app/Http/Requests/ProductRequest.php',
     'App\\Http\\Requests\\RequestNewsletter' => $baseDir . '/app/Http/Requests/RequestNewsletter.php',

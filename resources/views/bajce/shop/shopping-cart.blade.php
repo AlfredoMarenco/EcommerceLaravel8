@@ -32,7 +32,9 @@
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
-                                                            Marca: {{ $product->model->brand->name }}
+                                                            @if ($product->model->brand)
+                                                                Marca: {{ $product->model->brand->name }}
+                                                            @endif
                                                         </p>
                                                     </figcaption>
                                                 </figure>
