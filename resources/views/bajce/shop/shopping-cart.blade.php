@@ -90,7 +90,7 @@
                                                     @csrf
                                                     @method('PUT')
                                                     <input type="number" min="1" value="{{ $product->qty }}" name="qty"
-                                                        class="form-control" onchange="this.form.submit()">
+                                                        class="form-control col-3" onchange="this.form.submit()">
                                                 </form>
                                             </td>
                                             <td>
