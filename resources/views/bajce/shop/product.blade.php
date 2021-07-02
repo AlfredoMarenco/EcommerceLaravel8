@@ -86,9 +86,11 @@
                             @csrf
                             <input type="hidden" readonly="true" name="redirect" value="1">
                             <input type="hidden" readonly="true" name="qty" value="1">
+
                             <button class="btn btn-success margen-btn">
                                 <i class="fas fa-shopping-basket"></i><span class="text">Comprar ahora</span>
                             </button>
+
                         </form>
             </div>
             <!-- col.// -->
