@@ -115,10 +115,10 @@
                                     </a>
                                     @if (Cart::instance('wishlist')->count() > 0)
                                         <!-- Button trigger modal -->
-                                        <a type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                        <button type="button" class="btn btn-primary ml-5" data-toggle="modal"
                                             data-target="#exampleModal">
                                             Solicitar cotización
-                                        </a>
+                                        </button>
                                 </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
