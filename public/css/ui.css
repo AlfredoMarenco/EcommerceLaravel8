@@ -2331,11 +2331,32 @@ body {
     margin-left: 30px;
 } @media (max-width: 420px) {
     .margen-btn {
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+} @media (max-width: 400px) {
+    .margen-btn {
         margin-left: 10px;
         margin-top: 0px;
     }
 } @media (max-width: 380px) {
     .margen-btn {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
+
+
+
+.margen-btn-1 {
+    margin-left: 30px;
+} @media (max-width: 420px) {
+    .margen-btn-1 {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+} @media (max-width: 380px) {
+    .margen-btn-1 {
         margin-left: 0px;
         margin-top: 10px;
     }

@@ -81,8 +81,8 @@
                                         <i class="fas fa-shopping-cart"></i><span class="text">Añadir a lista</span>
                                     </button>
                         </form>
-                        
-                            <a href="http://wa.me/5219992211629" class="btn btn-success margen-btn">
+                         
+                            <a href="http://wa.me/5219992211629" class="btn btn-success margen-btn-1">
                                 <i class="fab fa-whatsapp"></i> <span class="text">Contactar sucursal</span>
                             </a>
                         
