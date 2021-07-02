@@ -2353,6 +2353,8 @@ body {
 } @media (max-width: 500px) {
     #section-content-cart {
         margin-top: 290px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
