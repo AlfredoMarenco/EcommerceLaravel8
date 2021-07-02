@@ -2334,7 +2334,7 @@ body {
         margin-left: 10px;
         margin-top: 0px;
     }
-} @media (max-width: 370px) {
+} @media (max-width: 380px) {
     .margen-btn {
         margin-left: 0px;
         margin-top: 10px;
