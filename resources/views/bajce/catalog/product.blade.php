@@ -98,7 +98,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h5 class="title-description">Description</h5>
+                    <h5 class="title-description">Descripción</h5>
                     <p>
                         {!! $product->description !!}
                     </p>
