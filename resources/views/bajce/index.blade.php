@@ -411,7 +411,7 @@
     @if ($cuponfs->count() > 0)
         <section id="codigo" class="p-0 p-sm-0">
             @foreach ($cuponfs as $cuponf)
-                <div style="background-image: url({{ Storage::url($cuponf->image->url) }});  background-repeat: no-repeat; min-height: 100%; background-size: 100%;"
+                <div class="bg-codigo" style="background-image: url({{ Storage::url($cuponf->image->url) }}); "
                     class="img-fluid">
                     <div class="contenido-ok">
                         <h2 class="text-primary">

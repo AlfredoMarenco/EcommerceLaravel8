@@ -9,12 +9,12 @@
             <div class="row">
                 @if (Cart::instance('wishlist')->count() + Cart::instance('default')->count() > 0)
                     <main class="col-md-9">
-                        <div class="card">
+                        <div class="card table-responsive">
                             <table class="table table-borderless table-shopping-cart">
                                 <thead class="text-muted">
                                     <tr class="small text-uppercase">
                                         <th scope="col">Producto</th>
-                                        <th scope="col" width="20">Cantidad</th>
+                                        <th scope="col" width="5">Cantidad</th>
                                         <th scope="col" width="0" class="text-center" >Precio</th>
                                        
                                         <!--<th scope="col"  width="-20">en blanco</th>-->

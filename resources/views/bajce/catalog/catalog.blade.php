@@ -113,7 +113,7 @@
                         <button type="submit" class="btn btn-block btn-primary">Aplicar</button>
                     </form>
                 </aside> <!-- col.// -->
-                <main class="col-md-10">
+                <main class="col-md-10 mt-3">
                     @foreach ($products as $product)
                         <article class="card card-product-list">
                             <div class="row no-gutters">

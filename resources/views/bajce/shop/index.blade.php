@@ -114,7 +114,7 @@
                     </form>
                 </aside> <!-- col.// -->
 
-                <main class="col-md-10">
+                <main class="col-md-10 mt-3">
                     <div class="row">
                         @if ($products->count() > 0)
                             @foreach ($products as $product)
