@@ -16,7 +16,6 @@
                                         <th scope="col">Producto</th>
                                         <th scope="col" width="5">Cantidad</th>
                                         <th scope="col" width="0" class="text-center" >Precio</th>
-                                       
                                         <!--<th scope="col"  width="-20">en blanco</th>-->
                                     </tr>
                                 </thead>
@@ -36,9 +35,9 @@
                                                             @if ($product->model->brand)
                                                                 Marca: {{ $product->model->brand->name }}
                                                             @endif
-                                                            
+
                                                         </p>
-                                                        
+
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -52,27 +51,27 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    
+
                                                        <div class="row text-center">
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <var class="price">${{ number_format($product->price, 2) }}</var>
                                                             <a href="{{ route('cart.remove', $product->rowId) }}"><small
                                                                     class="text-muted">Eliminar </small></a>
-                                                            
+
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            
+
                                                             <a href="{{ route('shop.product', $product->model->id) }}"
                                                                 class="btn btn-md btn-light mt-2">Detalles</a>
                                                         </div>
                                                        </div>
-                                                    
 
-                                                    
-                                                           
-                                                            
+
+
+
+
                                                 </div> <!-- price-wrap .// -->
-                                            
+
                                             </td>
                                          <!--   <td class="text-right">
                                                 <a href="{{ route('shop.product', $product->model->id) }}"
@@ -129,7 +128,7 @@
                                                     </div>
                                                 </div> <!-- price-wrap .// -->
                                             </td>
-                                            
+
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -192,9 +191,9 @@
                                 @endif
                                     </div>
                                 </div>
-                                
 
-                                
+
+
                             </div>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->

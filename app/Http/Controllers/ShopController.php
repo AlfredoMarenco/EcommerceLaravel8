@@ -65,7 +65,7 @@ class ShopController extends Controller
                 'price' => $product->discount,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            alert()->success('', 'Producto agregado al carrito');
         } else {
             Cart::instance('default')->add([
                 'id' => $product->id,
@@ -74,7 +74,7 @@ class ShopController extends Controller
                 'price' => $product->price,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            alert()->success('', 'Producto agregado al carrito');
         }
         return redirect()->route('cart');
     }
@@ -92,7 +92,7 @@ class ShopController extends Controller
                 'weight' =>  0,
                 'options' => ['size' => $request->size, 'color' => $request->color],
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            alert()->success('', 'Producto agregado al carrito');
         } else {
             Cart::instance('default')->add([
                 'id' => $product->id,
@@ -102,7 +102,7 @@ class ShopController extends Controller
                 'weight' =>  0,
                 'options' => ['size' => $request->size, 'color' => $request->color],
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            alert()->success('', 'Producto agregado al carrito');
         }
         if ($request->redirect == '1') {
             return redirect()->route('checkout.index');
@@ -112,7 +112,7 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar un productos a la wishlist
-    public function addItemToWishlist(Request $request,$product)
+    public function addItemToWishlist(Request $request, $product)
     {
         $product = Product::find($product);
         if ($product->discount) {
@@ -123,7 +123,7 @@ class ShopController extends Controller
                 'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
-            toast('Agregado al carrito', 'success');
+            alert()->success('', 'Producto agregado a la lista');
         } else {
             Cart::instance('wishlist')->add([
                 'id' => $product->id,
@@ -132,7 +132,7 @@ class ShopController extends Controller
                 'price' => 0,
                 'weight' =>  0,
             ])->associate('App\Models\Product');
-            toast('Agregado a la lista', 'success');
+            alert()->success('', 'Producto agregado a la lista');
         }
         return back();
     }
