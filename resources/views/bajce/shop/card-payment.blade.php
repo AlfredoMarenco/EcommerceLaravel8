@@ -41,11 +41,11 @@
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="state">Estado</label>
-                                        <input type="text" class="form-control" name="state" placeholder="Mérida">
+                                        <input type="text" class="form-control" name="state" placeholder="Yucatán">
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="city">Ciudad</label>
-                                        <input type="text" class="form-control" name="city" placeholder="Yucatán">
+                                        <input type="text" class="form-control" name="city" placeholder="Mérida">
                                     </div>
                                     <div class="form-group col-8">
                                         <label for="postal_code">Codigo postal</label>
