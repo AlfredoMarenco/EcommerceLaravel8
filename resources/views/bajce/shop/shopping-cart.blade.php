@@ -63,9 +63,9 @@
                                                 </div> <!-- price-wrap .// -->
                                             </td>
                                             <!--   <td class="text-right">
-                                                            <a href="{{ route('shop.product', $product->model->id) }}"
-                                                                class="btn btn-block btn-light">Detalles</a>
-                                                        </td> -->
+                                                                <a href="{{ route('shop.product', $product->model->id) }}"
+                                                                    class="btn btn-block btn-light">Detalles</a>
+                                                            </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -85,8 +85,7 @@
                                                             src="{{ Storage::url($product->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
-
-                                                        <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->id]) }}"
+                                                        <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->pivot->category_id]) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         {{-- <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
@@ -112,7 +111,7 @@
                                                                     class="text-muted">Eliminar </small></a>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->id]) }}"
+                                                            <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->pivot->category_id]) }}"
                                                                 class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
