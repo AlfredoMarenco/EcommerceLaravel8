@@ -63,9 +63,9 @@
                                                 </div> <!-- price-wrap .// -->
                                             </td>
                                             <!--   <td class="text-right">
-                                                                <a href="{{ route('shop.product', $product->model->id) }}"
-                                                                    class="btn btn-block btn-light">Detalles</a>
-                                                            </td> -->
+                                                                        <a href="{{ route('shop.product', $product->model->id) }}"
+                                                                            class="btn btn-block btn-light">Detalles</a>
+                                                                    </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -85,8 +85,18 @@
                                                             src="{{ Storage::url($product->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
-                                                        {{ $product->model->categories }}
-                                                        <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->pivot->category_id]) }}"
+                                                        @php
+                                                            $cats_product = $product->model->categories;
+                                                            foreach ($cats_product as $cat_product) {
+                                                                $cat_id = \App\Models\Catalogue::find($cat_product->id);
+                                                                if ($cat_id) {
+                                                                    $cat_id = $cat_id->id;
+                                                                    break;
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        {{-- {{ \App\Models\Catalogue::find($product->model->categories->first()->pivot->category_id) }} --}}
+                                                        <a href="{{ route('catalogue.product', [$product->model->id, $cat_id]) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         {{-- <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
@@ -112,7 +122,7 @@
                                                                     class="text-muted">Eliminar </small></a>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->pivot->category_id]) }}"
+                                                            <a href="{{ route('catalogue.product', [$product->model->id, $cat_id]) }}"
                                                                 class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
