@@ -63,9 +63,9 @@
                                                 </div> <!-- price-wrap .// -->
                                             </td>
                                             <!--   <td class="text-right">
-                                                        <a href="{{ route('shop.product', $product->model->id) }}"
-                                                            class="btn btn-block btn-light">Detalles</a>
-                                                    </td> -->
+                                                            <a href="{{ route('shop.product', $product->model->id) }}"
+                                                                class="btn btn-block btn-light">Detalles</a>
+                                                        </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -85,12 +85,13 @@
                                                             src="{{ Storage::url($product->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
-                                                        <a href="{{ route('catalogue.product', $product->model->id) }}"
+
+                                                        <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->id]) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                        {{-- <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
                                                             Marca: {{ $product->model->brand->name }}
-                                                        </p>
+                                                        </p> --}}
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -111,7 +112,7 @@
                                                                     class="text-muted">Eliminar </small></a>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <a href="{{ route('catalogue.product', $product->model->id) }}"
+                                                            <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->id]) }}"
                                                                 class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
@@ -341,6 +342,7 @@
                                     <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
                                         Añadir al carrito </button>
                                 </form>
+
                             </figcaption>
                         </figure>
                     </div> <!-- col.// -->
