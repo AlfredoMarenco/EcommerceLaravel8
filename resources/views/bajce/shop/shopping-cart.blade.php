@@ -85,6 +85,7 @@
                                                             src="{{ Storage::url($product->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
+                                                        {{ $product->model->categories }}
                                                         <a href="{{ route('catalogue.product', [$product->model->id, $product->model->categories->first()->pivot->category_id]) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         {{-- <p class="text-muted small">SKU: {{ $product->model->SKU }}
