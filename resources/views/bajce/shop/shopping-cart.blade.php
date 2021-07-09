@@ -5,7 +5,6 @@
     <!-- ========================= SECTION CONTENT ========================= -->
     <section id="section-content-cart" class="section-content padding-y">
         <div class="container">
-
             <div class="row">
                 @if (Cart::instance('wishlist')->count() + Cart::instance('default')->count() > 0)
                     <main class="col-md-9">
@@ -15,7 +14,7 @@
                                     <tr class="small text-uppercase">
                                         <th scope="col">Producto</th>
                                         <th scope="col" width="5">Cantidad</th>
-                                        <th scope="col" width="0" class="text-center" >Precio</th>
+                                        <th scope="col" width="0" class="text-center">Precio</th>
                                         <!--<th scope="col"  width="-20">en blanco</th>-->
                                     </tr>
                                 </thead>
@@ -35,9 +34,7 @@
                                                             @if ($product->model->brand)
                                                                 Marca: {{ $product->model->brand->name }}
                                                             @endif
-
                                                         </p>
-
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -51,32 +48,24 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-
-                                                       <div class="row text-center">
+                                                    <div class="row text-center">
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <var class="price">${{ number_format($product->price, 2) }}</var>
+                                                            <var
+                                                                class="price">${{ number_format($product->price, 2) }}</var>
                                                             <a href="{{ route('cart.remove', $product->rowId) }}"><small
                                                                     class="text-muted">Eliminar </small></a>
-
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-
                                                             <a href="{{ route('shop.product', $product->model->id) }}"
                                                                 class="btn btn-md btn-light mt-2">Detalles</a>
                                                         </div>
-                                                       </div>
-
-
-
-
-
+                                                    </div>
                                                 </div> <!-- price-wrap .// -->
-
                                             </td>
-                                         <!--   <td class="text-right">
-                                                <a href="{{ route('shop.product', $product->model->id) }}"
-                                                    class="btn btn-block btn-light">Detalles</a>
-                                            </td> -->
+                                            <!--   <td class="text-right">
+                                                        <a href="{{ route('shop.product', $product->model->id) }}"
+                                                            class="btn btn-block btn-light">Detalles</a>
+                                                    </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -96,7 +85,8 @@
                                                             src="{{ Storage::url($product->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
-                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
+                                                        <a href="{{ route('catalogue.product', $product->model->id) }}"
+                                                            class="title text-dark">{{ $product->name }}</a>
                                                         <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
                                                             Marca: {{ $product->model->brand->name }}
@@ -118,17 +108,15 @@
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <var class="price">{{-- ${{ number_format($product->price, 2) }} --}}<br></var>
                                                             <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
-                                                            class="text-muted">Eliminar </small></a>
+                                                                    class="text-muted">Eliminar </small></a>
                                                         </div>
-
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <a href="{{ route('shop.product', $product->model->id) }}"
+                                                            <a href="{{ route('catalogue.product', $product->model->id) }}"
                                                                 class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
                                                 </div> <!-- price-wrap .// -->
                                             </td>
-
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -137,67 +125,65 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="boton-1">
-                                            <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
+                                            <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i>
+                                                Seguir comprando
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 boton-2">
                                         @if (Cart::instance('wishlist')->count() > 0)
-                                    <!-- Button trigger modal -->
-                                    <div class="boton-2">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal">
-                                        Solicitar cotización
-                                    </button>
-
-                                    </div>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Informacion de contacto
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('wishlist.sendCotizacion') }} " method="POST">
-                                                        @csrf
-                                                        <div class="form-group text-left">
-                                                            <label for="name">Nombre completo</label>
-                                                            <input type="text" name="name" class="form-control">
-                                                            <label for="">Correo</label>
-                                                            <input type="text" name="email" class="form-control">
-                                                            <label for="">Telefono</label>
-                                                            <input type="text" name="phone" class="form-control">
-                                                            <label for="comment">Comentario(Opcional)</label>
-                                                            <textarea class="form-control" name="comment"
-                                                                rows="5"></textarea>
-                                                        </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    {{-- <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Close</button> --}}
-                                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                                </div>
-                                                </form>
+                                            <!-- Button trigger modal -->
+                                            <div class="boton-2">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal">
+                                                    Solicitar cotización
+                                                </button>
                                             </div>
-                                        </div>
-                                    </div>
-                                @endif
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Informacion de
+                                                                contacto
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('wishlist.sendCotizacion') }} "
+                                                                method="POST">
+                                                                @csrf
+                                                                <div class="form-group text-left">
+                                                                    <label for="name">Nombre completo</label>
+                                                                    <input type="text" name="name" class="form-control">
+                                                                    <label for="">Correo</label>
+                                                                    <input type="text" name="email" class="form-control">
+                                                                    <label for="">Telefono</label>
+                                                                    <input type="text" name="phone" class="form-control">
+                                                                    <label for="comment">Comentario(Opcional)</label>
+                                                                    <textarea class="form-control" name="comment"
+                                                                        rows="5"></textarea>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            {{-- <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button> --}}
+                                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->
-
                     <aside class="col-md-3">
                         @if (!session('coupon'))
                             <div class="card mb-3">
@@ -300,10 +286,7 @@
                 podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que
                 para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a
                     href="https://www.bajce.com.">www.bajce.com.</a>
-
             </p>
-
-
         </div><!-- container // -->
     </section>
     <!-- ========================= SECTION  END// ========================= -->
@@ -336,7 +319,6 @@
                                     @endif
                                     <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                 </div> <!-- price-wrap.// -->
-
                                 <div class="rating-wrap my-3">
                                     <ul class="rating-stars">
                                         <li style="width:{{ ($product->rating * 100) / 5 }}%" class="stars-active">
@@ -359,7 +341,6 @@
                                     <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
                                         Añadir al carrito </button>
                                 </form>
-
                             </figcaption>
                         </figure>
                     </div> <!-- col.// -->
