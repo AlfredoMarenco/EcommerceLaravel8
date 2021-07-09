@@ -63,9 +63,9 @@
                                                 </div> <!-- price-wrap .// -->
                                             </td>
                                             <!--   <td class="text-right">
-                                                                            <a href="{{ route('shop.product', $product->model->id) }}"
-                                                                                class="btn btn-block btn-light">Detalles</a>
-                                                                        </td> -->
+                                                                                <a href="{{ route('shop.product', $product->model->id) }}"
+                                                                                    class="btn btn-block btn-light">Detalles</a>
+                                                                            </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -88,7 +88,7 @@
                                                         @php
                                                             $cats_product = $product->model->categories;
                                                             foreach ($cats_product as $cat_product) {
-                                                                $cat_id = \App\Models\Catalogue::find($cat_product->id);
+                                                                $cat_id = \App\Models\Catalogue::where('category_id', $cat_product->id);
                                                                 echo $cat_id;
                                                                 if ($cat_id != null) {
                                                                     $cat_id = $cat_id->id;
