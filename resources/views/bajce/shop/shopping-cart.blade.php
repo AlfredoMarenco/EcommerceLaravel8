@@ -90,7 +90,7 @@
                                                             foreach ($cats_product as $cat_product) {
                                                                 $cat_id = \App\Models\Catalogue::where('category_id', $cat_product->id)->get();
                                                                 /* dd($cat_id); */
-                                                                if ($cat_id != null) {
+                                                                if ($cat_id) {
                                                                     $cat_id = $cat_id->id;
                                                                     break;
                                                                 }
