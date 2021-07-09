@@ -30,7 +30,7 @@ class CatalogueController extends Controller
         return view('bajce.catalog.catalog', compact('products', 'catalogues', 'categories', 'brands', 'catalogue'));
     }
 
-    public function product(Product $product, $catalogue_id)
+    public function product(Product $product, $catalogue_id = '')
     {
         $category_id = $product->categories->pluck('id');
         $products = Product::whereHas('categories', function (Builder $query) use ($category_id) {
