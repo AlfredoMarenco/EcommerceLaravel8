@@ -88,7 +88,7 @@
                                                         @php
                                                             $cats_product = $product->model->categories;
                                                             foreach ($cats_product as $cat_product) {
-                                                                $cat_id = \App\Models\Catalogue::where('category_id', $cat_product->id)->get();
+                                                                $cat_id = \App\Models\Catalogue::where('category_id', $cat_product->id)->first();
                                                                  dd($cat_id);
                                                                 if ($cat_id) {
                                                                     $cat_id = $cat_id->id;
