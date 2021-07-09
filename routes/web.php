@@ -99,7 +99,7 @@ Route::prefix('/tienda')->group(function () {
 Route::prefix('/catalogos')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
     Route::get('/productos/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
-    Route::get('/producto/{product}/{catalogue}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::get('/producto/{product}/{catalogue?}', [CatalogueController::class, 'product'])->name('catalogue.product');
     Route::post('/productos/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
