@@ -86,7 +86,7 @@ class CatalogueController extends Controller
                 $products =  Product::whereBetween('discount', [$request->price_min, $request->price_max])->where('type', 1)->paginate(12);
             }
         }
-        $catalogue = Catalogue::all()->first();
+        $catalogue = Catalogue::where('category_id', $request->categories)->first();
         return view('bajce.catalog.catalog', compact('products', 'categories', 'brands', 'catalogue'));
     }
 }
