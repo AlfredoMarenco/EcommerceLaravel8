@@ -10,7 +10,7 @@
                     <ol class="breadcrumb float-left">
                         <li class="breadcrumb-item"><a href="/">Inicio</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogos</a></li>
-                        <li class="breadcrumb-item active">{{ $catalogue->name }}</li>
+                        <li class="breadcrumb-item active">Resultados</li>
                     </ol>
                 </div> <!-- card-body .// -->
             </div> <!-- card.// -->
