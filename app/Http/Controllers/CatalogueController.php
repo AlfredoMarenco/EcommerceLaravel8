@@ -87,7 +87,6 @@ class CatalogueController extends Controller
             }
         }
         $catalogue = Catalogue::where('category_id', $request->categories)->first();
-        dd($catalogue);
         return view('bajce.catalog.catalog', compact('products', 'categories', 'brands', 'catalogue'));
     }
 }
