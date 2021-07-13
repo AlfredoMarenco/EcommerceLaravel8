@@ -1,6 +1,8 @@
 @extends('layouts.bajce')
 @section('title', 'Catalogo')
 @section('content')
+
+
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content padding-y">
         <div class="container">
@@ -117,42 +119,80 @@
                 </aside> <!-- col.// -->
                 <main class="col-md-10 mt-3">
                     @foreach ($products as $product)
-                        <article class="card card-product-list">
-                            <div class="row no-gutters">
-                                <aside class="col-md-3">
-                                    <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
-                                        class="img-wrap">
-                                        <span class="badge badge-danger"> Consulta en sucursal </span>
-                                        <img src="{{ Storage::url($product->image->url) }}">
-                                    </a>
-                                </aside> <!-- col.// -->
-                                <div class="col-md-6">
-                                    <div class="info-main">
+                        @if ($catalogue)
+                            <article class="card card-product-list">
+                                <div class="row no-gutters">
+                                    <aside class="col-md-3">
                                         <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
-                                            class="h5 title">
-                                            {{ $product->name }}</a>
-                                        <p class="mb-3">
-                                            <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                        </p>
-                                        <p>{!! $product->extract !!} </p>
-                                    </div> <!-- info-main.// -->
-                                </div> <!-- col.// -->
-                                <aside class="col-sm-3">
-                                    <div class="info-aside">
-                                        <p class="mt-5">
-                                            <a href="http://wa.me/5219992211629" class="btn btn-block btn-success"> <i
-                                                    class="fab fa-whatsapp"></i>
-                                                CONSULTAR EN TIENDA </a>
-                                        <div class="boton-ver-producto mt-3">
+                                            class="img-wrap">
+                                            <span class="badge badge-danger"> Consulta en sucursal </span>
+                                            <img src="{{ Storage::url($product->image->url) }}">
+                                        </a>
+                                    </aside> <!-- col.// -->
+                                    <div class="col-md-6">
+                                        <div class="info-main">
                                             <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
-                                                class="btn btn-block btn-primary"></i> VER PRODUCTO
-                                            </a>
-                                        </div>
-                                        </p>
-                                    </div> <!-- info-aside.// -->
-                                </aside> <!-- col.// -->
-                            </div> <!-- row.// -->
-                        </article> <!-- card-product .// -->
+                                                class="h5 title">
+                                                {{ $product->name }}</a>
+                                            <p class="mb-3">
+                                                <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
+                                            </p>
+                                            <p>{!! $product->extract !!} </p>
+                                        </div> <!-- info-main.// -->
+                                    </div> <!-- col.// -->
+                                    <aside class="col-sm-3">
+                                        <div class="info-aside">
+                                            <p class="mt-5">
+                                                <a href="http://wa.me/5219992211629" class="btn btn-block btn-success"> <i
+                                                        class="fab fa-whatsapp"></i>
+                                                    CONSULTAR EN TIENDA </a>
+                                            <div class="boton-ver-producto mt-3">
+                                                <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
+                                                    class="btn btn-block btn-primary"></i> VER PRODUCTO
+                                                </a>
+                                            </div>
+                                            </p>
+                                        </div> <!-- info-aside.// -->
+                                    </aside> <!-- col.// -->
+                                </div> <!-- row.// -->
+                            </article> <!-- card-product .// -->
+                        @else
+                            <article class="card card-product-list">
+                                <div class="row no-gutters">
+                                    <aside class="col-md-3">
+                                        <a href="{{ route('catalogue.product', [$product, null]) }}" class="img-wrap">
+                                            <span class="badge badge-danger"> Consulta en sucursal </span>
+                                            <img src="{{ Storage::url($product->image->url) }}">
+                                        </a>
+                                    </aside> <!-- col.// -->
+                                    <div class="col-md-6">
+                                        <div class="info-main">
+                                            <a href="{{ route('catalogue.product', [$product, null]) }}"
+                                                class="h5 title">
+                                                {{ $product->name }}</a>
+                                            <p class="mb-3">
+                                                <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
+                                            </p>
+                                            <p>{!! $product->extract !!} </p>
+                                        </div> <!-- info-main.// -->
+                                    </div> <!-- col.// -->
+                                    <aside class="col-sm-3">
+                                        <div class="info-aside">
+                                            <p class="mt-5">
+                                                <a href="http://wa.me/5219992211629" class="btn btn-block btn-success"> <i
+                                                        class="fab fa-whatsapp"></i>
+                                                    CONSULTAR EN TIENDA </a>
+                                            <div class="boton-ver-producto mt-3">
+                                                <a href="{{ route('catalogue.product', [$product, $catalogue->id]) }}"
+                                                    class="btn btn-block btn-primary"></i> VER PRODUCTO
+                                                </a>
+                                            </div>
+                                            </p>
+                                        </div> <!-- info-aside.// -->
+                                    </aside> <!-- col.// -->
+                                </div> <!-- row.// -->
+                            </article> <!-- card-product .// -->
+                        @endif
                     @endforeach
                     {{ $products->links() }}
                 </main> <!-- col.// -->
