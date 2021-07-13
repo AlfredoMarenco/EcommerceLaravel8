@@ -12,7 +12,7 @@
                     <ol class="breadcrumb float-left">
                         <li class="breadcrumb-item"><a href="/">Inicio</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogos</a></li>
-                        @if ($catalogue)
+                        @if ($catalogue != null)
                             <li class="breadcrumb-item active">{{ $catalogue->name }}</li>
                         @endif
                     </ol>
@@ -119,7 +119,7 @@
                 </aside> <!-- col.// -->
                 <main class="col-md-10 mt-3">
                     @foreach ($products as $product)
-                        @if ($catalogue)
+                        @if ($catalogue != null)
                             <article class="card card-product-list">
                                 <div class="row no-gutters">
                                     <aside class="col-md-3">
