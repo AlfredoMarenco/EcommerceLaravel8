@@ -199,7 +199,8 @@
                     <div class="modal-body">
                         <div class="alert alert-succes">
 
-                            <form class="contact" name="contact-form" method="post" action="enviar.php">
+                            <form class="contact" name="contact-form" method="post" action="{{ route('send.contact') }}">
+                                @csrf
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nombre</label>
                                     <input type="name" name="nombre" class="form-control" id="exampleFormControlInput1"
