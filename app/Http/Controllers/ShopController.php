@@ -31,7 +31,12 @@ class ShopController extends Controller
     {
         $products = Product::where('type', 0)->inRandomOrder()->paginate(4);
         $reviews = $product->reviews()->latest()->paginate(3);
-        return view('bajce.shop.product', compact('product', 'products', 'reviews'));
+
+        if ($product->type == 1) {
+            abort(404);
+        } else {
+            return view('bajce.shop.product', compact('product', 'products', 'reviews'));
+        }
     }
 
     //Mostramos la vista de los productos filtrados por categorias nada mas
