@@ -60,6 +60,9 @@ Route::prefix('checkout')->group(function () {
     Route::post('/storeReferenceOpenpay', [PaymentController::class, 'storeReferenceOpenPay'])->name('checkout.storeOpenpay');
     Route::post('/directChargeConekta', [PaymentController::class, 'directChargeConekta'])->name('checkout.chargeConekta');
     Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
+    Route::get('/form-mercadopago', function () {
+        return view('shop.mercadopago');
+    })->name('checkout.mercadopago');
 });
 
 // Rutas del blog

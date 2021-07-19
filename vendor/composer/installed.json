@@ -4016,17 +4016,17 @@
         },
         {
             "name": "mercadopago/dx-php",
-            "version": "2.2.1",
-            "version_normalized": "2.2.1.0",
+            "version": "2.4.0",
+            "version_normalized": "2.4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mercadopago/dx-php.git",
-                "reference": "2ea4d51f6b29d568b3a06d430114467fc2ab6b90"
+                "url": "https://github.com/mercadopago/sdk-php.git",
+                "reference": "1ea94fb01e5d83687eed61d337825c27c9eb4144"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mercadopago/dx-php/zipball/2ea4d51f6b29d568b3a06d430114467fc2ab6b90",
-                "reference": "2ea4d51f6b29d568b3a06d430114467fc2ab6b90",
+                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/1ea94fb01e5d83687eed61d337825c27c9eb4144",
+                "reference": "1ea94fb01e5d83687eed61d337825c27c9eb4144",
                 "shasum": ""
             },
             "require": {
@@ -4044,7 +4044,7 @@
                 "symfony/yaml": "~2.5",
                 "vlucas/phpdotenv": "^2.5"
             },
-            "time": "2020-11-13T21:50:52+00:00",
+            "time": "2021-07-15T13:55:56+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4062,22 +4062,10 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "imasson",
-                    "homepage": "https://github.com/imasson",
-                    "role": "Developer"
-                },
-                {
-                    "name": "joelibaceta",
-                    "homepage": "https://github.com/joelibaceta",
-                    "role": "Developer"
-                }
-            ],
             "description": "Mercado Pago PHP SDK",
-            "homepage": "https://github.com/mercadopago/dx-php",
+            "homepage": "https://github.com/mercadopago/sdk-php",
             "support": {
-                "source": "https://github.com/mercadopago/dx-php/tree/2.2.1"
+                "source": "https://github.com/mercadopago/sdk-php/tree/2.4.0"
             },
             "install-path": "../mercadopago/dx-php"
         },

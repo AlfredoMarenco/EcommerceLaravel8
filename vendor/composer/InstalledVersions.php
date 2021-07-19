@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'fd7228a8054bdcc51536337f8f9250a33b94c983',
+    'reference' => '46342e6b0b8b37979bfa0f9583eb58a1801241ab',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -666,7 +666,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'fd7228a8054bdcc51536337f8f9250a33b94c983',
+      'reference' => '46342e6b0b8b37979bfa0f9583eb58a1801241ab',
     ),
     'laravel/sail' => 
     array (
@@ -769,12 +769,12 @@ private static $installed = array (
     ),
     'mercadopago/dx-php' => 
     array (
-      'pretty_version' => '2.2.1',
-      'version' => '2.2.1.0',
+      'pretty_version' => '2.4.0',
+      'version' => '2.4.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '2ea4d51f6b29d568b3a06d430114467fc2ab6b90',
+      'reference' => '1ea94fb01e5d83687eed61d337825c27c9eb4144',
     ),
     'mobiledetect/mobiledetectlib' => 
     array (

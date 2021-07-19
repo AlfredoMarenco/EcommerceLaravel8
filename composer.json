@@ -26,7 +26,7 @@
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.0",
-        "mercadopago/dx-php": "2.2.1",
+        "mercadopago/dx-php": "2.4.0",
         "openpay/sdk": "^2.1",
         "paypal/paypal-checkout-sdk": "^1.0",
         "realrashid/sweet-alert": "^3.2",

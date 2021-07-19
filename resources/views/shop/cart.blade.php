@@ -143,9 +143,14 @@
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
                         <div class="text-center mt-3">
-                            <h4>Metodos de pago</h4>
+                            <h4>Realizar PAgo</h4>
                         </div>
-                        <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-body">
+                                <a class="mercadopago-button btn btn-block" href="{{ route('checkout.mercadopago') }}">Realizar Pago</a>
+                            </div>
+                        </div>
+{{--                         <div class="accordion" id="accordionExample">
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h3 class="mb-0">
@@ -197,7 +202,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 {{--                         <div class="card">
                             <div class="card-body">
                                 <hr>
@@ -224,7 +229,7 @@
 
         <!-- ========================= SECTION  ========================= -->
         <section class="section-name border-top padding-y">
-            
+
         </section>
         <!-- ========================= SECTION  END// ========================= -->
     @else
