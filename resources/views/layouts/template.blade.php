@@ -298,7 +298,7 @@
     @yield('js')
     @include('sweetalert::alert')
 
-    <script type="text/javascript">
+{{--     <script type="text/javascript">
         $(document).ready(function() {
 
             OpenPay.setId('mgdt89dyjztums3akuyw');
@@ -328,7 +328,7 @@
             };
         });
 
-    </script>
+    </script> --}}
 </body>
 
 </html>
