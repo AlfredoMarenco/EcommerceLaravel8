@@ -15,6 +15,8 @@
     </style>
 @endsection
 @php
+if (Cart::count() != 0) {
+
 // SDK de Mercado Pago
 require base_path('/vendor/autoload.php');
 // Agrega credenciales
@@ -44,6 +46,7 @@ $preference->auto_return = 'approved';
 
 $preference->items = $products;
 $preference->save();
+}
 @endphp
 @section('content')
     <!-- ========================= SECTION CONTENT ========================= -->
