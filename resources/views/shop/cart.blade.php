@@ -15,7 +15,7 @@
     </style>
 @endsection
 @php
-if (Cart::count() != 0) {
+if (Cart::count()) {
 
 // SDK de Mercado Pago
 require base_path('/vendor/autoload.php');
