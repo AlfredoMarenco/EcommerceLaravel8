@@ -42,4 +42,9 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URL'),
     ],
 
+    'mercadopago' => [
+        'key' => env('PUBLIC_KEY_MERCADOPAGO'),
+        'token' => env('ACCESS_TOKEN_MERCADOPAGO'),
+    ]
+
 ];

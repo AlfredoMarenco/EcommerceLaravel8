@@ -132,7 +132,8 @@ class PaymentController extends Controller
         return redirect()->route('user.profile');
     }
 
-    public function storeReference(){
+    public function storeReference()
+    {
         if (Cart::count() <= 0) {
             return redirect('/');
         } else {
@@ -304,6 +305,33 @@ class PaymentController extends Controller
             echo $payment->status;
         } catch (\Throwable $th) {
             echo $th->getMessage();
+        }
+    }
+
+    public function show()
+    {
+        return view('shop.orders-show', compact('order'));
+    }
+
+    public function setAddress(Request $request)
+    {
+        if (session('address')) {
+            $request->session()->put('address', false);
+            return back();
+        } else {
+            $request->validate([
+                'street' => 'required',
+                'number' => 'required',
+                'crosses' => 'required',
+                'suburb' => 'required',
+                'state' => 'required',
+                'city' => 'required',
+                'postal_code' => 'required',
+                'reference' => 'required',
+            ]);
+            session($request->all());
+            $request->session()->put('address', true);
+            return back();
         }
     }
 }
