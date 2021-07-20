@@ -167,7 +167,7 @@ Route::get('/mailable', function () {
 
 
 Route::get('pay', function (Request $request) {
-    /* $payment_id = $request->get('payment_id');
+    $payment_id = $request->get('payment_id');
     $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id" . "?access_token=APP_USR-3891420111706382-072002-9f710511839dad9a6fb2cfec2063c5d3-794005891");
     $response = json_decode($response);
     $status =  $response->status;
@@ -208,7 +208,7 @@ Route::get('pay', function (Request $request) {
         }
         Mail::to($order->user->email)->send(new OrderShipped($order));
         Cart::destroy();
-    } */
+    }
 
     return redirect()->route('user.profile');
 })->name('pay');
