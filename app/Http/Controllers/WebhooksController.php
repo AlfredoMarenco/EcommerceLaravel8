@@ -17,7 +17,7 @@ class WebhooksController extends Controller
     public function __invoke(Request $request)
     {
         $payment_id = $request->get('payment_id');
-        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id" . "?access_token=TEST-1634125175479100-030323-b598123aafa36e3fb705cc8ce3d7f162-38750732");
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id" . "?access_token=APP_USR-1634125175479100-030323-414ed99159593b3538f7e1d79aeeca3c-38750732");
         $response = json_decode($response);
         $status =  $response->status;
         if ($status == 'approved') {
