@@ -19,7 +19,7 @@ class WebhooksController extends Controller
         /* $payment_id = $request->get('payment_id'); */
         $response = json_decode(file_get_contents('php://input'), true);
         Log::info($response);
-        $type = $response['id'];
+        $payment_id = $response['id'];
         $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id" . "?access_token=TEST-1634125175479100-030323-b598123aafa36e3fb705cc8ce3d7f162-38750732");
         $response = json_decode($response);
         $status =  $response->status;
