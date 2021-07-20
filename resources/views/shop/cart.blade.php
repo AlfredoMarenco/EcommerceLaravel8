@@ -40,15 +40,14 @@ $preference->back_urls = [
     'pending' => 'http://www.tu-sitio/pending',
 ];
 
-$preference->payment_methods = array(
-     "excluded_payment_types" => array(
-    array("id" => "ticket"),
-    array("id" => 'atm'),
-    array("id" => 'account_money'),
-    array("id" => 'digital_wallet'),
-  ),
-    "installments" => 12
-);
+$preference->payment_methods = [
+    'excluded_payment_types' => [
+        ['id' => 'ticket'],
+        ['id' => 'atm'],
+        ['id' => 'account_money'],
+        ['id' => 'digital_wallet'],
+        ]
+];
 $preference->auto_return = 'approved';
 
 $preference->items = $products;
