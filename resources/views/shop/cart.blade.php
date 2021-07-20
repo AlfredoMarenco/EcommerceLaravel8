@@ -40,7 +40,6 @@ $preference->back_urls = [
     'pending' => route('pay'),
 ];
 
-
 $preference->auto_return = 'approved';
 
 $preference->items = $products;

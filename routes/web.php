@@ -209,6 +209,44 @@ Route::get('pay', function (Request $request) {
         Mail::to($order->user->email)->send(new OrderShipped($order));
         Cart::destroy();
     }
+    if ($status == 'pending') {
+        //Creamos la direccion que se le asignara a la orden de compra
+        $shipping_address = ShippingAddress::create([
+            'street' => $request->session()->get('street'),
+            'number' => $request->session()->get('number'),
+            'crosses' => $request->session()->get('crosses'),
+            'suburb' => $request->session()->get('suburb'),
+            'reference' => $request->session()->get('reference'),
+            'state' => $request->session()->get('state'),
+            'city' => $request->session()->get('city'),
+            'postal_code' => $request->session()->get('postal_code'),
+        ]);
+        //Creamos la orden en la base de datos con un estado de process que indicara que no esta aun terminada la transaccion
+        $order = Order::create([
+            'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+            'id_gateway' => null,
+            'status' => 'charge.created',
+            'type' => 'card',
+            'user_id' => auth()->user()->id,
+            'shipping_address_id' => $shipping_address->id,
+        ]);
+
+        //Creamos los registros de la orden en la tabla order_producto obteniendo el contenido del carrito
+        foreach (Cart::content() as $product) {
+            DB::table('order_product')->insert([
+                [
+                    'order_id' => $order->id,
+                    'product_id' => $product->id,
+                    'quanty' => $product->qty,
+                    'price' => $product->price,
+                    'color' => $product->options->color,
+                    'size' => $product->options->size,
+                ]
+            ]);
+        }
+        Mail::to($order->user->email)->send(new OrderShipped($order));
+        Cart::destroy();
+    }
 
     return redirect()->route('user.profile');
 })->name('pay');
