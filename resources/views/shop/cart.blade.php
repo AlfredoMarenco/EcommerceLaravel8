@@ -36,20 +36,10 @@ $preference = new MercadoPago\Preference();
 
 $preference->back_urls = [
     'success' => route('pay'),
-    'failure' => 'http://www.tu-sitio/failure',
-    'pending' => 'http://www.tu-sitio/pending',
+    'failure' => route('pay'),
+    'pending' => route('pay'),
 ];
 
-/* $preference->payment_methods = [
-    'excluded_payment_types' => [
-
-        ['id' => 'ticket'],
-        ['id' => 'atm'],
-        ['id' => 'account_money'],
-        ['id' => 'digital_wallet'],
-
-        ]
-]; */
 
 $preference->auto_return = 'approved';
 
