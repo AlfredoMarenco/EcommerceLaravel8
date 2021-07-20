@@ -211,6 +211,6 @@ Route::get('pay', function (Request $request) {
     }
 
     return redirect()->route('user.profile');
-})->name('pay');
+});
 
-Route::post('webhooks', WebhooksController::class);
+Route::post('webhooks', WebhooksController::class)->name('pay');
