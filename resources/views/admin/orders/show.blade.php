@@ -46,16 +46,6 @@
 
                             <p>
                             <h4>Importe: ${{ number_format($order->amount, 2) }} MXN </h4>
-                            </p>
-                            @if ($card)
-                                <p>Tarjeta:
-                                    <span class="text-success">
-                                        <i class="far fa-lg fa-credit-card"></i>
-                                        {{ $card['card_number'] }}
-                                    </span>
-                                </p>
-                            @endif
-                            <p>
                                 Fecha del cargo: {{ $order->created_at }}
                             </p>
                         </td>
@@ -158,7 +148,7 @@
                         </tr>
                     </tbody>
                 </table>
-                @if ($order->status != 'canceled' || $order->status != 'charge_pending')
+{{--                 @if ($order->status != 'canceled' || $order->status != 'charge_pending')
 
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger float-right" data-toggle="modal"
@@ -194,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </div> <!-- table-responsive .end// -->
         </div>
     </div>
