@@ -4,15 +4,27 @@
     <style>
         .botonCenterMen {
             position: absolute;
-            left: 50%;
+            left: 42%;
             top: 60%;
         }
 
         .titleMen {
             color: #fff;
-            font-size: 75px;
+            font-size: 85px;
         }
 
+        .botonCenterWomen {
+            position: absolute;
+            left: 35% !important;
+            top: 60%;
+        }
+        .titleWomen {
+            font-size: 85px !important;
+        }
+
+        .collec{
+            padding-top: 250px !important;
+        } 
         @media (max-width: 500px) {
             .botonCenterMen {
                 position: absolute;
@@ -37,6 +49,12 @@
             font-size: 75px;
         }
 
+        .botonCenterWomen {
+            
+            left: 25% !important;
+            top: 60%;
+        }
+
         @media (max-width: 500px) {
             .botonCenterWomen {
                 position: absolute;
@@ -49,6 +67,9 @@
                 font-size: 75px;
             }
         }
+            .collec {
+                font-size: 75px !important;
+            }
 
     </style>
 @endsection
@@ -78,17 +99,11 @@
                 @foreach ($configurations as $configuration)
                     @if ($configuration->name == 'MenLeft')
                         @isset($configuration->image)
-<<<<<<< HEAD
-                        <div class="col-lg-6 col-md-6 col-sm-12 izq"
-                        style="background-image: url({{ Storage::url($configuration->image->url) }});">
-                    </div>
-=======
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <div
                                     style="background-image: url({{ Storage::url($configuration->image->url) }});background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
                                 </div>
                             </div>
->>>>>>> 46342e6b0b8b37979bfa0f9583eb58a1801241ab
                         @else
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <div

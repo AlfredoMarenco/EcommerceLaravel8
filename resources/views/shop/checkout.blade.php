@@ -50,11 +50,11 @@
                                     </div>
                                     <div class="form-group col-3">
                                         <label for="state">Estado</label>
-                                        <input type="text" class="form-control" name="state" placeholder="Mérida">
+                                        <input type="text" class="form-control" name="state" placeholder="Yucatán">
                                     </div>
                                     <div class="form-group col-3">
                                         <label for="city">Ciudad</label>
-                                        <input type="text" class="form-control" name="city" placeholder="Yucatán">
+                                        <input type="text" class="form-control" name="city" placeholder="Mérida">
                                     </div>
                                     <div class="form-group col-3">
                                         <label for="postal_code">Código postal</label>
@@ -113,7 +113,7 @@
                                     </div>
                                 </div> <!-- row.// -->
 
-                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Renealonso.com mantiene tus datos seguros con certificado SSL</p>
+                                <p class="alert alert-success"> <i class="fa fa-lock"></i>  Renealonso.com mantiene tus datos seguros con certificado SSL</p>
 
                                 <div class="card-body border-top">
                                     {{-- <a href="#" class="btn btn-dark float-md-right"> Make Purchase <i
