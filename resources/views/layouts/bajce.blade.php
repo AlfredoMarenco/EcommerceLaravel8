@@ -382,6 +382,7 @@
                             pjs.parentNode.insertBefore(js, pjs);
                         }(document, "script", "tickcounter-sdk"));
                     </script>
+                    <div class="alert alert-success">Todas las funcionalidades aprobadas</div>
                 </div>
             </div>
         </div>
