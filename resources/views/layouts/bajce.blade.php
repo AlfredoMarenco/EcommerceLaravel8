@@ -102,6 +102,7 @@
         </nav>
 
         <div class="container">
+
             <section id="header-main" class="header-main border-bottom">
                 <div class="row row-md">
                     <div class="col-3 col-sm col-md col-lg  flex-grow-0">
@@ -199,7 +200,8 @@
                     <div class="modal-body">
                         <div class="alert alert-succes">
 
-                            <form class="contact" name="contact-form" method="post" action="{{ route('send.contact') }}">
+                            <form class="contact" name="contact-form" method="post"
+                                action="{{ route('send.contact') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nombre</label>
@@ -298,7 +300,8 @@
                                 <ul class="list-unstyled">
 
                                     <li> <a href="{{ route('blog.index') }}">Blog</a></li>
-                                    <li> <a data-dismiss="modal" data-toggle="modal" data-target="#ventanaModal" href="">Contacto</a></li>
+                                    <li> <a data-dismiss="modal" data-toggle="modal" data-target="#ventanaModal"
+                                            href="">Contacto</a></li>
 
                                 </ul>
                             </div>
@@ -353,18 +356,54 @@
     </footer>
     <!-- ========================= FOOTER END // ========================= -->
 
-    @livewireScripts
-    @include('sweetalert::alert')
-    <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    @yield('js')
-    @stack('script')
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="tituloVentana">AVISO DE INTERRUPCIÓN DEL SERVIDOR</h5>
+
+                    <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body py-4">
+                    <div data-type="countdown" data-id="2658356" class="tickcounter"
+                        style="width: 100%; position: relative; padding-bottom: 25%">
+                        <a href="//www.tickcounter.com/countdown/2658356/tiempo-restante" title="Tiempo restante">Tiempo
+                            restante</a>
+                        <a href="//www.tickcounter.com/" title="Countdown">Countdown</a>
+                    </div>
+                    <script>
+                        (function(d, s, id) {
+                            var js, pjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "//www.tickcounter.com/static/js/loader.js";
+                            pjs.parentNode.insertBefore(js, pjs);
+                        }(document, "script", "tickcounter-sdk"));
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        @livewireScripts
+        @include('sweetalert::alert')
+        <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
+                integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
+                integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        @yield('js')
+        @stack('script')
+        <script>
+            $(document).ready(function() {
+                $('#myModal').modal('toggle')
+            });
+        </script>
 </body>
 
 </html>
