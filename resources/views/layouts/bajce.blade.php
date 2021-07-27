@@ -367,11 +367,10 @@
                     </button>
                 </div>
                 <div class="modal-body py-4">
-                    <div data-type="countdown" data-id="2658356" class="tickcounter"
+                    <div data-type="countdown" data-id="2658366" class="tickcounter"
                         style="width: 100%; position: relative; padding-bottom: 25%">
-                        <a href="//www.tickcounter.com/countdown/2658356/tiempo-restante" title="Tiempo restante">Tiempo
-                            restante</a>
-                        <a href="//www.tickcounter.com/" title="Countdown">Countdown</a>
+                        <a href="//www.tickcounter.com/countdown/2658366/tiempo-restante" title="Tiempo restante">Tiempo
+                            restante</a><a href="//www.tickcounter.com/" title="Countdown">Countdown</a>
                     </div>
                     <script>
                         (function(d, s, id) {
@@ -386,24 +385,25 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        @livewireScripts
-        @include('sweetalert::alert')
-        <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-                integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-                integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        @yield('js')
-        @stack('script')
-        <script>
-            $(document).ready(function() {
-                $('#myModal').modal('toggle')
-            });
-        </script>
+    @livewireScripts
+    @include('sweetalert::alert')
+    <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
+        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
+        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('js')
+    @stack('script')
+    <script>
+        $(document).ready(function() {
+            $('#myModal').modal('toggle')
+        });
+    </script>
 </body>
 
 </html>
