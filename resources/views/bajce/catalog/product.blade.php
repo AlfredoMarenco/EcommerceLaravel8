@@ -11,9 +11,14 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Inicio</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('catalogue.index') }}">Catálogo</a></li>
-                        <li class="breadcrumb-item"><a
-                                href="{{ route('catalogue.products', $catalogue->id) }}">{{ $catalogue->name }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
+                        @if ($catalogue)
+                            <li class="breadcrumb-item"><a
+                                    href="{{ route('catalogue.products', $catalogue->category_id) }}">{{ $catalogue->name }}</a>
+                            </li>
+                        @endif
+                        @if ($product)
+                            <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
+                        @endif
                     </ol>
                 </div>
             </section>
@@ -81,11 +86,11 @@
                                         <i class="fas fa-shopping-cart"></i><span class="text">Añadir a lista</span>
                                     </button>
                         </form>
-                         
-                            <a href="http://wa.me/5219992211629" class="btn btn-success margen-btn-1">
-                                <i class="fab fa-whatsapp"></i> <span class="text">Contactar sucursal</span>
-                            </a>
-                        
+
+                        <a href="http://wa.me/5219992211629" class="btn btn-success margen-btn-1">
+                            <i class="fab fa-whatsapp"></i> <span class="text">Contactar sucursal</span>
+                        </a>
+
                     </article> <!-- product-info-aside .// -->
                 </main> <!-- col.// -->
             </div> <!-- row.// -->
