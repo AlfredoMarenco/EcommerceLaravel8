@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#F9C61F;}
+	.st0{opacity:0.15;fill:#007433;}
+	.st1{fill:#F9C61F;}
 </style>
-<path class="st0" d="M76.8,22.5H24.2c-2.9,0-5.2,2.4-5.2,5.2v35c0,2.9,2.4,5.2,5.2,5.2h21l-1.8,5.2h-7.9c-1.5,0-2.6,1.2-2.6,2.6
-	s1.2,2.6,2.6,2.6h29.8c1.5,0,2.6-1.2,2.6-2.6s-1.2-2.6-2.6-2.6h-7.9L55.8,68h21c2.9,0,5.2-2.4,5.2-5.2v-35
-	C82,24.9,79.6,22.5,76.8,22.5z M75,61H26V29.5h49V61z"/>
+<circle class="st0" cx="50" cy="50" r="47.1"/>
+<path class="st1" d="M88.9,8.7H11.1c-4.3,0-7.7,3.6-7.7,7.7v51.8c0,4.3,3.6,7.7,7.7,7.7h31.1l-2.7,7.7H27.8c-2.2,0-3.8,1.8-3.8,3.8
+	s1.8,3.8,3.8,3.8h44.1c2.2,0,3.8-1.8,3.8-3.8s-1.8-3.8-3.8-3.8H60.2l-2.4-7.5h31.1c4.3,0,7.7-3.6,7.7-7.7V16.5
+	C96.6,12.3,93.1,8.7,88.9,8.7z M86.3,65.7H13.7V19.1h72.5V65.7z"/>
 </svg>
