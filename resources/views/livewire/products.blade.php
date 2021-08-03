@@ -6,11 +6,11 @@
             <div class="card mb-3 mt-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-2">Filter by</div>
+                        <div class="col-md-2">Filtrar</div>
                         <!-- col.// -->
                         <div class="d-flex justify-content-end col-md-10">
                             <ul class="list-inline">
-                                Colors:
+                                Color:
                                 @foreach ($colors as $color)
                                     <li class="list-inline-item mr-1">
                                         <label style="background-color: {{ $color->code }};" class="colors">
@@ -18,7 +18,7 @@
                                         </label>
                                     </li>
                                 @endforeach
-                                Sizes:
+                                Tallas:
                                 @foreach ($sizes as $size)
                                     <li class="list-inline-item mr-1">
                                         <label class="mx-1">
@@ -30,7 +30,7 @@
 
                                 <li class="list-inline-item mr-3">
                                     <div class="form-inline">
-                                        <label class="mr-2">Price</label>
+                                        <label class="mr-2">Precios</label>
                                         <input class="form-control form-control-sm" placeholder="Min" type="number"
                                             wire:model="priceMin" />
                                         <span class="px-2"> - </span>
@@ -50,7 +50,7 @@
             <!-- ============================ FILTER TOP END.// ================================= -->
             <header class="mb-3">
                 <div class="form-inline">
-                    <strong class="mr-md-auto">{{ $products->count() }} Items found </strong>
+                    <strong class="mr-md-auto">{{ $products->count() }} productos encontrados </strong>
             </header>
             <!-- sect-heading -->
             <div class="row">
