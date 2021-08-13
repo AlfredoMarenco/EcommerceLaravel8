@@ -36,7 +36,7 @@ use Illuminate\Support\Str;
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
 Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
-Route::post('/search', [LandingPageController::class, 'search'])->name('search');
+Route::get('/search', [LandingPageController::class, 'search'])->name('search');
 Route::post('/newsletter', [NewsletterController::class, 'newsletter'])->name('newsletter');
 
 
