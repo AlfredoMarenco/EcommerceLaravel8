@@ -116,6 +116,15 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
+                    <li class="nav-item active">
+                        <a href="mailto:info@bajce.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+                            info@bajce.com</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 221
+                            1629</a>
+                    </li>
+                    
                 </ul>
                 
               </div><!-- /.navbar-collapse -->
