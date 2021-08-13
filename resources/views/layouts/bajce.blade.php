@@ -74,10 +74,8 @@
     <!-- End Facebook Pixel Code -->
 
 </head>
-
 <body>
     <header class="section-header fixed-top">
-
         <nav class="navbar d-none d-md-flex p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
@@ -85,7 +83,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTop4">
-
                     <ul class="navbar-nav m-auto">
                         <li>
                             <a href="mailto:info@bajce.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
@@ -127,7 +124,6 @@
                             <button class="btn btn-primary rounded-right" type="submit"><i
                                     class="fas fa-search"></i></button>
                         </div>
-
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
@@ -151,13 +147,11 @@
                     </span>
                 </div> <!-- row.// -->
             </section> <!-- header-main .// -->
-
             <nav class="navbar navbar-main navbar-expand pl-0">
                 <ul class="navbar-nav flex-wrap m-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                     </li>
@@ -175,31 +169,22 @@
                     </li>
                 </ul>
             </nav> <!-- navbar-main  .// -->
-
         </div> <!-- container.// -->
     </header> <!-- section-header.// -->
-
-
     <!--Form-->
     <main role="main" class="container">
-
         <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
             aria-hidden="true">
-
             <div class="modal-dialog" role="document">
-
                 <div class="modal-content">
-
                     <div class="modal-header">
                         <h5 id="tituloVentana">Solicita más información </h5>
                         <button class="close" data-dismiss="modal" aria-label="Cerrar">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
                     <div class="modal-body">
                         <div class="alert alert-succes">
-
                             <form class="contact" name="contact-form" method="post"
                                 action="{{ route('send.contact') }}">
                                 @csrf
@@ -226,24 +211,17 @@
                                 </div>
                                 <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
                                     style="margin-bottom: 10px;"></div>
-
                                 <button type="submit" class="btn btn-secondary">Enviar</button>
                             </form>
                         </div>
                     </div>
-
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
     </main>
-
     @yield('content')
 
     <!--========== NEWSLETTER =============-->
@@ -284,7 +262,6 @@
                             <img src="/images/misc/logo-bajce-bco.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <aside class="col-md-4 col-12">
                         <h5 class="title">Mapa del sitio</h5>
                         <div class="row">
@@ -293,35 +270,26 @@
                                     <li> <a href="{{ route('about') }}">Nosotros</a></li>
                                     <li> <a href="{{ route('catalogue.index') }}">Catálogos</a></li>
                                     <li> <a href="{{ route('shop.index') }}">Tienda</a></li>
-
                                 </ul>
                             </div>
                             <div class="col-6">
                                 <ul class="list-unstyled">
-
                                     <li> <a href="{{ route('blog.index') }}">Blog</a></li>
                                     <li> <a data-dismiss="modal" data-toggle="modal" data-target="#ventanaModal"
                                             href="">Contacto</a></li>
-
                                 </ul>
                             </div>
                         </div>
-
-
-
                         <p class="text-white-50 mb-2">Síguenos en redes sociales</p>
                         <div>
                             <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i
                                     class="fab fa-facebook-f"></i></a>
-
                             <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i
                                     class="fab fa-instagram"></i></a>
                             <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i
                                     class="fab fa-youtube"></i></a>
                         </div>
-
                     </aside>
-
                     <aside class="col-md-4 col-12">
                         <article class="mr-md-4">
                             <h5 class="title">Contáctanos</h5>
@@ -341,7 +309,6 @@
                     </aside>
                 </div> <!-- row.// -->
             </section> <!-- footer-top.// -->
-
             <section class="text-center">
                 <p class="text-white">
                     <a href="" style="text-decoration: none; color: #fff;">Política de privacidad</a>
@@ -354,9 +321,8 @@
                 <br>
             </section>
     </footer>
-    <!-- ========================= FOOTER END // ========================= -->
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+    <!-- ======================== FOOTER END // ========================= -->
+    {{-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -386,7 +352,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     @livewireScripts
     @include('sweetalert::alert')
