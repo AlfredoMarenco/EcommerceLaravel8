@@ -21,6 +21,10 @@ a:hover {
     text-decoration: none;
 }
 
+.nav-item {
+    font-weight: 600;
+}
+
 .img-wrap {
     text-align: center;
     display: block;
@@ -1677,14 +1681,25 @@ body {
     color: orange;
 }
 
+.bg-dark {
+    background-color: #007433 !important;
+    color: #fff;
+    
+}
+
+button.navbar-toggle.collapsed {
+    background: none !important;
+    border: none;
+    color: #fff;
+}
+
+button.navbar-toggle {
+    background: none !important;
+    border: none;
+    color: #fff;
+}
 
 /* end icons bajce */
-
-
-
-
-
-
 
 
 /*BTN AMARILLO*/
@@ -1697,13 +1712,21 @@ body {
 
 /* css agregado */
 
+@media (max-width: 700px) {
+    .disp {
+        display: none;
+    }
+    
+}
+
+
 #header-main {
     padding-left: 50px;
     padding-right: 50px;
     text-align: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     #header-main {
         padding-left: 0;
         padding-right: 0;
@@ -1732,12 +1755,12 @@ body {
 }
 
 .slider-home-banner {
-    margin-top: 170px;
+    margin-top: 160px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .slider-home-banner {
-        margin-top: 300px;
+        margin-top: 180px;
     }
 }
 

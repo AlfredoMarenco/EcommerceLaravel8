@@ -74,11 +74,56 @@
     <!-- End Facebook Pixel Code -->
 
 </head>
-
 <body>
+    
     <header class="section-header fixed-top">
-        <nav class="navbar d-none d-md-flex p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
-            <div class="container">
+        <!--Nueva-->
+        <nav class="navbar navbar-dark navbar-default bg-dark d-block d-sm-none pt-2">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="pt-2 pb-2">
+                <a href="/" class="brand-wrap">
+                    <img class="logo img-fluid" src="{{ asset('/images/misc/bajce-bco.png') }}">
+                </a> <!-- brand-wrap.// -->
+               
+                <!--<a class="navbar-brand" href="#"><img class="logo" src="/images/misc/logo-bajce-vrd.png"></a>-->
+              </div>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fas fa-bars"></i>
+                
+                
+              </button>
+          
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('shop.index') }}">Tienda</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
+                    </li>
+                </ul>
+                
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+<!-- END Nueva-->
+        <nav class="navbar d-none d-md-block p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -99,11 +144,11 @@
             </div> <!-- container //  -->
         </nav>
 
-        <div class="container">
+        <div class="container-fluid">
 
             <section id="header-main" class="header-main border-bottom">
                 <div class="row row-md">
-                    <div class="col-3 col-sm col-md col-lg  flex-grow-0">
+                    <div class="col-3 col-sm col-md col-lg disp  flex-grow-0">
                         <a href="/" class="brand-wrap">
                             <img class="logo" src="/images/misc/logo-bajce-vrd.png">
                         </a> <!-- brand-wrap.// -->
@@ -111,7 +156,7 @@
                     <div class="col-6 col-sm col-md col-lg flex-md-grow-0">
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header', 'method' => 'get']) !!}
+                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
                         @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
@@ -147,31 +192,38 @@
                         @endauth
                     </span>
                 </div> <!-- row.// -->
+                
             </section> <!-- header-main .// -->
-            <nav class="navbar navbar-main navbar-expand pl-0">
+
+           
+
+        </div> <!-- container.// -->
+        <div class="disp" style="background-color: #007433;">
+            <nav class="navbar navbar-dark  navbar-main navbar-expand pl-0">
                 <ul class="navbar-nav flex-wrap m-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active" >
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('shop.index') }}">Tienda</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
                 </ul>
             </nav> <!-- navbar-main  .// -->
-        </div> <!-- container.// -->
+        </div>
     </header> <!-- section-header.// -->
+    
     <!--Form-->
     <main role="main" class="container">
         <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
