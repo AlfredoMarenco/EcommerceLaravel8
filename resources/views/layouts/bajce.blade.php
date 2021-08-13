@@ -74,6 +74,7 @@
     <!-- End Facebook Pixel Code -->
 
 </head>
+
 <body>
     <header class="section-header fixed-top">
         <nav class="navbar d-none d-md-flex p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
@@ -110,7 +111,7 @@
                     <div class="col-6 col-sm col-md col-lg flex-md-grow-0">
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
+                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header', 'method' => 'get']) !!}
                         @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
