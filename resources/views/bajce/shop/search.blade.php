@@ -184,7 +184,7 @@
                                                 @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
                                                     <span class="badge badge-danger"> Nuevo </span>
                                                 @endif
-                                                <a href="{{ route('shop.product', $product) }}">
+                                                <a href="{{ route('catalogue.product', [$product, 1]) }}">
                                                     <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                                 </a>
                                             </div> <!-- img-wrap.// -->
@@ -221,7 +221,9 @@
                                                         <span class="tag"> {{ $product->garantia }} garantía </span>
                                                     @endif
                                                 </p>
-                                                <a class="btn btn-block btn-primary" href="{{ route('catalogue.product', [$product, 0]) }}"> Ver producto </a>
+                                                <a class="btn btn-block btn-primary" href="{{ route('catalogue.product', [$product, $catalogue->where('category_id',$product->categories->first()->id)->first()]) }}"> Ver producto </a>
+
+
                                             </figcaption>
                                         </figure>
                                     </div>

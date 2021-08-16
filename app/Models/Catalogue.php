@@ -16,4 +16,8 @@ class Catalogue extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function category(){
+        return $this->hasOne(Category::class);
+    }
 }
