@@ -1728,6 +1728,7 @@ button.navbar-toggle {
 
 @media (max-width: 700px) {
     #header-main {
+        
         padding-left: 0;
         padding-right: 0;
     }
@@ -1760,7 +1761,7 @@ button.navbar-toggle {
 
 @media (max-width: 700px) {
     .slider-home-banner {
-        margin-top: 180px;
+        margin-top: 200px;
     }
 }
 
@@ -1905,13 +1906,15 @@ button.navbar-toggle {
 }
 
 .contenido-tienda {
-    padding: 80px;
+    padding-top: 110px;
     color: #fff;
 }
 
 @media (max-width: 500px) {
     .contenido-tienda {
-        padding: 30px;
+        padding-top: 60px;
+        padding-left: 40px;
+        padding-right: 40px;
         padding-bottom: 50px;
         text-align: center;
     }
@@ -1937,10 +1940,11 @@ button.navbar-toggle {
 }
 
 #tienda {
-    background-image: url(/images/banners/BANNER-COMPRAS-1.jpg);
+    background-image: url(/images/banners/madera-rasgada.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 400px;
 }
 
 .botones-tienda {
