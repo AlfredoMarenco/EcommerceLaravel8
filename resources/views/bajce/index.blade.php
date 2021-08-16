@@ -763,7 +763,7 @@
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 draggable: true,
-                dots: '.dots',
+                /* dots: '.dots', */
                 arrows: {
                     prev: '.glider-prev',
                     next: '.glider-next'
@@ -789,7 +789,7 @@
                     }
                 }]
             })
-            
+
             slideAutoPaly(slider, '.glider');
 
             function slideAutoPaly(glider, selector, delay = 2000, repeat = true) {
