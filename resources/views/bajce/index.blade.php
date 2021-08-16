@@ -286,9 +286,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <img class="text-primary" src="{{ asset('images/icons/c-madera.svg') }}" width="85" alt="">
                         <h5 class="titulo-servicio pt-1">Cortes de madera</h5>
-                        <p class="p-servicio mb-3">A través de nuestras herramientas especializadas se realizan cortes
-                            lineales a la medida del largo y ancho que se requiera y así lograr ensambles exactos de los
-                            productos adquiridos en nuestras tiendas.
+                        <p class="p-servicio mb-3">A través de nuestras herramientas se realizan cortes lineales a la medida para lograr ensambles exactos.
                         </p>
                     </div>
 
@@ -303,10 +301,7 @@
                         <img class="text-primary" src="{{ asset('images/icons/optimizador.svg') }}" width="85"
                             alt="">
                         <h5 class="titulo-servicio">Optimizador de corte</h5>
-                        <p class="p-servicio mb-3">Contamos con un software que maximiza el rendimiento de los tableros
-                            de
-                            madera, calculando la cantidad de piezas necesarias según el diseño, reduciendo costos y
-                            tiempo.
+                        <p class="p-servicio mb-3">Software que maximiza el rendimiento de los tableros de madera, calculando la cantidad de piezas reduciendo costos y tiempo.
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -320,9 +315,7 @@
                         <img class="text-primary" src="{{ asset('images/icons/perforacion.svg') }}" width="85"
                             alt="">
                         <h5 class="titulo-servicio">Perforación de bisagras</h5>
-                        <p class="p-servicio mb-3">Genera el espacio necesario para la aplicación de bisagras. Ideal en
-                            la
-                            fabricación de puertas para muebles de baños, closet y armarios.</p>
+                        <p class="p-servicio mb-3">Genera el espacio necesario para la instalación de bisagras en la fabricación de puertas</p>
                     </div>
                 </div>
             </div>
