@@ -184,7 +184,7 @@
                                                 @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
                                                     <span class="badge badge-danger"> Nuevo </span>
                                                 @endif
-                                                <a href="{{ route('catalogue.product', [$product, 1]) }}">
+                                                <a href="{{ route('catalogue.product', [$product, $catalogue->where('category_id',$product->categories->first()->id)->first()]) }}">
                                                     <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                                 </a>
                                             </div> <!-- img-wrap.// -->
