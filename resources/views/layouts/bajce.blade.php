@@ -75,7 +75,7 @@
 
 </head>
 <body>
-    
+
     <header class="section-header fixed-top">
         <!--Nueva-->
         <nav class="navbar navbar-dark navbar-default bg-dark d-block d-sm-none pt-2">
@@ -85,16 +85,16 @@
                 <a href="/" class="brand-wrap">
                     <img class="logo img-fluid" src="{{ asset('/images/misc/bajce-bco.png') }}">
                 </a> <!-- brand-wrap.// -->
-               
+
                 <!--<a class="navbar-brand" href="#"><img class="logo" src="/images/misc/logo-bajce-vrd.png"></a>-->
               </div>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fas fa-bars"></i>
-                
-                
+
+
               </button>
-          
+
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
@@ -124,9 +124,9 @@
                         <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 221
                             1629</a>
                     </li>
-                    
+
                 </ul>
-                
+
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
@@ -165,7 +165,7 @@
                     <div class="col-6 col-sm col-md col-lg flex-md-grow-0">
                     </div> <!-- col.// -->
                     <div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-                        {!! Form::open(['route' => 'search', 'method' => 'post', 'class' => 'search-header']) !!}
+                        {!! Form::open(['route' => 'search', 'method' => 'get', 'class' => 'search-header']) !!}
                         @csrf
                         <div class="input-group">
                             {!! Form::text('search', null, ['class' => 'form-control']) !!}
@@ -201,10 +201,10 @@
                         @endauth
                     </span>
                 </div> <!-- row.// -->
-                
+
             </section> <!-- header-main .// -->
 
-           
+
 
         </div> <!-- container.// -->
         <div class="disp" style="background-color: #007433;">
@@ -232,7 +232,7 @@
             </nav> <!-- navbar-main  .// -->
         </div>
     </header> <!-- section-header.// -->
-    
+
     <!--Form-->
     <main role="main" class="container">
         <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
