@@ -67,8 +67,11 @@ class CategoryController extends Controller
      * @param  int  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
+        $request->validate([
+            'name' => 'required|unique:categories,name,'.$category->id
+        ]);
         $category->update($request->all());
 
         return redirect()->route('admin.categories.edit', $category)->with('updateSuccess', 'Categoria actualizada con exito!!');
