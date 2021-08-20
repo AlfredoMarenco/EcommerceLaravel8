@@ -156,7 +156,7 @@
                             </article> <!-- card-product .// -->
                         @endforeach
                     @endforeach
-                    {{ $products->links() }}
+                    {{-- {{ $products->links() }} --}}
                 </main> <!-- col.// -->
             </div>
         </div> <!-- container .//  -->
