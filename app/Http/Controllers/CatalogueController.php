@@ -59,11 +59,11 @@ class CatalogueController extends Controller
             }
 
             if (!$request->categories && $request->brands) {
-                $products = Product::whereBetween('price', [$request->price_min, $request->price_max])->whereIn('brand_id', $request->brands)->where('type', 1)->latest('id')->get();
+                $products = Product::whereIn('brand_id', $request->brands)->where('type', 1)->latest('id')->get();
             }
 
             if (!$request->categories && !$request->brands) {
-                $products =  Product::whereBetween('price', [$request->price_min, $request->price_max])->where('type', 1)->get();
+                $products =  Product::where('type', 1)->get();
             }
         } else {
             if ($request->categories && !$request->brands) {
