@@ -16,7 +16,7 @@
         <div class="card-body">
             {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'PUT']) !!}
             @include('admin.categories.partials.form')
-            {!! Form::submit('Editar nueva categoria', ['class' => 'btn btn-success btn-block']) !!}
+            {!! Form::submit('Editar categoria', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>
