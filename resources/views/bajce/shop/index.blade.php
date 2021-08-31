@@ -25,7 +25,7 @@
                                     Categorias
                                 </a>
                             </h6>
-                            <div class="filter-content collapse show" id="collapse_1">
+                            <div class="filter-content collapse" id="collapse_1">
                                 <div class="inner">
                                     @foreach ($categories as $category)
                                         @if ($category->products->where('type', 0)->count() > 0)
@@ -47,7 +47,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_2"> Marcas
                                 </a>
                             </h6>
-                            <div class="filter-content collapse show" id="collapse_2">
+                            <div class="filter-content collapse" id="collapse_2">
                                 <div class="inner">
                                     @foreach ($brands as $brand)
                                         @if ($brand->products->where('type', 0)->count() > 0)
@@ -70,7 +70,7 @@
                                     de
                                     precio </a>
                             </h6>
-                            <div class="filter-content collapse show" id="collapse_3">
+                            <div class="filter-content collapse" id="collapse_3">
                                 <div class="inner">
                                     {{-- <input type="range" class="custom-range" min="0" max="100" name=""> --}}
                                     <div class="form-row">
