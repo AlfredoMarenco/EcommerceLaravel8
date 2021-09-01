@@ -293,7 +293,7 @@
     <!-- ========================= SECTION  ========================= -->
     <section id="productos-sugeridos-2" class="section-name border-top padding-y">
         <div class="container">
-            <h6>Política de privacidad</h6>
+            <h6><a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" download>Política de privacidad</a></h6>
             <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento
                 podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que
                 para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a
