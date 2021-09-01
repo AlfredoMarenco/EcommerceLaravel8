@@ -373,11 +373,11 @@
             </section> <!-- footer-top.// -->
             <section class="text-center">
                 <p class="text-white">
-                    <a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" download style="text-decoration: none; color: #fff;">Política de privacidad</a>
+                    <a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" target="_blank" style="text-decoration: none; color: #fff;">Política de privacidad</a>
                     <span>
                         -
                     </span>
-                    <a href="{{ asset('documents/terminos_y_condiciones.pdf') }}" download style="text-decoration: none; color: #fff;">Términos de uso</a>
+                    <a href="{{ asset('documents/terminos_y_condiciones.pdf') }}" target="_blank" style="text-decoration: none; color: #fff;">Términos de uso</a>
                 </p>
                 <p class="text-muted"> &copy 2021 Grupo Bajce, Todos los derechos reservados </p>
                 <br>
