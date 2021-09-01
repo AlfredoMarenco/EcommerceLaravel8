@@ -116,7 +116,7 @@
 
                 <main class="col-md-10 mt-3">
                     <div class="row">
-                        <h2>Tienda en fase de pruebas, los articulos no estan disponibles</h2>
+                        <h2 class="mx-auto">Tienda en fase de pruebas, los articulos no estan disponibles</h2>
                         @if ($products->count() > 0)
                             @foreach ($products as $product)
                                 <div class="col-md-3">
