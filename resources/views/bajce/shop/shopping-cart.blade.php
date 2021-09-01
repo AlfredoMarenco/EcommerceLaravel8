@@ -246,11 +246,11 @@
                                             <dd class="text-right">${{ Cart::discount(2, '.', ',') }} MXN</dd>
                                         @endif
                                     </dl>
-                                    <dl class="dlist-align">
+                                    {{-- <dl class="dlist-align">
                                         <dt>Envio:</dt>
                                         <dd class="text-right h5"><strong>${{ Cart::instance('default')->tax() }}
                                                 MXN</strong></dd>
-                                    </dl>
+                                    </dl> --}}
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
                                         <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }}
