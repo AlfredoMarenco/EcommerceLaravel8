@@ -115,8 +115,8 @@
                 </aside> <!-- col.// -->
 
                 <main class="col-md-10 mt-3">
+                    <h2 class="mx-auto text-center">Próximamente</h2>
                     <div class="row">
-                        <h2 class="mx-auto">Próximamente</h2>
                         @if ($products->count() > 0)
                             @foreach ($products as $product)
                                 <div class="col-md-3">
