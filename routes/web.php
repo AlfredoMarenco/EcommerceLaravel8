@@ -16,6 +16,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -181,3 +182,7 @@ Route::post('/reset-password', function (Request $request) {
 Route::post('sendcontact', function () {
     return redirect()->route('index')->withSuccess('Información enviada con éxito!');
 })->name('send.contact');
+
+Route::get('link', function () {
+    Artisan::call('storage:link');
+});
