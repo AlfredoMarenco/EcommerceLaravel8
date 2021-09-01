@@ -40,8 +40,8 @@
                                 </li>
                             </ul>
                             <small class="label-rating text-muted">{{ $product->reviews_count }} Opiniones</small>
-                            <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
-                                Mérida </small>
+{{--                             <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
+                                Mérida </small> --}}
                         </div>
 
                         @if ($product->discount)

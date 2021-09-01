@@ -44,6 +44,18 @@
             <small class="text-danger">{{ $message }}</small>
         @enderror
     </div>
+{{--     <div class="form-group col-md-4">
+        {!! Form::label('envio', 'Costo de envío') !!}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            {!! Form::number('envio', null, ['class' => 'form-control', 'placeholder' => 'Costo de envios', 'min' => '0', 'step' => '0.01']) !!}
+        </div>
+        @error('envio')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+    </div> --}}
     <div class="form-group col-md-4">
         {!! Form::label('brand_id', 'Marca') !!}
         {!! Form::select('brand_id', $brands, null, ['class' => 'form-control']) !!}

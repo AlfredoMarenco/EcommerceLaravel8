@@ -247,6 +247,11 @@
                                         @endif
                                     </dl>
                                     <dl class="dlist-align">
+                                        <dt>Envio:</dt>
+                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->tax() }}
+                                                MXN</strong></dd>
+                                    </dl>
+                                    <dl class="dlist-align">
                                         <dt>Total:</dt>
                                         <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }}
                                                 MXN</strong></dd>
