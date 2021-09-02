@@ -252,7 +252,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nombre</label>
-                                    <input type="name" name="nombre" class="form-control" id="exampleFormControlInput1"
+                                    <input type="name" name="name" class="form-control" id="exampleFormControlInput1"
                                         required="required" placeholder="Escribe tu nombre">
                                 </div>
                                 <div class="form-group">
@@ -262,12 +262,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">Teléfono</label>
-                                    <input type="tel" name="telefono" class="form-control" id="phone"
+                                    <input type="tel" name="phone" class="form-control" id="phone"
                                         pattern="[0-9]{10}" required="required" placeholder="Escribe tu teléfono">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Mensaje</label>
-                                    <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1"
+                                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1"
                                         required="required" rows="3"
                                         placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
                                 </div>
@@ -360,7 +360,7 @@
                                 {{-- <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente
                                     C.P. 97137
                                 </li> --}}
-                                <li> <i class="icon fa fa-envelope"> </i> info@bajce.com</li>
+                                <li> <i class="icon fa fa-envelope"> </i> ventasonline@bajce.com</li>
                                 <li> <i class="icon fa fa-phone"> </i> (999) 221 1629
                                 </li>
                                 <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm

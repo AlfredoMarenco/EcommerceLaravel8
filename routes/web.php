@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-
-
+use App\Mail\Contact;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -179,8 +179,8 @@ Route::post('/reset-password', function (Request $request) {
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
-Route::post('sendcontact', function () {
-    return redirect()->route('index')->withSuccess('Información enviada con éxito!');
+Route::post('sendcontact', function (Request $request) {
+    Mail::to('info@bajce.com')->send(new Contact($request));
 })->name('send.contact');
 
 Route::get('link', function () {
