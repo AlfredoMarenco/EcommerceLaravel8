@@ -187,3 +187,7 @@ Route::post('sendcontact', function (Request $request) {
 Route::get('link', function () {
     Artisan::call('storage:link');
 });
+
+Route::get('cache', function () {
+    Artisan::call('config:clear');
+});
