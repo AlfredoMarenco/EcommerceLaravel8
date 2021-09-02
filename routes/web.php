@@ -181,6 +181,7 @@ Route::post('/reset-password', function (Request $request) {
 
 Route::post('sendcontact', function (Request $request) {
     Mail::to('info@bajce.com')->send(new Contact($request));
+    return redirect()->back();
 })->name('send.contact');
 
 Route::get('link', function () {
