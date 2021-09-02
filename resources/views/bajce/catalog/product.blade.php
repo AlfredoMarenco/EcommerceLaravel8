@@ -1,5 +1,14 @@
 @extends('layouts.bajce')
-@section('title', 'Cátalogo')
+@section('title', $product->name)
+@section('titleFacebook', $product->name)
+
+@section('imageFacebook', Storage::url($product->image->url))
+
+@section('titleTwitter', $product->name)
+@section('imageTwitter', Storage::url($product->image->url))
+
+@section('titleMeta', $product->name)
+@section('imageMeta', Storage::url($product->image->url))
 @section('content')
 
 
