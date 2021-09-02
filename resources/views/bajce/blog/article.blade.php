@@ -1,5 +1,8 @@
 @extends('layouts.bajce')
-@section('title', 'Blog')
+@section('title', $post->title )
+@section('extractPost', $post->extract)
+@section('imagePost', Storage::url($post->image->url) )
+
 @section('content')
 
     <section id="interior-entrada">

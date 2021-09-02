@@ -22,6 +22,11 @@
 
     <title>@yield('title') | Grupo Bajce</title>
 
+    <!--FACEBOOK-->
+    <meta property="og:title" content=@yield('titlePost') />
+    <meta property="og:description" content=@yield('extractPost') />
+    <meta property="og:image" content=@yield('imagePost') />
+
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
     <!-- jQuery -->
@@ -74,63 +79,68 @@
     <!-- End Facebook Pixel Code -->
 
 </head>
+
 <body>
 
     <header class="section-header fixed-top">
         <!--Nueva-->
         <nav class="navbar navbar-dark navbar-default bg-dark d-block d-sm-none pt-2">
             <div class="container-fluid">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="pt-2 pb-2">
-                <a href="/" class="brand-wrap">
-                    <img class="logo img-fluid" src="{{ asset('/images/misc/bajce-bco.png') }}">
-                </a> <!-- brand-wrap.// -->
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="pt-2 pb-2">
+                    <a href="/" class="brand-wrap">
+                        <img class="logo img-fluid" src="{{ asset('/images/misc/bajce-bco.png') }}">
+                    </a> <!-- brand-wrap.// -->
 
-                <!--<a class="navbar-brand" href="#"><img class="logo" src="/images/misc/logo-bajce-vrd.png"></a>-->
-              </div>
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <i class="fas fa-bars"></i>
+                    <!--<a class="navbar-brand" href="#"><img class="logo" src="/images/misc/logo-bajce-vrd.png"></a>-->
+                </div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
 
 
-              </button>
+                </button>
 
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav ">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('shop.index') }}">Tienda</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a href="mailto:info@bajce.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
-                            info@bajce.com</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 221
-                            1629</a>
-                    </li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogos</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('shop.index') }}">Tienda</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" data-toggle="modal"
+                                data-target="#ventanaModal">Contacto</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="mailto:info@bajce.com" class="nav-link"> <i
+                                    class="fas fa-envelope-open-text"></i>
+                                info@bajce.com</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999)
+                                221
+                                1629</a>
+                        </li>
 
-                </ul>
+                    </ul>
 
-              </div><!-- /.navbar-collapse -->
+                </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
-          </nav>
-<!-- END Nueva-->
+        </nav>
+        <!-- END Nueva-->
         <nav class="navbar d-none d-md-block p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
@@ -140,12 +150,14 @@
                 <div class="collapse navbar-collapse" id="navbarTop4">
                     <ul class="navbar-nav m-auto">
                         <li>
-                            <a href="mailto:info@bajce.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+                            <a href="mailto:info@bajce.com" class="nav-link"> <i
+                                    class="fas fa-envelope-open-text"></i>
                                 info@bajce.com</a>
                         </li>
                         <span class="nav-link">|</span>
                         <li>
-                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999) 221
+                            <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999)
+                                221
                                 1629</a>
                         </li>
                     </ul> <!-- list-inline //  -->
@@ -187,7 +199,8 @@
                             <i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="col col-lg col-md flex-grow-0">
-                        <a href="{{ route('user.profile') }}" class="nav-link"> <i class="fa fa-user"></i> </a>
+                        <a href="{{ route('user.profile') }}" class="nav-link"> <i class="fa fa-user"></i>
+                        </a>
                     </div>
                     <span>
                         @auth
@@ -210,7 +223,7 @@
         <div class="disp" style="background-color: #007433;">
             <nav class="navbar navbar-dark  navbar-main navbar-expand pl-0">
                 <ul class="navbar-nav flex-wrap m-auto">
-                    <li class="nav-item active" >
+                    <li class="nav-item active">
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item active">
@@ -257,13 +270,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Email</label>
-                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput2"
-                                        required="required" placeholder="Escribe tu correo electrónico">
+                                    <input type="email" name="email" class="form-control"
+                                        id="exampleFormControlInput2" required="required"
+                                        placeholder="Escribe tu correo electrónico">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">Teléfono</label>
-                                    <input type="tel" name="phone" class="form-control" id="phone"
-                                        pattern="[0-9]{10}" required="required" placeholder="Escribe tu teléfono">
+                                    <input type="tel" name="phone" class="form-control" id="phone" pattern="[0-9]{10}"
+                                        required="required" placeholder="Escribe tu teléfono">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Mensaje</label>
@@ -373,11 +387,13 @@
             </section> <!-- footer-top.// -->
             <section class="text-center">
                 <p class="text-white">
-                    <a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" target="_blank" style="text-decoration: none; color: #fff;">Política de privacidad</a>
+                    <a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" target="_blank"
+                        style="text-decoration: none; color: #fff;">Política de privacidad</a>
                     <span>
                         -
                     </span>
-                    <a href="{{ asset('documents/terminos_y_condiciones.pdf') }}" target="_blank" style="text-decoration: none; color: #fff;">Términos de uso</a>
+                    <a href="{{ asset('documents/terminos_y_condiciones.pdf') }}" target="_blank"
+                        style="text-decoration: none; color: #fff;">Términos de uso</a>
                 </p>
                 <p class="text-muted"> &copy 2021 Grupo Bajce, Todos los derechos reservados </p>
                 <br>
