@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-@section('title', $post->title )
+@section('titlePost', $post->title )
 @section('extractPost', $post->extract)
 @section('imagePost', Storage::url($post->image->url) )
 
