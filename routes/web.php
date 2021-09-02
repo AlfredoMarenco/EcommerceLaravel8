@@ -68,9 +68,9 @@ Route::prefix('blog')->group(function () {
 //Rutas del carrito de compras
 Route::prefix('/carrito')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
-    Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
-    Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
-    Route::post('/addToCartCheckout/{id}', [ShopController::class, 'addItemToCartCheckout'])->name('cart.addItemToCheckout');
+    Route::post('/addToCart/{product}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
+    Route::post('/addsToCart/{product}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::post('/addToCartCheckout/{product}', [ShopController::class, 'addItemToCartCheckout'])->name('cart.addItemToCheckout');
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');

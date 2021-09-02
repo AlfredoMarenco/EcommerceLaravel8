@@ -1,5 +1,16 @@
 @extends('layouts.bajce')
-@section('title', 'Tienda')
+@section('title', $product->name)
+@section('titleFacebook', $product->name)
+
+@section('imageFacebook', Storage::url($product->image->url))
+
+@section('titleTwitter', $product->name)
+@section('imageTwitter', Storage::url($product->image->url))
+
+@section('titleMeta', $product->name)
+@section('imageMeta', Storage::url($product->image->url))
+
+
 @section('content')
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content bg-white padding-y">
@@ -40,7 +51,7 @@
                                 </li>
                             </ul>
                             <small class="label-rating text-muted">{{ $product->reviews_count }} Opiniones</small>
-{{--                             <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
+                            {{-- <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> Envío gratis en
                                 Mérida </small> --}}
                         </div>
 
@@ -79,7 +90,8 @@
                                 </div>
                                 <div class="form-group form-inline">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-shopping-cart"></i><span class="text">Añadir al carrito</span>
+                                        <i class="fas fa-shopping-cart"></i><span class="text">Añadir al
+                                            carrito</span>
                                     </button>
                         </form>
                         <form action="{{ route('cart.addItems', $product) }}" method="POST">
@@ -178,7 +190,8 @@
                         @foreach ($reviews as $review)
                             @if ($review->status == 1)
                                 <div class="opinion">
-                                    <h5 class="mt-4">{{ $review->user->name }} {{ $review->user->last_name }}</h5>
+                                    <h5 class="mt-4">{{ $review->user->name }}
+                                        {{ $review->user->last_name }}</h5>
                                     <p>{{ $review->comment }}</p>
                                     <div class="rating-wrap my-3">
                                         <ul class="rating-stars">
@@ -254,7 +267,8 @@
                                 <hr>
                                 <form action="{{ route('cart.addItem', $product) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
+                                    <button type="submit" class="btn btn-block btn-primary"><i
+                                            class="fas fa-cart-plus"></i>
                                         Añadir al carrito </button>
                                 </form>
                                 <a class="btn btn-success mt-2 btn-block" href="{{ route('shop.product', $product) }}">

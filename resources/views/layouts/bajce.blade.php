@@ -27,19 +27,19 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.bajce.com/">
     <meta property="og:image" content=@yield('imageFacebook')>
-    <meta property="og:description" content="Blog | Grupo Bajce">
+    <meta property="og:description" content="Grupo Bajce">
     <meta property="og:site_name" content="Grupo Bajce">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content=@yield('titleTwitter')>
-    <meta name="twitter:description" content="Blog | Grupo Bajce">
+    <meta name="twitter:description" content="Grupo Bajce">
     <meta name="twitter:creator" content=@yield('authTwitter')>
     <meta name="twitter:image" content=@yield('imageTwitter')>
 
     <!-- Schema.org para Google+ -->
     <meta itemprop="name" content=@yield('titleMeta')>
-    <meta itemprop="description" content="Blog | Grupo Bajce">
+    <meta itemprop="description" content="Grupo Bajce">
     <meta itemprop="image" content=@yield('imageMeta')>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">

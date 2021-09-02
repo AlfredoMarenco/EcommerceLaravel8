@@ -82,4 +82,10 @@ class Product extends Model
             return 5;
         }
     }
+
+    //Asignamos el slug como key para url amigables
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }

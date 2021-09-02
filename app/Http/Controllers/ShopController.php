@@ -59,9 +59,9 @@ class ShopController extends Controller
     }
 
     //Función para agregar un producto de 1 en 1
-    public function addItemToCart($product)
+    public function addItemToCart(Product $product)
     {
-        $product = Product::find($product);
+        /* $product = Product::find($product); */
         if ($product->discount) {
             Cart::instance('default')->add([
                 'id' => $product->id,
@@ -85,9 +85,9 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar n cantidad de productos en una sola peticion
-    public function addItemsToCart(Request $request, $product)
+    public function addItemsToCart(Request $request,Product $product)
     {
-        $product = Product::find($product);
+        /* $product = Product::find($product); */
         if ($product->discount) {
             Cart::instance('default')->add([
                 'id' => $product->id,
@@ -117,9 +117,9 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar un productos a la wishlist
-    public function addItemToWishlist(Request $request, $product)
+    public function addItemToWishlist(Request $request,Product $product)
     {
-        $product = Product::find($product);
+        /* $product = Product::find($product); */
         if ($product->discount) {
             Cart::instance('wishlist')->add([
                 'id' => $product->id,
