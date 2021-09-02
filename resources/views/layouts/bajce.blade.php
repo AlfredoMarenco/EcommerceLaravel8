@@ -22,10 +22,14 @@
 
     <title>@yield('title') | Grupo Bajce</title>
 
-    <!--FACEBOOK-->
-    <meta property="og:title" content=@yield('titlePost') />
-    <meta property="og:description" content=@yield('extractPost') />
-    <meta property="og:image" content=@yield('imagePost') />
+    <meta http-equiv="Content-Type" content="text/html; ISO-8859-1">
+    <META NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">
+    <META NAME="AUTHOR" CONTENT=@yield('authPost')>
+    <META NAME="REPLY-TO" CONTENT="info@bajce.com">
+    <LINK REV="made" href="mailto:info@bajce.com">
+    <META NAME="DESCRIPTION" CONTENT=@yield('extractPost')>
+    <META NAME="Resource-type" CONTENT="Journal">
+    <META NAME="robots" content="ALL">
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
