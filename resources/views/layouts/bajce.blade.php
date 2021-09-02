@@ -27,20 +27,20 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://www.bajce.com/" />
     <meta property="og:image" content=@yield('imageFacebook') />
-    <meta property="og:description" content="Visita nuestro blog" />
+    <meta property="og:description" content=@yield('extractFacebook') />
     <meta property="og:site_name" content="Grupo Bajce" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content=@yield('titleTwitter') />
-    <meta name="twitter:description" content="Visita nuestro blog">
+    <meta name="twitter:description" content=@yield('extractTwitter')>
     <meta name="twitter:creator" content=@yield('authTwitter')>
     <meta name="twitter:image" content=@yield('imageTwitter')>
 
     <!-- Schema.org para Google+ -->
-    {{-- <meta itemprop="name" content="Nombre de la página web">
-    <meta itemprop="description" content="Descripción de la página">
-    <meta itemprop="image" content="http://www.midominio.com/imagen.jpg"> --}}
+    <meta itemprop="name" content=@yield('titleMeta')>
+    <meta itemprop="description" content=@yield('extractMeta')>
+    <meta itemprop="image" content=@yield('imageMeta')>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 
