@@ -1,12 +1,15 @@
 @extends('layouts.bajce')
 @section('title', $post->title)
 @section('titleFacebook', $post->subtitle)
+@section('extractFacebook', $post->extract)
 @section('imageFacebook', Storage::url($post->image->url))
 
 @section('titleTwitter', $post->subtitle)
+@section('extractTwitter', $post->extract)
 @section('imageTwitter', Storage::url($post->image->url))
 
 @section('titleMeta', $post->subtitle)
+@section('extractMeta', $post->extract)
 @section('imageMeta', Storage::url($post->image->url))
 
 @section('content')
