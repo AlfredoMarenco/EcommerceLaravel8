@@ -37,7 +37,8 @@
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="suburb">Colonia</label>
-                                        <input type="text" class="form-control" name="suburb" placeholder="Col. Los heroes">
+                                        <input type="text" class="form-control" name="suburb"
+                                            placeholder="Col. Los heroes">
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="state">Estado</label>
@@ -104,8 +105,10 @@
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
-
-                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Su transacción está protegida por nuestros protocolos de seguridad SSL, al presionar "Comprar" será redireccionado al portal de confirmación de su banco para confirmar la compra.</p>
+                                <input type="hidden" name="envio" value="{{ session('envio') }}">
+                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Su transacción está protegida
+                                    por nuestros protocolos de seguridad SSL, al presionar "Comprar" será redireccionado al
+                                    portal de confirmación de su banco para confirmar la compra.</p>
                                 <button class="subscribe btn btn-primary btn-block" id="pay-button"> Comprar
                                 </button>
                             </form>
@@ -134,7 +137,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <p class="text-center mb-3">
-                                    <img  class="img-fluid" src="{{ asset('images/openpay/openpay_color.png') }}" >
+                                    <img class="img-fluid" src="{{ asset('images/openpay/openpay_color.png') }}">
                                 </p>
                                 @if (Cart::instance('default')->count() > 0)
                                     <dl class="dlist-align">
@@ -143,7 +146,8 @@
                                     <dl class="dlist-align">
                                         <dt>Precio total:</dt>
                                         @if (Cart::discount() < 0)
-                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN
+                                            </dd>
                                         @else
                                             @php
                                                 $subtotal = str_replace(',', '', Cart::instance('default')->subtotal());
@@ -165,13 +169,32 @@
                                         @endif
                                     </dl>
                                     <dl class="dlist-align">
+                                        <dt>Envío:</dt>
+                                        @php
+                                            $envio = 0;
+                                            foreach (Cart::instance('default')->content() as $product) {
+                                                $envio = $envio + $product->model->envio * $product->qty;
+                                            }
+                                            session()->put('envio', (float) $envio);
+                                        @endphp
+                                        <dd class="text-right">${{ number_format($envio, 2) }}
+                                            MXN</dd>
+                                    </dl>
+                                    <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right  h5"><strong>${{ Cart::instance('default')->total() }}
-                                                MXN</strong></dd>
+                                        <dd class="text-right h5">
+                                            @php
+                                                $total = str_replace(',', '', Cart::instance('default')->total());
+
+                                                $total = $total + $envio;
+                                            @endphp
+                                            <strong>${{ number_format($total, 2) }}
+                                                MXN</strong>
+                                        </dd>
                                     </dl>
                                     <hr>
                                 @endif
-                               {{--  @if (Cart::instance('wishlist')->count() > 0)
+                                {{-- @if (Cart::instance('wishlist')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Cotizacion de productos del catálogo</h6>
                                     </dl>
@@ -243,6 +266,5 @@
                 $("#pay-button").prop("disabled", false);
             };
         });
-
     </script>
 @endsection

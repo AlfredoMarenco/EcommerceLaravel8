@@ -111,6 +111,7 @@ return array(
     'App\\Http\\Requests\\SliderRequest' => $baseDir . '/app/Http/Requests/SliderRequest.php',
     'App\\Http\\Requests\\StorePostRequest' => $baseDir . '/app/Http/Requests/StorePostRequest.php',
     'App\\Http\\Requests\\UsersRequest' => $baseDir . '/app/Http/Requests/UsersRequest.php',
+    'App\\Mail\\Contact' => $baseDir . '/app/Mail/Contact.php',
     'App\\Mail\\OrderCreated' => $baseDir . '/app/Mail/OrderCreated.php',
     'App\\Mail\\OrderFailed' => $baseDir . '/app/Mail/OrderFailed.php',
     'App\\Mail\\OrderShipped' => $baseDir . '/app/Mail/OrderShipped.php',

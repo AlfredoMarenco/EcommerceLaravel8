@@ -77,7 +77,7 @@ class PaymentController extends Controller
         //Creamos la orden en la base de datos con un estado de process que indicara que no esta aun terminada la transaccion
         if ($request->session()->has('coupon')) { //Validamos que exista en la session el cupon para aplicar a la orden cuando sea generada
             $order = Order::create([
-                'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+                'amount' => (float)str_replace(',', '', Cart::total()) + $request->envio, //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
                 'id_gateway' => null,
                 'status' => 'charge_pending',
                 'type' => 'card',
@@ -87,7 +87,7 @@ class PaymentController extends Controller
             ]);
         } else {
             $order = Order::create([
-                'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+                'amount' => (float)str_replace(',', '', Cart::total()) + $request->envio, //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
                 'id_gateway' => null,
                 'status' => 'charge_pending',
                 'type' => 'card',
@@ -104,6 +104,7 @@ class PaymentController extends Controller
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
                     'price' => $product->price,
+                    'envio' => $product->model->envio,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
                 ]
@@ -128,10 +129,12 @@ class PaymentController extends Controller
         ];
 
         //Creacion del cargo en el sistema de openpay
+        $total = (float)str_replace(',', '', Cart::total());
+        $total = (float)$total + (float)$request->envio;
         $chargeData = [
             'method' => 'card',
             'source_id' => $request->token_id,
-            'amount' =>  '' . str_replace(',', '', Cart::total()),
+            'amount' =>  '' . $total,
             'currency' => 'MXN',
             /* 'confirm' => false, */
             'description' => config('app.name') . '-' . $order->id,
@@ -157,8 +160,15 @@ class PaymentController extends Controller
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $charge = $openpay->charges->get($idOrderOpenPay);
         $idOrder = $charge->serializableData["order_id"];
-        /* $validationCharge = $charge->status; */
+        $validationCharge = $charge->status;
+        /* return $validationCharge; */
+
         $orderUpdate = Order::find($idOrder);
+        if ($validationCharge == 'completed') {
+            $orderUpdate->status = 'charge.succeeded';
+        } else {
+            $orderUpdate->status = 'charge.failed';
+        }
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
         return redirect()->route('user.profile');

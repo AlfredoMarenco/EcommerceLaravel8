@@ -15,6 +15,8 @@
                                         <th scope="col">Producto</th>
                                         <th scope="col" width="5">Cantidad</th>
                                         <th scope="col" width="0" class="text-center">Precio</th>
+                                        <th scope="col" width="0" class="text-center">Envío</th>
+                                        <th scope="col" width="0" class="text-center"></th>
                                         <!--<th scope="col"  width="-20">en blanco</th>-->
                                     </tr>
                                 </thead>
@@ -48,24 +50,45 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <div class="row text-center">
-                                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <var
-                                                                class="price">${{ number_format($product->price, 2) }}</var>
-                                                            <a href="{{ route('cart.remove', $product->rowId) }}"><small
-                                                                    class="text-muted">Eliminar </small></a>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <a href="{{ route('shop.product', $product->model->id) }}"
+                                                    <div class=" text-center">
+                                                        <var
+                                                            class="price">${{ number_format($product->model->price, 2) }}</var>
+                                                        {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <a href="{{ route('shop.product', $product->model->name) }}"
                                                                 class="btn btn-md btn-light mt-2">Detalles</a>
+                                                        </div> --}}
+                                                    </div>
+                                                </div> <!-- price-wrap .// -->
+                                            </td>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <div class=" text-center">
+                                                        <var
+                                                            class="price">${{ number_format($product->model->envio, 2) }}</var>
+                                                        <a href="{{ route('cart.remove', $product->rowId) }}">
+                                                            <small class="text-muted">Eliminar </small></a>
+                                                        {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                class="btn btn-md btn-light mt-2">Detalles</a>
+                                                        </div> --}}
+                                                    </div>
+                                                </div> <!-- price-wrap .// -->
+                                            </td>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <div class="___class_+?26___">
+                                                        <div class="2">
+                                                            <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
                                                 </div> <!-- price-wrap .// -->
                                             </td>
+
                                             <!--   <td class="text-right">
-                                                                                        <a href="{{ route('shop.product', $product->model->id) }}"
-                                                                                            class="btn btn-block btn-light">Detalles</a>
-                                                                                    </td> -->
+                                                                                                                    <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                                                                        class="btn btn-block btn-light">Detalles</a>
+                                                                                                                </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -89,7 +112,7 @@
                                                             $cats_product = $product->model->categories;
                                                             foreach ($cats_product as $cat_product) {
                                                                 $cat_id = \App\Models\Catalogue::where('category_id', $cat_product->id)->first();
-                                                                 /* dd($cat_id); */
+                                                                /* dd($cat_id); */
                                                                 if ($cat_id) {
                                                                     $cat_id = $cat_id->id;
                                                                     break;
@@ -123,7 +146,7 @@
                                                                     class="text-muted">Eliminar </small></a>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <a href="{{ route('catalogue.product', [$product->model->id, $cat_id]) }}"
+                                                            <a href="{{ route('catalogue.product', [$product->model->name, $cat_id]) }}"
                                                                 class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
@@ -160,8 +183,8 @@
                                                             <h5 class="modal-title" id="exampleModalLabel">Informacion de
                                                                 contacto
                                                             </h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
@@ -223,9 +246,10 @@
                                         <h6>Total a pagar en linea</h6>
                                     </dl>
                                     <dl class="dlist-align">
-                                        <dt>Precio total:</dt>
+                                        <dt>Subtotal total:</dt>
                                         @if (Cart::discount() < 0)
-                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN
+                                            </dd>
                                         @else
                                             @php
                                                 $subtotal = str_replace(',', '', Cart::instance('default')->subtotal());
@@ -246,15 +270,29 @@
                                             <dd class="text-right">${{ Cart::discount(2, '.', ',') }} MXN</dd>
                                         @endif
                                     </dl>
-                                    {{-- <dl class="dlist-align">
-                                        <dt>Envio:</dt>
-                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->tax() }}
-                                                MXN</strong></dd>
-                                    </dl> --}}
+                                    <dl class="dlist-align">
+                                        <dt>Envío:</dt>
+                                        @php
+                                            $envio = 0;
+                                            foreach (Cart::instance('default')->content() as $product) {
+                                                $envio = $envio + $product->model->envio * $product->qty;
+                                            }
+                                            session()->put('envio', (float) $envio);
+                                        @endphp
+                                        <dd class="text-right">${{ number_format($envio, 2) }}
+                                            MXN</dd>
+                                    </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right h5"><strong>${{ Cart::instance('default')->total() }}
-                                                MXN</strong></dd>
+                                        <dd class="text-right h5">
+                                            @php
+                                                $total = str_replace(',', '', Cart::instance('default')->total());
+
+                                                $total = $total + $envio;
+                                            @endphp
+                                            <strong>${{ number_format($total, 2) }}
+                                                MXN</strong>
+                                        </dd>
                                     </dl>
                                     <hr>
                                 @endif
@@ -355,7 +393,8 @@
                                 <hr>
                                 <form action="{{ route('cart.addItem', $product) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
+                                    <button type="submit" class="btn btn-block btn-primary"><i
+                                            class="fas fa-cart-plus"></i>
                                         Añadir al carrito </button>
                                 </form>
 

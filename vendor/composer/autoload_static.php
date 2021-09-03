@@ -1020,6 +1020,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'App\\Http\\Requests\\SliderRequest' => __DIR__ . '/../..' . '/app/Http/Requests/SliderRequest.php',
         'App\\Http\\Requests\\StorePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StorePostRequest.php',
         'App\\Http\\Requests\\UsersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UsersRequest.php',
+        'App\\Mail\\Contact' => __DIR__ . '/../..' . '/app/Mail/Contact.php',
         'App\\Mail\\OrderCreated' => __DIR__ . '/../..' . '/app/Mail/OrderCreated.php',
         'App\\Mail\\OrderFailed' => __DIR__ . '/../..' . '/app/Mail/OrderFailed.php',
         'App\\Mail\\OrderShipped' => __DIR__ . '/../..' . '/app/Mail/OrderShipped.php',
