@@ -192,6 +192,6 @@ Route::get('cache', function () {
     Artisan::call('config:clear');
 });
 
-Route::get('cache', function () {
+Route::get('migrate', function () {
     Artisan::call('migrate');
 });
