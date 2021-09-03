@@ -104,7 +104,7 @@ class PaymentController extends Controller
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
                     'price' => $product->price,
-                    'envio' => $product->model->envio,
+                    'envio' => 0,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
                 ]
@@ -129,12 +129,10 @@ class PaymentController extends Controller
         ];
 
         //Creacion del cargo en el sistema de openpay
-        $total = (float)str_replace(',', '', Cart::total());
-        $total = (float)$total + (float)$request->envio;
         $chargeData = [
             'method' => 'card',
             'source_id' => $request->token_id,
-            'amount' =>  '' . $total,
+            'amount' =>  '' . str_replace(',', '', Cart::total()),
             'currency' => 'MXN',
             /* 'confirm' => false, */
             'description' => config('app.name') . '-' . $order->id,
