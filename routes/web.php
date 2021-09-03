@@ -183,7 +183,7 @@ Route::post('sendcontact', function (Request $request) {
     Mail::to('info@bajce.com')->send(new Contact($request));
     return redirect()->back();
 })->name('send.contact');
-
+/*
 Route::get('link', function () {
     Artisan::call('storage:link');
 });
@@ -194,4 +194,4 @@ Route::get('cache', function () {
 
 Route::get('migrate', function () {
     Artisan::call('migrate');
-});
+}); */

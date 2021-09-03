@@ -232,6 +232,7 @@ class PaymentController extends Controller
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
                     'price' => $product->price,
+                    'envio' => 0,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
                 ]
