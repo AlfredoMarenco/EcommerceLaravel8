@@ -86,9 +86,9 @@
                                             </td>
 
                                             <!--   <td class="text-right">
-                                                                                                                    <a href="{{ route('shop.product', $product->model->name) }}"
-                                                                                                                        class="btn btn-block btn-light">Detalles</a>
-                                                                                                                </td> -->
+                                                                                                                        <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                                                                            class="btn btn-block btn-light">Detalles</a>
+                                                                                                                    </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
@@ -271,7 +271,7 @@
                                         @endif
                                     </dl>
                                     <dl class="dlist-align">
-                                        <dt>Envío:</dt>
+                                        {{-- <dt>Envío:</dt> --}}
                                         @php
                                             $envio = 0;
                                             foreach (Cart::instance('default')->content() as $product) {
@@ -279,8 +279,8 @@
                                             }
                                             session()->put('envio', (float) $envio);
                                         @endphp
-                                        <dd class="text-right">${{ number_format($envio, 2) }}
-                                            MXN</dd>
+                                        {{-- <dd class="text-right">${{ number_format($envio, 2) }}
+                                            MXN</dd> --}}
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>

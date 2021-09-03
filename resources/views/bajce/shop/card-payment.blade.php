@@ -105,7 +105,7 @@
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
-                                <input type="hidden" name="envio" value="{{ session('envio') }}">
+                                {{-- <input type="hidden" name="envio" value="{{ session('envio') }}"> --}}
                                 <p class="alert alert-success"> <i class="fa fa-lock"></i> Su transacción está protegida
                                     por nuestros protocolos de seguridad SSL, al presionar "Comprar" será redireccionado al
                                     portal de confirmación de su banco para confirmar la compra.</p>
@@ -169,7 +169,7 @@
                                         @endif
                                     </dl>
                                     <dl class="dlist-align">
-                                        <dt>Envío:</dt>
+                                        {{-- <dt>Envío:</dt> --}}
                                         @php
                                             $envio = 0;
                                             foreach (Cart::instance('default')->content() as $product) {
@@ -177,8 +177,8 @@
                                             }
                                             session()->put('envio', (float) $envio);
                                         @endphp
-                                        <dd class="text-right">${{ number_format($envio, 2) }}
-                                            MXN</dd>
+                                        {{-- <dd class="text-right">${{ number_format($envio, 2) }}
+                                            MXN</dd> --}}
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
