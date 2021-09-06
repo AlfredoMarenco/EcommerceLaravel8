@@ -61,6 +61,5 @@
                 space: '-'
             });
         });
-
     </script>
 @stop

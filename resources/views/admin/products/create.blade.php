@@ -51,7 +51,15 @@
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
         });
-
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
     </script>
 
 @stop

@@ -1,10 +1,14 @@
 <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         {!! Form::label('name', 'Nombre') !!}
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre del producto']) !!}
         @error('name')
             <small class="text-danger">{{ $message }}</small>
         @enderror
+    </div>
+    <div class="col-md-6 form-group">
+        {!! Form::label('slug', 'Slug') !!}
+        {!! Form::text('slug', null, ['class' => 'form-control', 'readonly']) !!}
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('stock', 'Existencia') !!}

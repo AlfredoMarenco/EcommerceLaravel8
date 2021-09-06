@@ -13,6 +13,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -70,6 +71,7 @@ class ProductController extends Controller
                 ]);
             }
         }
+        $slug = Str::slug($product->name);
 
         if ($request->categories) {
             $product->categories()->attach($request->category_id);
@@ -115,6 +117,9 @@ class ProductController extends Controller
         if ($request->categories) {
             $product->categories()->sync($request->categories);
         }
+
+        $slug = Str::slug($product->name);
+
         return redirect()->route('admin.products.edit', $product)->withToastSuccess('Producto actualizado con éxito');
     }
 

@@ -55,4 +55,14 @@
 
     </script>
     @include('sweetalert::alert')
+
+    <script>
+        $(document).ready(function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+    </script>
 @stop
