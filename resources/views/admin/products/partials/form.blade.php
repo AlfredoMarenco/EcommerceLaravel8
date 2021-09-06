@@ -79,6 +79,7 @@
             {!! Form::label('categories[]', 'Categorías relacionadas') !!}
             {!! Form::select('categories[]', $categories, $product->categories, ['class' => 'form-control float-right', 'multiple' => true]) !!}
         @else
+        entre aqui
             {!! Form::label('categories[]', 'Categorías relacionadas') !!}
             {!! Form::select('categories[]', $categories, null, ['class' => 'form-control float-right', 'multiple' => true]) !!}
         @endisset

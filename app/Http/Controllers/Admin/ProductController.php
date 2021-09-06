@@ -74,7 +74,7 @@ class ProductController extends Controller
         $slug = Str::slug($product->name);
 
         if ($request->categories) {
-            $product->categories()->attach($request->category_id);
+            $product->categories()->sync($request->categories);
         }
         return redirect()->route('admin.products.edit', $product)->withSuccess('Producto creado con éxito!');
     }
@@ -118,7 +118,6 @@ class ProductController extends Controller
             $product->categories()->sync($request->categories);
         }
 
-        $slug = Str::slug($product->name);
 
         return redirect()->route('admin.products.edit', $product)->withToastSuccess('Producto actualizado con éxito');
     }
