@@ -81,8 +81,8 @@ Route::prefix('/carrito')->group(function () {
 
 //Rutas wishlist
 Route::prefix('/wishlist')->group(function () {
-    Route::post('/addToWishlist/{id}', [ShopController::class, 'addItemToWishlist'])->name('wishlist.addItem');
-    Route::post('/addsToWishlist/{id}', [ShopController::class, 'addItemsToWishlist'])->name('wishlist.addItems');
+    Route::post('/addToWishlist/{product}', [ShopController::class, 'addItemToWishlist'])->name('wishlist.addItem');
+    Route::post('/addsToWishlist/{product}', [ShopController::class, 'addItemsToWishlist'])->name('wishlist.addItems');
     Route::any('/update/{rowId}', [ShopController::class, 'updateWishlist'])->name('wishlist.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('wishlist.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToWishlist'])->name('wishlist.remove');

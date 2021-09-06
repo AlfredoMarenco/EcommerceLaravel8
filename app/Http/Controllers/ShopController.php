@@ -85,7 +85,7 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar n cantidad de productos en una sola peticion
-    public function addItemsToCart(Request $request,Product $product)
+    public function addItemsToCart(Request $request, Product $product)
     {
         /* $product = Product::find($product); */
         if ($product->discount) {
@@ -117,7 +117,7 @@ class ShopController extends Controller
     }
 
     //Funcion para agregar un productos a la wishlist
-    public function addItemToWishlist(Request $request,Product $product)
+    public function addItemToWishlist(Request $request, Product $product)
     {
         /* $product = Product::find($product); */
         if ($product->discount) {

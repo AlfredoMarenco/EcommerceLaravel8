@@ -29,7 +29,7 @@
                                                         <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
                                                     </div>
                                                     <figcaption class="info">
-                                                        <a href="{{ route('shop.product', $product->name) }}"
+                                                        <a href="{{ route('shop.product', $product->model) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
@@ -78,7 +78,7 @@
                                                 <div class="price-wrap">
                                                     <div class="___class_+?26___">
                                                         <div class="2">
-                                                            <a href="{{ route('shop.product', $product->model->name) }}"
+                                                            <a href="{{ route('shop.product', $product->model) }}"
                                                                 class="btn btn-md btn-light">Detalles</a>
                                                         </div>
                                                     </div>
@@ -86,7 +86,7 @@
                                             </td>
 
                                             <!--   <td class="text-right">
-                                                                                                                        <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                                                                        <a href="{{ route('shop.product', $product->model) }}"
                                                                                                                             class="btn btn-block btn-light">Detalles</a>
                                                                                                                     </td> -->
                                         </tr>
@@ -120,7 +120,7 @@
                                                             }
                                                         @endphp
                                                         {{-- {{ \App\Models\Catalogue::find($product->model->categories->first()->pivot->category_id) }} --}}
-                                                        <a href="{{ route('catalogue.product', [$product->model->id, $cat_id]) }}"
+                                                        <a href="{{ route('catalogue.product', [$product->model, $cat_id]) }}"
                                                             class="title text-dark">{{ $product->name }}</a>
                                                         {{-- <p class="text-muted small">SKU: {{ $product->model->SKU }}
                                                             <br>
