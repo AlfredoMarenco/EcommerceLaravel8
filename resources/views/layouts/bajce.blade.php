@@ -321,7 +321,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>Recibe ofertas especiales</h2>
-                    <p>Suscríbete para recibir noticias y promociones exclusivas de nuestra tienda en linea.</p>
+                    <p>Suscríbete para recibir noticias y promociones exclusivas.</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="formulario-newsletter">
