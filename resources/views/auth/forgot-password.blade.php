@@ -1,34 +1,34 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+@extends('layouts.bajce')
+@section('title', 'Login')
+@section('content')
+    <!-- ============================ COMPONENT LOGIN   ================================= -->
+    <div class="card mx-auto" style="max-width: 450px; margin-top:180px;">
+        <div class="card-body mx-auto">
+            <h4 class="card-title mb-4">Restablecimiento de contraseña</h4>
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+                <div class="text-center">
+                    <label for="email" value="{{ __('Email') }}" />
+                    <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus  placeholder="Correo electrónico"/>
+                </div>
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" type="submit">
+                        {{ __('Enviar link de restablecer contraseña') }}
+                    </button>
+                </div>
+            </form>
+        </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
 
-        <x-jet-validation-errors class="mb-4" />
+    <p class="text-center mt-4">No tienes cuenta? <a href="{{ route('register') }}">Registrarse</a></p>
+    <br><br>
+    <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+@endsection
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+@section('js')
+    @include('sweetalert::alert')
+@endsection
 
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
