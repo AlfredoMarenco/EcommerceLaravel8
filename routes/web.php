@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use App\Mail\Contact;
+use App\Models\Product;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -183,7 +184,7 @@ Route::post('sendcontact', function (Request $request) {
     Mail::to('info@bajce.com')->send(new Contact($request));
     return redirect()->back();
 })->name('send.contact');
-/*
+
 Route::get('link', function () {
     Artisan::call('storage:link');
 });
@@ -194,4 +195,17 @@ Route::get('cache', function () {
 
 Route::get('migrate', function () {
     Artisan::call('migrate');
-}); */
+});
+
+
+Route::get('slugs', function () {
+    $products = Product::all();
+    foreach ($products as $product) {
+        $slug = Str::slug($product->name);
+        $product->update([
+            'slug' => $slug
+        ]);
+    }
+
+    return "Actualizamos los slugs";
+});

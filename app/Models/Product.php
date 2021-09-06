@@ -86,6 +86,6 @@ class Product extends Model
     //Asignamos el slug como key para url amigables
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'slug';
     }
 }
