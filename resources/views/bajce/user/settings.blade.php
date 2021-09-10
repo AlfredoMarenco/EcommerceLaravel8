@@ -74,15 +74,15 @@
                                 <div class="col-md-12 mt-5">
                                     <div class="form-row">
                                         <div class="col form-group col-12">
-                                            <label>Current Password</label>
+                                            <label>Contraseña actual</label>
                                             <input type="password" name="current_password" class="form-control">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
-                                            <label>New Password</label>
+                                            <label>Nueva contraseña</label>
                                             <input type="password" name="password" class="form-control">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
-                                            <label>Confirm Password</label>
+                                            <label>Confirmar contraseña</label>
                                             <input type="password" name="password_confirmation" class="form-control">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->

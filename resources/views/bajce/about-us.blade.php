@@ -144,7 +144,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Placacentro Chuburná</h4>
+                                <h4 style="text-transform: uppercase">Tablered Chuburná</h4>
                                 <p class="lead" style="text-transform: uppercase;">Calle 20 x 23 #107 Chuburná Hidalgo <br>
                                     C.P.
                                     97200, Mérida, Yucatán, México <br>
@@ -277,11 +277,11 @@
                 </div>
             </div>
             <a class="carousel-control-prev text-secondary h4" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"><</span>
+                <span class="fas fa-angle-double-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next text-secondary h4" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true">></span>
+                <span class="fas fa-angle-double-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>

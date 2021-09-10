@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <meta name="facebook-domain-verification" content="cplrzmke5me3xagafb6cy8w6xgz02c" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181054511-1"></script>
     <script>
