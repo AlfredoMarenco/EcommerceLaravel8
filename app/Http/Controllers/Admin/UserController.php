@@ -36,15 +36,13 @@ class UserController extends Controller
 
     public function store(UsersRequest $request)
     {
-        User::create(
-            [
+        User::create([
                 'name' => $request->name,
                 'last_name' => $request->last_name,
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-            ]
-        );
+            ])->assignRole('client');;
 
         return redirect()->route('admin.users.index');
     }
