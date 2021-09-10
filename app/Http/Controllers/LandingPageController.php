@@ -25,7 +25,7 @@ class LandingPageController extends Controller
         $sliders = Slider::all();
         $buttons = Button::all();
         $cuponfs = Cuponf::all();
-        $brands = Brand::where('name','!=','sin marca');
+        $brands = Brand::where('name','!=','sin marca')->get();
         $mosaics = Mosaic::all();
         return view('bajce.index', compact('categories', 'posts', 'catalogues', 'sliders', 'buttons', 'cuponfs', 'brands', 'mosaics'));
     }
@@ -49,7 +49,7 @@ class LandingPageController extends Controller
 
     public function about()
     {
-        $brands = Brand::where('name','!=','sin marca');
+        $brands = Brand::where('name','!=','sin marca')->get();
         $videos = Video::all();
         return view('bajce.about-us', compact('brands', 'videos'));
     }
