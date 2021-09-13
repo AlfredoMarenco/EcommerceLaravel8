@@ -240,8 +240,8 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-            OpenPay.setId('mdfl2acxa4vwbrittxic');
-            OpenPay.setApiKey('pk_4217280e28ca48ab897cbe4bbb978a1f');
+            OpenPay.setId('mimhvkjunongu1hhp1hq');
+            OpenPay.setApiKey('pk_58c0edadb7544e9badfabd5753298633');
             OpenPay.setSandboxMode(true);
             //Se genera el id de dispositivo
             var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
