@@ -277,8 +277,8 @@ class ShopController extends Controller
     public function sendCotizacion(Request $request)
     {
         /* return $request->all(); */
-        Mail::to('dev@agenciavandu.com')->send(new RequestQuotes($request->name, $request->email, $request->phone, $request->comment));
-        Mail::to('ab@agenciavandu.com')->send(new RequestQuotes($request->name, $request->email, $request->phone, $request->comment));
+
+        Mail::to('ventasonline@bajce.com')->send(new RequestQuotes($request->name, $request->email, $request->phone, $request->comment));
 
         Cart::instance('wishlist')->destroy();
         return back();

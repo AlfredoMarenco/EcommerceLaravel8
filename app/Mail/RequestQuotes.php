@@ -32,7 +32,9 @@ class RequestQuotes extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.quotes.request')->with([
+        return $this->markdown('emails.quotes.request')
+        ->subject('Cotización del catálogo')
+        ->with([
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
