@@ -7,22 +7,20 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Rene Alonso | Nueva colección disponible</title>
+    <title>El Pich Mérida | Alojamiento cómodo, económico y seguro en Mérida</title>
 
 
-    <meta property="og:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO">
+    <meta property="og:title" content="Alojamiento cómodo, económico y seguro en Mérida &mdash; El Pich Mérida">
     <meta property="og:type" content="website" />
-    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="og:url" content="https://www.renealonso.com" />
-    <meta name="og:site_name" content="Rene Alonso" />
+    <meta name="description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
+    <meta name="og:description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
+    <meta name="og:url" content="https://www.elpichmerida.com" />
+    <meta name="og:site_name" content="El Pich Mérida" />
     <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="twitter:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO" />
-    <meta name="twitter:site" content="@FashionAlonso" />
+    <meta name="twitter:description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
+    <meta name="twitter:title" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro &mdash; RENE ALONSO" />
     <meta name="twitter:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
-    <meta name="twitter:creator" content="@FashionAlonso" />
 
     {{-- <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
     <!-- jQuery -->
@@ -66,7 +64,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('shop.home') }}">Inicio</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products', 'hombre') }}">Galería</a>
+                        <a class="nav-link" href="{{ route('galery.index') }}">Galería</a>
                     </li>
                     {{--<li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'mujer') }}">Mujer</a>
@@ -259,11 +257,10 @@
         </main>
     @yield('content')
     <!-- ========================= SECTION FOOTER ========================= -->
-    <footer class="bg-dark mt-4">
+    <footer class="bg-dark">
         <div class="container text-center pt-2 pb-2">
             <p class="text-white">
-                Todos los derechos reservados © Renealonso.com | Creado por
-                <a href="#" style="color: white;">Vandu</a>
+                Todos los derechos reservados © Elpichmerida.com
             </p>
         </div>
     </footer>
