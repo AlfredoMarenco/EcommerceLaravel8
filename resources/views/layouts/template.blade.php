@@ -50,10 +50,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
+    <nav class="navbar navbar navbar-light bg-light fixed-top">
+        <div class="container navbar-in">
             <a class="navbar-brand" href="{{ route('shop.home') }}">
-                <img src="{{ asset('template/images/rene/logo-nav.png') }}" alt="" width="auto" height="34"
+                <img src="{{ asset('template/images/rene/logo-nav.svg') }}" alt="" width="80" 
                     class="d-inline-block align-top" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -66,9 +66,9 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('shop.home') }}">Inicio</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products', 'hombre') }}">Hombre</a>
+                        <a class="nav-link" href="{{ route('shop.products', 'hombre') }}">Galería</a>
                     </li>
-                    <li class="nav-item ms-2">
+                    {{--<li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'mujer') }}">Mujer</a>
                     </li>
                     <li class="nav-item ms-2">
@@ -82,12 +82,12 @@
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'discounts') }}" tabindex="-1"
                             aria-disabled="true">Ofertas</a>
-                    </li>
+                    </li>--}}
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'discounts') }}" tabindex="-1"
                             aria-disabled="true" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
-                    @auth
+                    {{--@auth
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -147,11 +147,11 @@
                                 </div>
                             </div>
                         </li>
-                    @else
-                        <li class="nav-item ms-2">
+                    @else--}}
+                       {{-- <li class="nav-item ms-2">
                             <a class="nav-link" href="{{ route('login') }}" tabindex="-1" aria-disabled="true">Login</a>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li>--}}
+                        {{--<li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-shopping-bag"> <small>{{ Cart::count() }}</small></i>
@@ -162,7 +162,7 @@
                                     <div class="d-flex justify-content-around align-items-center text-truncate">
                                         <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
                                         width="20%" alt="">
-                                        {{-- <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif> --}}
+                                        --<img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif> --
                                         <p class="row">
                                             <b class="col-12">{{ $product->name }}</b>
                                             <small class="col-12">
@@ -191,7 +191,7 @@
                             </div>
 
                         </li>
-                    @endauth
+                    @endauth--}}
                 </ul>
             </div>
         </div>
