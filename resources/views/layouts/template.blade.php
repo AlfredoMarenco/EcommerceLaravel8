@@ -7,22 +7,20 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Rene Alonso | Nueva colección disponible</title>
+    <title>El Pich Mérida | Alojamiento cómodo, económico y seguro en Mérida</title>
 
 
-    <meta property="og:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO">
+    <meta property="og:title" content="Alojamiento cómodo, económico y seguro en Mérida &mdash; El Pich Mérida">
     <meta property="og:type" content="website" />
-    <meta name="description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="og:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="og:url" content="https://www.renealonso.com" />
-    <meta name="og:site_name" content="Rene Alonso" />
+    <meta name="description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
+    <meta name="og:description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
+    <meta name="og:url" content="https://www.elpichmerida.com" />
+    <meta name="og:site_name" content="El Pich Mérida" />
     <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" content="Descubre las nuevas tendencias para hombres y mujeres del 2021." />
-    <meta name="twitter:title" content="Tendencias de la nueva era 2021 &mdash; RENE ALONSO" />
-    <meta name="twitter:site" content="@FashionAlonso" />
+    <meta name="twitter:description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
+    <meta name="twitter:title" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro &mdash; RENE ALONSO" />
     <meta name="twitter:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
-    <meta name="twitter:creator" content="@FashionAlonso" />
 
     {{-- <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
     <!-- jQuery -->
@@ -50,10 +48,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
+    <nav class="navbar navbar navbar-light bg-light fixed-top">
+        <div class="container navbar-in">
             <a class="navbar-brand" href="{{ route('shop.home') }}">
-                <img src="{{ asset('template/images/rene/logo-nav.png') }}" alt="" width="auto" height="34"
+                <img src="{{ asset('template/images/rene/logo-nav.svg') }}" alt="" width="80" 
                     class="d-inline-block align-top" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -66,9 +64,9 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('shop.home') }}">Inicio</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link" href="{{ route('shop.products', 'hombre') }}">Hombre</a>
+                        <a class="nav-link" href="{{ route('galery.index') }}">Galería</a>
                     </li>
-                    <li class="nav-item ms-2">
+                    {{--<li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'mujer') }}">Mujer</a>
                     </li>
                     <li class="nav-item ms-2">
@@ -82,12 +80,12 @@
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'discounts') }}" tabindex="-1"
                             aria-disabled="true">Ofertas</a>
-                    </li>
+                    </li>--}}
                     <li class="nav-item ms-2">
                         <a class="nav-link" href="{{ route('shop.products', 'discounts') }}" tabindex="-1"
                             aria-disabled="true" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
-                    @auth
+                    {{--@auth
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -147,11 +145,11 @@
                                 </div>
                             </div>
                         </li>
-                    @else
-                        <li class="nav-item ms-2">
+                    @else--}}
+                       {{-- <li class="nav-item ms-2">
                             <a class="nav-link" href="{{ route('login') }}" tabindex="-1" aria-disabled="true">Login</a>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li>--}}
+                        {{--<li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-shopping-bag"> <small>{{ Cart::count() }}</small></i>
@@ -162,7 +160,7 @@
                                     <div class="d-flex justify-content-around align-items-center text-truncate">
                                         <img src="{{ Storage::url($product->model->image->url) }}" class="img-fluid"
                                         width="20%" alt="">
-                                        {{-- <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif> --}}
+                                        --<img @if ($product->image) src="{{ Storage::url($product->image->url) }}" width="20%" @else src="https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369_960_720.jpg" width="20%" @endif> --
                                         <p class="row">
                                             <b class="col-12">{{ $product->name }}</b>
                                             <small class="col-12">
@@ -191,7 +189,7 @@
                             </div>
 
                         </li>
-                    @endauth
+                    @endauth--}}
                 </ul>
             </div>
         </div>
@@ -259,11 +257,10 @@
         </main>
     @yield('content')
     <!-- ========================= SECTION FOOTER ========================= -->
-    <footer class="bg-dark mt-4">
+    <footer class="bg-dark">
         <div class="container text-center pt-2 pb-2">
             <p class="text-white">
-                Todos los derechos reservados © Renealonso.com | Creado por
-                <a href="#" style="color: white;">Vandu</a>
+                Todos los derechos reservados © Elpichmerida.com
             </p>
         </div>
     </footer>

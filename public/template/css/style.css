@@ -273,7 +273,7 @@ p, .nav-link {
 /* estilos de prueba */
 
 
-h1,
+/*h1,
 h2,
 h3,
 h4,
@@ -284,23 +284,34 @@ h5 {
 p,
 .nav-link {
   font-family: "Libre Franklin", sans-serif;
-}
+}*/
 
 .bg-light {
   background-color: transparent !important;
 }
-@media (max-width: 500px) {
-  .bg-light {
-    background-color: #fff !important;
-  }
+
+.bg-verde {
+  background-color: #133931;
 }
+
 .bg-light.scrolled {
-  background: #fff !important;
+  background-color: #133931 !important;
+  transition: ease 1s;
 }
 
 .nav-link {
-  font-weight: 500;
-  color: #000 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.navbar-toggler {
+  background-image: url(/images/rene/bars-solid.svg) !important;
+  background-color: #fff !important;
+}
+
+.navbar-in {
+  padding-right: 100px !important;
+  padding-left: 100px !important;
 }
 
 #vidio_background {
@@ -323,16 +334,25 @@ p,
 }
 
 #sec {
-  margin-top: 850px;
+  margin-top: 750px;
   margin-bottom: 50px;
 }
 @media (max-width: 500px) {
   #sec {
-    padding-top: 860px;
-    padding-bottom: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
-
+.espacio-redes {
+  padding-left: 540px;
+  padding-right: 540px;
+} @media (max-width:500px) {
+  .espacio-redes {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+ 
 #tsec {
   padding-top: 20px;
   padding-bottom: 100px;
@@ -380,6 +400,17 @@ p,
   }
 }
 
+.pich {
+  padding-top: 90px;
+} @media (max-width:500px){
+  .pich {
+    padding-top: 20px;
+  }
+}
+
+.mapa {
+  width: 100%;
+}
 
 
 .medio {
