@@ -13,7 +13,7 @@
 @section('content')
     <!-- ========================= SECTION MAIN  ========================= -->
     @if ($sliders->count() > 0)
-        <section class="section-intro">
+        <section class="section-intro " class="fade-in">
             <div class="container-fluid p-0">
                 <!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
                 <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
@@ -51,8 +51,8 @@
             </div> <!-- container end.// -->
         </section>
     @else
-        <section class="section-intro ">
-            <div class="container-fluid p-0">
+        <section class="section-intro fade-in">
+            <div class="container-fluid  p-0">
                 <!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
                 <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -83,7 +83,7 @@
     @endisset
     <!-- ========================= SECTION MAIN END// ========================= -->
     @if ($mosaics->count() > 0)
-        <section id="info-destacada" class="no-cel">
+        <section id="info-destacada" class="no-cel fade-in-2">
             <div class="container mt-5 ">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 info-destacada-r no-cel">
@@ -186,7 +186,7 @@
         </section>
     @else
         <section id="info-destacada" class="no-cel">
-            <div class="container mt-5 ">
+            <div class="container mt-5 fade-in">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 info-destacada-r no-cel">
                         <div class="d-1">
@@ -268,7 +268,7 @@
             </div>
         </section>
     @endif
-    <div class="container">
+    <div class="container fade-in">
         <section id="servicios">
             <h3 style="text-align: center;" class=" mt-5 mb-5">
                 CONOCE NUESTROS SERVICIOS
@@ -322,7 +322,7 @@
         </section>
     </div>
     <section id="tienda" style="margin-top: 50px; margin-bottom: 50px;">
-        <div class="contenido-tienda">
+        <div class="contenido-tienda fade-in-2">
             <h3 style="text-align: center;" class="mt-5">
                 Espera nuestra tienda en linea
             </h3>
@@ -361,7 +361,7 @@
         </div>
     </section>
     @if ($catalogues->count() > 0)
-        <section id="catalogo">
+        <section id="catalogo" class="fade-in-2">
             <div class="cabecera">
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-2">
                     Consulta nuestro catálogo en linea
@@ -393,7 +393,7 @@
         </section>
     @else
         <section id="catalogo">
-            <div class="cabecera">
+            <div class="cabecera fade-in-2">
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                     Aun no se ha creado ningun catalogo
                 </h3>
@@ -402,7 +402,7 @@
         </section>
     @endif
     @if ($cuponfs->count() > 0)
-        <section id="codigo" class="p-0 p-sm-0">
+        <section id="codigo" class="p-0 p-sm-0 fade-in-2">
             @foreach ($cuponfs as $cuponf)
                 <div class="bg-codigo" style="background-image: url({{ Storage::url($cuponf->image->url) }}); "
                     class="img-fluid">
@@ -418,7 +418,7 @@
             @endforeach
         </section>
     @else
-        <section id="codigo" class="p-0">
+        <section id="codigo" class="p-0 fade-in-2">
             <div style="background-image: url({{ asset('images/banners/mueble1-lg.png') }}); ">
                 <div class="contenido-ok">
                     <h2>
@@ -429,7 +429,7 @@
             </div>
         </section>
     @endif
-    <section id="sucursales">
+    <section id="sucursales" class="fade-in-2">
         <div class="cabecera-sucursales">
             <h3 style="text-align: center; text-transform: uppercase;">
                 Nuestras sucursales
@@ -883,7 +883,7 @@
 
 
     @if ($posts->count() > 0)
-        <section id="blog">
+        <section id="blog" class="fade-in-2">
             <div class="cabecera">
                 <h3 style="text-align: center; text-transform: uppercase;" class="mt-1">
                     Noticias más relevantes

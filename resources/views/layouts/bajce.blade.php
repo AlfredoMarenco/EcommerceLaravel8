@@ -44,7 +44,7 @@
     <meta itemprop="image" content=@yield('imageMeta')>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
-
+    <script src="{{asset('js/scrollreveal.js')}}"></script>
     <!-- jQuery -->
     <script src="{{ asset('js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
@@ -64,6 +64,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+    
 
     @yield('css')
 
@@ -466,6 +467,7 @@
 
     @livewireScripts
     @include('sweetalert::alert')
+    <script src="{{asset('js/sr-efectos.js')}}"></script>
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
         integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
