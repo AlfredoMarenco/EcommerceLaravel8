@@ -93,7 +93,18 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
-
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ"></script>
+    <script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ', {action: 'submit'
+            }).then(function(token) {
+                // Add your logic to submit to your backend server here.
+            });
+          });
+        }
+    </script>
 </head>
 
 <body>
@@ -301,9 +312,14 @@
                                         required="required" rows="3"
                                         placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
-                                    style="margin-bottom: 10px;"></div>
-                                <button type="submit" class="btn btn-secondary">Enviar</button>
+                                <div >
+                                    <button class="g-recaptcha btn btn-secondary" 
+                                    data-sitekey="6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ" 
+                                    data-callback='onSubmit' 
+                                    data-action='submit'
+                                    type="submit">Enviar</button>
+                                </div>
+                               {{-- <button type="submit" class="btn btn-secondary">Enviar</button>--}}
                             </form>
                         </div>
                     </div>
