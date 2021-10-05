@@ -355,7 +355,7 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <a href="{{ route('shop.product', $product) }}">
+                                <a href="{{ route('shop.product', $product->id) }}">
                                     <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                 </a>
                             </div> <!-- img-wrap.// -->
