@@ -44,7 +44,7 @@
     <meta itemprop="image" content=@yield('imageMeta')>
 
     <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
-
+    <script src="{{ asset('js/scrollreveal.js') }}"></script>
     <!-- jQuery -->
     <script src="{{ asset('js/jquery-2.0.0.min.js') }}" type="text/javascript"></script>
 
@@ -64,6 +64,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+
 
     @yield('css')
 
@@ -93,7 +94,27 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
+    {{-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ"></script>
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ', {
+                    action: 'submit'
+                }).then(function(token) {
+                    // Add your logic to submit to your backend server here.
+                });
+            });
+        }
+    </script> --}}
 
+    {!! htmlScriptTagJsApi() !!}
+
+    <script type="text/javascript">
+        function callbackThen(
+        response) { // read HTTP status console.log(response.status); // read Promise object response.json().then(function(data){ console.log(data); }); } function callbackCatch(error){ console.error('Error:', error) }
+    </script>
+    {!! htmlScriptTagJsApi(['callback_then' => 'callbackThen', 'callback_catch' => 'callbackCatch']) !!}
 </head>
 
 <body>
@@ -301,9 +322,12 @@
                                         required="required" rows="3"
                                         placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6LdBBc8ZAAAAACqRaUl6mmUgAfKhUXYmCUpq5nRK"
-                                    style="margin-bottom: 10px;"></div>
-                                <button type="submit" class="btn btn-secondary">Enviar</button>
+                                <div>
+                                    <button class="g-recaptcha btn btn-secondary"
+                                        data-sitekey="6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ" data-callback='onSubmit'
+                                        data-action='submit' type="submit">Enviar</button>
+                                </div>
+                                {{-- <button type="submit" class="btn btn-secondary">Enviar</button> --}}
                             </form>
                         </div>
                     </div>
@@ -450,6 +474,7 @@
 
     @livewireScripts
     @include('sweetalert::alert')
+    <script src="{{ asset('js/sr-efectos.js') }}"></script>
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
         integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="

@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "arielmejiadev/larapex-charts": "^2.1",
+        "biscolab/laravel-recaptcha": "^5.0",
         "bumbummen99/shoppingcart": "^3.2",
         "ckfinder/ckfinder-laravel-package": "v3.5.1.7",
         "conekta/conekta-php": "^4.3",

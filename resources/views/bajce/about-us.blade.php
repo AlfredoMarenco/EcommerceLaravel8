@@ -10,7 +10,7 @@
     </style>
 @endsection
 @section('content')
-    <section id="header-nosotros">
+    <section id="header-nosotros" class="fade-in">
         <div class="container">
             <div class="bg-nosotros">
                 <div class="cont-nosotros">
@@ -25,7 +25,7 @@
         </div>
     </section>
 
-    <section id="videos">
+    <section id="videos" class="fade-in-2">
         <div class="container">
             <div class="cabecera-videos mb-5">
                 <p class="text-center">
@@ -60,7 +60,7 @@
         </div>
     </section>
 
-    <section id="sucursales">
+    <section id="sucursales" class="fade-in-2">
         <div class="cabecera-sucursales">
             <h3 style="text-align: center; text-transform: uppercase;">
                 Nuestras sucursales
@@ -404,7 +404,7 @@
                             </div>
                         </section> -->
 
-    <section id="marcas">
+    <section id="marcas" class="fade-in-2">
         <div class="cabecera-marcas">
             <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
                 Marcas con las que trabajamos

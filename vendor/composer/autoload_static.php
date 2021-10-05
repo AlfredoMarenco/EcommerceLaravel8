@@ -104,6 +104,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
+        '5f2edeb18ca19ebd9ee6da72dc9f4292' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -299,6 +300,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Biscolab\\ReCaptcha\\' => 19,
             'Barryvdh\\Debugbar\\' => 18,
             'BaconQrCode\\' => 12,
         ),
@@ -842,6 +844,10 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'Biscolab\\ReCaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src',
         ),
         'Barryvdh\\Debugbar\\' => 
         array (
@@ -1969,6 +1975,14 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'Barryvdh\\Debugbar\\Twig\\Extension\\Stopwatch' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Twig/Extension/Stopwatch.php',
         'Barryvdh\\Debugbar\\Twig\\Node\\StopwatchNode' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Twig/Node/StopwatchNode.php',
         'Barryvdh\\Debugbar\\Twig\\TokenParser\\StopwatchTokenParser' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Twig/TokenParser/StopwatchTokenParser.php',
+        'Biscolab\\ReCaptcha\\Controllers\\ReCaptchaController' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/Controllers/ReCaptchaController.php',
+        'Biscolab\\ReCaptcha\\Exceptions\\InvalidConfigurationException' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/Exceptions/InvalidConfigurationException.php',
+        'Biscolab\\ReCaptcha\\Facades\\ReCaptcha' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/Facades/ReCaptcha.php',
+        'Biscolab\\ReCaptcha\\ReCaptchaBuilder' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilder.php',
+        'Biscolab\\ReCaptcha\\ReCaptchaBuilderInvisible' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilderInvisible.php',
+        'Biscolab\\ReCaptcha\\ReCaptchaBuilderV2' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilderV2.php',
+        'Biscolab\\ReCaptcha\\ReCaptchaBuilderV3' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilderV3.php',
+        'Biscolab\\ReCaptcha\\ReCaptchaServiceProvider' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaServiceProvider.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -3088,6 +3102,7 @@ class ComposerStaticInit17cc5d21dbb8c73c9e8a335b750ebc22
         'Faker\\Provider\\nl_BE\\Payment' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php',
         'Faker\\Provider\\nl_BE\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php',
         'Faker\\Provider\\nl_BE\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
+        'Faker\\Provider\\nl_BE\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php',
         'Faker\\Provider\\nl_NL\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Address.php',
         'Faker\\Provider\\nl_NL\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Color.php',
         'Faker\\Provider\\nl_NL\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php',
