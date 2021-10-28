@@ -303,7 +303,12 @@
                            
                     </div>--}}
                     <div class="col">
-                        <a href="https://www.instagram.com/elpichmerida/" target="_blank" style="color: #fff">Instagram</a> <span class="px-4"></span>
+                        <a href="https://www.instagram.com/elpichmerida/" target="_blank" style="color: #fff">Instagram</a> <span class="px-2"></span>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <a href="http://api.whatsapp.com/send/?phone=529991195390" target="_blank" style="color: #fff"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                        </div> <span class="px-2"></span>
                     </div>
                     <span>
                     <span>
