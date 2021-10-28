@@ -380,7 +380,7 @@
                                     <h5>{{ $catalogue->name }}</h5>
                                     <p>{!! $catalogue->description !!}</p>
                                     <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
-                                        class="btn btn-primary btn-block">Ver catálogo</a>
+                                        class="btn btn-primary btn-block">Ver más catálogos</a>
                                 </div>
                             </div>
                         </div>
@@ -429,229 +429,232 @@
             </div>
         </section>
     @endif
+    <section id="sucursales-1"></section>
     <section id="sucursales" class="fade-in-2">
         <div class="cabecera-sucursales">
-            <h3 style="text-align: center; text-transform: uppercase;">
+            <h1 style="text-align: center; text-transform: uppercase;">
                 Nuestras sucursales
-            </h3>
+            </h1>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/oriente.png" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4>MADERAS ORIENTE</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col.
-                                    Miraflores <br>
-                                    C.P.
-                                    97179, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 983 0592 / (999) 983 0376
-
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/dWLHfbHpYsHisatb9"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
+        <div class="sucur">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+    
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/oriente.png" alt="" class="img-fluid">
                                 </div>
-
-
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/canek.png" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">maderas bajce Canek</h4>
-                                <p class="lead" style="text-transform: uppercase;">Av.59-A No. 300 x 128 y 132 Col.
-                                    Yucalpeten <br>
-                                    C.P. 97248, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 912 3370
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/dQ5oACV6PwScnHrH7"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4>MADERAS ORIENTE</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Calle 65 N° 160 por 11 y 14 Col.
+                                        Miraflores <br>
+                                        C.P.
+                                        97179, Mérida, Yucatán, México <br>
+                                        <span>
+                                            (999) 983 0592 / (999) 983 0376
+    
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/dWLHfbHpYsHisatb9"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
+    
+    
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/chuburna.png" alt="Maderas bajce" class="img-fluid">
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/canek.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4 style="text-transform: uppercase">maderas bajce Canek</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Av.59-A No. 300 x 128 y 132 Col.
+                                        Yucalpeten <br>
+                                        C.P. 97248, Mérida, Yucatán, México <br>
+                                        <span>
+                                            (999) 912 3370
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/dQ5oACV6PwScnHrH7"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Tablered Chuburná</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 20 x 23 #107 Chuburná Hidalgo <br>
-                                    C.P.
-                                    97200, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 981 1160 / (999) 981 3970
-
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/hMpD9WdYvXBuWWU37"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/chuburna.png" alt="Maderas bajce" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4 style="text-transform: uppercase">Tablered Chuburná</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Calle 20 x 23 #107 Chuburná Hidalgo <br>
+                                        C.P.
+                                        97200, Mérida, Yucatán, México <br>
+                                        <span>
+                                            (999) 981 1160 / (999) 981 3970
+    
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/hMpD9WdYvXBuWWU37"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/centro.png" alt="Maderas bajce" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4 style="text-transform: uppercase">Maderas Bajce Centro</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Calle 48 N. 520D X71 y 73 Col. Centro
+                                        <br>
+                                        C.P.
+                                        97000, Mérida, Yucatán, México <br>
+                                        <span>
+                                            (999) 923 1756
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/u6AYnmZ2w3JMoTHF7"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/express.png" alt="Maderas bajce express" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4 style="text-transform: uppercase">Maderas Bajce Express</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Calle 6 n.357 x 7 y 7-A Col. Gustavo Díaz
+                                        Ordaz <br>
+                                        C.P. 97130, Mérida, Yucatán, México <br>
+                                        <span>
+                                            (999) 196 2825
+    
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/Un5byaEB23btbvAg8"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/periferico.png" alt="Maderas bajce Periférico" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4 style="text-transform: uppercase">Maderas Bajce Periférico</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Anillo periférico entre periférico
+                                        oriente <br> y carretera 35
+                                        <br>
+                                        C.P. 97306, Mérida, Yucatán, México <br>
+                                        <span>
+                                            (999) 611 6021 / (999) 611 6249
+    
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/Dozjna1nEaY42aiu9"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="logos-sucursales">
+                                    <img src="/images/icons/cancun.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="detalles-sucursal">
+                                    <h4 style="text-transform: uppercase">Maderas Bajce Cancún</h4>
+                                    <p class="lead" style="text-transform: uppercase;">Av. Puerto Juárez. 119 No L-01 al 04
+                                        entre 75 Región 92
+                                        Municipio: Benito Juárez
+    
+                                        <br>
+                                        C.P. 77516. Benito Juarez, Quintana Roo <br>
+                                        <span>
+                                            (998) 888 6890 / (998) 888 2830 / (998) 840 0306
+    
+    
+                                        </span>
+                                    </p>
+                                    <div class="maps" style="margin-bottom: 20px;">
+                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/yQZmwXthxgLfYNGT6"
+                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
+                                                alt=""></a> <br><br><br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/centro.png" alt="Maderas bajce" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Maderas Bajce Centro</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 48 N. 520D X71 y 73 Col. Centro
-                                    <br>
-                                    C.P.
-                                    97000, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 923 1756
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/u6AYnmZ2w3JMoTHF7"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/express.png" alt="Maderas bajce express" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Maderas Bajce Express</h4>
-                                <p class="lead" style="text-transform: uppercase;">Calle 6 n.357 x 7 y 7-A Col. Gustavo Díaz
-                                    Ordaz <br>
-                                    C.P. 97130, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 196 2825
-
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/Un5byaEB23btbvAg8"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/periferico.png" alt="Maderas bajce Periférico" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Maderas Bajce Periférico</h4>
-                                <p class="lead" style="text-transform: uppercase;">Anillo periférico entre periférico
-                                    oriente <br> y carretera 35
-                                    <br>
-                                    C.P. 97306, Mérida, Yucatán, México <br>
-                                    <span>
-                                        (999) 611 6021 / (999) 611 6249
-
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/Dozjna1nEaY42aiu9"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
-                                <img src="/images/icons/cancun.png" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="detalles-sucursal">
-                                <h4 style="text-transform: uppercase">Maderas Bajce Cancún</h4>
-                                <p class="lead" style="text-transform: uppercase;">Av. Puerto Juárez. 119 No L-01 al 04
-                                    entre 75 Región 92
-                                    Municipio: Benito Juárez
-
-                                    <br>
-                                    C.P. 77516. Benito Juarez, Quintana Roo <br>
-                                    <span>
-                                        (998) 888 6890 / (998) 888 2830 / (998) 840 0306
-
-
-                                    </span>
-                                </p>
-                                <div class="maps" style="margin-bottom: 20px;">
-                                    <a style="margin-bottom: 20px;" href="https://goo.gl/maps/yQZmwXthxgLfYNGT6"
-                                        target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                            alt=""></a> <br><br><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <a class="carousel-control-prev text-secondary h4" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="fas fa-angle-double-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next text-secondary h4" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="fas fa-angle-double-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev text-secondary h4" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="fas fa-angle-double-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next text-secondary h4" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="fas fa-angle-double-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
         <!--
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

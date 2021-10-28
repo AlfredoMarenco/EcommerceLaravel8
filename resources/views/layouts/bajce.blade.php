@@ -269,6 +269,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#sucursales-1" ><i class="fas fa-warehouse"></i> Sucursales</a>
+                    </li>
                 </ul>
             </nav> <!-- navbar-main  .// -->
         </div>
@@ -384,8 +387,7 @@
                             <div class="col-6">
                                 <ul class="list-unstyled">
                                     <li> <a href="{{ route('blog.index') }}">Blog</a></li>
-                                    <li> <a data-dismiss="modal" data-toggle="modal" data-target="#ventanaModal"
-                                            href="">Contacto</a></li>
+                                    <li> <a href="#sucursales">Contacto</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -410,7 +412,7 @@
                                 <li> <i class="icon fa fa-envelope"> </i> ventasonline@bajce.com</li>
                                 <li> <i class="icon fa fa-phone"> </i> (999) 221 1629
                                 </li>
-                                <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm
+                                <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm <br>
                                     Sábado 9:00 am a 2:00 pm
                                 </li>
                             </ul>
