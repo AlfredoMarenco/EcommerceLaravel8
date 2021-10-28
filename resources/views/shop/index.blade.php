@@ -197,7 +197,7 @@
                         style="background-image: url({{ Storage::url($configuration->image->url) }});">
                         <div class="container interior">
                             {{--<h2 class="collec">NEW COLLECTION</h2>--}}
-                            <a href="{{ route('galery.index') }}" class="btn btn-primary">ENTER</a>
+                            <a href="{{ route('galery.index') }}" class="btn btn-primary">GALERIA</a>
                         </div>
                     </div>
                 @else
@@ -296,14 +296,14 @@
             <div class="text-center pt-4">
                 <div class="row espacio-redes" style="color: #fff">
                     <div class="col" >
-                        <a href="https://www.facebook.com/Rene-Alonsomx-103679577867663" target="_blank" style="color: #fff">Facebook</a>
+                        <a href="https://www.facebook.com/elpichdepartamentos" target="_blank" style="color: #fff">Facebook</a>
                     </div>
                     {{--<div class="col">
                         <a href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ" target="_blank" style="color: #fff">Twitter</a>
                            
                     </div>--}}
                     <div class="col">
-                        <a href="https://www.instagram.com/renealonso.mx/" target="_blank" style="color: #fff">Instagram</a> <span class="px-4"></span>
+                        <a href="https://www.instagram.com/elpichmerida/" target="_blank" style="color: #fff">Instagram</a> <span class="px-4"></span>
                     </div>
                     <span>
                     <span>
