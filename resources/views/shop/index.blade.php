@@ -24,7 +24,7 @@
 
         .collec{
             padding-top: 250px !important;
-        } 
+        }
         @media (max-width: 500px) {
             .botonCenterMen {
                 position: absolute;
@@ -50,7 +50,7 @@
         }
 
         .botonCenterWomen {
-            
+
             left: 25% !important;
             top: 60%;
         }
@@ -78,7 +78,7 @@
     <header class="section-header">
         <video autoplay="autoplay" loop="loop" id="vidio_background" preload="auto" muted playsinline>
             @foreach ($configurations as $configuration)
-                @if ($configuration->name == 'Video')
+                @if ($configuration->id == 1)
                     @isset($configuration->image)
                         <source src="{{ Storage::url($configuration->image->url) }}" type="video/mp4" />
                     @else
@@ -95,9 +95,9 @@
     <section id="sec">
         <div class="container">
             <div class="row">
-                
+
                 @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'MenLeft')
+                    @if ($configuration->id == 4)
                         @isset($configuration->image)
                             <div class="col-sm-12 col-md-6 col-lg-6 pt-2">
                                 <div
@@ -115,7 +115,7 @@
                 @endforeach
 
                 @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'MenRight')
+                    @if ($configuration->id == 3)
                         <div class="col-sm-12 col-md-6 col-lg-6 pt-2">
                             <div
                                 style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
@@ -136,7 +136,7 @@
     <div id="slides">
         <ul class="slides-container">
             @foreach ($configurations as $configuration)
-                @if ($configuration->name == 'Slider')
+                @if ($configuration->id == 2)
                     @foreach ($configuration->images as $images)
                         <li>
                             <img src="{{ Storage::url($images->url) }}" alt="">
@@ -155,7 +155,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'WomenLeft')
+                    @if ($configuration->id == 7)
                         @isset($configuration->image)
                             <div class="col-sm-12 col-md-6 col-lg-6 pt-2">
                                 <div
@@ -173,7 +173,7 @@
                 @endforeach
 
                 @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'WomenRight')
+                    @if ($configuration->id == 6)
                         <div class="col-sm-12 col-md-6 col-lg-6 pt-2">
                             <div
                                 style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
@@ -191,7 +191,7 @@
 
     <section id="new-collection">
         @foreach ($configurations as $configuration)
-            @if ($configuration->name == 'Collection')
+            @if ($configuration->id == 5)
                 @isset($configuration->image)
                     <div class="bg-overlay mt-5 mb-5"
                         style="background-image: url({{ Storage::url($configuration->image->url) }});">
@@ -218,7 +218,7 @@
         <div class="container pb-5">
             <div class="row">
                 @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'PublicLeft')
+                    @if ($configuration->id == 9)
                         @isset($configuration->image)
                             <div class="col-sm-12 col-md-6 col-lg-6 pt-2">
                                 <div
@@ -236,7 +236,7 @@
                 @endforeach
 
                 @foreach ($configurations as $configuration)
-                    @if ($configuration->name == 'PublicRight')
+                    @if ($configuration->id == 8)
                         <div class="col-sm-12 col-md-6 col-lg-6 pt-2">
                             <div
                                 style="background-image: url({{ Storage::url($configuration->image->url) }}); background-repeat: no-repeat;background-size: 100%; padding-block-end: 100%; background-position: center; position: relative;">
@@ -247,7 +247,7 @@
             </div>
         </div>
     </section>
-    <section> 
+    <section>
         <div class="container pb-5 text-center">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
@@ -257,11 +257,11 @@
                 </div>
                 <div class="col-md-6 col-sm-12 pich">
                     <img src="{{asset('template/images/rene/logo-nav-2.svg')}}"  width="120" alt="Logo el Pich Mérida">
-                    <h3>El Pich Mérida <br> 
+                    <h3>El Pich Mérida <br>
                         <span class="lead" style="font-weight: 500; color: rgb(62, 62, 62)">Alojamiento cómodo, económico y seguro en Mérida</span></h3>
                     <p>Calle 84A # 500M x 59 y 59A Centro 97000<br>
                     <span><a href="tel:9991195390">Teléfono: 999 119 5390</a></span></p>
-                    
+
                 </div>
             </div>
         </div>
@@ -300,7 +300,7 @@
                     </div>
                     {{--<div class="col">
                         <a href="https://twitter.com/fashionAlonso?fbclid=IwAR3l_ZyGyiXl6Y9gcyFS88jWjReETCdqEZz40zmA9IyiiVQ-vyQ7FPjbxyQ" target="_blank" style="color: #fff">Twitter</a>
-                           
+
                     </div>--}}
                     <div class="col">
                         <a href="https://www.instagram.com/elpichmerida/" target="_blank" style="color: #fff">Instagram</a> <span class="px-4"></span>
