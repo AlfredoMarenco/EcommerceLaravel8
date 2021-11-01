@@ -162,6 +162,9 @@
                                 data-target="#ventanaModal">Contacto</a>
                         </li>
                         <li class="nav-item active">
+                        <a class="nav-link" href="#sucursales-1" ><i class="fas fa-warehouse"></i> Sucursales</a>
+                        </li>
+                        <li class="nav-item active">
                             <a href="mailto:info@bajce.com" class="nav-link"> <i
                                     class="fas fa-envelope-open-text"></i>
                                 info@bajce.com</a>
