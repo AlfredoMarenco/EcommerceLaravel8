@@ -389,7 +389,7 @@
                                     <h5>{{ $catalogue->name }}</h5>
                                     <p>{!! $catalogue->description !!}</p>
                                     <a href="{{ route('catalogue.products', $catalogue->category_id) }}"
-                                        class="btn btn-primary btn-block">Ver más catálogos</a>
+                                        class="btn btn-primary btn-block">Ver más</a>
                                 </div>
                             </div>
                         </div>
@@ -397,7 +397,7 @@
                 @endforeach
             </div>
             <div class="boton-entradas">
-                <a href="{{ route('catalogue.index') }}" class="btn btn-success boton-entradas-2">Ver más</a>
+                <a href="{{ route('catalogue.index') }}" class="btn btn-success boton-entradas-2">Ver más catálogos</a>
             </div>
         </section>
     @else
