@@ -441,7 +441,7 @@
     <section id="sucursales-1"></section>
     <section id="sucursales" class="fade-in-2">
         <div class="cabecera-sucursales">
-            <h1 style="text-align: center; text-transform: uppercase;">
+            <h1 class="titular-sucursales-1" style="text-align: center; text-transform: uppercase;">
                 Nuestras sucursales
             </h1>
         </div>

@@ -1966,9 +1966,6 @@ button.navbar-toggle {
         text-align: center;
     }
 }
-#sucursales-1 {
-    padding-bottom: 120px;
-}
 
 #sucursales {
     padding-left: 100px;
@@ -1992,9 +1989,11 @@ button.navbar-toggle {
 }
 
 .cabecera-sucursales {
-    padding-bottom: 60px;
+    padding-top: 170px;
+    padding-bottom: 50px;
 } @media (max-width: 500px) {
     .cabecera-sucursales {
+        padding-top: 30px;
         padding-bottom: 10px;
         margin-bottom: 10px;
     }
@@ -2006,6 +2005,10 @@ button.navbar-toggle {
     .cabecera {
         margin-top: 10px;
     }
+}
+
+.cabecera-sucursales h1 {
+    font-size: 45px;
 }
 
 @media (max-width: 500px) {
@@ -2028,9 +2031,11 @@ button.navbar-toggle {
 }
 
 .sucur {
+    padding-top: 20px;
     margin-bottom: 60px;
 } @media (max-width:600px) {
     .sucur {
+        padding-top: 0px;
         margin-bottom: 0px;
     }
 }
