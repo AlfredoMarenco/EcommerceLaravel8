@@ -167,6 +167,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         ArielMejiaDev\LarapexCharts\LarapexChartsServiceProvider::class,
         Spatie\CookieConsent\CookieConsentServiceProvider::class,
+        Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
 
 
         /*
@@ -243,6 +244,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'LarapexChart' => ArielMejiaDev\LarapexCharts\Facades\LarapexChart::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Recaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
 
     ],
 

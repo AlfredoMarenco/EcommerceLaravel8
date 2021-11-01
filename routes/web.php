@@ -181,7 +181,7 @@ Route::post('/reset-password', function (Request $request) {
 })->middleware('guest')->name('password.update');
 
 Route::post('sendcontact', function (Request $request) {
-    Mail::to('info@bajce.com')->send(new Contact($request));
+    /* Mail::to('info@bajce.com')->send(new Contact($request)); */
     return redirect()->back();
 })->name('send.contact');
 
