@@ -1,4 +1,13 @@
 @extends('layouts.bajce')
+@section('title', $post->title)
+@section('titleFacebook', $post->subtitle)
+@section('imageFacebook', Storage::url($post->image->url))
+
+@section('titleTwitter', $post->subtitle)
+@section('imageTwitter', Storage::url($post->image->url))
+
+@section('titleMeta', $post->subtitle)
+@section('imageMeta', Storage::url($post->image->url))
 
 @section('content')
 
@@ -19,18 +28,22 @@
                     <span>|</span>
                     <span>{{ $post->user->name }} {{ $post->user->last_name }}</span>
                 </p>
+                {!! $post->body !!}
             </div>
-            {!! $post->body !!}
+
     </article>
 
     <div class="botones-redes">
         <div class="container">
             <div class="row">
                 <div class="facebook mt-4">
-                    <a href="" class="facebook-btn">Compartir en Facebook</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}" class="facebook-btn"
+                        target="_blank">Compartir en Facebook</a>
                 </div>
                 <div class="twitter mt-4">
-                    <a href="" class="twitter-btn">Compartir en twitter</a>
+                    <a href="https://twitter.com/intent/tweet?url={{ url()->full() }}2&text=" class="twitter-btn"
+                        target="_blank">Compartir
+                        en twitter</a>
                 </div>
             </div>
         </div>
@@ -62,66 +75,41 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endif
                 @endforeach
             </div>
         </div>
     </section>
 
-    <section id="comentarios">
-        <div class="container">
-            <h4>Comentarios</h4>
-            <div class="comentarios-escr mt-3">
-                <h5>ARMANDO CARBALLO</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, reiciendis! Eius numquam officia
-                    blanditiis dignissimos maiores, molestiae nisi praesentium rerum tenetur ex accusantium ea assumenda qui
-                    similique quisquam dolore pariatur.</p>
-            </div>
-            <div class="comentarios-escr mt-3">
-                <h5>ARMANDO CARBALLO</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, reiciendis! Eius numquam officia
-                    blanditiis dignissimos maiores, molestiae nisi praesentium rerum tenetur ex accusantium ea assumenda qui
-                    similique quisquam dolore pariatur.</p>
-            </div>
-            <div class="comentarios-escr mt-3">
-                <h5>ARMANDO CARBALLO</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, reiciendis! Eius numquam officia
-                    blanditiis dignissimos maiores, molestiae nisi praesentium rerum tenetur ex accusantium ea assumenda qui
-                    similique quisquam dolore pariatur.</p>
-            </div>
-
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-    <!--========== NEWSLETTER =============-->
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
+    @auth
+        <section id="comentarios">
+            <div class="container card">
+                <form action="{{ route('blog.store.comment') }}" method="POST">
+                    @csrf
+                    <div class="form-group col-md-8">
+                        <input type="hidden" name="post" value="{{ $post->id }}">
+                        <label for="body">Ingresa tu comentario</label>
+                        <textarea name="body" rows="5" class="form-control"></textarea>
+                        <button class="btn btn-primary float-right mt-2" type="submit">Comentar</button>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
-                    <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
+                </form>
+                <h4>Comentarios</h4>
+                @foreach ($post->comments as $comment)
+                    <div class="comentarios-escr mt-3 px-4 card">
+                        <h5>{{ $comment->user->name }} {{ $comment->user->last_name }}</h5>
+                        <p>{{ $comment->body }}</p>
                     </div>
-                </div>
+                @endforeach
             </div>
-        </div>
-    </section>
+        </section>
+    @endauth
+
+
+
+
+
+
+
+
 @endsection

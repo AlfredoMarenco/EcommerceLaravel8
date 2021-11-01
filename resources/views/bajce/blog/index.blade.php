@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Blog')
 @section('content')
 
 
@@ -7,7 +7,7 @@
         <div class="container">
             <h3>Más recientes</h3>
             <div class="row">
-                <div class="col-9">
+                <div class="col-sm-12 col-md-9">
                     <div class="row">
                         @foreach ($posts as $post)
                             @if ($post->status = 3)
@@ -15,7 +15,8 @@
                                     <div class="imagen-destacada">
                                         <img src="{{ Storage::url($post->image->url) }}" class="img-fluid" alt="">
                                     </div>
-                                    <p class="mt-3" style="color: gray;">{{ $carbon->diffForHumans($post->created_at) }}
+                                    <p class="mt-3" style="color: gray;">
+                                        {{ $post->created_at->diffForHumans(['options' => 0]) }}
                                     </p>
                                     <h3>{{ $post->title }}</h3>
                                     <p>{!! $post->extract !!}</p>
@@ -26,7 +27,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-sm-12 col-md-3">
                     <div class="row">
                         <h3>Lo más destacado</h3>
                         <div class="row">
@@ -38,7 +39,8 @@
                                     <p>
                                         <b>{{ $recent->title }}
                                         </b>
-                                        <span>{{ $carbon->diffForHumans($recent->created_at) }} </span>
+                                        <br>
+                                        <span>{{ $recent->created_at->diffForHumans(['options' => 0]) }} </span>
                                         <span> <br>
                                             <a href="{{ route('blog.show', $recent) }}"> Ver más <i
                                                     class="far fa-arrow-alt-circle-right"></i></a>
@@ -56,28 +58,7 @@
 
     </section>
 
-    <!--========== NEWSLETTER =============-->
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
-                    <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 
 

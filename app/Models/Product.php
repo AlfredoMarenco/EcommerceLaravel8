@@ -17,7 +17,7 @@ class Product extends Model
     //Relacion muchos a muchos
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withPivot('quanty', 'price', 'color', 'size');
+        return $this->belongsToMany(Order::class)->withPivot('quanty', 'price','envio', 'color', 'size');
     }
 
     public function categories()
@@ -81,5 +81,11 @@ class Product extends Model
         } else {
             return 5;
         }
+    }
+
+    //Asignamos el slug como key para url amigables
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

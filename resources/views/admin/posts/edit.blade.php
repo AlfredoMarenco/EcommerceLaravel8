@@ -9,12 +9,28 @@
 @section('content')
     <div class="card">
         <div class="car-body p-3">
-            {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'files' => true ,'method' => 'PUT']) !!}
+            {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'files' => true, 'method' => 'PUT']) !!}
             @include('admin.posts.partials.form')
             {!! Form::submit('Actualizar post', ['class' => 'btn btn-success btn-block mt-4']) !!}
             {!! Form::close() !!}
         </div>
     </div>
+    @if ($comments)
+        <h1 class="ml-2">Comentarios del Post</h1>
+        @foreach ($comments as $comment)
+            <div class="card py-2">
+                <div class="card-title px-3">
+                    <h4>{{ $comment->user->name }}</h4>
+                </div>
+                <div class="car-body px-3">
+                    {{ $comment->body }}
+                </div>
+            </div>
+        @endforeach
+        <div class="float-right">
+            {{ $comments->links() }}
+        </div>
+    @endif
 @stop
 
 @section('css')
@@ -40,25 +56,18 @@
     @livewireScripts
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+
     <script>
-        CKEDITOR.replace( 'extract' );
-        CKEDITOR.replace( 'body' );
-        //Cambiar imagen
-        document.getElementById("file").addEventListener('change', cambiarImagen);
-
-        function cambiarImagen(event) {
-            var file = event.target.files[0];
-
-            var reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("picture").setAttribute('src', event.target.result);
-            };
-
-            reader.readAsDataURL(file);
-        }
+        CKEDITOR.replace('extract', {
+            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form',
+        });
+        CKEDITOR.replace('body', {
+            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form',
+        });
 
     </script>
-
     <script>
         $(document).ready(function() {
             $("#title").stringToSlug({

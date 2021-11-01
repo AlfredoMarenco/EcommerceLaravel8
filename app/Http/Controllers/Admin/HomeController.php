@@ -13,9 +13,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        /* dd(Carbon::today()); */
 
-        //Graficas de ordenes generedas hoy y acomulados
+        /*         //Graficas de ordenes generedas hoy y acomulados
         $orderCompleteToday = Order::where('status', 'charge.succeeded')->whereBetween('created_at', [Carbon::today(), Carbon::now()])->count();
         $orderPendingToday = Order::where('status', 'charge_pending')->whereBetween('created_at', [Carbon::today(), Carbon::now()])->count();
         $orderComplete = Order::where('status', 'charge.succeeded')->count();
@@ -32,15 +31,9 @@ class HomeController extends Controller
             ->setSubtitle('Acomulado')
             ->addData([$orderComplete, $orderPending])
             ->setLabels(['Completed', 'Pending']);
-
-
-
         //Grafica para el total de ingresos
-
         $orders = Order::all();
-
         $totalOrders = 0;
-
         foreach ($orders as $order) {
             $totalOrders += $order->amount;
         }
@@ -48,11 +41,11 @@ class HomeController extends Controller
             ->setTitle('Total de Ingresos')
             ->setSubtitle('Ingresos')
             ->addData('Ingresos', [$totalOrders, 9, 3, 4, 10, 8])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Agos', 'Sep']);
+            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Agos', 'Sep']); */
 
 
 
         /* return view('chart', compact('chart')); */
-        return view('admin.home', compact('chart', 'chart2'));
+        return view('admin.home'/* , compact('chart', 'chart2') */);
     }
 }

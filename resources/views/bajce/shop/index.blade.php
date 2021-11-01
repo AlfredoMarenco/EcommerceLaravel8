@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
     {{-- @livewire('products',['category_id' => $category_id]) --}}
     <section class="section-content padding-y">
@@ -25,16 +25,16 @@
                                     Categorias
                                 </a>
                             </h6>
-                            <div class="filter-content collapse show" id="collapse_1">
+                            <div class="filter-content collapse" id="collapse_1">
                                 <div class="inner">
                                     @foreach ($categories as $category)
-                                        @if ($category->products_count > 0)
+                                        @if ($category->products->where('type', 0)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="categories[]" class="custom-control-input"
                                                     value="{{ $category->id }}">
                                                 <div class="custom-control-label">{{ $category->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $category->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $category->products->where('type', 0)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -47,16 +47,16 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_2"> Marcas
                                 </a>
                             </h6>
-                            <div class="filter-content collapse show" id="collapse_2">
+                            <div class="filter-content collapse" id="collapse_2">
                                 <div class="inner">
                                     @foreach ($brands as $brand)
-                                        @if ($brand->products_count > 0)
+                                        @if ($brand->products->where('type', 0)->count() > 0)
                                             <label class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="brands[]" class="custom-control-input"
                                                     value="{{ $brand->id }}">
                                                 <div class="custom-control-label">{{ $brand->name }}
                                                     <b
-                                                        class="badge badge-pill badge-light float-right">{{ $brand->products_count }}</b>
+                                                        class="badge badge-pill badge-light float-right">{{ $brand->products->where('type', 0)->count() }}</b>
                                                 </div>
                                             </label>
                                         @endif
@@ -70,7 +70,7 @@
                                     de
                                     precio </a>
                             </h6>
-                            <div class="filter-content collapse show" id="collapse_3">
+                            <div class="filter-content collapse" id="collapse_3">
                                 <div class="inner">
                                     {{-- <input type="range" class="custom-range" min="0" max="100" name=""> --}}
                                     <div class="form-row">
@@ -114,69 +114,79 @@
                     </form>
                 </aside> <!-- col.// -->
 
-                <main class="col-md-10">
-                    <header class="mb-3">
-                        <div class="form-inline">
-                            <strong class="mr-md-auto">{{ $products->count() }} Productos encontrados </strong>
-                            <select class="mr-2 form-control">
-                                <option>Más recientes</option>
-                                <option>Mejor Calificación</option>
-                                <option>Más econónimos</option>
-                            </select>
-                        </div>
-                    </header><!-- sect-heading -->
-
+                <main class="col-md-10 mt-3">
+                    <h2 class="mx-auto text-center">Próximamente</h2>
                     <div class="row">
-                        @foreach ($products as $product)
-                            <div class="col-md-3">
-                                <figure class="card card-product-grid">
-                                    <div class="img-wrap">
-                                        <span class="badge badge-danger"> Nuevo </span>
-                                        <a href="{{ route('shop.product', $product) }}"><img
-                                                src="{{ Storage::url($product->image->url) }}"></a>
-                                    </div> <!-- img-wrap.// -->
-                                    <figcaption class="info-wrap">
-                                        <a href="{{ route('shop.product', $product) }}"
-                                            class="title mb-2">{{ $product->name }}</a>
-                                        <div class="price-wrap">
-                                            <span class="price">{{ $product->presentPrice() }}</span>
-                                            <small class="text-muted">/ pza</small>
-                                            <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
-                                        </div> <!-- price-wrap.// -->
-                                        <div class="rating-wrap my-3">
-                                            <ul class="rating-stars">
+                        @if ($products->count() > 0)
+                            @foreach ($products as $product)
+                                <div class="col-md-3">
+                                    <figure class="card card-product-grid">
+                                        <div class="img-wrap">
+                                            @if ($product->created_at->diffInDays(\Carbon\Carbon::now()) < 30)
+                                                <span class="badge badge-danger"> Nuevo </span>
+                                            @endif
+                                            <a href="{{ route('shop.product', $product) }}">
+                                                <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
+                                            </a>
+                                        </div> <!-- img-wrap.// -->
+                                        <figcaption class="info-wrap">
+                                            <a href="{{ route('shop.product', $product) }}"
+                                                class="title mb-2">{{ $product->name }}</a>
+                                            <div class="price-wrap">
+                                                @if ($product->discount)
+                                                    <strike
+                                                        class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                                    <small class="text-muted">/</small>
+                                                    <span
+                                                        class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                                    <small class="text-muted">/ pza</small>
+                                                @else
+                                                    <span class="price">{{ $product->presentPrice() }}</span>
+                                                    <small class="text-muted">/ pza</small>
+                                                @endif
+                                                <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
+                                            </div> <!-- price-wrap.// -->
+                                            <div class="rating-wrap my-3">
+                                                <ul class="rating-stars">
 
-                                                <li style="width:{{ ($product->rating * 100) / 5 }}%"
-                                                    class="stars-active">
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                            </ul>
-                                            <small class="label-rating text-muted">{{ $product->reviews_count }}
-                                                Opiniones</small>
-                                        </div> <!-- rating-wrap.// -->
-                                        <hr>
-                                        <p class="mb-3">
-                                            <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
-                                            @if ($product->garantia_visible == 1)<span
-                                                    class="tag"> {{ $product->garantia }} garantía </span> @endif
-                                        </p>
-                                        <form action="{{ route('cart.addItems', $product) }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" readonly="true" class="form-control" name="qty" value="1">
-                                            <button type="submit" class="btn btn-block btn-primary"><i
-                                                    class="fas fa-cart-plus"></i> Añadir al carrito </button>
-                                        </form>
-                                    </figcaption>
-                                </figure>
+                                                    <li style="width:{{ ($product->rating * 100) / 5 }}%"
+                                                        class="stars-active">
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <small class="label-rating text-muted">{{ $product->reviews_count }}
+                                                    Opiniones</small>
+                                            </div> <!-- rating-wrap.// -->
+                                            <hr>
+                                            <p class="mb-3">
+                                                <span class="tag"> <i class="fa fa-check"></i> Verificado</span>
+                                                @if ($product->garantia_visible == 1)<span
+                                                        class="tag"> {{ $product->garantia }} garantía </span>
+                                                @endif
+                                            </p>
+                                            <form action="{{ route('cart.addItems', $product) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" readonly="true" class="form-control" name="qty"
+                                                    value="1">
+                                                <button type="submit" class="btn btn-block btn-primary"><i
+                                                        class="fas fa-cart-plus"></i> Añadir al carrito </button>
+                                            </form>
+                                        </figcaption>
+                                    </figure>
+                                </div> <!-- col.// -->
+                            @endforeach
+                        @else
+                            <div class="col-md-12 text-center p-5 mt-5">
+                                <h3>Sin resultados de busqueda</h3>
                             </div> <!-- col.// -->
-                        @endforeach
+                        @endif
                     </div>
                     {{ $products->links() }}
                 </main> <!-- col.// -->

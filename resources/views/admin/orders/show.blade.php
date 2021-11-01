@@ -137,7 +137,8 @@
                                     @endif
                                 </td>
                                 <td clss="text-center">
-                                    {{ $product->pivot->quanty }} X ${{ number_format($product->pivot->price, 2) }}
+                                    <p>Precio unitario: {{ $product->pivot->quanty }} x ${{ number_format($product->pivot->price, 2) }}</p>
+                                    <p class="title mb-0">Costos de envio: {{ number_format($product->pivot->quanty*$product->pivot->envio,2) }} <small>({{ $product->pivot->quanty }} x ${{ number_format($product->pivot->envio,2) }})</small></p>
                                 </td>
                                 <td>
                                     @foreach ($order->reviews as $review)
@@ -164,7 +165,7 @@
                             <td>
                             </td>
                             <td>
-                                <div class="h3 float-left">
+                                <div class="h3">
                                     Total: ${{ number_format($order->amount, 2) }}
                                 </div>
                             </td>
@@ -180,8 +181,8 @@
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">

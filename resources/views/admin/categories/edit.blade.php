@@ -16,7 +16,7 @@
         <div class="card-body">
             {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'PUT']) !!}
             @include('admin.categories.partials.form')
-            {!! Form::submit('Crear nueva categoria', ['class' => 'btn btn-success btn-block']) !!}
+            {!! Form::submit('Editar categoria', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>
@@ -29,4 +29,5 @@
 
 @section('js')
     @livewireScripts
+    @include('sweetalert::alert')
 @stop

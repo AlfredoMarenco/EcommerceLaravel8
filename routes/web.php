@@ -6,21 +6,23 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginSocialiteController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
-use App\Mail\OrderFailed;
-use App\Mail\OrderShipped;
-use App\Models\Order;
+use App\Mail\RequestQuotes;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-
-
+use App\Mail\Contact;
+use App\Models\Product;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,86 +35,43 @@ use Illuminate\Support\Str;
 |
 */
 
-/* Route::get('/', [ShopController::class, 'index'])->name('shop.home');
-Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
-Route::get('/products/{var?}', [ShopController::class, 'showProducts'])->name('shop.products');
-
-
-
-//Rutas del carrito de compras
-Route::prefix('/cartshop')->group(function () {
-    Route::get('/', [CartController::class, 'index'])->name('cart');
-    Route::post('/addToCart/{id}', [CartController::class, 'addItemsToCart'])->name('cart.addItem');
-    Route::get('/deleteCart', [CartController::class, 'destroy'])->name('cart.destroy');
-    Route::get('/removeitem/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
-    Route::any('/update/{rowId}', [CartController::class, 'update'])->name('cart.update');
-});
-
-//Rutas del checkout y los metodos de pago
-Route::prefix('checkout')->group(function () {
-    Route::get('/', [PaymentController::class, 'index'])->name('checkout.index');
-    Route::post('/directChargeOpenpay', [PaymentController::class, 'directChargeOpenPay'])->name('checkout.chargeOpenpay');
-    Route::get('/directChargeOpenpay/responsepayment/', [PaymentController::class, 'validateChargeOpenPay']);
-    Route::get('/storeReference', [PaymentController::class, 'storeReference'])->name('checkout.storeReference');
-    Route::post('/storeReferenceOpenpay', [PaymentController::class, 'storeReferenceOpenPay'])->name('checkout.storeOpenpay');
-    Route::post('/directChargeConekta', [PaymentController::class, 'directChargeConekta'])->name('checkout.chargeConekta');
-    Route::post('/directChargeMercadoPago', [PaymentController::class, 'directChargeMercadoPago'])->name('checkout.chargeMercadoPago');
-});
-
-
-
-Route::get('galery', [GaleryController::class,'index'])->name('galery.index');
-
-// Ruta política de privacidad & condiciones de uso
-Route::get('/politicas-de-privacidad', function(){
-    return view('politicas.index');
-    })->name('politicas-de-privacidad');
-
-Route::get('/condiciones-de-uso', function(){
-    return view('politicas.condiciones');
-    })->name('condiciones-de-uso');
-
-
-
-
-Route::get('/mailable', function () {
-    $order = Order::find(405);
-
-    return new OrderFailed($order);
-});
- */
-
 // Index
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
-route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::get('/nosotros', [LandingPageController::class, 'about'])->name('about');
+Route::get('/search', [LandingPageController::class, 'search'])->name('search');
+Route::post('/newsletter', [NewsletterController::class, 'newsletter'])->name('newsletter');
+
 
 //Rutas Tienda
-Route::prefix('/shop')->group(function () {
+Route::prefix('/tienda')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-    Route::get('/product/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
-    Route::get('/products/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
-    Route::post('/products/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
+    Route::get('/producto/{product}', [ShopController::class, 'showProduct'])->name('shop.product');
+    Route::get('/productos/{category?}', [ShopController::class, 'showProductsCategory'])->name('shop.products.category');
+    Route::post('/productos/filter', [ShopController::class, 'filterProduct'])->name('shop.products.filter');
 });
 
 //Rutas Catalogo
-Route::prefix('/catalogue')->group(function () {
+Route::prefix('/catalogos')->group(function () {
     Route::get('/', [CatalogueController::class, 'index'])->name('catalogue.index');
-    Route::get('/products/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
-    Route::get('/product/{product}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::get('/categoria/{category?}', [CatalogueController::class, 'products'])->name('catalogue.products');
+    Route::get('/categoria/{product}/{catalogue?}', [CatalogueController::class, 'product'])->name('catalogue.product');
+    Route::post('/productos/filter', [CatalogueController::class, 'filterProduct'])->name('catalogue.products.filter');
 });
 
 // Rutas del blog
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/post/{post}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/storeComment', [BlogController::class, 'storeComment'])->name('blog.store.comment');
 });
 
 
 //Rutas del carrito de compras
-Route::prefix('/cartshop')->group(function () {
+Route::prefix('/carrito')->group(function () {
     Route::get('/', [ShopController::class, 'cart'])->name('cart');
-    Route::post('/addToCart/{id}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
-    Route::post('/addsToCart/{id}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::post('/addToCart/{product}', [ShopController::class, 'addItemToCart'])->name('cart.addItem');
+    Route::post('/addsToCart/{product}', [ShopController::class, 'addItemsToCart'])->name('cart.addItems');
+    Route::post('/addToCartCheckout/{product}', [ShopController::class, 'addItemToCartCheckout'])->name('cart.addItemToCheckout');
     Route::any('/update/{rowId}', [ShopController::class, 'update'])->name('cart.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('cart.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToCart'])->name('cart.remove');
@@ -122,11 +81,12 @@ Route::prefix('/cartshop')->group(function () {
 
 //Rutas wishlist
 Route::prefix('/wishlist')->group(function () {
-    Route::post('/addToWishlist/{id}', [ShopController::class, 'addItemToWishlist'])->name('wishlist.addItem');
-    Route::post('/addsToWishlist/{id}', [ShopController::class, 'addItemsToWishlist'])->name('wishlist.addItems');
+    Route::post('/addToWishlist/{product}', [ShopController::class, 'addItemToWishlist'])->name('wishlist.addItem');
+    Route::post('/addsToWishlist/{product}', [ShopController::class, 'addItemsToWishlist'])->name('wishlist.addItems');
     Route::any('/update/{rowId}', [ShopController::class, 'updateWishlist'])->name('wishlist.update');
     Route::get('/deleteCart', [ShopController::class, 'destroy'])->name('wishlist.destroy');
     Route::get('/removeitem/{rowId}', [ShopController::class, 'removeItemToWishlist'])->name('wishlist.remove');
+    Route::post('/sendCotizacion', [ShopController::class, 'sendCotizacion'])->name('wishlist.sendCotizacion');
 });
 
 //Rutas del checkout y los metodos de pago
@@ -142,10 +102,10 @@ Route::prefix('checkout')->group(function () {
 });
 
 //Rutas de panel del cliente de
-Route::prefix('/user')->group(function () {
-    Route::get('/profile', [UserController::class, 'index'])->name('user.profile');
-    Route::get('/orders', [UserController::class, 'showOrders'])->name('user.orders');
-    Route::get('/settings', [UserController::class, 'edit'])->name('user.settings');
+Route::prefix('/usuario')->group(function () {
+    Route::get('/perfil', [UserController::class, 'index'])->name('user.profile');
+    Route::get('/ordenes', [UserController::class, 'showOrders'])->name('user.orders');
+    Route::get('/configuracion', [UserController::class, 'edit'])->name('user.settings');
     Route::post('/updatePassword', [UserController::class, 'updatePassword'])->name('user.update.password');
     Route::post('/updateInformationProfile', [UserController::class, 'updateInformationProfile'])->name('user.update.profile');
 });
@@ -220,44 +180,32 @@ Route::post('/reset-password', function (Request $request) {
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
-// Artículo
-Route::get('/articulo', function () {
-    return view('bajce.blog.article');
-});
-// index producto
+Route::post('sendcontact', function (Request $request) {
+    /* Mail::to('info@bajce.com')->send(new Contact($request)); */
+    return redirect()->back();
+})->name('send.contact');
 
-// producto detalle
-Route::get('/producto', function () {
-    return view('bajce.shop.product');
-});
-// index catálogo
-route::get('/catalogo', function () {
-    return view('bajce.catalog.index');
-});
-// productos del catálogo
-route::get('/productos-catalogo', function () {
-    return view('bajce.catalog.catalog');
-});
-// detalle del catálogo
-route::get('/detalle-producto', function () {
-    return view('bajce.catalog.product');
-});
-// Nosotros
-
-
-// Mis órdenes
-route::get('/mis-ordenes', function () {
-    return view('bajce.user.my-orders');
+Route::get('link', function () {
+    Artisan::call('storage:link');
 });
 
-// Mi dirección
-route::get('/mi-direccion', function () {
-    return view('bajce.user.my-adress');
+Route::get('cache', function () {
+    Artisan::call('config:clear');
+});
+
+Route::get('migrate', function () {
+    Artisan::call('migrate');
 });
 
 
-/* Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
-    ->name('ckfinder_connector');
+Route::get('slugs', function () {
+    $products = Product::all();
+    foreach ($products as $product) {
+        $slug = Str::slug($product->name);
+        $product->update([
+            'slug' => $slug
+        ]);
+    }
 
-Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
-    ->name('ckfinder_browser'); */
+    return "Actualizamos los slugs";
+});

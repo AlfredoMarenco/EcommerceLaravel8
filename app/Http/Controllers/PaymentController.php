@@ -27,7 +27,9 @@ class PaymentController extends Controller
     {
         $this->middleware('auth');
     }
-
+    /**
+     * Funcion para mostrar el formulario de pago con tarjeta
+     */
     public function index()
     {
         if (Cart::count() <= 0) {
@@ -38,7 +40,9 @@ class PaymentController extends Controller
             return view('bajce.shop.card-payment');
         }
     }
-
+    /**
+     * Funcion para mostrar el formulario de pago en efectivo
+     */
     public function cash()
     {
         if (Cart::count() <= 0) {
@@ -50,6 +54,9 @@ class PaymentController extends Controller
         }
     }
 
+    /**
+     * Funcion para generar el cobro con tarjeta mediante el protocolo 3DSecure
+     */
     public function directChargeOpenPay(Request $request)
     {
         //Creamos la instancia de openpay para poder hacer las solicitudes
@@ -68,14 +75,26 @@ class PaymentController extends Controller
             'postal_code' => $request->postal_code,
         ]);
         //Creamos la orden en la base de datos con un estado de process que indicara que no esta aun terminada la transaccion
-        $order = Order::create([
-            'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
-            'id_gateway' => null,
-            'status' => 'charge_pending',
-            'type' => 'card',
-            'user_id' => $user->id,
-            'shipping_address_id' => $shipping_address->id,
-        ]);
+        if ($request->session()->has('coupon')) { //Validamos que exista en la session el cupon para aplicar a la orden cuando sea generada
+            $order = Order::create([
+                'amount' => (float)str_replace(',', '', Cart::total()) + $request->envio, //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+                'id_gateway' => null,
+                'status' => 'charge_pending',
+                'type' => 'card',
+                'user_id' => $user->id,
+                'coupon_id' => $request->session()->get('coupon'),
+                'shipping_address_id' => $shipping_address->id,
+            ]);
+        } else {
+            $order = Order::create([
+                'amount' => (float)str_replace(',', '', Cart::total()) + $request->envio, //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+                'id_gateway' => null,
+                'status' => 'charge_pending',
+                'type' => 'card',
+                'user_id' => $user->id,
+                'shipping_address_id' => $shipping_address->id,
+            ]);
+        }
 
         //Creamos los registros de la orden en la tabla order_producto obteniendo el contenido del carrito
         foreach (Cart::content() as $product) {
@@ -85,6 +104,7 @@ class PaymentController extends Controller
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
                     'price' => $product->price,
+                    'envio' => 0,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
                 ]
@@ -129,15 +149,24 @@ class PaymentController extends Controller
         Cart::destroy();
         return redirect($url3D);
     }
-
+    /**
+     * Funcion para validar la orden recien generada (Revisar que siga siendo funcional o ya es obsoleta por la implementacion de la Api)
+     */
     public function validateChargeOpenPay()
     {
         $idOrderOpenPay = $_GET['id'];
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $charge = $openpay->charges->get($idOrderOpenPay);
         $idOrder = $charge->serializableData["order_id"];
-        /* $validationCharge = $charge->status; */
+        $validationCharge = $charge->status;
+        /* return $validationCharge; */
+
         $orderUpdate = Order::find($idOrder);
+        if ($validationCharge == 'completed') {
+            $orderUpdate->status = 'charge.succeeded';
+        } else {
+            $orderUpdate->status = 'charge.failed';
+        }
         $orderUpdate->id_gateway = $idOrderOpenPay;
         $orderUpdate->save();
         return redirect()->route('user.profile');
@@ -154,10 +183,11 @@ class PaymentController extends Controller
         }
     }
 
-    //PAGO EN EFECTIVO
+    /**
+     * PAGO EN EFECTIVO
+     */
     public function storeReferenceOpenPay(Request $request)
     {
-
         $user = auth()->user();
         $openpay = Openpay::getInstance(config('openpay.merchant_id'), config('openpay.private_key'), config('openpay.country_code'));
         $description = '';
@@ -173,14 +203,26 @@ class PaymentController extends Controller
             'postal_code' => $request->postal_code,
         ]);
         //Creamos la orden en la base de datos con un estado de process que indicara que no esta aun terminada la transaccion
-        $order = Order::create([
-            'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
-            'id_gateway' => null,
-            'status' => 'charge_pending',
-            'type' => 'store',
-            'user_id' => $user->id,
-            'shipping_address_id' => $shipping_address->id,
-        ]);
+        if ($request->session()->has('coupon')) { //Validamos que exista en la session el cupon para aplicar a la orden cuando sea generada
+            $order = Order::create([
+                'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+                'id_gateway' => null,
+                'status' => 'charge_pending',
+                'type' => 'store',
+                'user_id' => $user->id,
+                'coupon_id' => $request->session()->get('coupon'),
+                'shipping_address_id' => $shipping_address->id,
+            ]);
+        } else {
+            $order = Order::create([
+                'amount' => (float)str_replace(',', '', Cart::total()), //aqui el metodo total() de Cart regresa un string con una coma, lo que hacemos es quitarcela
+                'id_gateway' => null,
+                'status' => 'charge_pending',
+                'type' => 'store',
+                'user_id' => $user->id,
+                'shipping_address_id' => $shipping_address->id,
+            ]);
+        }
 
         //Creamos los registros de la orden en la tabla order_producto obteniendo el contenido del carrito
         foreach (Cart::content() as $product) {
@@ -190,6 +232,7 @@ class PaymentController extends Controller
                     'product_id' => $product->id,
                     'quanty' => $product->qty,
                     'price' => $product->price,
+                    'envio' => 0,
                     'color' => $product->options->color,
                     'size' => $product->options->size,
                 ]
@@ -220,7 +263,7 @@ class PaymentController extends Controller
             'currency' => 'MXN',
             'description' => config('app.name') . '-' . $order->id,
             'order_id' => $order->id,
-            'due_date' => Carbon::now()->addDay(2),
+            'due_date' => Carbon::now()->addDay(2), //Establecemos que la fecha de expiracion sea de 2 dias despues de que se alla generado la orden
             'customer' => $customer
         ];
 

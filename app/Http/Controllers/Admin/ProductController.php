@@ -13,6 +13,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -70,9 +71,10 @@ class ProductController extends Controller
                 ]);
             }
         }
+        $slug = Str::slug($product->name);
 
-        if ($request->category_id) {
-            $product->categories()->attach($request->category_id);
+        if ($request->categories) {
+            $product->categories()->sync($request->categories);
         }
         return redirect()->route('admin.products.edit', $product)->withSuccess('Producto creado con éxito!');
     }
@@ -100,6 +102,7 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
+
         $product->update($request->all());
 
         if ($request->file('file')) {
@@ -111,9 +114,11 @@ class ProductController extends Controller
                 ]);
             }
         }
-        if ($request->category_id) {
-            $product->categories()->sync($request->category_id);
+        if ($request->categories) {
+            $product->categories()->sync($request->categories);
         }
+
+
         return redirect()->route('admin.products.edit', $product)->withToastSuccess('Producto actualizado con éxito');
     }
 
@@ -125,9 +130,12 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete();
-        /* dd($response); */
-        return redirect()->route('admin.products.index', $product)->with('Success', 'Producto eliminado con éxito');
+        try {
+            $product->delete();
+            return redirect()->route('admin.products.index')->with('Success', 'Producto eliminado con éxito');
+        } catch (\Throwable $th) {
+            return back()->withToastError('Este producto ya tiene ventas');
+        }
     }
 
     public function deleteImage($id)

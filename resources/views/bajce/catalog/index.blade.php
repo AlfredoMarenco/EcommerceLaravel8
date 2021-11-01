@@ -1,14 +1,12 @@
 @extends('layouts.bajce')
-
+@section('title', 'Catalogo')
 @section('content')
 
 
 
-    <section class="section-intro ">
+    <section class="section-intro pad">
         <div class="container-fluid p-0">
             <!-- ==============  COMPONENT SLIDER  BOOTSTRAP ============  -->
-
-            <!---->
             <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @foreach ($catalogues as $catalogue)

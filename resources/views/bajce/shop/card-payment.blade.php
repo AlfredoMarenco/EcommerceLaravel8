@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('css')
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
@@ -14,9 +14,10 @@
             <div class="container mb-3 mt-5 py-3">
                 <div class="row">
                     <main class="col-md-8 mx-auto">
-                        <div class="card p-5">
+                        <div class="card p-3">
                             <h4>Dirección de envio</h4>
-                            <form action="{{ route('checkout.chargeOpenpay') }}" method="POST" role="form" id="payment-form">
+                            <form action="{{ route('checkout.chargeOpenpay') }}" method="POST" role="form"
+                                id="payment-form">
                                 @csrf
                                 <input type="hidden" name="token_id" id="token_id">
                                 <input type="hidden" name="use_card_points" id="use_card_points" value="false">
@@ -36,15 +37,16 @@
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="suburb">Colonia</label>
-                                        <input type="text" class="form-control" name="suburb" placeholder="Col. Los heroes">
+                                        <input type="text" class="form-control" name="suburb"
+                                            placeholder="Col. Los heroes">
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="state">Estado</label>
-                                        <input type="text" class="form-control" name="state" placeholder="Mérida">
+                                        <input type="text" class="form-control" name="state" placeholder="Yucatán">
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="city">Ciudad</label>
-                                        <input type="text" class="form-control" name="city" placeholder="Yucatán">
+                                        <input type="text" class="form-control" name="city" placeholder="Mérida">
                                     </div>
                                     <div class="form-group col-8">
                                         <label for="postal_code">Codigo postal</label>
@@ -93,7 +95,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label data-toggle="tooltip" title=""
                                                 data-original-title="3 digits code on back side of the card">CVV <i
@@ -103,17 +105,114 @@
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
-
-                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Some secureity information Lorem
-                                    ipsum
-                                    dolor
-                                    sit
-                                    amet, consectetur adipisicing elit, sed do eiusmod</p>
-                                <button class="subscribe btn btn-primary btn-block" id="pay-button"> Confirmar
+                                {{-- <input type="hidden" name="envio" value="{{ session('envio') }}"> --}}
+                                <p class="alert alert-success"> <i class="fa fa-lock"></i> Su transacción está protegida
+                                    por nuestros protocolos de seguridad SSL, al presionar "Comprar" será redireccionado al
+                                    portal de confirmación de su banco para confirmar la compra.</p>
+                                <button class="subscribe btn btn-primary btn-block" id="pay-button"> Comprar
                                 </button>
                             </form>
                         </div> <!-- card.// -->
                     </main> <!-- col.// -->
+                    <aside class="col-md-3">
+                        @if (!session('coupon'))
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <form action="{{ route('cart.applyCoupon') }}" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label>¿Tienes un cupón?</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="coupon"
+                                                    placeholder="Código de cupón">
+                                                <span class="input-group-append">
+                                                    <button type="submit" class="btn btn-primary">Aplicar</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div> <!-- card-body.// -->
+                            </div> <!-- card .// -->
+                        @endif
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p class="text-center mb-3">
+                                    <img class="img-fluid" src="{{ asset('images/openpay/openpay_color.png') }}">
+                                </p>
+                                @if (Cart::instance('default')->count() > 0)
+                                    <dl class="dlist-align">
+                                        <h6>Total a pagar en linea</h6>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Precio total:</dt>
+                                        @if (Cart::discount() < 0)
+                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN
+                                            </dd>
+                                        @else
+                                            @php
+                                                $subtotal = str_replace(',', '', Cart::instance('default')->subtotal());
+                                                $discount = str_replace(',', '', Cart::discount());
+                                                $subtotal = $subtotal + $discount;
+                                            @endphp
+                                            <dd class="text-right">${{ number_format($subtotal, 2) }} MXN</dd>
+                                        @endif
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Descuento:</dt>
+                                        @if (Cart::discount() > 0)
+                                            <dd class="text-right">
+                                                $-{{ Cart::discount(2, '.', ',') }} MXN
+                                                <small><a href="{{ route('cart.deleteCoupon') }}">Eliminar</a></small>
+                                            </dd>
+                                        @else
+                                            <dd class="text-right">${{ Cart::discount(2, '.', ',') }} MXN</dd>
+                                        @endif
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        {{-- <dt>Envío:</dt> --}}
+                                        @php
+                                            $envio = 0;
+                                            foreach (Cart::instance('default')->content() as $product) {
+                                                $envio = $envio + $product->model->envio * $product->qty;
+                                            }
+                                            session()->put('envio', (float) $envio);
+                                        @endphp
+                                        {{-- <dd class="text-right">${{ number_format($envio, 2) }}
+                                            MXN</dd> --}}
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Total:</dt>
+                                        <dd class="text-right h5">
+                                            @php
+                                                $total = str_replace(',', '', Cart::instance('default')->total());
+
+                                                $total = $total + $envio;
+                                            @endphp
+                                            <strong>${{ number_format($total, 2) }}
+                                                MXN</strong>
+                                        </dd>
+                                    </dl>
+                                    <hr>
+                                @endif
+                                {{-- @if (Cart::instance('wishlist')->count() > 0)
+                                    <dl class="dlist-align">
+                                        <h6>Cotizacion de productos del catálogo</h6>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Precio total:</dt>
+                                        <dd class="text-right">${{ Cart::instance('wishlist')->subtotal() }} MXN</dd>
+                                    </dl>
+                                    <dl class="dlist-align">
+                                        <dt>Total:</dt>
+                                        <dd class="text-right  h5"><strong>${{ Cart::instance('wishlist')->total() }}
+                                                MXN</strong></dd>
+                                    </dl>
+                                    <hr>
+                                @endif --}}
+
+                            </div> <!-- card-body.// -->
+                        </div> <!-- card .// -->
+                    </aside> <!-- col.// -->
                 </div>
             </div> <!-- container .//  -->
         </section>
@@ -141,8 +240,8 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-            OpenPay.setId('mdfl2acxa4vwbrittxic');
-            OpenPay.setApiKey('pk_4217280e28ca48ab897cbe4bbb978a1f');
+            OpenPay.setId('mimhvkjunongu1hhp1hq');
+            OpenPay.setApiKey('pk_58c0edadb7544e9badfabd5753298633');
             OpenPay.setSandboxMode(true);
             //Se genera el id de dispositivo
             var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
@@ -167,6 +266,5 @@
                 $("#pay-button").prop("disabled", false);
             };
         });
-
     </script>
 @endsection

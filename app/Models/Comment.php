@@ -9,8 +9,10 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     //Relacion uno a muchos inversa
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -18,6 +20,6 @@ class Comment extends Model
     //Relacion muchos a muchos
     public function posts()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsToMany(Post::class)->withPivot('comment_id', 'post_id');
     }
 }

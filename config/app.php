@@ -167,11 +167,13 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         ArielMejiaDev\LarapexCharts\LarapexChartsServiceProvider::class,
         Spatie\CookieConsent\CookieConsentServiceProvider::class,
+        Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
 
 
         /*
          * Package Service Providers...
          */
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -240,7 +242,9 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'LarapexChart'=> ArielMejiaDev\LarapexCharts\Facades\LarapexChart::class,
+        'LarapexChart' => ArielMejiaDev\LarapexCharts\Facades\LarapexChart::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Recaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
 
     ],
 

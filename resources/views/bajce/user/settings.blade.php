@@ -1,5 +1,7 @@
 @extends('layouts.bajce')
 
+@section('title', 'Usuario')
+
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->
@@ -9,8 +11,6 @@
         </div> <!-- container //  -->
     </section>
     <!-- ========================= SECTION PAGETOP END// ========================= -->
-
-
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-content padding-y">
         <div class="container">
@@ -26,8 +26,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                                                                                this.closest('form').submit();">
+                                onclick="event.preventDefault(); this.closest('form').submit();">
                                 Cerrar
                                 sesión
                             </a>
@@ -75,15 +74,15 @@
                                 <div class="col-md-12 mt-5">
                                     <div class="form-row">
                                         <div class="col form-group col-12">
-                                            <label>Current Password</label>
+                                            <label>Contraseña actual</label>
                                             <input type="password" name="current_password" class="form-control">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
-                                            <label>New Password</label>
+                                            <label>Nueva contraseña</label>
                                             <input type="password" name="password" class="form-control">
                                         </div> <!-- form-group end.// -->
                                         <div class="form-group col-md-6">
-                                            <label>Confirm Password</label>
+                                            <label>Confirmar contraseña</label>
                                             <input type="password" name="password_confirmation" class="form-control">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row.// -->

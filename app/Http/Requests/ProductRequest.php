@@ -25,12 +25,16 @@ class ProductRequest extends FormRequest
     {
         $rules = [
             'name' => 'required',
-            'price' => 'required',
             'SKU' => 'required',
             'stock' => 'required',
-            'category_id' => 'required',
+            'categories' => 'required',
             'description' => 'required',
         ];
+        if ($this->type == 0) {
+            $rules = array_merge($rules, [
+                'price' => 'required',
+            ]);
+        }
 
         return $rules;
     }

@@ -28,6 +28,8 @@
                         <th scope="col">Titulo</th>
                         <th scope="col">Etiquetas</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Fecha de creacion</th>
+                        <th scope="col">Ultima actualizacion</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -44,17 +46,19 @@
                             <td>
                                 @switch($post->status)
                                     @case(1)
-                                    <span class="badge badge-danger">Borrador</span>
+                                        <span class="badge badge-danger">Borrador</span>
                                     @break
                                     @case(2)
-                                    <span class="badge badge-warning">Revision</span>
+                                        <span class="badge badge-warning">Revision</span>
                                     @break
                                     @case(3)
-                                    <span class="badge badge-success">Publicado</span>
+                                        <span class="badge badge-success">Publicado</span>
                                     @break
 
                                 @endswitch
                             </td>
+                            <td>{{ $post->created_at->diffForHumans(['options' => 0]) }}</td>
+                            <td>{{ $post->updated_at->diffForHumans(['options' => 0]) }}</td>
                             <td class="d-flex justify-content-center">
                                 <a href="{{ route('admin.posts.edit', $post) }}"
                                     class="btn btn-success btn-md mx-1">Editar

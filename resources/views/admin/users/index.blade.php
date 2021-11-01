@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Products')
+@section('title', 'Usuarios')
 
 @section('content_header')
     <h1>Lista de usuarios</h1>
@@ -20,5 +20,6 @@
 @stop
 
 @section('js')
+    @include('sweetalert::alert')
     @livewireScripts
 @stop

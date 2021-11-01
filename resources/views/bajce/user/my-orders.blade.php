@@ -1,5 +1,5 @@
 @extends('layouts.bajce')
-
+@section('title', 'Usuario')
 @section('content')
 
     <!-- ========================= SECTION PAGETOP ========================= -->
@@ -27,7 +27,7 @@
                             @csrf
                             <a class="list-group-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                this.closest('form').submit();">
+                                                                                                                                                                                                                                                                    this.closest('form').submit();">
                                 Cerrar
                                 sesión
                             </a>
@@ -50,7 +50,7 @@
                                             @case('bajce')
                                                 <a href="#" class="float-right text-warning mx-2">
                                                     <i class="fas fa-truck-moving"></i>
-                                                    En camino (No rastreable)
+                                                    En camino
                                                 </a>
                                             @break
                                             @case('dhl')
@@ -160,11 +160,13 @@
                                             <span class="b">Total: ${{ number_format($order->amount, 2) }} </span>
                                         </p>
                                         @if ($order->type == 'store')
-                                            <div>
-                                                <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
-                                                    target="_blank" class="btn btn-dark mt-2">Imprimir orden de
-                                                    pago</a>
-                                            </div>
+                                            @if ($order->status == 'charge_pending')
+                                                <div>
+                                                    <a href="{{ config('openpay.dashboard_path') }}/paynet-pdf/{{ config('openpay.merchant_id') }}/{{ $order->reference }}"
+                                                        target="_blank" class="btn btn-dark mt-2">Imprimir orden de
+                                                        pago</a>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
                                 </div> <!-- row.// -->
@@ -175,9 +177,7 @@
                                         @foreach ($order->products as $product)
                                             <tr>
                                                 <td width="85">
-                                                    <a href="{{ route('shop.product', $product) }}"> <img
-                                                            src="{{ Storage::url($product->image->url) }}"
-                                                            class="img-md border">
+                                                    <a href="{{ route('shop.product', $product) }}"> <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-md border">
                                                     </a>
                                                 </td>
                                                 <td>{{--  --}}

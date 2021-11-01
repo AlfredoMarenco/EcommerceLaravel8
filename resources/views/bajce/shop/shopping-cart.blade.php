@@ -1,36 +1,42 @@
 @extends('layouts.bajce')
-
+@section('title', 'Tienda')
 @section('content')
 
     <!-- ========================= SECTION CONTENT ========================= -->
     <section id="section-content-cart" class="section-content padding-y">
         <div class="container">
-
             <div class="row">
                 @if (Cart::instance('wishlist')->count() + Cart::instance('default')->count() > 0)
                     <main class="col-md-9">
-                        <div class="card">
+                        <div class="card table-responsive">
                             <table class="table table-borderless table-shopping-cart">
                                 <thead class="text-muted">
                                     <tr class="small text-uppercase">
                                         <th scope="col">Producto</th>
-                                        <th scope="col" width="120">Cantidad</th>
-                                        <th scope="col" width="120">Precio</th>
-                                        <th scope="col" class="text-right" width="200"> </th>
+                                        <th scope="col" width="5">Cantidad</th>
+                                        <th scope="col" width="0" class="text-center">Precio</th>
+                                        <th scope="col" width="0" class="text-center">Envío</th>
+                                        <th scope="col" width="0" class="text-center"></th>
+                                        <!--<th scope="col"  width="-20">en blanco</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (Cart::instance('default')->content() as $product)
                                         <tr>
-                                            <td>
+                                            <td scope="row">
                                                 <figure class="itemside">
-                                                    <div class="aside"><img
-                                                            src="{{ Storage::url($product->model->image->url) }}"
-                                                            class="img-sm"></div>
+                                                    <div class="aside">
+                                                        <img @if ($product->model->image) src="{{ Storage::url($product->model->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif class="img-sm">
+                                                    </div>
                                                     <figcaption class="info">
-                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                            Garantía: 2 años</p>
+                                                        <a href="{{ route('shop.product', $product->model) }}"
+                                                            class="title text-dark">{{ $product->name }}</a>
+                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                            <br>
+                                                            @if ($product->model->brand)
+                                                                Marca: {{ $product->model->brand->name }}
+                                                            @endif
+                                                        </p>
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -44,20 +50,51 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <var class="price">${{ number_format($product->price, 2) }}</var>
-                                                    <a href="{{ route('cart.remove', $product->rowId) }}"><small
-                                                            class="text-muted">Eliminar </small></a>
+                                                    <div class=" text-center">
+                                                        <var
+                                                            class="price">${{ number_format($product->model->price, 2) }}</var>
+                                                        {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                class="btn btn-md btn-light mt-2">Detalles</a>
+                                                        </div> --}}
+                                                    </div>
                                                 </div> <!-- price-wrap .// -->
                                             </td>
-                                            <td class="text-right">
-                                                <a href="{{ route('shop.product', $product->model->id) }}"
-                                                    class="btn btn-block btn-light">Detalles</a>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <div class=" text-center">
+                                                        <var
+                                                            class="price">${{ number_format($product->model->envio, 2) }}</var>
+                                                        <a href="{{ route('cart.remove', $product->rowId) }}">
+                                                            <small class="text-muted">Eliminar </small></a>
+                                                        {{-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <a href="{{ route('shop.product', $product->model->name) }}"
+                                                                class="btn btn-md btn-light mt-2">Detalles</a>
+                                                        </div> --}}
+                                                    </div>
+                                                </div> <!-- price-wrap .// -->
                                             </td>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <div class="___class_+?26___">
+                                                        <div class="2">
+                                                            <a href="{{ route('shop.product', $product->model) }}"
+                                                                class="btn btn-md btn-light">Detalles</a>
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- price-wrap .// -->
+                                            </td>
+
+                                            <!--   <td class="text-right">
+                                                                                                                        <a href="{{ route('shop.product', $product->model) }}"
+                                                                                                                            class="btn btn-block btn-light">Detalles</a>
+                                                                                                                    </td> -->
                                         </tr>
                                     @endforeach
                                     @if (Cart::instance('wishlist')->count() > 0)
                                         <tr>
-                                            <td class="text-center">
+                                            <td colspan="4" class="text-center">
+                                                <hr>
                                                 <h6 class="text-warning">Productos de la lista (no se pueden comprar en
                                                     linea)</h6>
                                             </td>
@@ -71,9 +108,24 @@
                                                             src="{{ Storage::url($product->model->image->url) }}"
                                                             class="img-sm"></div>
                                                     <figcaption class="info">
-                                                        <a href="#" class="title text-dark">{{ $product->name }}</a>
-                                                        <p class="text-muted small">SKU: {{ $product->model->SKU }} <br>
-                                                            Garantía: 2 años</p>
+                                                        @php
+                                                            $cats_product = $product->model->categories;
+                                                            foreach ($cats_product as $cat_product) {
+                                                                $cat_id = \App\Models\Catalogue::where('category_id', $cat_product->id)->first();
+                                                                /* dd($cat_id); */
+                                                                if ($cat_id) {
+                                                                    $cat_id = $cat_id->id;
+                                                                    break;
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        {{-- {{ \App\Models\Catalogue::find($product->model->categories->first()->pivot->category_id) }} --}}
+                                                        <a href="{{ route('catalogue.product', [$product->model, $cat_id]) }}"
+                                                            class="title text-dark">{{ $product->name }}</a>
+                                                        {{-- <p class="text-muted small">SKU: {{ $product->model->SKU }}
+                                                            <br>
+                                                            Marca: {{ $product->model->brand->name }}
+                                                        </p> --}}
                                                     </figcaption>
                                                 </figure>
                                             </td>
@@ -87,37 +139,88 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <var class="price">${{ number_format($product->price, 2) }}</var>
-                                                    <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
-                                                            class="text-muted">Eliminar </small></a>
+                                                    <div class="row text-center">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <var class="price">{{-- ${{ number_format($product->price, 2) }} --}}<br></var>
+                                                            <a href="{{ route('wishlist.remove', $product->rowId) }}"><small
+                                                                    class="text-muted">Eliminar </small></a>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <a href="{{ route('catalogue.product', [$product->model->name, $cat_id]) }}"
+                                                                class="btn btn-md btn-light">Detalles</a>
+                                                        </div>
+                                                    </div>
                                                 </div> <!-- price-wrap .// -->
-                                            </td>
-                                            <td class="text-right">
-                                                <a href="{{ route('shop.product', $product->model->id) }}"
-                                                    class="btn btn-block btn-light">Detalles</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-
                             <div class="card-body border-top">
-                                @if (Cart::instance('default')->count() > 0)
-                                    <a href="{{ route('checkout.index') }}" class="btn btn-primary float-md-right mx-1">
-                                        Pagar con tarjeta
-                                        <i class="far fa-credit-card"></i> </a>
-                                    <a href="{{ route('checkout.cash') }}" class="btn btn-primary float-md-right mx-1">
-                                        Pagar en efectivo
-                                        <i class="far fa-money-bill-alt"></i> </a>
-                                @endif
-                                <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Seguir comprando
-                                </a>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="boton-1">
+                                            <a href="/tienda" class="btn btn-light"> <i class="fa fa-chevron-left"></i>
+                                                Seguir comprando
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 boton-2">
+                                        @if (Cart::instance('wishlist')->count() > 0)
+                                            <!-- Button trigger modal -->
+                                            <div class="boton-2">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal">
+                                                    Solicitar cotización
+                                                </button>
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Informacion de
+                                                                contacto
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('wishlist.sendCotizacion') }} "
+                                                                method="POST">
+                                                                @csrf
+                                                                <div class="form-group text-left">
+                                                                    <label for="name">Nombre completo</label>
+                                                                    <input type="text" name="name" class="form-control">
+                                                                    <label for="">Correo</label>
+                                                                    <input type="text" name="email" class="form-control">
+                                                                    <label for="">Telefono</label>
+                                                                    <input type="text" name="phone" class="form-control">
+                                                                    <label for="comment">Comentario(Opcional)</label>
+                                                                    <textarea class="form-control" name="comment"
+                                                                        rows="5"></textarea>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            {{-- <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button> --}}
+                                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div> <!-- card.// -->
-
                     </main> <!-- col.// -->
                     <aside class="col-md-3">
-                        @if (Cart::discount() <= 0)
+                        @if (!session('coupon'))
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <form action="{{ route('cart.applyCoupon') }}" method="post">
@@ -133,7 +236,6 @@
                                             </div>
                                         </div>
                                     </form>
-
                                 </div> <!-- card-body.// -->
                             </div> <!-- card .// -->
                         @endif
@@ -144,9 +246,10 @@
                                         <h6>Total a pagar en linea</h6>
                                     </dl>
                                     <dl class="dlist-align">
-                                        <dt>Precio total:</dt>
+                                        <dt>Subtotal total:</dt>
                                         @if (Cart::discount() < 0)
-                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN</dd>
+                                            <dd class="text-right">${{ Cart::instance('default')->subtotal() }} MXN
+                                            </dd>
                                         @else
                                             @php
                                                 $subtotal = str_replace(',', '', Cart::instance('default')->subtotal());
@@ -168,13 +271,32 @@
                                         @endif
                                     </dl>
                                     <dl class="dlist-align">
+                                        {{-- <dt>Envío:</dt> --}}
+                                        @php
+                                            $envio = 0;
+                                            foreach (Cart::instance('default')->content() as $product) {
+                                                $envio = $envio + $product->model->envio * $product->qty;
+                                            }
+                                            session()->put('envio', (float) $envio);
+                                        @endphp
+                                        {{-- <dd class="text-right">${{ number_format($envio, 2) }}
+                                            MXN</dd> --}}
+                                    </dl>
+                                    <dl class="dlist-align">
                                         <dt>Total:</dt>
-                                        <dd class="text-right  h5"><strong>${{ Cart::instance('default')->total() }}
-                                                MXN</strong></dd>
+                                        <dd class="text-right h5">
+                                            @php
+                                                $total = str_replace(',', '', Cart::instance('default')->total());
+
+                                                $total = $total + $envio;
+                                            @endphp
+                                            <strong>${{ number_format($total, 2) }}
+                                                MXN</strong>
+                                        </dd>
                                     </dl>
                                     <hr>
                                 @endif
-                                @if (Cart::instance('wishlist')->count() > 0)
+                                {{-- @if (Cart::instance('wishlist')->count() > 0)
                                     <dl class="dlist-align">
                                         <h6>Cotizacion de productos del catálogo</h6>
                                     </dl>
@@ -182,19 +304,23 @@
                                         <dt>Precio total:</dt>
                                         <dd class="text-right">${{ Cart::instance('wishlist')->subtotal() }} MXN</dd>
                                     </dl>
-                                    {{-- <dl class="dlist-align">
-                                <dt>Descuento:</dt>
-                                <dd class="text-right">MXN 120</dd>
-                            </dl> --}}
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
                                         <dd class="text-right  h5"><strong>${{ Cart::instance('wishlist')->total() }}
                                                 MXN</strong></dd>
                                     </dl>
                                     <hr>
-                                @endif
+                                @endif --}}
                                 <p class="text-center mb-3">
-                                    <img src="images/misc/payments.png" height="26">
+                                    @if (Cart::instance('default')->count() > 0)
+                                        <a href="{{ route('checkout.index') }}" class="btn btn-primary my-1 btn-block">
+                                            Pagar con tarjeta
+                                            <i class="far fa-credit-card"></i> </a>
+                                        <a href="{{ route('checkout.cash') }}" class="btn btn-primary my-2 btn-block">
+                                            Pagar en efectivo
+                                            <i class="far fa-money-bill-alt"></i> </a>
+                                    @endif
+                                    <img class="mt-2" src="images/misc/payments.png" height="26">
                                 </p>
                             </div> <!-- card-body.// -->
                         </div> <!-- card .// -->
@@ -210,20 +336,12 @@
     <!-- ========================= SECTION  ========================= -->
     <section id="productos-sugeridos-2" class="section-name border-top padding-y">
         <div class="container">
-            <h6>Política de privacidad</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+            <h6><a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" download>Política de privacidad</a></h6>
+            <p>Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento
+                podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que
+                para ello podrá llamar a los teléfonos (999) 2 21 1629 o página web <a
+                    href="https://www.bajce.com.">www.bajce.com.</a>
+            </p>
         </div><!-- container // -->
     </section>
     <!-- ========================= SECTION  END// ========================= -->
@@ -237,20 +355,25 @@
                     <div class="col-md-3">
                         <figure class="card card-product-grid">
                             <div class="img-wrap">
-                                <a href="{{ route('shop.product', $product) }}">
-                                    <img src="{{ Storage::url($product->image->url) }}">
+                                <a href="{{ route('shop.product', $product->id) }}">
+                                    <img @if ($product->image) src="{{ Storage::url($product->image->url) }}" @else src="{{ asset('images/banners/bajce-enviar.jpg') }}" @endif>
                                 </a>
                             </div> <!-- img-wrap.// -->
                             <figcaption class="info-wrap">
                                 <a href="/producto" class="title mb-2">{{ $product->name }}</a>
-                                <p>{!! $product->description !!}</p>
+                                <p>{!! $product->extract !!}</p>
                                 <div class="price-wrap">
-                                    <span class="price">{{ $product->presentPrice() }}</span>
-                                    <small class="text-muted">/ pza</small>
-
+                                    @if ($product->discount)
+                                        <strike class="price text-warning">{{ $product->presentPrice() }}</strike>
+                                        <small class="text-muted">/</small>
+                                        <span class="price text-success">{{ $product->presentPriceDiscount() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @else
+                                        <span class="price">{{ $product->presentPrice() }}</span>
+                                        <small class="text-muted">/ pza</small>
+                                    @endif
                                     <p class="mb-2"> <small>SKU:</small> {{ $product->SKU }} </p>
                                 </div> <!-- price-wrap.// -->
-
                                 <div class="rating-wrap my-3">
                                     <ul class="rating-stars">
                                         <li style="width:{{ ($product->rating * 100) / 5 }}%" class="stars-active">
@@ -270,7 +393,8 @@
                                 <hr>
                                 <form action="{{ route('cart.addItem', $product) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-cart-plus"></i>
+                                    <button type="submit" class="btn btn-block btn-primary"><i
+                                            class="fas fa-cart-plus"></i>
                                         Añadir al carrito </button>
                                 </form>
 
@@ -278,32 +402,6 @@
                         </figure>
                     </div> <!-- col.// -->
                 @endforeach
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!--========== NEWSLETTER =============-->
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2>Recibe ofertas especialedades</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem perspiciatis laborum suscipit
-                        quae sequi at nihil vel, iusto molestias in!</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="formulario-newsletter">
-                        <input type="email" class="form-control" placeholder="Correo electrónico">
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
-                    <div class="boton-newsletter">
-                        <button class="btn btn-success btn-md btn-block">Enviar</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

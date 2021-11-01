@@ -24,8 +24,7 @@ class CuponFRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required',
-            'file' => 'required',
+            
         ];
     }
 }

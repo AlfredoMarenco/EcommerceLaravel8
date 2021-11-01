@@ -1,4 +1,4 @@
-<div class="input-group mb-3 input-spinner">
+<div class="input-group input-spinner">
     <div class="input-group-prepend">
         <button wire:click="increment" class="btn btn-light" type="button" id="button-plus"> + </button>
     </div>

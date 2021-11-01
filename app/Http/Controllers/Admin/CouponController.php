@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CouponRequest;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.coupons.index')->only('index');
+        $this->middleware('can:admin.coupons.create')->only('create', 'store');
+        $this->middleware('can:admin.coupons.edit')->only('edit', 'update');
+        $this->middleware('can:admin.coupons.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,21 +42,23 @@ class CouponController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CouponRequest $request)
     {
         if ($request->type == 'fixed') {
             $coupon = Coupon::create([
                 'code' => $request->code,
                 'type' => $request->type,
-                'value' => $request->value,
-                'status' => $request->status
+                'value' => $request->discount,
+                'status' => $request->status,
+                'min_amount' => $request->min_amount,
             ]);
         } else {
             $coupon = Coupon::create([
                 'code' => $request->code,
                 'type' => $request->type,
-                'percent_off' => $request->value,
-                'status' => $request->status
+                'percent_off' => $request->discount,
+                'status' => $request->status,
+                'min_amount' => $request->min_amount,
             ]);
         }
 
@@ -84,7 +94,7 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coupon $coupon)
+    public function update(CouponRequest $request, Coupon $coupon)
     {
         if ($request->type == 'fixed') {
             switch ($coupon->type) {
@@ -94,7 +104,8 @@ class CouponController extends Controller
                         'type' => $request->type,
                         'value' => $request->value,
                         'percent_off' => null,
-                        'status' => $request->status
+                        'status' => $request->status,
+                        'min_amount' => $request->min_amount,
                     ]);
                     break;
                 case 'percent':
@@ -103,7 +114,8 @@ class CouponController extends Controller
                         'type' => $request->type,
                         'value' => $request->percent_off,
                         'percent_off' => null,
-                        'status' => $request->status
+                        'status' => $request->status,
+                        'min_amount' => $request->min_amount,
                     ]);
                     break;
             }
@@ -115,7 +127,8 @@ class CouponController extends Controller
                         'type' => $request->type,
                         'value' => null,
                         'percent_off' => $request->value,
-                        'status' => $request->status
+                        'status' => $request->status,
+                        'min_amount' => $request->min_amount,
                     ]);
                     break;
                 case 'percent':
@@ -124,13 +137,14 @@ class CouponController extends Controller
                         'type' => $request->type,
                         'value' => null,
                         'percent_off' => $request->percent_off,
-                        'status' => $request->status
+                        'status' => $request->status,
+                        'min_amount' => $request->min_amount,
                     ]);
                     break;
             }
         }
 
-        return redirect ()->route('admin.coupons.edit',$coupon);
+        return redirect()->route('admin.coupons.edit', $coupon);
     }
 
     /**
