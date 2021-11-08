@@ -197,7 +197,7 @@
                         style="background-image: url({{ Storage::url($configuration->image->url) }});">
                         <div class="container interior">
                             {{--<h2 class="collec">NEW COLLECTION</h2>--}}
-                            <a href="{{ route('galery.index') }}" class="btn btn-primary">GALERIA</a>
+                            <a href="{{ route('galery.index') }}" class="btn btn-primary">GALERÍA</a>
                         </div>
                     </div>
                 @else
@@ -306,10 +306,12 @@
                         <a href="https://www.instagram.com/elpichmerida/" target="_blank" style="color: #fff">Instagram</a> <span class="px-2"></span>
                     </div>
                     <div class="col">
-                        <div class="row">
-                            <a href="http://api.whatsapp.com/send/?phone=529991195390" target="_blank" style="color: #fff"><i class="fab fa-whatsapp"></i> Whatsapp</a>
-                        </div> <span class="px-2"></span>
+                        <div class="row text-center">
+                            <a href="http://api.whatsapp.com/send/?phone=529991195390" target="_blank" style="color: #fff"><i class="fab fa-whatsapp"></i></a> <span class="px-3"></span>
+                            <a href="https://abnb.me/JRN8DxgWPkb" target="_blank" style="color: #fff"><i class="fab fa-airbnb"></i></a>
+                        </div> 
                     </div>
+                    
                     <span>
                     <span>
                     <span>

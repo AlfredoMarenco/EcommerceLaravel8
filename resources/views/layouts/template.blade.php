@@ -16,11 +16,6 @@
     <meta name="og:description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
     <meta name="og:url" content="https://www.elpichmerida.com" />
     <meta name="og:site_name" content="El Pich Mérida" />
-    <meta name="og:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro." />
-    <meta name="twitter:title" content="Sencillo complejo de 10 habitaciones que brinda alojamiento, cómodo, económico y seguro &mdash; RENE ALONSO" />
-    <meta name="twitter:image" content="https://cleex.com.mx/wp-content/uploads/2021/03/rene-1024x538-1.jpg" />
 
     {{-- <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
     <!-- jQuery -->
