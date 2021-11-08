@@ -308,7 +308,7 @@
                     <div class="col">
                         <div class="row text-center">
                             <a href="http://api.whatsapp.com/send/?phone=529991195390" target="_blank" style="color: #fff"><i class="fab fa-whatsapp"></i></a> <span class="px-3"></span>
-                            <a href="https://abnb.me/JRN8DxgWPkb" target="_blank" style="color: #fff"><i class="fab fa-airbnb"></i></a>
+                            <a href="https://www.airbnb.mx/users/339040487/listings" target="_blank" style="color: #fff"><i class="fab fa-airbnb"></i></a>
                         </div> 
                     </div>
                     
