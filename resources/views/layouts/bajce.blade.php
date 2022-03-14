@@ -349,19 +349,19 @@
     <!--========== NEWSLETTER =============-->
     <section id="newsletter">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="row pt-5">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <h2>Recibe ofertas especiales</h2>
                     <p>Suscríbete para recibir noticias y promociones exclusivas.</p>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="formulario-newsletter">
                         <form action="{{ route('newsletter') }}" method="post">
                             @csrf
                             <input type="email" name="email" class="form-control" placeholder="Correo electrónico">
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="col-lg-2 col-md-12 col-sm-12">
                     <div class="boton-newsletter">
                         <button type="submit" class="btn btn-success btn-md btn-block">Suscribirme</button>
                         </form>

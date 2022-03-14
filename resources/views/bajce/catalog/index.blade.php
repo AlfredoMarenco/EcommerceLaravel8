@@ -13,11 +13,11 @@
                         <li data-target="#carousel1_indicator" data-slide-to="{{ $loop->index }}" @if ($loop->first) class="active" @endif></li>
                     @endforeach
                 </ol>
-                <div class="carousel-inner">
+                <div class="carousel-inner" role="listbox">
                     @foreach ($catalogues as $catalogue)
                         <div class="carousel-item  @if ($loop->first) active @endif">
                             <img src="{{ Storage::url($catalogue->image->url) }}" alt="{{ $catalogue->name }}"
-                                style="width: 100%; max-height: 500px;">
+                                style="max-height: 600px;" class="w-100">
                             <div class="carousel-caption carousel-caption-3 d-md-block">
                                 <h1>Catálogo de <br>
                                     {{ $catalogue->name }}</h1>

@@ -33,7 +33,7 @@
                                         <h1>{{ $slider->text }}</h1>
                                     @endif
                                     @if ($slider->button != '')
-                                        <a href="{{ $slider->link }}" class="btn btn-primary">{{ $slider->button }}</a>
+                                    <a href="{{ $slider->link }}" class="btn btn-primary">{{ $slider->button }}</a>
                                     @endif
                                 </div>
                             </div>
@@ -683,7 +683,7 @@
             </div>
             <div class="row mt-5">
                 @foreach ($posts as $post)
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="card">
                             <div class="contenido-2">
                                 <div class="imagen-producto">
@@ -730,7 +730,7 @@
                     <div class="glider">
                         @foreach ($brands as $brand)
                             <div class="px-2 text-center">
-                                <img @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
+                                <img  @if ($brand->imagge) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
                             </div>
                         @endforeach
                     </div>

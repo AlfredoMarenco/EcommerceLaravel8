@@ -7,7 +7,7 @@
         <div class="container">
             <h3>Más recientes</h3>
             <div class="row">
-                <div class="col-sm-12 col-md-9">
+                <div class="col-lg-9 col-md-12 col-sm-12">
                     <div class="row">
                         @foreach ($posts as $post)
                             @if ($post->status = 3)
@@ -27,7 +27,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-3">
+                <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="row">
                         <h3>Lo más destacado</h3>
                         <div class="row">

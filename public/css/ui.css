@@ -1740,13 +1740,26 @@ button.navbar-toggle {
 .carousel-caption-1 {
     padding-bottom: 230px;
 }
-
+@media (max-width: 1000px) {
+    .carousel-caption-1 {
+        padding-bottom: 100px;
+    }
+    .carousel-caption-1 h1 {
+        font-size: 30px;
+    }
+    .carousel-caption-1 .btn-primary{
+        font-size: 15px;
+    }
+}
 @media (max-width: 500px) {
     .carousel-caption-1 {
         padding-bottom: 20px;
     }
     .carousel-caption-1 h1 {
         font-size: 20px;
+    }
+    .carousel-caption-1 .btn-primary{
+        font-size: 12px;
     }
 }
 
@@ -1772,7 +1785,7 @@ button.navbar-toggle {
     padding: 80px;
 }
 
-@media (max-width:768px) {
+@media (max-width:1000px) {
     .no-cel {
         display: none;
     }
@@ -1888,7 +1901,11 @@ button.navbar-toggle {
 .carousel-caption-3 {
     padding-bottom: 198px;
 }
-
+@media (max-width:1000px) {
+    .carousel-caption-3 {
+        padding-bottom: 150px;
+    }
+}
 @media (max-width:500px) {
     .carousel-caption-3 {
         padding-bottom: 10px;
@@ -2129,7 +2146,7 @@ button.navbar-toggle {
     padding-bottom: 80px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
     #newsletter {
         padding: 30px;
         text-align: center;
@@ -2268,7 +2285,7 @@ button.navbar-toggle {
     padding: 100px;
 }
 
-@media (max-width:500px) {
+@media (max-width:1000px) {
     #contenido-entrada {
         margin-top: 250px;
         padding: 20px;
@@ -2293,7 +2310,7 @@ button.navbar-toggle {
     margin-top: 190px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
     #interior-entrada {
         margin-top: 300px;
     }
