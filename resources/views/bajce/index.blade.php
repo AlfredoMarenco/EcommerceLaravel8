@@ -730,7 +730,7 @@
                     <div class="glider">
                         @foreach ($brands as $brand)
                             <div class="px-2 text-center">
-                                <img  @if ($brand->imagge) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
+                                <img  @if ($brand->image) src="{{ Storage::url($brand->image->url) }}" @else src="{{ asset('images/misc/logo-bajce-vrd-2.png') }}" @endif alt="">
                             </div>
                         @endforeach
                     </div>
