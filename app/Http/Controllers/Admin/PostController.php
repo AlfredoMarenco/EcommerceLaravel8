@@ -138,11 +138,12 @@ class PostController extends Controller
             $extension = $request->file('upload')->getClientOriginalExtension();
             $fileName = $fileName . '_' . time() . '.' . $extension;
 
-            $request->file('upload')->move(public_path('storage/images/ckeditor'), $fileName);
+            /* $request->file('upload')->move(public_path('storage/images/ckeditor'), $fileName); */
+            $url = Storage::put('post', $request->file('upload'));
             /* $request->file($fileName)->store('ckeditor'); */
 
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('storage/images/ckeditor/' . $fileName);
+            /* $url = asset('storage/images/ckeditor/' . $fileName); */
             $msg = 'Imagen subida con exito';
             $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum,'$url','$msg');</script>";
             @header('Content-Type: text/html; charset=utf-8');
