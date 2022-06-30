@@ -1,7 +1,7 @@
 @extends('layouts.bajce')
 @section('title', $product->name)
 @section('titleFacebook', $product->name)
-@section('urlFacebook', url('catalogos/') . $product->slug)
+@section('urlFacebook', config('app.url'). '/catalogos/'. $product->slug)
 
 @section('imageFacebook', Storage::url($product->image->url))
 
