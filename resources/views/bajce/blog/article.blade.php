@@ -2,6 +2,7 @@
 @section('title', $post->title)
 @section('titleFacebook', $post->subtitle)
 @section('imageFacebook', Storage::url($post->image->url))
+@section('urlFacebook', Request::url())
 
 @section('titleTwitter', $post->subtitle)
 @section('imageTwitter', Storage::url($post->image->url))
