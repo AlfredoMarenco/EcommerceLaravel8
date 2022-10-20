@@ -4,6 +4,9 @@ namespace Laravel\Cashier;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Cashier\Console\WebhookCommand;
+use Laravel\Cashier\Contracts\InvoiceRenderer;
+use Laravel\Cashier\Invoices\DompdfInvoiceRenderer;
 use Stripe\Stripe;
 use Stripe\Util\LoggerInterface;
 
@@ -21,6 +24,7 @@ class CashierServiceProvider extends ServiceProvider
         $this->registerResources();
         $this->registerMigrations();
         $this->registerPublishing();
+        $this->registerCommands();
 
         Stripe::setAppInfo(
             'Laravel Cashier',
@@ -38,6 +42,7 @@ class CashierServiceProvider extends ServiceProvider
     {
         $this->configure();
         $this->bindLogger();
+        $this->bindInvoiceRenderer();
     }
 
     /**
@@ -63,6 +68,18 @@ class CashierServiceProvider extends ServiceProvider
             return new Logger(
                 $app->make('log')->channel(config('cashier.logger'))
             );
+        });
+    }
+
+    /**
+     * Bind the default invoice renderer.
+     *
+     * @return void
+     */
+    protected function bindInvoiceRenderer()
+    {
+        $this->app->bind(InvoiceRenderer::class, function ($app) {
+            return $app->make(config('cashier.invoices.renderer', DompdfInvoiceRenderer::class));
         });
     }
 
@@ -138,6 +155,20 @@ class CashierServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/views' => $this->app->resourcePath('views/vendor/cashier'),
             ], 'cashier-views');
+        }
+    }
+
+    /**
+     * Register the package's commands.
+     *
+     * @return void
+     */
+    protected function registerCommands()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                WebhookCommand::class,
+            ]);
         }
     }
 }

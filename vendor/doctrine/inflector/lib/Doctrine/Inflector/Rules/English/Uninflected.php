@@ -11,7 +11,7 @@ final class Uninflected
     /**
      * @return Pattern[]
      */
-    public static function getSingular() : iterable
+    public static function getSingular(): iterable
     {
         yield from self::getDefault();
 
@@ -33,19 +33,20 @@ final class Uninflected
     /**
      * @return Pattern[]
      */
-    public static function getPlural() : iterable
+    public static function getPlural(): iterable
     {
         yield from self::getDefault();
 
         yield new Pattern('people');
         yield new Pattern('trivia');
         yield new Pattern('\w+ware$');
+        yield new Pattern('media');
     }
 
     /**
      * @return Pattern[]
      */
-    private static function getDefault() : iterable
+    private static function getDefault(): iterable
     {
         yield new Pattern('\w+media');
         yield new Pattern('advice');
@@ -86,7 +87,6 @@ final class Uninflected
         yield new Pattern('emoji');
         yield new Pattern('equipment');
         yield new Pattern('evidence');
-        yield new Pattern('experience');
         yield new Pattern('faroese');
         yield new Pattern('feedback');
         yield new Pattern('fish');
@@ -188,7 +188,6 @@ final class Uninflected
         yield new Pattern('wildebeest');
         yield new Pattern('wood');
         yield new Pattern('wool');
-        yield new Pattern('work');
         yield new Pattern('yengeese');
     }
 }

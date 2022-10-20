@@ -165,9 +165,9 @@
                         <a class="nav-link" href="#sucursales-1" ><i class="fas fa-warehouse"></i> Sucursales</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="mailto:info@bajce.com" class="nav-link"> <i
+                            <a href="mailto:grupobajce@gmail.com" class="nav-link"> <i
                                     class="fas fa-envelope-open-text"></i>
-                                info@bajce.com</a>
+                                    grupobajce@gmail.com</a>
                         </li>
                         <li class="nav-item active">
                             <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999)
@@ -190,9 +190,9 @@
                 <div class="collapse navbar-collapse" id="navbarTop4">
                     <ul class="navbar-nav m-auto">
                         <li>
-                            <a href="mailto:info@bajce.com" class="nav-link"> <i
+                            <a href="mailto:grupobajce@gmail.com" class="nav-link"> <i
                                     class="fas fa-envelope-open-text"></i>
-                                info@bajce.com</a>
+                                    grupobajce@gmail.com</a>
                         </li>
                         <span class="nav-link">|</span>
                         <li>
@@ -419,7 +419,7 @@
                                 {{-- <li> <i class="icon fa fa-map-marker"> </i>Calle 19 No. 176 x12 y 14 Col. México Oriente
                                     C.P. 97137
                                 </li> --}}
-                                <li> <i class="icon fa fa-envelope"> </i> ventasonline@bajce.com</li>
+                                <li> <i class="icon fa fa-envelope"> </i>grupobajce@gmail.com</li>
                                 <li> <i class="icon fa fa-phone"> </i> (999) 221 1629
                                 </li>
                                 <li> <i class="icon fa fa-clock"> </i>Lunes a viernes de 9:00 am a 6:00pm <br>

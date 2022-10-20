@@ -30,10 +30,15 @@ trait ManagesInvoices
 
         $options = array_merge([
             'customer' => $this->stripe_id,
-            'amount' => $amount,
             'currency' => $this->preferredCurrency(),
             'description' => $description,
         ], $options);
+
+        if (array_key_exists('quantity', $options)) {
+            $options['unit_amount'] = $options['unit_amount'] ?? $amount;
+        } else {
+            $options['amount'] = $amount;
+        }
 
         return StripeInvoiceItem::create($options, $this->stripeOptions());
     }
@@ -131,7 +136,7 @@ trait ManagesInvoices
             $stripeInvoice = StripeInvoice::retrieve(
                 $id, $this->stripeOptions()
             );
-        } catch (Exception $exception) {
+        } catch (StripeInvalidRequestException $exception) {
             //
         }
 

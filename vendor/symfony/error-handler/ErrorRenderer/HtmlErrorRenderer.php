@@ -50,16 +50,16 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     public function __construct($debug = false, string $charset = null, $fileLinkFormat = null, string $projectDir = null, $outputBuffer = '', LoggerInterface $logger = null)
     {
         if (!\is_bool($debug) && !\is_callable($debug)) {
-            throw new \TypeError(sprintf('Argument 1 passed to "%s()" must be a boolean or a callable, "%s" given.', __METHOD__, get_debug_type($debug)));
+            throw new \TypeError(sprintf('Argument 1 passed to "%s()" must be a boolean or a callable, "%s" given.', __METHOD__, \gettype($debug)));
         }
 
         if (!\is_string($outputBuffer) && !\is_callable($outputBuffer)) {
-            throw new \TypeError(sprintf('Argument 5 passed to "%s()" must be a string or a callable, "%s" given.', __METHOD__, get_debug_type($outputBuffer)));
+            throw new \TypeError(sprintf('Argument 5 passed to "%s()" must be a string or a callable, "%s" given.', __METHOD__, \gettype($outputBuffer)));
         }
 
         $this->debug = $debug;
-        $this->charset = $charset ?: (ini_get('default_charset') ?: 'UTF-8');
-        $this->fileLinkFormat = $fileLinkFormat ?: (ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format'));
+        $this->charset = $charset ?: (\ini_get('default_charset') ?: 'UTF-8');
+        $this->fileLinkFormat = $fileLinkFormat ?: (\ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format'));
         $this->projectDir = $projectDir;
         $this->outputBuffer = $outputBuffer;
         $this->logger = $logger;
@@ -215,7 +215,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     /**
      * Returns the link for a given file/line pair.
      *
-     * @return string|false A link or false
+     * @return string|false
      */
     private function getFileLink(string $file, int $line)
     {
@@ -262,8 +262,6 @@ class HtmlErrorRenderer implements ErrorRendererInterface
      * @param string $file       A file path
      * @param int    $line       The selected line number
      * @param int    $srcContext The number of displayed lines around or -1 for the whole file
-     *
-     * @return string An HTML string
      */
     private function fileExcerpt(string $file, int $line, int $srcContext = 3): string
     {
@@ -285,7 +283,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
             }
 
             for ($i = max($line - $srcContext, 1), $max = min($line + $srcContext, \count($content)); $i <= $max; ++$i) {
-                $lines[] = '<li'.($i == $line ? ' class="selected"' : '').'><a class="anchor" name="line'.$i.'"></a><code>'.$this->fixCodeMarkup($content[$i - 1]).'</code></li>';
+                $lines[] = '<li'.($i == $line ? ' class="selected"' : '').'><code>'.$this->fixCodeMarkup($content[$i - 1]).'</code></li>';
             }
 
             return '<ol start="'.max($line - $srcContext, 1).'">'.implode("\n", $lines).'</ol>';
@@ -304,9 +302,9 @@ class HtmlErrorRenderer implements ErrorRendererInterface
         }
 
         // missing </span> tag at the end of line
-        $opening = strpos($line, '<span');
-        $closing = strpos($line, '</span>');
-        if (false !== $opening && (false === $closing || $closing > $opening)) {
+        $opening = strrpos($line, '<span');
+        $closing = strrpos($line, '</span>');
+        if (false !== $opening && (false === $closing || $closing < $opening)) {
             $line .= '</span>';
         }
 
@@ -325,7 +323,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
         if ($context && false !== strpos($message, '{')) {
             $replacements = [];
             foreach ($context as $key => $val) {
-                if (is_scalar($val)) {
+                if (\is_scalar($val)) {
                     $replacements['{'.$key.'}'] = $val;
                 }
             }
@@ -352,7 +350,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
         extract($context, \EXTR_SKIP);
         ob_start();
 
-        include file_exists($name) ? $name : __DIR__.'/../Resources/'.$name;
+        include is_file(\dirname(__DIR__).'/Resources/'.$name) ? \dirname(__DIR__).'/Resources/'.$name : $name;
 
         return trim(ob_get_clean());
     }

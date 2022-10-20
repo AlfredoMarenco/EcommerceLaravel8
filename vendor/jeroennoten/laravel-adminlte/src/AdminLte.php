@@ -6,7 +6,8 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 use JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper;
-use JeroenNoten\LaravelAdminLte\Helpers\MenuItemHelper;
+use JeroenNoten\LaravelAdminLte\Helpers\NavbarItemHelper;
+use JeroenNoten\LaravelAdminLte\Helpers\SidebarItemHelper;
 use JeroenNoten\LaravelAdminLte\Menu\Builder;
 
 class AdminLte
@@ -51,9 +52,9 @@ class AdminLte
     /**
      * Constructor.
      *
-     * @param array $filters
-     * @param Dispatcher $events
-     * @param Container $container
+     * @param  array  $filters
+     * @param  Dispatcher  $events
+     * @param  Container  $container
      */
     public function __construct(array $filters, Dispatcher $events, Container $container)
     {
@@ -74,7 +75,7 @@ class AdminLte
     /**
      * Get all the menu items, or a specific set of these.
      *
-     * @param string $filterToken Token representing a subset of the menu items
+     * @param  string  $filterToken  Token representing a subset of the menu items
      * @return array A set of menu items
      */
     public function menu($filterToken = null)
@@ -131,48 +132,48 @@ class AdminLte
     /**
      * Filter method used to get the sidebar menu items.
      *
-     * @param mixed $item A menu item
+     * @param  mixed  $item  A menu item
      * @return bool
      */
     private function sidebarFilter($item)
     {
-        return MenuItemHelper::isSidebarItem($item);
+        return SidebarItemHelper::isValidItem($item);
     }
 
     /**
      * Filter method used to get the top navbar left menu items.
      *
-     * @param mixed $item A menu item
+     * @param  mixed  $item  A menu item
      * @return bool
      */
     private function navbarLeftFilter($item)
     {
-        if (LayoutHelper::isLayoutTopnavEnabled() && MenuItemHelper::isSidebarItem($item)) {
-            return MenuItemHelper::isValidNavbarItem($item);
+        if (LayoutHelper::isLayoutTopnavEnabled() && SidebarItemHelper::isValidItem($item)) {
+            return NavbarItemHelper::isAcceptedItem($item);
         }
 
-        return MenuItemHelper::isNavbarLeftItem($item);
+        return NavbarItemHelper::isValidLeftItem($item);
     }
 
     /**
      * Filter method used to get the top navbar right menu items.
      *
-     * @param mixed $item A menu item
+     * @param  mixed  $item  A menu item
      * @return bool
      */
     private function navbarRightFilter($item)
     {
-        return MenuItemHelper::isNavbarRightItem($item);
+        return NavbarItemHelper::isValidRightItem($item);
     }
 
     /**
      * Filter method used to get the navbar user menu items.
      *
-     * @param mixed $item A menu item
+     * @param  mixed  $item  A menu item
      * @return bool
      */
     private function navbarUserMenuFilter($item)
     {
-        return MenuItemHelper::isNavbarUserItem($item);
+        return NavbarItemHelper::isValidUserMenuItem($item);
     }
 }

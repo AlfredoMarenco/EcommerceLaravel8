@@ -75,9 +75,9 @@ class SubscriptionBuilder
     /**
      * Determines if user redeemable promotion codes are available in Stripe Checkout.
      *
-     * @var bool
+     * @var bool|null
      */
-    protected $allowPromotionCodes = false;
+    protected $allowPromotionCodes;
 
     /**
      * The metadata to apply to the subscription.
@@ -310,6 +310,25 @@ class SubscriptionBuilder
             $this->owner->stripeOptions()
         );
 
+        $subscription = $this->createSubscription($stripeSubscription);
+
+        if ($subscription->hasIncompletePayment()) {
+            (new Payment(
+                $stripeSubscription->latest_invoice->payment_intent
+            ))->validate();
+        }
+
+        return $subscription;
+    }
+
+    /**
+     * Create the Eloquent Subscription.
+     *
+     * @param  \Stripe\Subscription  $stripeSubscription
+     * @return \Laravel\Cashier\Subscription
+     */
+    protected function createSubscription(StripeSubscription $stripeSubscription)
+    {
         /** @var \Stripe\SubscriptionItem $firstItem */
         $firstItem = $stripeSubscription->items->first();
         $isSinglePlan = $stripeSubscription->items->count() === 1;
@@ -334,12 +353,6 @@ class SubscriptionBuilder
             ]);
         }
 
-        if ($subscription->hasIncompletePayment()) {
-            (new Payment(
-                $stripeSubscription->latest_invoice->payment_intent
-            ))->validate();
-        }
-
         return $subscription;
     }
 
@@ -360,7 +373,8 @@ class SubscriptionBuilder
             // Checkout Sessions are active for 24 hours after their creation and within that time frame the customer
             // can complete the payment at any time. Stripe requires the trial end at least 48 hours in the future
             // so that there is still at least a one day trial if your customer pays at the end of the 24 hours.
-            $minimumTrialPeriod = Carbon::now()->addHours(48);
+            // We also add 10 seconds of extra time to account for any delay with an API request onto Stripe.
+            $minimumTrialPeriod = Carbon::now()->addHours(48)->addSeconds(10);
 
             $trialEnd = $this->trialExpires->gt($minimumTrialPeriod) ? $this->trialExpires : $minimumTrialPeriod;
         } else {
@@ -372,7 +386,7 @@ class SubscriptionBuilder
             'line_items' => collect($this->items)->values()->all(),
             'allow_promotion_codes' => $this->allowPromotionCodes,
             'discounts' => [
-                'coupon' => $this->coupon,
+                ['coupon' => $this->coupon],
             ],
             'subscription_data' => [
                 'default_tax_rates' => $this->getTaxRatesForPayload(),
@@ -449,6 +463,7 @@ class SubscriptionBuilder
      * Get the tax percentage for the Stripe payload.
      *
      * @return int|float|null
+     *
      * @deprecated Please migrate to the new Tax Rates API.
      */
     protected function getTaxPercentageForPayload()

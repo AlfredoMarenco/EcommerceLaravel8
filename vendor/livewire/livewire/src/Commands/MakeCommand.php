@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\File;
 
 class MakeCommand extends FileManipulationCommand
 {
-    protected $signature = 'livewire:make {name} {--force} {--inline} {--test}';
+    protected $signature = 'livewire:make {name} {--force} {--inline} {--test} {--stub= : If you have several stubs, stored in subfolders }';
 
     protected $description = 'Create a new Livewire component';
 
@@ -15,12 +15,21 @@ class MakeCommand extends FileManipulationCommand
         $this->parser = new ComponentParser(
             config('livewire.class_namespace'),
             config('livewire.view_path'),
-            $this->argument('name')
+            $this->argument('name'),
+            $this->option('stub')
         );
 
-        if($this->isReservedClassName($name = $this->parser->className())) {
+        if (!$this->isClassNameValid($name = $this->parser->className())) {
+            $this->line("<options=bold,reverse;fg=red> WHOOPS! </> 😳 \n");
+            $this->line("<fg=red;options=bold>Class is invalid:</> {$name}");
+
+            return;
+        }
+
+        if ($this->isReservedClassName($name)) {
             $this->line("<options=bold,reverse;fg=red> WHOOPS! </> 😳 \n");
             $this->line("<fg=red;options=bold>Class is reserved:</> {$name}");
+
             return;
         }
 
@@ -51,7 +60,7 @@ class MakeCommand extends FileManipulationCommand
                 $test && $this->line("<options=bold;fg=green>TEST:</>  {$this->parser->relativeTestPath()}");
             }
 
-            if ($showWelcomeMessage && ! app()->environment('testing')) {
+            if ($showWelcomeMessage && ! app()->runningUnitTests()) {
                 $this->writeWelcomeMessage();
             }
         }
@@ -113,8 +122,91 @@ class MakeCommand extends FileManipulationCommand
         return $testPath;
     }
 
+    public function isClassNameValid($name)
+    {
+        return preg_match("/^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$/", $name);
+    }
+    
     public function isReservedClassName($name)
     {
-        return array_search($name, ['Parent', 'Component', 'Interface']) !== false;
+        return array_search(strtolower($name), $this->getReservedName()) !== false;
     }
+
+    private function getReservedName()
+    {
+        return [
+            'parent',
+            'component',
+            'interface',
+            '__halt_compiler',
+            'abstract',
+            'and',
+            'array',
+            'as',
+            'break',
+            'callable',
+            'case',
+            'catch',
+            'class',
+            'clone',
+            'const',
+            'continue',
+            'declare',
+            'default',
+            'die',
+            'do',
+            'echo',
+            'else',
+            'elseif',
+            'empty',
+            'enddeclare',
+            'endfor',
+            'endforeach',
+            'endif',
+            'endswitch',
+            'endwhile',
+            'eval',
+            'exit',
+            'extends',
+            'final',
+            'finally',
+            'fn',
+            'for',
+            'foreach',
+            'function',
+            'global',
+            'goto',
+            'if',
+            'implements',
+            'include',
+            'include_once',
+            'instanceof',
+            'insteadof',
+            'interface',
+            'isset',
+            'list',
+            'namespace',
+            'new',
+            'or',
+            'print',
+            'private',
+            'protected',
+            'public',
+            'require',
+            'require_once',
+            'return',
+            'static',
+            'switch',
+            'throw',
+            'trait',
+            'try',
+            'unset',
+            'use',
+            'var',
+            'while',
+            'xor',
+            'yield',
+        ];
+    }
+
 }

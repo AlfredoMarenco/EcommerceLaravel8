@@ -3,15 +3,34 @@
 namespace JeroenNoten\LaravelAdminLte\Helpers;
 
 use Illuminate\Support\Facades\View;
+use JeroenNoten\LaravelAdminLte\Events\ReadingDarkModePreference;
+use JeroenNoten\LaravelAdminLte\Http\Controllers\DarkModeController;
 
 class LayoutHelper
 {
     /**
-     * Set of tokens related to screen sizes.
+     * Set of tokens related to screen sizes/breakpoints.
      *
      * @var array
      */
-    protected static $screenSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+    protected static $screenBreakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+    /**
+     * Set of tokens related to sidebar mini config values.
+     *
+     * @var array
+     */
+    protected static $sidebarMiniValues = ['xs', 'md', 'lg'];
+
+    /**
+     * Check if the preloader animation is enabled.
+     *
+     * @return bool
+     */
+    public static function isPreloaderEnabled()
+    {
+        return config('adminlte.preloader.enabled', false);
+    }
 
     /**
      * Check if layout topnav is enabled.
@@ -46,6 +65,7 @@ class LayoutHelper
         $classes = array_merge($classes, self::makeSidebarClasses());
         $classes = array_merge($classes, self::makeRightSidebarClasses());
         $classes = array_merge($classes, self::makeCustomBodyClasses());
+        $classes = array_merge($classes, self::makeDarkModeClasses());
 
         return trim(implode(' ', $classes));
     }
@@ -61,18 +81,18 @@ class LayoutHelper
 
         // Add data related to the "sidebar_scrollbar_theme" configuration.
 
-        $sb_theme_cfg = config('adminlte.sidebar_scrollbar_theme', 'os-theme-light');
+        $sbTheme = config('adminlte.sidebar_scrollbar_theme', 'os-theme-light');
 
-        if ($sb_theme_cfg != 'os-theme-light') {
-            $data[] = 'data-scrollbar-theme='.$sb_theme_cfg;
+        if ($sbTheme != 'os-theme-light') {
+            $data[] = "data-scrollbar-theme={$sbTheme}";
         }
 
         // Add data related to the "sidebar_scrollbar_auto_hide" configuration.
 
-        $sb_auto_hide = config('adminlte.sidebar_scrollbar_auto_hide', 'l');
+        $sbAutoHide = config('adminlte.sidebar_scrollbar_auto_hide', 'l');
 
-        if ($sb_auto_hide != 'l') {
-            $data[] = 'data-scrollbar-auto-hide='.$sb_auto_hide;
+        if ($sbAutoHide != 'l') {
+            $data[] = "data-scrollbar-auto-hide={$sbAutoHide}";
         }
 
         return trim(implode(' ', $data));
@@ -120,13 +140,13 @@ class LayoutHelper
     /**
      * Make the set of classes related to a fixed responsive configuration.
      *
-     * @param string $section (navbar or footer)
+     * @param  string  $section  The layout section (navbar or footer)
      * @return array
      */
     private static function makeFixedResponsiveClasses($section)
     {
         $classes = [];
-        $cfg = config('adminlte.layout_fixed_'.$section);
+        $cfg = config("adminlte.layout_fixed_{$section}");
 
         if ($cfg === true) {
             $cfg = ['xs' => true];
@@ -140,11 +160,11 @@ class LayoutHelper
 
         // Make the set of responsive classes in relation to the config.
 
-        foreach ($cfg as $size => $enabled) {
-            if (in_array($size, self::$screenSizes)) {
-                $size = ($size === 'xs') ? $section : "{$size}-{$section}";
-                $fixed = $enabled ? 'fixed' : 'not-fixed';
-                $classes[] = "layout-{$size}-{$fixed}";
+        foreach ($cfg as $breakpoint => $enabled) {
+            if (in_array($breakpoint, self::$screenBreakpoints)) {
+                $classes[] = self::makeFixedResponsiveClass(
+                    $section, $breakpoint, $enabled
+                );
             }
         }
 
@@ -152,7 +172,31 @@ class LayoutHelper
     }
 
     /**
-     * Make the set of classes related to the left sidebar configuration.
+     * Make a responsive class for the navbar/footer fixed mode on a particular
+     * breakpoint token.
+     *
+     * @param  string  $section  The layout section (navbar or footer)
+     * @param  string  $bp  The screen breakpoint (xs, sm, md, lg, xl)
+     * @param  bool  $enabled  Whether to enable fixed mode (true, false)
+     * @return string
+     */
+    private static function makeFixedResponsiveClass($section, $bp, $enabled)
+    {
+        // Create the class prefix.
+
+        $prefix = ($bp === 'xs') ? 'layout' : "layout-{$bp}";
+
+        // Create the class suffix.
+
+        $suffix = $enabled ? 'fixed' : 'not-fixed';
+
+        // Return the responsice class for fixed mode.
+
+        return "{$prefix}-{$section}-{$suffix}";
+    }
+
+    /**
+     * Make the set of classes related to the main left sidebar configuration.
      *
      * @return array
      */
@@ -162,10 +206,11 @@ class LayoutHelper
 
         // Add classes related to the "sidebar_mini" configuration.
 
-        if (config('adminlte.sidebar_mini', true) === true) {
-            $classes[] = 'sidebar-mini';
-        } elseif (config('adminlte.sidebar_mini', true) == 'md') {
-            $classes[] = 'sidebar-mini sidebar-mini-md';
+        $sidebarMiniCfg = config('adminlte.sidebar_mini', 'lg');
+
+        if (in_array($sidebarMiniCfg, self::$sidebarMiniValues)) {
+            $suffix = $sidebarMiniCfg === 'lg' ? '' : "-{$sidebarMiniCfg}";
+            $classes[] = "sidebar-mini{$suffix}";
         }
 
         // Add classes related to the "sidebar_collapse" configuration.
@@ -207,6 +252,34 @@ class LayoutHelper
 
         if (is_string($cfg) && $cfg) {
             $classes[] = $cfg;
+        }
+
+        return $classes;
+    }
+
+    /**
+     * Make the set of classes related to the dark mode.
+     *
+     * @return array
+     */
+    private static function makeDarkModeClasses()
+    {
+        $classes = [];
+
+        // Use the dark mode controller to check if dark mode is enabled.
+
+        $darkModeCtrl = new DarkModeController();
+
+        // Dispatch an event to notify we are about to read the dark mode
+        // preference. A listener may catch this event in order to setup the
+        // dark mode initial state using the methods provided by the controller.
+
+        event(new ReadingDarkModePreference($darkModeCtrl));
+
+        // Now, check if dark mode is enabled.
+
+        if ($darkModeCtrl->isEnabled()) {
+            $classes[] = 'dark-mode';
         }
 
         return $classes;

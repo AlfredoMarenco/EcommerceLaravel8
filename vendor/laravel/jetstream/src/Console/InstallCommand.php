@@ -139,7 +139,7 @@ class InstallCommand extends Command
         // Tailwind Configuration...
         copy(__DIR__.'/../../stubs/livewire/tailwind.config.js', base_path('tailwind.config.js'));
         copy(__DIR__.'/../../stubs/webpack.config.js', base_path('webpack.config.js'));
-        copy(__DIR__.'/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__.'/../../stubs/livewire/webpack.mix.js', base_path('webpack.mix.js'));
 
         // Directories...
         (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));
@@ -246,7 +246,7 @@ EOF;
     protected function installInertiaStack()
     {
         // Install Inertia...
-        $this->requireComposerPackages('inertiajs/inertia-laravel:^0.2.4', 'laravel/sanctum:^2.6', 'tightenco/ziggy:^0.9.4');
+        $this->requireComposerPackages('inertiajs/inertia-laravel:^0.5.2', 'laravel/sanctum:^2.6', 'tightenco/ziggy:^0.9.4');
 
         // Install NPM packages...
         $this->updateNodePackages(function ($packages) {
@@ -278,7 +278,7 @@ EOF;
         // Tailwind Configuration...
         copy(__DIR__.'/../../stubs/inertia/tailwind.config.js', base_path('tailwind.config.js'));
         copy(__DIR__.'/../../stubs/webpack.config.js', base_path('webpack.config.js'));
-        copy(__DIR__.'/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__.'/../../stubs/inertia/webpack.mix.js', base_path('webpack.mix.js'));
 
         // Directories...
         (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));

@@ -10,11 +10,13 @@ use Livewire\GenerateSignedUploadUrl;
 use Illuminate\Routing\RouteCollection;
 use Illuminate\Support\Traits\Macroable;
 use Facades\Livewire\GenerateSignedUploadUrl as GenerateSignedUploadUrlFacade;
+use Livewire\Component;
 use Livewire\Exceptions\PropertyNotFoundException;
 use Livewire\LivewireManager;
 
 use function Livewire\str;
 
+/** @mixin \Illuminate\Testing\TestResponse */
 class TestableLivewire
 {
     protected static $instancesById = [];
@@ -69,6 +71,10 @@ class TestableLivewire
         // This allows the user to test a component by it's class name,
         // and not have to register an alias.
         if (class_exists($name)) {
+            if (! is_subclass_of($name, Component::class)) {
+                throw new \Exception('Class ['.$name.'] is not a subclass of Livewire\Component.');
+            }
+
             $componentClass = $name;
             app('livewire')->component($name = str()->random(20), $componentClass);
         }
@@ -84,6 +90,8 @@ class TestableLivewire
                 'effects' => $this->rawMountedResponse->effects,
             ], $isInitial = true);
         }
+
+        Livewire::flushState();
     }
 
     public function updateComponent($output, $isInitial = false)
