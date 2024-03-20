@@ -17,7 +17,7 @@
                     <div class="imagen-nosotros">
                         <img src="/images/misc/logo-bajce-bco-2.png" class="img-fluid" alt="">
                     </div>
-                    <p class="mt-3">Más de 37 años de historia ligada a los productos forestales de calidad, que inspiran
+                    <p class="mt-3">Más de 40 años de historia ligada a los productos forestales de calidad, que inspiran
                         soluciones que edifican y mejoran la vida de las personas.
                     </p>
                 </div>

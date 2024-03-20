@@ -59,13 +59,15 @@
     <link href="{{ asset('css/ui.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('vendor/flexslider/flexslider.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css"
-        integrity="sha512-YM6sLXVMZqkCspZoZeIPGXrhD9wxlxEF7MzniuvegURqrTGV2xTfqq1v9FJnczH+5OGFl5V78RgHZGaK34ylVg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css" integrity="sha512-YM6sLXVMZqkCspZoZeIPGXrhD9wxlxEF7MzniuvegURqrTGV2xTfqq1v9FJnczH+5OGFl5V78RgHZGaK34ylVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- custom javascript -->
     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
 
-
+    <div class="btn-whatsapp">
+        <a href="https://wa.me/+529992211629">
+            <img src="{{asset('images/whatsapp-float.svg')}}" class="icon-whatsapp" alt="Boton whatsapp">
+        </a>
+    </div>
     @yield('css')
 
     <!-- Facebook Pixel Code -->
@@ -91,8 +93,7 @@
         fbq('init', '2877616512502507');
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1" /></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2877616512502507&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     {{-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ"></script>
     <script>
@@ -112,7 +113,7 @@
 
     <script type="text/javascript">
         function callbackThen(
-        response) { // read HTTP status console.log(response.status); // read Promise object response.json().then(function(data){ console.log(data); }); } function callbackCatch(error){ console.error('Error:', error) }
+            response) { // read HTTP status console.log(response.status); // read Promise object response.json().then(function(data){ console.log(data); }); } function callbackCatch(error){ console.error('Error:', error) }
     </script>
     {!! htmlScriptTagJsApi(['callback_then' => 'callbackThen', 'callback_catch' => 'callbackCatch']) !!}
 </head>
@@ -131,8 +132,7 @@
 
                     <!--<a class="navbar-brand" href="#"><img class="logo" src="/images/misc/logo-bajce-vrd.png"></a>-->
                 </div>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fas fa-bars"></i>
 
@@ -158,16 +158,14 @@
                             <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#" data-toggle="modal"
-                                data-target="#ventanaModal">Contacto</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="#sucursales-1" ><i class="fas fa-warehouse"></i> Sucursales</a>
+                            <a class="nav-link" href="#sucursales-1"><i class="fas fa-warehouse"></i> Sucursales</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="mailto:grupobajce@gmail.com" class="nav-link"> <i
-                                    class="fas fa-envelope-open-text"></i>
-                                    grupobajce@gmail.com</a>
+                            <a href="mailto:grupobajce@gmail.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+                                grupobajce@gmail.com</a>
                         </li>
                         <li class="nav-item active">
                             <a href="tel:9999446707" class="nav-link"> <i class="fa fa-phone-square"></i> (999)
@@ -183,16 +181,14 @@
         <!-- END Nueva-->
         <nav class="navbar d-none d-md-block p-md-0 navbar-expand-sm navbar-light border-bottomfixed-top bg-light">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTop4">
                     <ul class="navbar-nav m-auto">
                         <li>
-                            <a href="mailto:grupobajce@gmail.com" class="nav-link"> <i
-                                    class="fas fa-envelope-open-text"></i>
-                                    grupobajce@gmail.com</a>
+                            <a href="mailto:grupobajce@gmail.com" class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+                                grupobajce@gmail.com</a>
                         </li>
                         <span class="nav-link">|</span>
                         <li>
@@ -225,17 +221,15 @@
                                 <option value="0" class="text-xs">Todos los productos</option>
                                 @foreach (App\Models\Category::all() as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
+                            @endforeach
                             </select> --}}
                             {{-- {!! Form::select('category_id', \App\Models\Category::pluck('name', 'id'), null, ['class' => 'custom-select border-left']) !!} --}}
-                            <button class="btn btn-primary rounded-right" type="submit"><i
-                                    class="fas fa-search"></i></button>
+                            <button class="btn btn-primary rounded-right" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                         {!! Form::close() !!}
                     </div> <!-- col.// -->
                     <div class="col col-lg col-md flex-grow-0">
-                        <a href="{{ route('cart') }}" class="nav-link"><span
-                                class="notify">{{ Cart::instance('default')->count() + Cart::instance('wishlist')->count() }}</span>
+                        <a href="{{ route('cart') }}" class="nav-link"><span class="notify">{{ Cart::instance('default')->count() + Cart::instance('wishlist')->count() }}</span>
                             <i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="col col-lg col-md flex-grow-0">
@@ -244,13 +238,13 @@
                     </div>
                     <span>
                         @auth
-                            <div class="col col-lg col-md flex-grow-0 mt-2">
-                                <b>Hola, {{ auth()->user()->name }} 👋🏻</b>
-                            </div>
+                        <div class="col col-lg col-md flex-grow-0 mt-2">
+                            <b>Hola, {{ auth()->user()->name }} 👋🏻</b>
+                        </div>
                         @else
-                            <div class="col col-lg col-md flex-grow-0">
-                                <a href="/login" class="btn btn-primary">Iniciar sesión</a>
-                            </div>
+                        <div class="col col-lg col-md flex-grow-0">
+                            <a href="/login" class="btn btn-primary">Iniciar sesión</a>
+                        </div>
                         @endauth
                     </span>
                 </div> <!-- row.// -->
@@ -282,7 +276,7 @@
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#ventanaModal">Contacto</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#sucursales-1" ><i class="fas fa-warehouse"></i> Sucursales</a>
+                        <a class="nav-link" href="#sucursales-1"><i class="fas fa-warehouse"></i> Sucursales</a>
                     </li>
                 </ul>
             </nav> <!-- navbar-main  .// -->
@@ -291,8 +285,7 @@
 
     <!--Form-->
     <main role="main" class="container">
-        <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana"
-            aria-hidden="true">
+        <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -303,35 +296,26 @@
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-succes">
-                            <form class="contact" name="contact-form" method="post"
-                                action="{{ route('send.contact') }}">
+                            <form class="contact" name="contact-form" method="post" action="{{ route('send.contact') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nombre</label>
-                                    <input type="name" name="name" class="form-control" id="exampleFormControlInput1"
-                                        required="required" placeholder="Escribe tu nombre">
+                                    <input type="name" name="name" class="form-control" id="exampleFormControlInput1" required="required" placeholder="Escribe tu nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Email</label>
-                                    <input type="email" name="email" class="form-control"
-                                        id="exampleFormControlInput2" required="required"
-                                        placeholder="Escribe tu correo electrónico">
+                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput2" required="required" placeholder="Escribe tu correo electrónico">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">Teléfono</label>
-                                    <input type="tel" name="phone" class="form-control" id="phone" pattern="[0-9]{10}"
-                                        required="required" placeholder="Escribe tu teléfono">
+                                    <input type="tel" name="phone" class="form-control" id="phone" pattern="[0-9]{10}" required="required" placeholder="Escribe tu teléfono">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Mensaje</label>
-                                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1"
-                                        required="required" rows="3"
-                                        placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
+                                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" required="required" rows="3" placeholder="Ejemplo: Hola, me gustaría saber un poco más..."></textarea>
                                 </div>
                                 <div>
-                                    <button class="g-recaptcha btn btn-secondary"
-                                        data-sitekey="6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ" data-callback='onSubmit'
-                                        data-action='submit' type="submit">Enviar</button>
+                                    <button class="g-recaptcha btn btn-secondary" data-sitekey="6Ld-QKscAAAAADoOdY66_JQJPPz5omDhFSkYHIHQ" data-callback='onSubmit' data-action='submit' type="submit">Enviar</button>
                                 </div>
                                 {{-- <button type="submit" class="btn btn-secondary">Enviar</button> --}}
                             </form>
@@ -403,12 +387,9 @@
                         </div>
                         <p class="text-white-50 mb-2">Síguenos en redes sociales</p>
                         <div>
-                            <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i
-                                    class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/Bajcegrupo" class="btn btn-icon btn-outline-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/grupobajce/" class="btn btn-icon btn-outline-light"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/user/grupobajce" class="btn btn-icon btn-outline-light"><i class="fab fa-youtube"></i></a>
                         </div>
                     </aside>
                     <aside class="col-md-4 col-12">
@@ -432,13 +413,11 @@
             </section> <!-- footer-top.// -->
             <section class="text-center">
                 <p class="text-white">
-                    <a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" target="_blank"
-                        style="text-decoration: none; color: #fff;">Política de privacidad</a>
+                    <a href="{{ asset('documents/aviso_de_privacidad.pdf') }}" target="_blank" style="text-decoration: none; color: #fff;">Política de privacidad</a>
                     <span>
                         -
                     </span>
-                    <a href="{{ asset('documents/terminos_y_condiciones.pdf') }}" target="_blank"
-                        style="text-decoration: none; color: #fff;">Términos de uso</a>
+                    <a href="{{ asset('documents/terminos_y_condiciones.pdf') }}" target="_blank" style="text-decoration: none; color: #fff;">Términos de uso</a>
                 </p>
                 <p class="text-muted"> &copy 2021 Grupo Bajce, Todos los derechos reservados </p>
                 <br>
@@ -481,13 +460,9 @@
     @include('sweetalert::alert')
     <script src="{{ asset('js/sr-efectos.js') }}"></script>
     <script src="https://widget.sirena.app/get?token=fb863dbedaff4482a2461426d274bbb0"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js" integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js" integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('js')
     @stack('script')
     <script>

@@ -1705,6 +1705,19 @@ button.navbar-toggle {
 /* end icons bajce */
 
 
+.btn-whatsapp {
+    z-index: 5;
+    position: fixed;
+    bottom: 50px;
+    right: 40px;
+} 
+
+.btn-whatsapp .icon-whatsapp {
+    width: 60px;
+    height: auto;
+}
+
+
 /*BTN AMARILLO*/
 
 .btn-primary {
