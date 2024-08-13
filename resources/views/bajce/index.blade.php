@@ -541,33 +541,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="logos-sucursales">
-                                    <img src="/images/icons/centro.png" alt="Maderas bajce" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="detalles-sucursal">
-                                    <h4 style="text-transform: uppercase">Maderas Bajce Centro</h4>
-                                    <p class="lead" style="text-transform: uppercase;">Calle 48 N. 520D X71 y 73 Col. Centro
-                                        <br>
-                                        C.P.
-                                        97000, Mérida, Yucatán, México <br>
-                                        <span>
-                                            (999) 923 1756
-                                        </span>
-                                    </p>
-                                    <div class="maps" style="margin-bottom: 20px;">
-                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/u6AYnmZ2w3JMoTHF7"
-                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                                alt=""></a> <br><br><br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">

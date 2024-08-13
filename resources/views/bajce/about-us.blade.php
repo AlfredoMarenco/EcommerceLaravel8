@@ -76,7 +76,7 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-    
+
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -95,7 +95,7 @@
                                         97179, Mérida, Yucatán, México <br>
                                         <span>
                                             (999) 983 0592 / (999) 983 0376
-    
+
                                         </span>
                                     </p>
                                     <div class="maps" style="margin-bottom: 20px;">
@@ -103,8 +103,8 @@
                                             target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
                                                 alt=""></a> <br><br><br>
                                     </div>
-    
-    
+
+
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                         97200, Mérida, Yucatán, México <br>
                                         <span>
                                             (999) 981 1160 / (999) 981 3970
-    
+
                                         </span>
                                     </p>
                                     <div class="maps" style="margin-bottom: 20px;">
@@ -162,33 +162,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="logos-sucursales">
-                                    <img src="/images/icons/centro.png" alt="Maderas bajce" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="detalles-sucursal">
-                                    <h4 style="text-transform: uppercase">Maderas Bajce Centro</h4>
-                                    <p class="lead" style="text-transform: uppercase;">Calle 48 N. 520D X71 y 73 Col. Centro
-                                        <br>
-                                        C.P.
-                                        97000, Mérida, Yucatán, México <br>
-                                        <span>
-                                            (999) 923 1756
-                                        </span>
-                                    </p>
-                                    <div class="maps" style="margin-bottom: 20px;">
-                                        <a style="margin-bottom: 20px;" href="https://goo.gl/maps/u6AYnmZ2w3JMoTHF7"
-                                            target="blank_"><img src="/images/icons/google-maps.png" class="img-fluid"
-                                                alt=""></a> <br><br><br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -204,7 +178,7 @@
                                         C.P. 97130, Mérida, Yucatán, México <br>
                                         <span>
                                             (999) 196 2825
-    
+
                                         </span>
                                     </p>
                                     <div class="maps" style="margin-bottom: 20px;">
@@ -232,7 +206,7 @@
                                         C.P. 97306, Mérida, Yucatán, México <br>
                                         <span>
                                             (999) 611 6021 / (999) 611 6249
-    
+
                                         </span>
                                     </p>
                                     <div class="maps" style="margin-bottom: 20px;">
@@ -257,13 +231,13 @@
                                     <p class="lead" style="text-transform: uppercase;">Av. Puerto Juárez. 119 No L-01 al 04
                                         entre 75 Región 92
                                         Municipio: Benito Juárez
-    
+
                                         <br>
                                         C.P. 77516. Benito Juarez, Quintana Roo <br>
                                         <span>
                                             (998) 888 6890 / (998) 888 2830 / (998) 840 0306
-    
-    
+
+
                                         </span>
                                     </p>
                                     <div class="maps" style="margin-bottom: 20px;">
