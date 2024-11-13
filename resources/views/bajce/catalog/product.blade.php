@@ -62,10 +62,10 @@
                             </div>
                         @endif --}}
                         <p>{!! $product->extract !!}</p>
-                        <dl class="row">
+                        {{-- <dl class="row">
                             <dt class="col-1"><i class="fas fa-box" style="color: orange;"></i></dt>
                             <dd class="col-11"><a href="#">Envío gratis dentro de Mérida</a></dd>
-                        </dl>
+                        </dl> --}}
                         {{-- <div class="form-row  mt-4">
                             <form action="{{ route('wishlist.addItem', $product) }}" method="POST">
                             <div class="form-group col-md flex-grow-0">
