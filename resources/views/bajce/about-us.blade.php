@@ -276,7 +276,7 @@
                 <div class="carousel-item active">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="logos-sucursales">
+                            <div class="logos-sucursales">chr
                                 <img src="/images/icons/oriente.png" alt="" class="img-fluid">
                             </div>
                         </div>
