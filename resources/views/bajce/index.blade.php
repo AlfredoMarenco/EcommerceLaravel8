@@ -1,14 +1,6 @@
 @extends('layouts.bajce')
 @section('title', 'Inicio')
 
-@section('css')
-    <style>
-        .carousel li {
-            display: none;
-        }
-
-    </style>
-@endsection
 
 @section('content')
     <!-- ========================= SECTION MAIN  ========================= -->
@@ -715,14 +707,9 @@
             </div>
         </section>
     @else
-        <section id="blog">
-            <div class="cabecera">
-                <h3 style="text-align: center; text-transform: uppercase;" class="mt-5">
-                    Noticias más relevantes
-                </h3>
-                <p style="text-align: center;">Proximamente daremos a conocer noticias importantes</p>
-            </div>
-        </section>
+        <h3 class="text-center pt-5 text-uppercase">Marcas con las que trabajamos</h1>
+        
+    </div>
     @endif
 
 
@@ -803,5 +790,8 @@
                 }, 300);
             }
         })
+
+
+
     </script>
 @endpush
